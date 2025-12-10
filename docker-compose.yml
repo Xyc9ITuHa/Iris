@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:15
+    restart: always
+    container_name: postgres-dev
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: iris
+      DATABASE_URL: postgres://root:root@db:5432/iris
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
