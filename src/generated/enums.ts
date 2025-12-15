@@ -9,48 +9,7 @@
 * 🟢 You can import this file directly.
 */
 
-export const UserRole = {
-  viewer: 'viewer',
-  editor: 'editor',
-  superuser: 'superuser'
-} as const
-
-export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 
-export const AuditAction = {
-  INSERT: 'INSERT',
-  UPDATE: 'UPDATE',
-  DELETE: 'DELETE'
-} as const
-
-export type AuditAction = (typeof AuditAction)[keyof typeof AuditAction]
-
-
-export const ActionType = {
-  DELETE: 'DELETE',
-  ROLLBACK: 'ROLLBACK',
-  BULK_DELETE: 'BULK_DELETE',
-  BULK_UPDATE: 'BULK_UPDATE'
-} as const
-
-export type ActionType = (typeof ActionType)[keyof typeof ActionType]
-
-
-export const ActionStatus = {
-  pending: 'pending',
-  approved: 'approved',
-  rejected: 'rejected',
-  completed: 'completed',
-  expired: 'expired'
-} as const
-
-export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus]
-
-
-export const RollbackStatus = {
-  completed: 'completed',
-  failed: 'failed'
-} as const
-
-export type RollbackStatus = (typeof RollbackStatus)[keyof typeof RollbackStatus]
+// This file is empty because there are no enums in the schema.
+export {}

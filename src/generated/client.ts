@@ -55,15 +55,30 @@ export type manufacturers = Prisma.manufacturersModel
  */
 export type lasers = Prisma.lasersModel
 /**
- * Model application_categories
+ * Model wavelength_specs
  * 
  */
-export type application_categories = Prisma.application_categoriesModel
+export type wavelength_specs = Prisma.wavelength_specsModel
 /**
- * Model laser_applications
+ * Model optical_specs
  * 
  */
-export type laser_applications = Prisma.laser_applicationsModel
+export type optical_specs = Prisma.optical_specsModel
+/**
+ * Model stability_specs
+ * 
+ */
+export type stability_specs = Prisma.stability_specsModel
+/**
+ * Model environmental_specs
+ * 
+ */
+export type environmental_specs = Prisma.environmental_specsModel
+/**
+ * Model pulse_specs
+ * 
+ */
+export type pulse_specs = Prisma.pulse_specsModel
 /**
  * Model users
  * 

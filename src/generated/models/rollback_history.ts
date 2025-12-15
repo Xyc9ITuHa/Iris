@@ -29,7 +29,6 @@ export type AggregateRollback_history = {
 export type Rollback_historyAvgAggregateOutputType = {
   id: number | null
   audit_log_id: number | null
-  pending_action_id: number | null
   initiated_by: number | null
   approved_by: number | null
 }
@@ -37,7 +36,6 @@ export type Rollback_historyAvgAggregateOutputType = {
 export type Rollback_historySumAggregateOutputType = {
   id: number | null
   audit_log_id: number | null
-  pending_action_id: number | null
   initiated_by: number | null
   approved_by: number | null
 }
@@ -45,34 +43,31 @@ export type Rollback_historySumAggregateOutputType = {
 export type Rollback_historyMinAggregateOutputType = {
   id: number | null
   audit_log_id: number | null
-  pending_action_id: number | null
   initiated_by: number | null
   approved_by: number | null
-  status: $Enums.RollbackStatus | null
   error_message: string | null
   created_at: Date | null
+  status: string | null
 }
 
 export type Rollback_historyMaxAggregateOutputType = {
   id: number | null
   audit_log_id: number | null
-  pending_action_id: number | null
   initiated_by: number | null
   approved_by: number | null
-  status: $Enums.RollbackStatus | null
   error_message: string | null
   created_at: Date | null
+  status: string | null
 }
 
 export type Rollback_historyCountAggregateOutputType = {
   id: number
   audit_log_id: number
-  pending_action_id: number
   initiated_by: number
   approved_by: number
-  status: number
   error_message: number
   created_at: number
+  status: number
   _all: number
 }
 
@@ -80,7 +75,6 @@ export type Rollback_historyCountAggregateOutputType = {
 export type Rollback_historyAvgAggregateInputType = {
   id?: true
   audit_log_id?: true
-  pending_action_id?: true
   initiated_by?: true
   approved_by?: true
 }
@@ -88,7 +82,6 @@ export type Rollback_historyAvgAggregateInputType = {
 export type Rollback_historySumAggregateInputType = {
   id?: true
   audit_log_id?: true
-  pending_action_id?: true
   initiated_by?: true
   approved_by?: true
 }
@@ -96,34 +89,31 @@ export type Rollback_historySumAggregateInputType = {
 export type Rollback_historyMinAggregateInputType = {
   id?: true
   audit_log_id?: true
-  pending_action_id?: true
   initiated_by?: true
   approved_by?: true
-  status?: true
   error_message?: true
   created_at?: true
+  status?: true
 }
 
 export type Rollback_historyMaxAggregateInputType = {
   id?: true
   audit_log_id?: true
-  pending_action_id?: true
   initiated_by?: true
   approved_by?: true
-  status?: true
   error_message?: true
   created_at?: true
+  status?: true
 }
 
 export type Rollback_historyCountAggregateInputType = {
   id?: true
   audit_log_id?: true
-  pending_action_id?: true
   initiated_by?: true
   approved_by?: true
-  status?: true
   error_message?: true
   created_at?: true
+  status?: true
   _all?: true
 }
 
@@ -216,12 +206,11 @@ export type rollback_historyGroupByArgs<ExtArgs extends runtime.Types.Extensions
 export type Rollback_historyGroupByOutputType = {
   id: number
   audit_log_id: number
-  pending_action_id: number | null
   initiated_by: number
   approved_by: number | null
-  status: $Enums.RollbackStatus
   error_message: string | null
-  created_at: Date
+  created_at: Date | null
+  status: string
   _count: Rollback_historyCountAggregateOutputType | null
   _avg: Rollback_historyAvgAggregateOutputType | null
   _sum: Rollback_historySumAggregateOutputType | null
@@ -250,31 +239,27 @@ export type rollback_historyWhereInput = {
   NOT?: Prisma.rollback_historyWhereInput | Prisma.rollback_historyWhereInput[]
   id?: Prisma.IntFilter<"rollback_history"> | number
   audit_log_id?: Prisma.IntFilter<"rollback_history"> | number
-  pending_action_id?: Prisma.IntNullableFilter<"rollback_history"> | number | null
   initiated_by?: Prisma.IntFilter<"rollback_history"> | number
   approved_by?: Prisma.IntNullableFilter<"rollback_history"> | number | null
-  status?: Prisma.EnumRollbackStatusFilter<"rollback_history"> | $Enums.RollbackStatus
   error_message?: Prisma.StringNullableFilter<"rollback_history"> | string | null
-  created_at?: Prisma.DateTimeFilter<"rollback_history"> | Date | string
-  audit_log?: Prisma.XOR<Prisma.Audit_logScalarRelationFilter, Prisma.audit_logWhereInput>
-  pending_action?: Prisma.XOR<Prisma.Pending_actionsNullableScalarRelationFilter, Prisma.pending_actionsWhereInput> | null
-  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
+  created_at?: Prisma.DateTimeNullableFilter<"rollback_history"> | Date | string | null
+  status?: Prisma.StringFilter<"rollback_history"> | string
   approver?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null
+  audit_log?: Prisma.XOR<Prisma.Audit_logScalarRelationFilter, Prisma.audit_logWhereInput>
+  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }
 
 export type rollback_historyOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   audit_log_id?: Prisma.SortOrder
-  pending_action_id?: Prisma.SortOrderInput | Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   approved_by?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
   error_message?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  audit_log?: Prisma.audit_logOrderByWithRelationInput
-  pending_action?: Prisma.pending_actionsOrderByWithRelationInput
-  initiator?: Prisma.usersOrderByWithRelationInput
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   approver?: Prisma.usersOrderByWithRelationInput
+  audit_log?: Prisma.audit_logOrderByWithRelationInput
+  initiator?: Prisma.usersOrderByWithRelationInput
 }
 
 export type rollback_historyWhereUniqueInput = Prisma.AtLeast<{
@@ -283,27 +268,24 @@ export type rollback_historyWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.rollback_historyWhereInput[]
   NOT?: Prisma.rollback_historyWhereInput | Prisma.rollback_historyWhereInput[]
   audit_log_id?: Prisma.IntFilter<"rollback_history"> | number
-  pending_action_id?: Prisma.IntNullableFilter<"rollback_history"> | number | null
   initiated_by?: Prisma.IntFilter<"rollback_history"> | number
   approved_by?: Prisma.IntNullableFilter<"rollback_history"> | number | null
-  status?: Prisma.EnumRollbackStatusFilter<"rollback_history"> | $Enums.RollbackStatus
   error_message?: Prisma.StringNullableFilter<"rollback_history"> | string | null
-  created_at?: Prisma.DateTimeFilter<"rollback_history"> | Date | string
-  audit_log?: Prisma.XOR<Prisma.Audit_logScalarRelationFilter, Prisma.audit_logWhereInput>
-  pending_action?: Prisma.XOR<Prisma.Pending_actionsNullableScalarRelationFilter, Prisma.pending_actionsWhereInput> | null
-  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
+  created_at?: Prisma.DateTimeNullableFilter<"rollback_history"> | Date | string | null
+  status?: Prisma.StringFilter<"rollback_history"> | string
   approver?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null
+  audit_log?: Prisma.XOR<Prisma.Audit_logScalarRelationFilter, Prisma.audit_logWhereInput>
+  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }, "id">
 
 export type rollback_historyOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   audit_log_id?: Prisma.SortOrder
-  pending_action_id?: Prisma.SortOrderInput | Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   approved_by?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
   error_message?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   _count?: Prisma.rollback_historyCountOrderByAggregateInput
   _avg?: Prisma.rollback_historyAvgOrderByAggregateInput
   _max?: Prisma.rollback_historyMaxOrderByAggregateInput
@@ -317,82 +299,75 @@ export type rollback_historyScalarWhereWithAggregatesInput = {
   NOT?: Prisma.rollback_historyScalarWhereWithAggregatesInput | Prisma.rollback_historyScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"rollback_history"> | number
   audit_log_id?: Prisma.IntWithAggregatesFilter<"rollback_history"> | number
-  pending_action_id?: Prisma.IntNullableWithAggregatesFilter<"rollback_history"> | number | null
   initiated_by?: Prisma.IntWithAggregatesFilter<"rollback_history"> | number
   approved_by?: Prisma.IntNullableWithAggregatesFilter<"rollback_history"> | number | null
-  status?: Prisma.EnumRollbackStatusWithAggregatesFilter<"rollback_history"> | $Enums.RollbackStatus
   error_message?: Prisma.StringNullableWithAggregatesFilter<"rollback_history"> | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"rollback_history"> | Date | string
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"rollback_history"> | Date | string | null
+  status?: Prisma.StringWithAggregatesFilter<"rollback_history"> | string
 }
 
 export type rollback_historyCreateInput = {
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  status: string
+  approver?: Prisma.usersCreateNestedOneWithoutRollback_history_approvedInput
   audit_log: Prisma.audit_logCreateNestedOneWithoutRollback_historyInput
-  pending_action?: Prisma.pending_actionsCreateNestedOneWithoutRollback_historyInput
-  initiator: Prisma.usersCreateNestedOneWithoutInitiated_rollbacksInput
-  approver?: Prisma.usersCreateNestedOneWithoutApproved_rollbacksInput
+  initiator: Prisma.usersCreateNestedOneWithoutRollback_history_initiatedInput
 }
 
 export type rollback_historyUncheckedCreateInput = {
   id?: number
   audit_log_id: number
-  pending_action_id?: number | null
   initiated_by: number
   approved_by?: number | null
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  status: string
 }
 
 export type rollback_historyUpdateInput = {
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  approver?: Prisma.usersUpdateOneWithoutRollback_history_approvedNestedInput
   audit_log?: Prisma.audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
-  pending_action?: Prisma.pending_actionsUpdateOneWithoutRollback_historyNestedInput
-  initiator?: Prisma.usersUpdateOneRequiredWithoutInitiated_rollbacksNestedInput
-  approver?: Prisma.usersUpdateOneWithoutApproved_rollbacksNestedInput
+  initiator?: Prisma.usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput
 }
 
 export type rollback_historyUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type rollback_historyCreateManyInput = {
   id?: number
   audit_log_id: number
-  pending_action_id?: number | null
   initiated_by: number
   approved_by?: number | null
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  status: string
 }
 
 export type rollback_historyUpdateManyMutationInput = {
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type rollback_historyUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type Rollback_historyListRelationFilter = {
@@ -408,18 +383,16 @@ export type rollback_historyOrderByRelationAggregateInput = {
 export type rollback_historyCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   audit_log_id?: Prisma.SortOrder
-  pending_action_id?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   error_message?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type rollback_historyAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   audit_log_id?: Prisma.SortOrder
-  pending_action_id?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
 }
@@ -427,38 +400,28 @@ export type rollback_historyAvgOrderByAggregateInput = {
 export type rollback_historyMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   audit_log_id?: Prisma.SortOrder
-  pending_action_id?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   error_message?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type rollback_historyMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   audit_log_id?: Prisma.SortOrder
-  pending_action_id?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   error_message?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type rollback_historySumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   audit_log_id?: Prisma.SortOrder
-  pending_action_id?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
-}
-
-export type rollback_historyCreateNestedManyWithoutInitiatorInput = {
-  create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput> | Prisma.rollback_historyCreateWithoutInitiatorInput[] | Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput[]
-  connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput | Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput[]
-  createMany?: Prisma.rollback_historyCreateManyInitiatorInputEnvelope
-  connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
 }
 
 export type rollback_historyCreateNestedManyWithoutApproverInput = {
@@ -468,7 +431,7 @@ export type rollback_historyCreateNestedManyWithoutApproverInput = {
   connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
 }
 
-export type rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput = {
+export type rollback_historyCreateNestedManyWithoutInitiatorInput = {
   create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput> | Prisma.rollback_historyCreateWithoutInitiatorInput[] | Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput[]
   connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput | Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput[]
   createMany?: Prisma.rollback_historyCreateManyInitiatorInputEnvelope
@@ -482,18 +445,11 @@ export type rollback_historyUncheckedCreateNestedManyWithoutApproverInput = {
   connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
 }
 
-export type rollback_historyUpdateManyWithoutInitiatorNestedInput = {
+export type rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput = {
   create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput> | Prisma.rollback_historyCreateWithoutInitiatorInput[] | Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput[]
   connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput | Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput[]
-  upsert?: Prisma.rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput | Prisma.rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput[]
   createMany?: Prisma.rollback_historyCreateManyInitiatorInputEnvelope
-  set?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  disconnect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  delete?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
   connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  update?: Prisma.rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput | Prisma.rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput[]
-  updateMany?: Prisma.rollback_historyUpdateManyWithWhereWithoutInitiatorInput | Prisma.rollback_historyUpdateManyWithWhereWithoutInitiatorInput[]
-  deleteMany?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
 }
 
 export type rollback_historyUpdateManyWithoutApproverNestedInput = {
@@ -510,7 +466,7 @@ export type rollback_historyUpdateManyWithoutApproverNestedInput = {
   deleteMany?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
 }
 
-export type rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput = {
+export type rollback_historyUpdateManyWithoutInitiatorNestedInput = {
   create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput> | Prisma.rollback_historyCreateWithoutInitiatorInput[] | Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput[]
   connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput | Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput[]
   upsert?: Prisma.rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput | Prisma.rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput[]
@@ -535,6 +491,20 @@ export type rollback_historyUncheckedUpdateManyWithoutApproverNestedInput = {
   connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
   update?: Prisma.rollback_historyUpdateWithWhereUniqueWithoutApproverInput | Prisma.rollback_historyUpdateWithWhereUniqueWithoutApproverInput[]
   updateMany?: Prisma.rollback_historyUpdateManyWithWhereWithoutApproverInput | Prisma.rollback_historyUpdateManyWithWhereWithoutApproverInput[]
+  deleteMany?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
+}
+
+export type rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput = {
+  create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput> | Prisma.rollback_historyCreateWithoutInitiatorInput[] | Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput[]
+  connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput | Prisma.rollback_historyCreateOrConnectWithoutInitiatorInput[]
+  upsert?: Prisma.rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput | Prisma.rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput[]
+  createMany?: Prisma.rollback_historyCreateManyInitiatorInputEnvelope
+  set?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
+  disconnect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
+  delete?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
+  connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
+  update?: Prisma.rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput | Prisma.rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput[]
+  updateMany?: Prisma.rollback_historyUpdateManyWithWhereWithoutInitiatorInput | Prisma.rollback_historyUpdateManyWithWhereWithoutInitiatorInput[]
   deleteMany?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
 }
 
@@ -580,98 +550,21 @@ export type rollback_historyUncheckedUpdateManyWithoutAudit_logNestedInput = {
   deleteMany?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
 }
 
-export type rollback_historyCreateNestedManyWithoutPending_actionInput = {
-  create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutPending_actionInput, Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput> | Prisma.rollback_historyCreateWithoutPending_actionInput[] | Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput[]
-  connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput | Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput[]
-  createMany?: Prisma.rollback_historyCreateManyPending_actionInputEnvelope
-  connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-}
-
-export type rollback_historyUncheckedCreateNestedManyWithoutPending_actionInput = {
-  create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutPending_actionInput, Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput> | Prisma.rollback_historyCreateWithoutPending_actionInput[] | Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput[]
-  connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput | Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput[]
-  createMany?: Prisma.rollback_historyCreateManyPending_actionInputEnvelope
-  connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-}
-
-export type rollback_historyUpdateManyWithoutPending_actionNestedInput = {
-  create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutPending_actionInput, Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput> | Prisma.rollback_historyCreateWithoutPending_actionInput[] | Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput[]
-  connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput | Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput[]
-  upsert?: Prisma.rollback_historyUpsertWithWhereUniqueWithoutPending_actionInput | Prisma.rollback_historyUpsertWithWhereUniqueWithoutPending_actionInput[]
-  createMany?: Prisma.rollback_historyCreateManyPending_actionInputEnvelope
-  set?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  disconnect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  delete?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  update?: Prisma.rollback_historyUpdateWithWhereUniqueWithoutPending_actionInput | Prisma.rollback_historyUpdateWithWhereUniqueWithoutPending_actionInput[]
-  updateMany?: Prisma.rollback_historyUpdateManyWithWhereWithoutPending_actionInput | Prisma.rollback_historyUpdateManyWithWhereWithoutPending_actionInput[]
-  deleteMany?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
-}
-
-export type rollback_historyUncheckedUpdateManyWithoutPending_actionNestedInput = {
-  create?: Prisma.XOR<Prisma.rollback_historyCreateWithoutPending_actionInput, Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput> | Prisma.rollback_historyCreateWithoutPending_actionInput[] | Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput[]
-  connectOrCreate?: Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput | Prisma.rollback_historyCreateOrConnectWithoutPending_actionInput[]
-  upsert?: Prisma.rollback_historyUpsertWithWhereUniqueWithoutPending_actionInput | Prisma.rollback_historyUpsertWithWhereUniqueWithoutPending_actionInput[]
-  createMany?: Prisma.rollback_historyCreateManyPending_actionInputEnvelope
-  set?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  disconnect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  delete?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  connect?: Prisma.rollback_historyWhereUniqueInput | Prisma.rollback_historyWhereUniqueInput[]
-  update?: Prisma.rollback_historyUpdateWithWhereUniqueWithoutPending_actionInput | Prisma.rollback_historyUpdateWithWhereUniqueWithoutPending_actionInput[]
-  updateMany?: Prisma.rollback_historyUpdateManyWithWhereWithoutPending_actionInput | Prisma.rollback_historyUpdateManyWithWhereWithoutPending_actionInput[]
-  deleteMany?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
-}
-
-export type EnumRollbackStatusFieldUpdateOperationsInput = {
-  set?: $Enums.RollbackStatus
-}
-
-export type rollback_historyCreateWithoutInitiatorInput = {
-  status: $Enums.RollbackStatus
-  error_message?: string | null
-  created_at?: Date | string
-  audit_log: Prisma.audit_logCreateNestedOneWithoutRollback_historyInput
-  pending_action?: Prisma.pending_actionsCreateNestedOneWithoutRollback_historyInput
-  approver?: Prisma.usersCreateNestedOneWithoutApproved_rollbacksInput
-}
-
-export type rollback_historyUncheckedCreateWithoutInitiatorInput = {
-  id?: number
-  audit_log_id: number
-  pending_action_id?: number | null
-  approved_by?: number | null
-  status: $Enums.RollbackStatus
-  error_message?: string | null
-  created_at?: Date | string
-}
-
-export type rollback_historyCreateOrConnectWithoutInitiatorInput = {
-  where: Prisma.rollback_historyWhereUniqueInput
-  create: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput>
-}
-
-export type rollback_historyCreateManyInitiatorInputEnvelope = {
-  data: Prisma.rollback_historyCreateManyInitiatorInput | Prisma.rollback_historyCreateManyInitiatorInput[]
-  skipDuplicates?: boolean
-}
-
 export type rollback_historyCreateWithoutApproverInput = {
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  status: string
   audit_log: Prisma.audit_logCreateNestedOneWithoutRollback_historyInput
-  pending_action?: Prisma.pending_actionsCreateNestedOneWithoutRollback_historyInput
-  initiator: Prisma.usersCreateNestedOneWithoutInitiated_rollbacksInput
+  initiator: Prisma.usersCreateNestedOneWithoutRollback_history_initiatedInput
 }
 
 export type rollback_historyUncheckedCreateWithoutApproverInput = {
   id?: number
   audit_log_id: number
-  pending_action_id?: number | null
   initiated_by: number
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  status: string
 }
 
 export type rollback_historyCreateOrConnectWithoutApproverInput = {
@@ -684,34 +577,31 @@ export type rollback_historyCreateManyApproverInputEnvelope = {
   skipDuplicates?: boolean
 }
 
-export type rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput = {
+export type rollback_historyCreateWithoutInitiatorInput = {
+  error_message?: string | null
+  created_at?: Date | string | null
+  status: string
+  approver?: Prisma.usersCreateNestedOneWithoutRollback_history_approvedInput
+  audit_log: Prisma.audit_logCreateNestedOneWithoutRollback_historyInput
+}
+
+export type rollback_historyUncheckedCreateWithoutInitiatorInput = {
+  id?: number
+  audit_log_id: number
+  approved_by?: number | null
+  error_message?: string | null
+  created_at?: Date | string | null
+  status: string
+}
+
+export type rollback_historyCreateOrConnectWithoutInitiatorInput = {
   where: Prisma.rollback_historyWhereUniqueInput
-  update: Prisma.XOR<Prisma.rollback_historyUpdateWithoutInitiatorInput, Prisma.rollback_historyUncheckedUpdateWithoutInitiatorInput>
   create: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput>
 }
 
-export type rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput = {
-  where: Prisma.rollback_historyWhereUniqueInput
-  data: Prisma.XOR<Prisma.rollback_historyUpdateWithoutInitiatorInput, Prisma.rollback_historyUncheckedUpdateWithoutInitiatorInput>
-}
-
-export type rollback_historyUpdateManyWithWhereWithoutInitiatorInput = {
-  where: Prisma.rollback_historyScalarWhereInput
-  data: Prisma.XOR<Prisma.rollback_historyUpdateManyMutationInput, Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorInput>
-}
-
-export type rollback_historyScalarWhereInput = {
-  AND?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
-  OR?: Prisma.rollback_historyScalarWhereInput[]
-  NOT?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
-  id?: Prisma.IntFilter<"rollback_history"> | number
-  audit_log_id?: Prisma.IntFilter<"rollback_history"> | number
-  pending_action_id?: Prisma.IntNullableFilter<"rollback_history"> | number | null
-  initiated_by?: Prisma.IntFilter<"rollback_history"> | number
-  approved_by?: Prisma.IntNullableFilter<"rollback_history"> | number | null
-  status?: Prisma.EnumRollbackStatusFilter<"rollback_history"> | $Enums.RollbackStatus
-  error_message?: Prisma.StringNullableFilter<"rollback_history"> | string | null
-  created_at?: Prisma.DateTimeFilter<"rollback_history"> | Date | string
+export type rollback_historyCreateManyInitiatorInputEnvelope = {
+  data: Prisma.rollback_historyCreateManyInitiatorInput | Prisma.rollback_historyCreateManyInitiatorInput[]
+  skipDuplicates?: boolean
 }
 
 export type rollback_historyUpsertWithWhereUniqueWithoutApproverInput = {
@@ -730,23 +620,50 @@ export type rollback_historyUpdateManyWithWhereWithoutApproverInput = {
   data: Prisma.XOR<Prisma.rollback_historyUpdateManyMutationInput, Prisma.rollback_historyUncheckedUpdateManyWithoutApproverInput>
 }
 
+export type rollback_historyScalarWhereInput = {
+  AND?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
+  OR?: Prisma.rollback_historyScalarWhereInput[]
+  NOT?: Prisma.rollback_historyScalarWhereInput | Prisma.rollback_historyScalarWhereInput[]
+  id?: Prisma.IntFilter<"rollback_history"> | number
+  audit_log_id?: Prisma.IntFilter<"rollback_history"> | number
+  initiated_by?: Prisma.IntFilter<"rollback_history"> | number
+  approved_by?: Prisma.IntNullableFilter<"rollback_history"> | number | null
+  error_message?: Prisma.StringNullableFilter<"rollback_history"> | string | null
+  created_at?: Prisma.DateTimeNullableFilter<"rollback_history"> | Date | string | null
+  status?: Prisma.StringFilter<"rollback_history"> | string
+}
+
+export type rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput = {
+  where: Prisma.rollback_historyWhereUniqueInput
+  update: Prisma.XOR<Prisma.rollback_historyUpdateWithoutInitiatorInput, Prisma.rollback_historyUncheckedUpdateWithoutInitiatorInput>
+  create: Prisma.XOR<Prisma.rollback_historyCreateWithoutInitiatorInput, Prisma.rollback_historyUncheckedCreateWithoutInitiatorInput>
+}
+
+export type rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput = {
+  where: Prisma.rollback_historyWhereUniqueInput
+  data: Prisma.XOR<Prisma.rollback_historyUpdateWithoutInitiatorInput, Prisma.rollback_historyUncheckedUpdateWithoutInitiatorInput>
+}
+
+export type rollback_historyUpdateManyWithWhereWithoutInitiatorInput = {
+  where: Prisma.rollback_historyScalarWhereInput
+  data: Prisma.XOR<Prisma.rollback_historyUpdateManyMutationInput, Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorInput>
+}
+
 export type rollback_historyCreateWithoutAudit_logInput = {
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
-  pending_action?: Prisma.pending_actionsCreateNestedOneWithoutRollback_historyInput
-  initiator: Prisma.usersCreateNestedOneWithoutInitiated_rollbacksInput
-  approver?: Prisma.usersCreateNestedOneWithoutApproved_rollbacksInput
+  created_at?: Date | string | null
+  status: string
+  approver?: Prisma.usersCreateNestedOneWithoutRollback_history_approvedInput
+  initiator: Prisma.usersCreateNestedOneWithoutRollback_history_initiatedInput
 }
 
 export type rollback_historyUncheckedCreateWithoutAudit_logInput = {
   id?: number
-  pending_action_id?: number | null
   initiated_by: number
   approved_by?: number | null
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  status: string
 }
 
 export type rollback_historyCreateOrConnectWithoutAudit_logInput = {
@@ -775,205 +692,109 @@ export type rollback_historyUpdateManyWithWhereWithoutAudit_logInput = {
   data: Prisma.XOR<Prisma.rollback_historyUpdateManyMutationInput, Prisma.rollback_historyUncheckedUpdateManyWithoutAudit_logInput>
 }
 
-export type rollback_historyCreateWithoutPending_actionInput = {
-  status: $Enums.RollbackStatus
-  error_message?: string | null
-  created_at?: Date | string
-  audit_log: Prisma.audit_logCreateNestedOneWithoutRollback_historyInput
-  initiator: Prisma.usersCreateNestedOneWithoutInitiated_rollbacksInput
-  approver?: Prisma.usersCreateNestedOneWithoutApproved_rollbacksInput
-}
-
-export type rollback_historyUncheckedCreateWithoutPending_actionInput = {
+export type rollback_historyCreateManyApproverInput = {
   id?: number
   audit_log_id: number
   initiated_by: number
-  approved_by?: number | null
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
-}
-
-export type rollback_historyCreateOrConnectWithoutPending_actionInput = {
-  where: Prisma.rollback_historyWhereUniqueInput
-  create: Prisma.XOR<Prisma.rollback_historyCreateWithoutPending_actionInput, Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput>
-}
-
-export type rollback_historyCreateManyPending_actionInputEnvelope = {
-  data: Prisma.rollback_historyCreateManyPending_actionInput | Prisma.rollback_historyCreateManyPending_actionInput[]
-  skipDuplicates?: boolean
-}
-
-export type rollback_historyUpsertWithWhereUniqueWithoutPending_actionInput = {
-  where: Prisma.rollback_historyWhereUniqueInput
-  update: Prisma.XOR<Prisma.rollback_historyUpdateWithoutPending_actionInput, Prisma.rollback_historyUncheckedUpdateWithoutPending_actionInput>
-  create: Prisma.XOR<Prisma.rollback_historyCreateWithoutPending_actionInput, Prisma.rollback_historyUncheckedCreateWithoutPending_actionInput>
-}
-
-export type rollback_historyUpdateWithWhereUniqueWithoutPending_actionInput = {
-  where: Prisma.rollback_historyWhereUniqueInput
-  data: Prisma.XOR<Prisma.rollback_historyUpdateWithoutPending_actionInput, Prisma.rollback_historyUncheckedUpdateWithoutPending_actionInput>
-}
-
-export type rollback_historyUpdateManyWithWhereWithoutPending_actionInput = {
-  where: Prisma.rollback_historyScalarWhereInput
-  data: Prisma.XOR<Prisma.rollback_historyUpdateManyMutationInput, Prisma.rollback_historyUncheckedUpdateManyWithoutPending_actionInput>
+  created_at?: Date | string | null
+  status: string
 }
 
 export type rollback_historyCreateManyInitiatorInput = {
   id?: number
   audit_log_id: number
-  pending_action_id?: number | null
   approved_by?: number | null
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
-}
-
-export type rollback_historyCreateManyApproverInput = {
-  id?: number
-  audit_log_id: number
-  pending_action_id?: number | null
-  initiated_by: number
-  status: $Enums.RollbackStatus
-  error_message?: string | null
-  created_at?: Date | string
-}
-
-export type rollback_historyUpdateWithoutInitiatorInput = {
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  audit_log?: Prisma.audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
-  pending_action?: Prisma.pending_actionsUpdateOneWithoutRollback_historyNestedInput
-  approver?: Prisma.usersUpdateOneWithoutApproved_rollbacksNestedInput
-}
-
-export type rollback_historyUncheckedUpdateWithoutInitiatorInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type rollback_historyUncheckedUpdateManyWithoutInitiatorInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Date | string | null
+  status: string
 }
 
 export type rollback_historyUpdateWithoutApproverInput = {
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   audit_log?: Prisma.audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
-  pending_action?: Prisma.pending_actionsUpdateOneWithoutRollback_historyNestedInput
-  initiator?: Prisma.usersUpdateOneRequiredWithoutInitiated_rollbacksNestedInput
+  initiator?: Prisma.usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput
 }
 
 export type rollback_historyUncheckedUpdateWithoutApproverInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type rollback_historyUncheckedUpdateManyWithoutApproverInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type rollback_historyUpdateWithoutInitiatorInput = {
+  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  approver?: Prisma.usersUpdateOneWithoutRollback_history_approvedNestedInput
+  audit_log?: Prisma.audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
+}
+
+export type rollback_historyUncheckedUpdateWithoutInitiatorInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
+  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type rollback_historyUncheckedUpdateManyWithoutInitiatorInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
+  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type rollback_historyCreateManyAudit_logInput = {
   id?: number
-  pending_action_id?: number | null
   initiated_by: number
   approved_by?: number | null
-  status: $Enums.RollbackStatus
   error_message?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  status: string
 }
 
 export type rollback_historyUpdateWithoutAudit_logInput = {
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  pending_action?: Prisma.pending_actionsUpdateOneWithoutRollback_historyNestedInput
-  initiator?: Prisma.usersUpdateOneRequiredWithoutInitiated_rollbacksNestedInput
-  approver?: Prisma.usersUpdateOneWithoutApproved_rollbacksNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  approver?: Prisma.usersUpdateOneWithoutRollback_history_approvedNestedInput
+  initiator?: Prisma.usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput
 }
 
 export type rollback_historyUncheckedUpdateWithoutAudit_logInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type rollback_historyUncheckedUpdateManyWithoutAudit_logInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  pending_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type rollback_historyCreateManyPending_actionInput = {
-  id?: number
-  audit_log_id: number
-  initiated_by: number
-  approved_by?: number | null
-  status: $Enums.RollbackStatus
-  error_message?: string | null
-  created_at?: Date | string
-}
-
-export type rollback_historyUpdateWithoutPending_actionInput = {
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  audit_log?: Prisma.audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
-  initiator?: Prisma.usersUpdateOneRequiredWithoutInitiated_rollbacksNestedInput
-  approver?: Prisma.usersUpdateOneWithoutApproved_rollbacksNestedInput
-}
-
-export type rollback_historyUncheckedUpdateWithoutPending_actionInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
-  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type rollback_historyUncheckedUpdateManyWithoutPending_actionInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  audit_log_id?: Prisma.IntFieldUpdateOperationsInput | number
-  initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
-  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  status?: Prisma.EnumRollbackStatusFieldUpdateOperationsInput | $Enums.RollbackStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -981,96 +802,84 @@ export type rollback_historyUncheckedUpdateManyWithoutPending_actionInput = {
 export type rollback_historySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   audit_log_id?: boolean
-  pending_action_id?: boolean
   initiated_by?: boolean
   approved_by?: boolean
-  status?: boolean
   error_message?: boolean
   created_at?: boolean
-  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
-  pending_action?: boolean | Prisma.rollback_history$pending_actionArgs<ExtArgs>
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
+  status?: boolean
   approver?: boolean | Prisma.rollback_history$approverArgs<ExtArgs>
+  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["rollback_history"]>
 
 export type rollback_historySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   audit_log_id?: boolean
-  pending_action_id?: boolean
   initiated_by?: boolean
   approved_by?: boolean
-  status?: boolean
   error_message?: boolean
   created_at?: boolean
-  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
-  pending_action?: boolean | Prisma.rollback_history$pending_actionArgs<ExtArgs>
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
+  status?: boolean
   approver?: boolean | Prisma.rollback_history$approverArgs<ExtArgs>
+  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["rollback_history"]>
 
 export type rollback_historySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   audit_log_id?: boolean
-  pending_action_id?: boolean
   initiated_by?: boolean
   approved_by?: boolean
-  status?: boolean
   error_message?: boolean
   created_at?: boolean
-  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
-  pending_action?: boolean | Prisma.rollback_history$pending_actionArgs<ExtArgs>
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
+  status?: boolean
   approver?: boolean | Prisma.rollback_history$approverArgs<ExtArgs>
+  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["rollback_history"]>
 
 export type rollback_historySelectScalar = {
   id?: boolean
   audit_log_id?: boolean
-  pending_action_id?: boolean
   initiated_by?: boolean
   approved_by?: boolean
-  status?: boolean
   error_message?: boolean
   created_at?: boolean
+  status?: boolean
 }
 
-export type rollback_historyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "audit_log_id" | "pending_action_id" | "initiated_by" | "approved_by" | "status" | "error_message" | "created_at", ExtArgs["result"]["rollback_history"]>
+export type rollback_historyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "audit_log_id" | "initiated_by" | "approved_by" | "error_message" | "created_at" | "status", ExtArgs["result"]["rollback_history"]>
 export type rollback_historyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
-  pending_action?: boolean | Prisma.rollback_history$pending_actionArgs<ExtArgs>
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   approver?: boolean | Prisma.rollback_history$approverArgs<ExtArgs>
+  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 export type rollback_historyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
-  pending_action?: boolean | Prisma.rollback_history$pending_actionArgs<ExtArgs>
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   approver?: boolean | Prisma.rollback_history$approverArgs<ExtArgs>
+  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 export type rollback_historyIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
-  pending_action?: boolean | Prisma.rollback_history$pending_actionArgs<ExtArgs>
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   approver?: boolean | Prisma.rollback_history$approverArgs<ExtArgs>
+  audit_log?: boolean | Prisma.audit_logDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 
 export type $rollback_historyPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "rollback_history"
   objects: {
-    audit_log: Prisma.$audit_logPayload<ExtArgs>
-    pending_action: Prisma.$pending_actionsPayload<ExtArgs> | null
-    initiator: Prisma.$usersPayload<ExtArgs>
     approver: Prisma.$usersPayload<ExtArgs> | null
+    audit_log: Prisma.$audit_logPayload<ExtArgs>
+    initiator: Prisma.$usersPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     audit_log_id: number
-    pending_action_id: number | null
     initiated_by: number
     approved_by: number | null
-    status: $Enums.RollbackStatus
     error_message: string | null
-    created_at: Date
+    created_at: Date | null
+    status: string
   }, ExtArgs["result"]["rollback_history"]>
   composites: {}
 }
@@ -1465,10 +1274,9 @@ readonly fields: rollback_historyFieldRefs;
  */
 export interface Prisma__rollback_historyClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  audit_log<T extends Prisma.audit_logDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.audit_logDefaultArgs<ExtArgs>>): Prisma.Prisma__audit_logClient<runtime.Types.Result.GetResult<Prisma.$audit_logPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  pending_action<T extends Prisma.rollback_history$pending_actionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.rollback_history$pending_actionArgs<ExtArgs>>): Prisma.Prisma__pending_actionsClient<runtime.Types.Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  initiator<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   approver<T extends Prisma.rollback_history$approverArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.rollback_history$approverArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  audit_log<T extends Prisma.audit_logDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.audit_logDefaultArgs<ExtArgs>>): Prisma.Prisma__audit_logClient<runtime.Types.Result.GetResult<Prisma.$audit_logPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  initiator<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1500,12 +1308,11 @@ export interface Prisma__rollback_historyClient<T, Null = never, ExtArgs extends
 export interface rollback_historyFieldRefs {
   readonly id: Prisma.FieldRef<"rollback_history", 'Int'>
   readonly audit_log_id: Prisma.FieldRef<"rollback_history", 'Int'>
-  readonly pending_action_id: Prisma.FieldRef<"rollback_history", 'Int'>
   readonly initiated_by: Prisma.FieldRef<"rollback_history", 'Int'>
   readonly approved_by: Prisma.FieldRef<"rollback_history", 'Int'>
-  readonly status: Prisma.FieldRef<"rollback_history", 'RollbackStatus'>
   readonly error_message: Prisma.FieldRef<"rollback_history", 'String'>
   readonly created_at: Prisma.FieldRef<"rollback_history", 'DateTime'>
+  readonly status: Prisma.FieldRef<"rollback_history", 'String'>
 }
     
 
@@ -1899,25 +1706,6 @@ export type rollback_historyDeleteManyArgs<ExtArgs extends runtime.Types.Extensi
    * Limit how many rollback_histories to delete.
    */
   limit?: number
-}
-
-/**
- * rollback_history.pending_action
- */
-export type rollback_history$pending_actionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the pending_actions
-   */
-  select?: Prisma.pending_actionsSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the pending_actions
-   */
-  omit?: Prisma.pending_actionsOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.pending_actionsInclude<ExtArgs> | null
-  where?: Prisma.pending_actionsWhereInput
 }
 
 /**

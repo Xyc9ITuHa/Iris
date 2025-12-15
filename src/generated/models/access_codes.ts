@@ -44,7 +44,6 @@ export type Access_codesMinAggregateOutputType = {
   id: number | null
   code_hash: string | null
   color_code: string | null
-  role: $Enums.UserRole | null
   created_by: number | null
   expires_at: Date | null
   max_uses: number | null
@@ -52,13 +51,13 @@ export type Access_codesMinAggregateOutputType = {
   is_active: boolean | null
   notes: string | null
   created_at: Date | null
+  role: string | null
 }
 
 export type Access_codesMaxAggregateOutputType = {
   id: number | null
   code_hash: string | null
   color_code: string | null
-  role: $Enums.UserRole | null
   created_by: number | null
   expires_at: Date | null
   max_uses: number | null
@@ -66,13 +65,13 @@ export type Access_codesMaxAggregateOutputType = {
   is_active: boolean | null
   notes: string | null
   created_at: Date | null
+  role: string | null
 }
 
 export type Access_codesCountAggregateOutputType = {
   id: number
   code_hash: number
   color_code: number
-  role: number
   created_by: number
   expires_at: number
   max_uses: number
@@ -80,6 +79,7 @@ export type Access_codesCountAggregateOutputType = {
   is_active: number
   notes: number
   created_at: number
+  role: number
   _all: number
 }
 
@@ -102,7 +102,6 @@ export type Access_codesMinAggregateInputType = {
   id?: true
   code_hash?: true
   color_code?: true
-  role?: true
   created_by?: true
   expires_at?: true
   max_uses?: true
@@ -110,13 +109,13 @@ export type Access_codesMinAggregateInputType = {
   is_active?: true
   notes?: true
   created_at?: true
+  role?: true
 }
 
 export type Access_codesMaxAggregateInputType = {
   id?: true
   code_hash?: true
   color_code?: true
-  role?: true
   created_by?: true
   expires_at?: true
   max_uses?: true
@@ -124,13 +123,13 @@ export type Access_codesMaxAggregateInputType = {
   is_active?: true
   notes?: true
   created_at?: true
+  role?: true
 }
 
 export type Access_codesCountAggregateInputType = {
   id?: true
   code_hash?: true
   color_code?: true
-  role?: true
   created_by?: true
   expires_at?: true
   max_uses?: true
@@ -138,6 +137,7 @@ export type Access_codesCountAggregateInputType = {
   is_active?: true
   notes?: true
   created_at?: true
+  role?: true
   _all?: true
 }
 
@@ -231,14 +231,14 @@ export type Access_codesGroupByOutputType = {
   id: number
   code_hash: string
   color_code: string
-  role: $Enums.UserRole
   created_by: number
-  expires_at: Date
-  max_uses: number
+  expires_at: Date | null
+  max_uses: number | null
   current_uses: number
   is_active: boolean
   notes: string | null
-  created_at: Date
+  created_at: Date | null
+  role: string
   _count: Access_codesCountAggregateOutputType | null
   _avg: Access_codesAvgAggregateOutputType | null
   _sum: Access_codesSumAggregateOutputType | null
@@ -268,14 +268,14 @@ export type access_codesWhereInput = {
   id?: Prisma.IntFilter<"access_codes"> | number
   code_hash?: Prisma.StringFilter<"access_codes"> | string
   color_code?: Prisma.StringFilter<"access_codes"> | string
-  role?: Prisma.EnumUserRoleFilter<"access_codes"> | $Enums.UserRole
   created_by?: Prisma.IntFilter<"access_codes"> | number
-  expires_at?: Prisma.DateTimeFilter<"access_codes"> | Date | string
-  max_uses?: Prisma.IntFilter<"access_codes"> | number
+  expires_at?: Prisma.DateTimeNullableFilter<"access_codes"> | Date | string | null
+  max_uses?: Prisma.IntNullableFilter<"access_codes"> | number | null
   current_uses?: Prisma.IntFilter<"access_codes"> | number
   is_active?: Prisma.BoolFilter<"access_codes"> | boolean
   notes?: Prisma.StringNullableFilter<"access_codes"> | string | null
-  created_at?: Prisma.DateTimeFilter<"access_codes"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"access_codes"> | Date | string | null
+  role?: Prisma.StringFilter<"access_codes"> | string
   creator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }
 
@@ -283,47 +283,47 @@ export type access_codesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   code_hash?: Prisma.SortOrder
   color_code?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
-  max_uses?: Prisma.SortOrder
+  expires_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  max_uses?: Prisma.SortOrderInput | Prisma.SortOrder
   current_uses?: Prisma.SortOrder
   is_active?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  role?: Prisma.SortOrder
   creator?: Prisma.usersOrderByWithRelationInput
 }
 
 export type access_codesWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  code_hash?: string
   AND?: Prisma.access_codesWhereInput | Prisma.access_codesWhereInput[]
   OR?: Prisma.access_codesWhereInput[]
   NOT?: Prisma.access_codesWhereInput | Prisma.access_codesWhereInput[]
+  code_hash?: Prisma.StringFilter<"access_codes"> | string
   color_code?: Prisma.StringFilter<"access_codes"> | string
-  role?: Prisma.EnumUserRoleFilter<"access_codes"> | $Enums.UserRole
   created_by?: Prisma.IntFilter<"access_codes"> | number
-  expires_at?: Prisma.DateTimeFilter<"access_codes"> | Date | string
-  max_uses?: Prisma.IntFilter<"access_codes"> | number
+  expires_at?: Prisma.DateTimeNullableFilter<"access_codes"> | Date | string | null
+  max_uses?: Prisma.IntNullableFilter<"access_codes"> | number | null
   current_uses?: Prisma.IntFilter<"access_codes"> | number
   is_active?: Prisma.BoolFilter<"access_codes"> | boolean
   notes?: Prisma.StringNullableFilter<"access_codes"> | string | null
-  created_at?: Prisma.DateTimeFilter<"access_codes"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"access_codes"> | Date | string | null
+  role?: Prisma.StringFilter<"access_codes"> | string
   creator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
-}, "id" | "code_hash">
+}, "id">
 
 export type access_codesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   code_hash?: Prisma.SortOrder
   color_code?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
-  max_uses?: Prisma.SortOrder
+  expires_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  max_uses?: Prisma.SortOrderInput | Prisma.SortOrder
   current_uses?: Prisma.SortOrder
   is_active?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  role?: Prisma.SortOrder
   _count?: Prisma.access_codesCountOrderByAggregateInput
   _avg?: Prisma.access_codesAvgOrderByAggregateInput
   _max?: Prisma.access_codesMaxOrderByAggregateInput
@@ -338,108 +338,108 @@ export type access_codesScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"access_codes"> | number
   code_hash?: Prisma.StringWithAggregatesFilter<"access_codes"> | string
   color_code?: Prisma.StringWithAggregatesFilter<"access_codes"> | string
-  role?: Prisma.EnumUserRoleWithAggregatesFilter<"access_codes"> | $Enums.UserRole
   created_by?: Prisma.IntWithAggregatesFilter<"access_codes"> | number
-  expires_at?: Prisma.DateTimeWithAggregatesFilter<"access_codes"> | Date | string
-  max_uses?: Prisma.IntWithAggregatesFilter<"access_codes"> | number
+  expires_at?: Prisma.DateTimeNullableWithAggregatesFilter<"access_codes"> | Date | string | null
+  max_uses?: Prisma.IntNullableWithAggregatesFilter<"access_codes"> | number | null
   current_uses?: Prisma.IntWithAggregatesFilter<"access_codes"> | number
   is_active?: Prisma.BoolWithAggregatesFilter<"access_codes"> | boolean
   notes?: Prisma.StringNullableWithAggregatesFilter<"access_codes"> | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"access_codes"> | Date | string
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"access_codes"> | Date | string | null
+  role?: Prisma.StringWithAggregatesFilter<"access_codes"> | string
 }
 
 export type access_codesCreateInput = {
   code_hash: string
   color_code: string
-  role: $Enums.UserRole
-  expires_at: Date | string
-  max_uses?: number
+  expires_at?: Date | string | null
+  max_uses?: number | null
   current_uses?: number
   is_active?: boolean
   notes?: string | null
-  created_at?: Date | string
-  creator: Prisma.usersCreateNestedOneWithoutCreated_access_codesInput
+  created_at?: Date | string | null
+  role: string
+  creator: Prisma.usersCreateNestedOneWithoutAccess_codesInput
 }
 
 export type access_codesUncheckedCreateInput = {
   id?: number
   code_hash: string
   color_code: string
-  role: $Enums.UserRole
   created_by: number
-  expires_at: Date | string
-  max_uses?: number
+  expires_at?: Date | string | null
+  max_uses?: number | null
   current_uses?: number
   is_active?: boolean
   notes?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  role: string
 }
 
 export type access_codesUpdateInput = {
   code_hash?: Prisma.StringFieldUpdateOperationsInput | string
   color_code?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  max_uses?: Prisma.IntFieldUpdateOperationsInput | number
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  max_uses?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   current_uses?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  creator?: Prisma.usersUpdateOneRequiredWithoutCreated_access_codesNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  creator?: Prisma.usersUpdateOneRequiredWithoutAccess_codesNestedInput
 }
 
 export type access_codesUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   code_hash?: Prisma.StringFieldUpdateOperationsInput | string
   color_code?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   created_by?: Prisma.IntFieldUpdateOperationsInput | number
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  max_uses?: Prisma.IntFieldUpdateOperationsInput | number
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  max_uses?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   current_uses?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type access_codesCreateManyInput = {
   id?: number
   code_hash: string
   color_code: string
-  role: $Enums.UserRole
   created_by: number
-  expires_at: Date | string
-  max_uses?: number
+  expires_at?: Date | string | null
+  max_uses?: number | null
   current_uses?: number
   is_active?: boolean
   notes?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  role: string
 }
 
 export type access_codesUpdateManyMutationInput = {
   code_hash?: Prisma.StringFieldUpdateOperationsInput | string
   color_code?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  max_uses?: Prisma.IntFieldUpdateOperationsInput | number
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  max_uses?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   current_uses?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type access_codesUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   code_hash?: Prisma.StringFieldUpdateOperationsInput | string
   color_code?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   created_by?: Prisma.IntFieldUpdateOperationsInput | number
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  max_uses?: Prisma.IntFieldUpdateOperationsInput | number
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  max_uses?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   current_uses?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type Access_codesListRelationFilter = {
@@ -456,7 +456,6 @@ export type access_codesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   code_hash?: Prisma.SortOrder
   color_code?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   max_uses?: Prisma.SortOrder
@@ -464,6 +463,7 @@ export type access_codesCountOrderByAggregateInput = {
   is_active?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type access_codesAvgOrderByAggregateInput = {
@@ -477,7 +477,6 @@ export type access_codesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   code_hash?: Prisma.SortOrder
   color_code?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   max_uses?: Prisma.SortOrder
@@ -485,13 +484,13 @@ export type access_codesMaxOrderByAggregateInput = {
   is_active?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type access_codesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   code_hash?: Prisma.SortOrder
   color_code?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   max_uses?: Prisma.SortOrder
@@ -499,6 +498,7 @@ export type access_codesMinOrderByAggregateInput = {
   is_active?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type access_codesSumOrderByAggregateInput = {
@@ -550,29 +550,37 @@ export type access_codesUncheckedUpdateManyWithoutCreatorNestedInput = {
   deleteMany?: Prisma.access_codesScalarWhereInput | Prisma.access_codesScalarWhereInput[]
 }
 
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type access_codesCreateWithoutCreatorInput = {
   code_hash: string
   color_code: string
-  role: $Enums.UserRole
-  expires_at: Date | string
-  max_uses?: number
+  expires_at?: Date | string | null
+  max_uses?: number | null
   current_uses?: number
   is_active?: boolean
   notes?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  role: string
 }
 
 export type access_codesUncheckedCreateWithoutCreatorInput = {
   id?: number
   code_hash: string
   color_code: string
-  role: $Enums.UserRole
-  expires_at: Date | string
-  max_uses?: number
+  expires_at?: Date | string | null
+  max_uses?: number | null
   current_uses?: number
   is_active?: boolean
   notes?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  role: string
 }
 
 export type access_codesCreateOrConnectWithoutCreatorInput = {
@@ -608,65 +616,65 @@ export type access_codesScalarWhereInput = {
   id?: Prisma.IntFilter<"access_codes"> | number
   code_hash?: Prisma.StringFilter<"access_codes"> | string
   color_code?: Prisma.StringFilter<"access_codes"> | string
-  role?: Prisma.EnumUserRoleFilter<"access_codes"> | $Enums.UserRole
   created_by?: Prisma.IntFilter<"access_codes"> | number
-  expires_at?: Prisma.DateTimeFilter<"access_codes"> | Date | string
-  max_uses?: Prisma.IntFilter<"access_codes"> | number
+  expires_at?: Prisma.DateTimeNullableFilter<"access_codes"> | Date | string | null
+  max_uses?: Prisma.IntNullableFilter<"access_codes"> | number | null
   current_uses?: Prisma.IntFilter<"access_codes"> | number
   is_active?: Prisma.BoolFilter<"access_codes"> | boolean
   notes?: Prisma.StringNullableFilter<"access_codes"> | string | null
-  created_at?: Prisma.DateTimeFilter<"access_codes"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"access_codes"> | Date | string | null
+  role?: Prisma.StringFilter<"access_codes"> | string
 }
 
 export type access_codesCreateManyCreatorInput = {
   id?: number
   code_hash: string
   color_code: string
-  role: $Enums.UserRole
-  expires_at: Date | string
-  max_uses?: number
+  expires_at?: Date | string | null
+  max_uses?: number | null
   current_uses?: number
   is_active?: boolean
   notes?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  role: string
 }
 
 export type access_codesUpdateWithoutCreatorInput = {
   code_hash?: Prisma.StringFieldUpdateOperationsInput | string
   color_code?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  max_uses?: Prisma.IntFieldUpdateOperationsInput | number
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  max_uses?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   current_uses?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type access_codesUncheckedUpdateWithoutCreatorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   code_hash?: Prisma.StringFieldUpdateOperationsInput | string
   color_code?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  max_uses?: Prisma.IntFieldUpdateOperationsInput | number
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  max_uses?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   current_uses?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type access_codesUncheckedUpdateManyWithoutCreatorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   code_hash?: Prisma.StringFieldUpdateOperationsInput | string
   color_code?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  max_uses?: Prisma.IntFieldUpdateOperationsInput | number
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  max_uses?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   current_uses?: Prisma.IntFieldUpdateOperationsInput | number
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -675,7 +683,6 @@ export type access_codesSelect<ExtArgs extends runtime.Types.Extensions.Internal
   id?: boolean
   code_hash?: boolean
   color_code?: boolean
-  role?: boolean
   created_by?: boolean
   expires_at?: boolean
   max_uses?: boolean
@@ -683,6 +690,7 @@ export type access_codesSelect<ExtArgs extends runtime.Types.Extensions.Internal
   is_active?: boolean
   notes?: boolean
   created_at?: boolean
+  role?: boolean
   creator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["access_codes"]>
 
@@ -690,7 +698,6 @@ export type access_codesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   id?: boolean
   code_hash?: boolean
   color_code?: boolean
-  role?: boolean
   created_by?: boolean
   expires_at?: boolean
   max_uses?: boolean
@@ -698,6 +705,7 @@ export type access_codesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   is_active?: boolean
   notes?: boolean
   created_at?: boolean
+  role?: boolean
   creator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["access_codes"]>
 
@@ -705,7 +713,6 @@ export type access_codesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   id?: boolean
   code_hash?: boolean
   color_code?: boolean
-  role?: boolean
   created_by?: boolean
   expires_at?: boolean
   max_uses?: boolean
@@ -713,6 +720,7 @@ export type access_codesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   is_active?: boolean
   notes?: boolean
   created_at?: boolean
+  role?: boolean
   creator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["access_codes"]>
 
@@ -720,7 +728,6 @@ export type access_codesSelectScalar = {
   id?: boolean
   code_hash?: boolean
   color_code?: boolean
-  role?: boolean
   created_by?: boolean
   expires_at?: boolean
   max_uses?: boolean
@@ -728,9 +735,10 @@ export type access_codesSelectScalar = {
   is_active?: boolean
   notes?: boolean
   created_at?: boolean
+  role?: boolean
 }
 
-export type access_codesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code_hash" | "color_code" | "role" | "created_by" | "expires_at" | "max_uses" | "current_uses" | "is_active" | "notes" | "created_at", ExtArgs["result"]["access_codes"]>
+export type access_codesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code_hash" | "color_code" | "created_by" | "expires_at" | "max_uses" | "current_uses" | "is_active" | "notes" | "created_at" | "role", ExtArgs["result"]["access_codes"]>
 export type access_codesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   creator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
@@ -750,14 +758,14 @@ export type $access_codesPayload<ExtArgs extends runtime.Types.Extensions.Intern
     id: number
     code_hash: string
     color_code: string
-    role: $Enums.UserRole
     created_by: number
-    expires_at: Date
-    max_uses: number
+    expires_at: Date | null
+    max_uses: number | null
     current_uses: number
     is_active: boolean
     notes: string | null
-    created_at: Date
+    created_at: Date | null
+    role: string
   }, ExtArgs["result"]["access_codes"]>
   composites: {}
 }
@@ -1185,7 +1193,6 @@ export interface access_codesFieldRefs {
   readonly id: Prisma.FieldRef<"access_codes", 'Int'>
   readonly code_hash: Prisma.FieldRef<"access_codes", 'String'>
   readonly color_code: Prisma.FieldRef<"access_codes", 'String'>
-  readonly role: Prisma.FieldRef<"access_codes", 'UserRole'>
   readonly created_by: Prisma.FieldRef<"access_codes", 'Int'>
   readonly expires_at: Prisma.FieldRef<"access_codes", 'DateTime'>
   readonly max_uses: Prisma.FieldRef<"access_codes", 'Int'>
@@ -1193,6 +1200,7 @@ export interface access_codesFieldRefs {
   readonly is_active: Prisma.FieldRef<"access_codes", 'Boolean'>
   readonly notes: Prisma.FieldRef<"access_codes", 'String'>
   readonly created_at: Prisma.FieldRef<"access_codes", 'DateTime'>
+  readonly role: Prisma.FieldRef<"access_codes", 'String'>
 }
     
 

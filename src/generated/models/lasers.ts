@@ -29,82 +29,63 @@ export type AggregateLasers = {
 export type LasersAvgAggregateOutputType = {
   id: number | null
   manufacturer_id: number | null
-  wavelength_min_nm: runtime.Decimal | null
-  wavelength_max_nm: runtime.Decimal | null
-  wavelength_nominal_nm: runtime.Decimal | null
-  power_mw: runtime.Decimal | null
-  pulse_width_ns: runtime.Decimal | null
-  rep_rate_hz: runtime.Decimal | null
-  beam_quality_m2: runtime.Decimal | null
+  power_consumption_w: runtime.Decimal | null
+  power_output_w: runtime.Decimal | null
 }
 
 export type LasersSumAggregateOutputType = {
   id: number | null
   manufacturer_id: number | null
-  wavelength_min_nm: runtime.Decimal | null
-  wavelength_max_nm: runtime.Decimal | null
-  wavelength_nominal_nm: runtime.Decimal | null
-  power_mw: runtime.Decimal | null
-  pulse_width_ns: runtime.Decimal | null
-  rep_rate_hz: runtime.Decimal | null
-  beam_quality_m2: runtime.Decimal | null
+  power_consumption_w: runtime.Decimal | null
+  power_output_w: runtime.Decimal | null
 }
 
 export type LasersMinAggregateOutputType = {
   id: number | null
   model_name: string | null
   manufacturer_id: number | null
-  wavelength_min_nm: runtime.Decimal | null
-  wavelength_max_nm: runtime.Decimal | null
-  wavelength_nominal_nm: runtime.Decimal | null
-  power_mw: runtime.Decimal | null
-  pulse_type: string | null
-  pulse_width_ns: runtime.Decimal | null
-  rep_rate_hz: runtime.Decimal | null
-  beam_quality_m2: runtime.Decimal | null
-  diode_type: string | null
-  cooling: string | null
   notes: string | null
   created_at: Date | null
   updated_at: Date | null
+  application: string | null
+  cooling_method: string | null
+  is_single_mode: boolean | null
+  laser_type: string | null
+  modulation_type: string | null
+  power_consumption_w: runtime.Decimal | null
+  power_output_w: runtime.Decimal | null
 }
 
 export type LasersMaxAggregateOutputType = {
   id: number | null
   model_name: string | null
   manufacturer_id: number | null
-  wavelength_min_nm: runtime.Decimal | null
-  wavelength_max_nm: runtime.Decimal | null
-  wavelength_nominal_nm: runtime.Decimal | null
-  power_mw: runtime.Decimal | null
-  pulse_type: string | null
-  pulse_width_ns: runtime.Decimal | null
-  rep_rate_hz: runtime.Decimal | null
-  beam_quality_m2: runtime.Decimal | null
-  diode_type: string | null
-  cooling: string | null
   notes: string | null
   created_at: Date | null
   updated_at: Date | null
+  application: string | null
+  cooling_method: string | null
+  is_single_mode: boolean | null
+  laser_type: string | null
+  modulation_type: string | null
+  power_consumption_w: runtime.Decimal | null
+  power_output_w: runtime.Decimal | null
 }
 
 export type LasersCountAggregateOutputType = {
   id: number
   model_name: number
   manufacturer_id: number
-  wavelength_min_nm: number
-  wavelength_max_nm: number
-  wavelength_nominal_nm: number
-  power_mw: number
-  pulse_type: number
-  pulse_width_ns: number
-  rep_rate_hz: number
-  beam_quality_m2: number
-  diode_type: number
-  cooling: number
   notes: number
   created_at: number
   updated_at: number
+  application: number
+  cooling_method: number
+  is_single_mode: number
+  laser_type: number
+  modulation_type: number
+  power_consumption_w: number
+  power_output_w: number
   _all: number
 }
 
@@ -112,82 +93,63 @@ export type LasersCountAggregateOutputType = {
 export type LasersAvgAggregateInputType = {
   id?: true
   manufacturer_id?: true
-  wavelength_min_nm?: true
-  wavelength_max_nm?: true
-  wavelength_nominal_nm?: true
-  power_mw?: true
-  pulse_width_ns?: true
-  rep_rate_hz?: true
-  beam_quality_m2?: true
+  power_consumption_w?: true
+  power_output_w?: true
 }
 
 export type LasersSumAggregateInputType = {
   id?: true
   manufacturer_id?: true
-  wavelength_min_nm?: true
-  wavelength_max_nm?: true
-  wavelength_nominal_nm?: true
-  power_mw?: true
-  pulse_width_ns?: true
-  rep_rate_hz?: true
-  beam_quality_m2?: true
+  power_consumption_w?: true
+  power_output_w?: true
 }
 
 export type LasersMinAggregateInputType = {
   id?: true
   model_name?: true
   manufacturer_id?: true
-  wavelength_min_nm?: true
-  wavelength_max_nm?: true
-  wavelength_nominal_nm?: true
-  power_mw?: true
-  pulse_type?: true
-  pulse_width_ns?: true
-  rep_rate_hz?: true
-  beam_quality_m2?: true
-  diode_type?: true
-  cooling?: true
   notes?: true
   created_at?: true
   updated_at?: true
+  application?: true
+  cooling_method?: true
+  is_single_mode?: true
+  laser_type?: true
+  modulation_type?: true
+  power_consumption_w?: true
+  power_output_w?: true
 }
 
 export type LasersMaxAggregateInputType = {
   id?: true
   model_name?: true
   manufacturer_id?: true
-  wavelength_min_nm?: true
-  wavelength_max_nm?: true
-  wavelength_nominal_nm?: true
-  power_mw?: true
-  pulse_type?: true
-  pulse_width_ns?: true
-  rep_rate_hz?: true
-  beam_quality_m2?: true
-  diode_type?: true
-  cooling?: true
   notes?: true
   created_at?: true
   updated_at?: true
+  application?: true
+  cooling_method?: true
+  is_single_mode?: true
+  laser_type?: true
+  modulation_type?: true
+  power_consumption_w?: true
+  power_output_w?: true
 }
 
 export type LasersCountAggregateInputType = {
   id?: true
   model_name?: true
   manufacturer_id?: true
-  wavelength_min_nm?: true
-  wavelength_max_nm?: true
-  wavelength_nominal_nm?: true
-  power_mw?: true
-  pulse_type?: true
-  pulse_width_ns?: true
-  rep_rate_hz?: true
-  beam_quality_m2?: true
-  diode_type?: true
-  cooling?: true
   notes?: true
   created_at?: true
   updated_at?: true
+  application?: true
+  cooling_method?: true
+  is_single_mode?: true
+  laser_type?: true
+  modulation_type?: true
+  power_consumption_w?: true
+  power_output_w?: true
   _all?: true
 }
 
@@ -281,19 +243,16 @@ export type LasersGroupByOutputType = {
   id: number
   model_name: string
   manufacturer_id: number
-  wavelength_min_nm: runtime.Decimal
-  wavelength_max_nm: runtime.Decimal
-  wavelength_nominal_nm: runtime.Decimal | null
-  power_mw: runtime.Decimal | null
-  pulse_type: string | null
-  pulse_width_ns: runtime.Decimal
-  rep_rate_hz: runtime.Decimal
-  beam_quality_m2: runtime.Decimal
-  diode_type: string | null
-  cooling: string | null
   notes: string | null
-  created_at: Date
-  updated_at: Date
+  created_at: Date | null
+  updated_at: Date | null
+  application: string | null
+  cooling_method: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w: runtime.Decimal | null
+  power_output_w: runtime.Decimal
   _count: LasersCountAggregateOutputType | null
   _avg: LasersAvgAggregateOutputType | null
   _sum: LasersSumAggregateOutputType | null
@@ -323,42 +282,44 @@ export type lasersWhereInput = {
   id?: Prisma.IntFilter<"lasers"> | number
   model_name?: Prisma.StringFilter<"lasers"> | string
   manufacturer_id?: Prisma.IntFilter<"lasers"> | number
-  wavelength_min_nm?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.StringNullableFilter<"lasers"> | string | null
-  pulse_width_ns?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.StringNullableFilter<"lasers"> | string | null
-  cooling?: Prisma.StringNullableFilter<"lasers"> | string | null
   notes?: Prisma.StringNullableFilter<"lasers"> | string | null
-  created_at?: Prisma.DateTimeFilter<"lasers"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"lasers"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"lasers"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"lasers"> | Date | string | null
+  application?: Prisma.StringNullableFilter<"lasers"> | string | null
+  cooling_method?: Prisma.StringNullableFilter<"lasers"> | string | null
+  is_single_mode?: Prisma.BoolFilter<"lasers"> | boolean
+  laser_type?: Prisma.StringFilter<"lasers"> | string
+  modulation_type?: Prisma.StringFilter<"lasers"> | string
+  power_consumption_w?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.XOR<Prisma.Environmental_specsNullableScalarRelationFilter, Prisma.environmental_specsWhereInput> | null
   manufacturer?: Prisma.XOR<Prisma.ManufacturersScalarRelationFilter, Prisma.manufacturersWhereInput>
-  applications?: Prisma.Laser_applicationsListRelationFilter
+  optical_specs?: Prisma.XOR<Prisma.Optical_specsNullableScalarRelationFilter, Prisma.optical_specsWhereInput> | null
+  pulse_specs?: Prisma.XOR<Prisma.Pulse_specsNullableScalarRelationFilter, Prisma.pulse_specsWhereInput> | null
+  stability_specs?: Prisma.XOR<Prisma.Stability_specsNullableScalarRelationFilter, Prisma.stability_specsWhereInput> | null
+  wavelength_specs?: Prisma.XOR<Prisma.Wavelength_specsNullableScalarRelationFilter, Prisma.wavelength_specsWhereInput> | null
 }
 
 export type lasersOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   model_name?: Prisma.SortOrder
   manufacturer_id?: Prisma.SortOrder
-  wavelength_min_nm?: Prisma.SortOrder
-  wavelength_max_nm?: Prisma.SortOrder
-  wavelength_nominal_nm?: Prisma.SortOrderInput | Prisma.SortOrder
-  power_mw?: Prisma.SortOrderInput | Prisma.SortOrder
-  pulse_type?: Prisma.SortOrderInput | Prisma.SortOrder
-  pulse_width_ns?: Prisma.SortOrder
-  rep_rate_hz?: Prisma.SortOrder
-  beam_quality_m2?: Prisma.SortOrder
-  diode_type?: Prisma.SortOrderInput | Prisma.SortOrder
-  cooling?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  application?: Prisma.SortOrderInput | Prisma.SortOrder
+  cooling_method?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_single_mode?: Prisma.SortOrder
+  laser_type?: Prisma.SortOrder
+  modulation_type?: Prisma.SortOrder
+  power_consumption_w?: Prisma.SortOrderInput | Prisma.SortOrder
+  power_output_w?: Prisma.SortOrder
+  environmental_specs?: Prisma.environmental_specsOrderByWithRelationInput
   manufacturer?: Prisma.manufacturersOrderByWithRelationInput
-  applications?: Prisma.laser_applicationsOrderByRelationAggregateInput
+  optical_specs?: Prisma.optical_specsOrderByWithRelationInput
+  pulse_specs?: Prisma.pulse_specsOrderByWithRelationInput
+  stability_specs?: Prisma.stability_specsOrderByWithRelationInput
+  wavelength_specs?: Prisma.wavelength_specsOrderByWithRelationInput
 }
 
 export type lasersWhereUniqueInput = Prisma.AtLeast<{
@@ -368,40 +329,38 @@ export type lasersWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.lasersWhereInput | Prisma.lasersWhereInput[]
   model_name?: Prisma.StringFilter<"lasers"> | string
   manufacturer_id?: Prisma.IntFilter<"lasers"> | number
-  wavelength_min_nm?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.StringNullableFilter<"lasers"> | string | null
-  pulse_width_ns?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.StringNullableFilter<"lasers"> | string | null
-  cooling?: Prisma.StringNullableFilter<"lasers"> | string | null
   notes?: Prisma.StringNullableFilter<"lasers"> | string | null
-  created_at?: Prisma.DateTimeFilter<"lasers"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"lasers"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"lasers"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"lasers"> | Date | string | null
+  application?: Prisma.StringNullableFilter<"lasers"> | string | null
+  cooling_method?: Prisma.StringNullableFilter<"lasers"> | string | null
+  is_single_mode?: Prisma.BoolFilter<"lasers"> | boolean
+  laser_type?: Prisma.StringFilter<"lasers"> | string
+  modulation_type?: Prisma.StringFilter<"lasers"> | string
+  power_consumption_w?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.XOR<Prisma.Environmental_specsNullableScalarRelationFilter, Prisma.environmental_specsWhereInput> | null
   manufacturer?: Prisma.XOR<Prisma.ManufacturersScalarRelationFilter, Prisma.manufacturersWhereInput>
-  applications?: Prisma.Laser_applicationsListRelationFilter
+  optical_specs?: Prisma.XOR<Prisma.Optical_specsNullableScalarRelationFilter, Prisma.optical_specsWhereInput> | null
+  pulse_specs?: Prisma.XOR<Prisma.Pulse_specsNullableScalarRelationFilter, Prisma.pulse_specsWhereInput> | null
+  stability_specs?: Prisma.XOR<Prisma.Stability_specsNullableScalarRelationFilter, Prisma.stability_specsWhereInput> | null
+  wavelength_specs?: Prisma.XOR<Prisma.Wavelength_specsNullableScalarRelationFilter, Prisma.wavelength_specsWhereInput> | null
 }, "id">
 
 export type lasersOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   model_name?: Prisma.SortOrder
   manufacturer_id?: Prisma.SortOrder
-  wavelength_min_nm?: Prisma.SortOrder
-  wavelength_max_nm?: Prisma.SortOrder
-  wavelength_nominal_nm?: Prisma.SortOrderInput | Prisma.SortOrder
-  power_mw?: Prisma.SortOrderInput | Prisma.SortOrder
-  pulse_type?: Prisma.SortOrderInput | Prisma.SortOrder
-  pulse_width_ns?: Prisma.SortOrder
-  rep_rate_hz?: Prisma.SortOrder
-  beam_quality_m2?: Prisma.SortOrder
-  diode_type?: Prisma.SortOrderInput | Prisma.SortOrder
-  cooling?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  application?: Prisma.SortOrderInput | Prisma.SortOrder
+  cooling_method?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_single_mode?: Prisma.SortOrder
+  laser_type?: Prisma.SortOrder
+  modulation_type?: Prisma.SortOrder
+  power_consumption_w?: Prisma.SortOrderInput | Prisma.SortOrder
+  power_output_w?: Prisma.SortOrder
   _count?: Prisma.lasersCountOrderByAggregateInput
   _avg?: Prisma.lasersAvgOrderByAggregateInput
   _max?: Prisma.lasersMaxOrderByAggregateInput
@@ -416,152 +375,144 @@ export type lasersScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"lasers"> | number
   model_name?: Prisma.StringWithAggregatesFilter<"lasers"> | string
   manufacturer_id?: Prisma.IntWithAggregatesFilter<"lasers"> | number
-  wavelength_min_nm?: Prisma.DecimalWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.DecimalNullableWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.DecimalNullableWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.StringNullableWithAggregatesFilter<"lasers"> | string | null
-  pulse_width_ns?: Prisma.DecimalWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.StringNullableWithAggregatesFilter<"lasers"> | string | null
-  cooling?: Prisma.StringNullableWithAggregatesFilter<"lasers"> | string | null
   notes?: Prisma.StringNullableWithAggregatesFilter<"lasers"> | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"lasers"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"lasers"> | Date | string
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"lasers"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"lasers"> | Date | string | null
+  application?: Prisma.StringNullableWithAggregatesFilter<"lasers"> | string | null
+  cooling_method?: Prisma.StringNullableWithAggregatesFilter<"lasers"> | string | null
+  is_single_mode?: Prisma.BoolWithAggregatesFilter<"lasers"> | boolean
+  laser_type?: Prisma.StringWithAggregatesFilter<"lasers"> | string
+  modulation_type?: Prisma.StringWithAggregatesFilter<"lasers"> | string
+  power_consumption_w?: Prisma.DecimalNullableWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalWithAggregatesFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type lasersCreateInput = {
   model_name: string
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsCreateNestedOneWithoutLaserInput
   manufacturer: Prisma.manufacturersCreateNestedOneWithoutLasersInput
-  applications?: Prisma.laser_applicationsCreateNestedManyWithoutLaserInput
+  optical_specs?: Prisma.optical_specsCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsCreateNestedOneWithoutLaserInput
 }
 
 export type lasersUncheckedCreateInput = {
   id?: number
   model_name: string
   manufacturer_id: number
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  applications?: Prisma.laser_applicationsUncheckedCreateNestedManyWithoutLaserInput
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+  optical_specs?: Prisma.optical_specsUncheckedCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsUncheckedCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
 }
 
 export type lasersUpdateInput = {
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUpdateOneWithoutLaserNestedInput
   manufacturer?: Prisma.manufacturersUpdateOneRequiredWithoutLasersNestedInput
-  applications?: Prisma.laser_applicationsUpdateManyWithoutLaserNestedInput
+  optical_specs?: Prisma.optical_specsUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUpdateOneWithoutLaserNestedInput
 }
 
 export type lasersUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
   manufacturer_id?: Prisma.IntFieldUpdateOperationsInput | number
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  applications?: Prisma.laser_applicationsUncheckedUpdateManyWithoutLaserNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+  optical_specs?: Prisma.optical_specsUncheckedUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
 }
 
 export type lasersCreateManyInput = {
   id?: number
   model_name: string
   manufacturer_id: number
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type lasersUpdateManyMutationInput = {
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type lasersUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
   manufacturer_id?: Prisma.IntFieldUpdateOperationsInput | number
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type LasersListRelationFilter = {
@@ -578,81 +529,62 @@ export type lasersCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   model_name?: Prisma.SortOrder
   manufacturer_id?: Prisma.SortOrder
-  wavelength_min_nm?: Prisma.SortOrder
-  wavelength_max_nm?: Prisma.SortOrder
-  wavelength_nominal_nm?: Prisma.SortOrder
-  power_mw?: Prisma.SortOrder
-  pulse_type?: Prisma.SortOrder
-  pulse_width_ns?: Prisma.SortOrder
-  rep_rate_hz?: Prisma.SortOrder
-  beam_quality_m2?: Prisma.SortOrder
-  diode_type?: Prisma.SortOrder
-  cooling?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  application?: Prisma.SortOrder
+  cooling_method?: Prisma.SortOrder
+  is_single_mode?: Prisma.SortOrder
+  laser_type?: Prisma.SortOrder
+  modulation_type?: Prisma.SortOrder
+  power_consumption_w?: Prisma.SortOrder
+  power_output_w?: Prisma.SortOrder
 }
 
 export type lasersAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   manufacturer_id?: Prisma.SortOrder
-  wavelength_min_nm?: Prisma.SortOrder
-  wavelength_max_nm?: Prisma.SortOrder
-  wavelength_nominal_nm?: Prisma.SortOrder
-  power_mw?: Prisma.SortOrder
-  pulse_width_ns?: Prisma.SortOrder
-  rep_rate_hz?: Prisma.SortOrder
-  beam_quality_m2?: Prisma.SortOrder
+  power_consumption_w?: Prisma.SortOrder
+  power_output_w?: Prisma.SortOrder
 }
 
 export type lasersMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   model_name?: Prisma.SortOrder
   manufacturer_id?: Prisma.SortOrder
-  wavelength_min_nm?: Prisma.SortOrder
-  wavelength_max_nm?: Prisma.SortOrder
-  wavelength_nominal_nm?: Prisma.SortOrder
-  power_mw?: Prisma.SortOrder
-  pulse_type?: Prisma.SortOrder
-  pulse_width_ns?: Prisma.SortOrder
-  rep_rate_hz?: Prisma.SortOrder
-  beam_quality_m2?: Prisma.SortOrder
-  diode_type?: Prisma.SortOrder
-  cooling?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  application?: Prisma.SortOrder
+  cooling_method?: Prisma.SortOrder
+  is_single_mode?: Prisma.SortOrder
+  laser_type?: Prisma.SortOrder
+  modulation_type?: Prisma.SortOrder
+  power_consumption_w?: Prisma.SortOrder
+  power_output_w?: Prisma.SortOrder
 }
 
 export type lasersMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   model_name?: Prisma.SortOrder
   manufacturer_id?: Prisma.SortOrder
-  wavelength_min_nm?: Prisma.SortOrder
-  wavelength_max_nm?: Prisma.SortOrder
-  wavelength_nominal_nm?: Prisma.SortOrder
-  power_mw?: Prisma.SortOrder
-  pulse_type?: Prisma.SortOrder
-  pulse_width_ns?: Prisma.SortOrder
-  rep_rate_hz?: Prisma.SortOrder
-  beam_quality_m2?: Prisma.SortOrder
-  diode_type?: Prisma.SortOrder
-  cooling?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  application?: Prisma.SortOrder
+  cooling_method?: Prisma.SortOrder
+  is_single_mode?: Prisma.SortOrder
+  laser_type?: Prisma.SortOrder
+  modulation_type?: Prisma.SortOrder
+  power_consumption_w?: Prisma.SortOrder
+  power_output_w?: Prisma.SortOrder
 }
 
 export type lasersSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   manufacturer_id?: Prisma.SortOrder
-  wavelength_min_nm?: Prisma.SortOrder
-  wavelength_max_nm?: Prisma.SortOrder
-  wavelength_nominal_nm?: Prisma.SortOrder
-  power_mw?: Prisma.SortOrder
-  pulse_width_ns?: Prisma.SortOrder
-  rep_rate_hz?: Prisma.SortOrder
-  beam_quality_m2?: Prisma.SortOrder
+  power_consumption_w?: Prisma.SortOrder
+  power_output_w?: Prisma.SortOrder
 }
 
 export type LasersScalarRelationFilter = {
@@ -702,12 +634,8 @@ export type lasersUncheckedUpdateManyWithoutManufacturerNestedInput = {
   deleteMany?: Prisma.lasersScalarWhereInput | Prisma.lasersScalarWhereInput[]
 }
 
-export type DecimalFieldUpdateOperationsInput = {
-  set?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type NullableDecimalFieldUpdateOperationsInput = {
@@ -718,55 +646,121 @@ export type NullableDecimalFieldUpdateOperationsInput = {
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type lasersCreateNestedOneWithoutApplicationsInput = {
-  create?: Prisma.XOR<Prisma.lasersCreateWithoutApplicationsInput, Prisma.lasersUncheckedCreateWithoutApplicationsInput>
-  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutApplicationsInput
+export type DecimalFieldUpdateOperationsInput = {
+  set?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type lasersCreateNestedOneWithoutWavelength_specsInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutWavelength_specsInput, Prisma.lasersUncheckedCreateWithoutWavelength_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutWavelength_specsInput
   connect?: Prisma.lasersWhereUniqueInput
 }
 
-export type lasersUpdateOneRequiredWithoutApplicationsNestedInput = {
-  create?: Prisma.XOR<Prisma.lasersCreateWithoutApplicationsInput, Prisma.lasersUncheckedCreateWithoutApplicationsInput>
-  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutApplicationsInput
-  upsert?: Prisma.lasersUpsertWithoutApplicationsInput
+export type lasersUpdateOneRequiredWithoutWavelength_specsNestedInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutWavelength_specsInput, Prisma.lasersUncheckedCreateWithoutWavelength_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutWavelength_specsInput
+  upsert?: Prisma.lasersUpsertWithoutWavelength_specsInput
   connect?: Prisma.lasersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.lasersUpdateToOneWithWhereWithoutApplicationsInput, Prisma.lasersUpdateWithoutApplicationsInput>, Prisma.lasersUncheckedUpdateWithoutApplicationsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.lasersUpdateToOneWithWhereWithoutWavelength_specsInput, Prisma.lasersUpdateWithoutWavelength_specsInput>, Prisma.lasersUncheckedUpdateWithoutWavelength_specsInput>
+}
+
+export type lasersCreateNestedOneWithoutOptical_specsInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutOptical_specsInput, Prisma.lasersUncheckedCreateWithoutOptical_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutOptical_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+}
+
+export type lasersUpdateOneRequiredWithoutOptical_specsNestedInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutOptical_specsInput, Prisma.lasersUncheckedCreateWithoutOptical_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutOptical_specsInput
+  upsert?: Prisma.lasersUpsertWithoutOptical_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.lasersUpdateToOneWithWhereWithoutOptical_specsInput, Prisma.lasersUpdateWithoutOptical_specsInput>, Prisma.lasersUncheckedUpdateWithoutOptical_specsInput>
+}
+
+export type lasersCreateNestedOneWithoutStability_specsInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutStability_specsInput, Prisma.lasersUncheckedCreateWithoutStability_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutStability_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+}
+
+export type lasersUpdateOneRequiredWithoutStability_specsNestedInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutStability_specsInput, Prisma.lasersUncheckedCreateWithoutStability_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutStability_specsInput
+  upsert?: Prisma.lasersUpsertWithoutStability_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.lasersUpdateToOneWithWhereWithoutStability_specsInput, Prisma.lasersUpdateWithoutStability_specsInput>, Prisma.lasersUncheckedUpdateWithoutStability_specsInput>
+}
+
+export type lasersCreateNestedOneWithoutEnvironmental_specsInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutEnvironmental_specsInput, Prisma.lasersUncheckedCreateWithoutEnvironmental_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutEnvironmental_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+}
+
+export type lasersUpdateOneRequiredWithoutEnvironmental_specsNestedInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutEnvironmental_specsInput, Prisma.lasersUncheckedCreateWithoutEnvironmental_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutEnvironmental_specsInput
+  upsert?: Prisma.lasersUpsertWithoutEnvironmental_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.lasersUpdateToOneWithWhereWithoutEnvironmental_specsInput, Prisma.lasersUpdateWithoutEnvironmental_specsInput>, Prisma.lasersUncheckedUpdateWithoutEnvironmental_specsInput>
+}
+
+export type lasersCreateNestedOneWithoutPulse_specsInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutPulse_specsInput, Prisma.lasersUncheckedCreateWithoutPulse_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutPulse_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+}
+
+export type lasersUpdateOneRequiredWithoutPulse_specsNestedInput = {
+  create?: Prisma.XOR<Prisma.lasersCreateWithoutPulse_specsInput, Prisma.lasersUncheckedCreateWithoutPulse_specsInput>
+  connectOrCreate?: Prisma.lasersCreateOrConnectWithoutPulse_specsInput
+  upsert?: Prisma.lasersUpsertWithoutPulse_specsInput
+  connect?: Prisma.lasersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.lasersUpdateToOneWithWhereWithoutPulse_specsInput, Prisma.lasersUpdateWithoutPulse_specsInput>, Prisma.lasersUncheckedUpdateWithoutPulse_specsInput>
 }
 
 export type lasersCreateWithoutManufacturerInput = {
   model_name: string
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  applications?: Prisma.laser_applicationsCreateNestedManyWithoutLaserInput
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsCreateNestedOneWithoutLaserInput
+  optical_specs?: Prisma.optical_specsCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsCreateNestedOneWithoutLaserInput
 }
 
 export type lasersUncheckedCreateWithoutManufacturerInput = {
   id?: number
   model_name: string
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  applications?: Prisma.laser_applicationsUncheckedCreateNestedManyWithoutLaserInput
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+  optical_specs?: Prisma.optical_specsUncheckedCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsUncheckedCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
 }
 
 export type lasersCreateOrConnectWithoutManufacturerInput = {
@@ -802,254 +796,595 @@ export type lasersScalarWhereInput = {
   id?: Prisma.IntFilter<"lasers"> | number
   model_name?: Prisma.StringFilter<"lasers"> | string
   manufacturer_id?: Prisma.IntFilter<"lasers"> | number
-  wavelength_min_nm?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.StringNullableFilter<"lasers"> | string | null
-  pulse_width_ns?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.StringNullableFilter<"lasers"> | string | null
-  cooling?: Prisma.StringNullableFilter<"lasers"> | string | null
   notes?: Prisma.StringNullableFilter<"lasers"> | string | null
-  created_at?: Prisma.DateTimeFilter<"lasers"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"lasers"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"lasers"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"lasers"> | Date | string | null
+  application?: Prisma.StringNullableFilter<"lasers"> | string | null
+  cooling_method?: Prisma.StringNullableFilter<"lasers"> | string | null
+  is_single_mode?: Prisma.BoolFilter<"lasers"> | boolean
+  laser_type?: Prisma.StringFilter<"lasers"> | string
+  modulation_type?: Prisma.StringFilter<"lasers"> | string
+  power_consumption_w?: Prisma.DecimalNullableFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFilter<"lasers"> | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type lasersCreateWithoutApplicationsInput = {
+export type lasersCreateWithoutWavelength_specsInput = {
   model_name: string
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsCreateNestedOneWithoutLaserInput
   manufacturer: Prisma.manufacturersCreateNestedOneWithoutLasersInput
+  optical_specs?: Prisma.optical_specsCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsCreateNestedOneWithoutLaserInput
 }
 
-export type lasersUncheckedCreateWithoutApplicationsInput = {
+export type lasersUncheckedCreateWithoutWavelength_specsInput = {
   id?: number
   model_name: string
   manufacturer_id: number
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+  optical_specs?: Prisma.optical_specsUncheckedCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsUncheckedCreateNestedOneWithoutLaserInput
 }
 
-export type lasersCreateOrConnectWithoutApplicationsInput = {
+export type lasersCreateOrConnectWithoutWavelength_specsInput = {
   where: Prisma.lasersWhereUniqueInput
-  create: Prisma.XOR<Prisma.lasersCreateWithoutApplicationsInput, Prisma.lasersUncheckedCreateWithoutApplicationsInput>
+  create: Prisma.XOR<Prisma.lasersCreateWithoutWavelength_specsInput, Prisma.lasersUncheckedCreateWithoutWavelength_specsInput>
 }
 
-export type lasersUpsertWithoutApplicationsInput = {
-  update: Prisma.XOR<Prisma.lasersUpdateWithoutApplicationsInput, Prisma.lasersUncheckedUpdateWithoutApplicationsInput>
-  create: Prisma.XOR<Prisma.lasersCreateWithoutApplicationsInput, Prisma.lasersUncheckedCreateWithoutApplicationsInput>
+export type lasersUpsertWithoutWavelength_specsInput = {
+  update: Prisma.XOR<Prisma.lasersUpdateWithoutWavelength_specsInput, Prisma.lasersUncheckedUpdateWithoutWavelength_specsInput>
+  create: Prisma.XOR<Prisma.lasersCreateWithoutWavelength_specsInput, Prisma.lasersUncheckedCreateWithoutWavelength_specsInput>
   where?: Prisma.lasersWhereInput
 }
 
-export type lasersUpdateToOneWithWhereWithoutApplicationsInput = {
+export type lasersUpdateToOneWithWhereWithoutWavelength_specsInput = {
   where?: Prisma.lasersWhereInput
-  data: Prisma.XOR<Prisma.lasersUpdateWithoutApplicationsInput, Prisma.lasersUncheckedUpdateWithoutApplicationsInput>
+  data: Prisma.XOR<Prisma.lasersUpdateWithoutWavelength_specsInput, Prisma.lasersUncheckedUpdateWithoutWavelength_specsInput>
 }
 
-export type lasersUpdateWithoutApplicationsInput = {
+export type lasersUpdateWithoutWavelength_specsInput = {
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUpdateOneWithoutLaserNestedInput
   manufacturer?: Prisma.manufacturersUpdateOneRequiredWithoutLasersNestedInput
+  optical_specs?: Prisma.optical_specsUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUpdateOneWithoutLaserNestedInput
 }
 
-export type lasersUncheckedUpdateWithoutApplicationsInput = {
+export type lasersUncheckedUpdateWithoutWavelength_specsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
   manufacturer_id?: Prisma.IntFieldUpdateOperationsInput | number
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+  optical_specs?: Prisma.optical_specsUncheckedUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersCreateWithoutOptical_specsInput = {
+  model_name: string
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsCreateNestedOneWithoutLaserInput
+  manufacturer: Prisma.manufacturersCreateNestedOneWithoutLasersInput
+  pulse_specs?: Prisma.pulse_specsCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsCreateNestedOneWithoutLaserInput
+}
+
+export type lasersUncheckedCreateWithoutOptical_specsInput = {
+  id?: number
+  model_name: string
+  manufacturer_id: number
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsUncheckedCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
+}
+
+export type lasersCreateOrConnectWithoutOptical_specsInput = {
+  where: Prisma.lasersWhereUniqueInput
+  create: Prisma.XOR<Prisma.lasersCreateWithoutOptical_specsInput, Prisma.lasersUncheckedCreateWithoutOptical_specsInput>
+}
+
+export type lasersUpsertWithoutOptical_specsInput = {
+  update: Prisma.XOR<Prisma.lasersUpdateWithoutOptical_specsInput, Prisma.lasersUncheckedUpdateWithoutOptical_specsInput>
+  create: Prisma.XOR<Prisma.lasersCreateWithoutOptical_specsInput, Prisma.lasersUncheckedCreateWithoutOptical_specsInput>
+  where?: Prisma.lasersWhereInput
+}
+
+export type lasersUpdateToOneWithWhereWithoutOptical_specsInput = {
+  where?: Prisma.lasersWhereInput
+  data: Prisma.XOR<Prisma.lasersUpdateWithoutOptical_specsInput, Prisma.lasersUncheckedUpdateWithoutOptical_specsInput>
+}
+
+export type lasersUpdateWithoutOptical_specsInput = {
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUpdateOneWithoutLaserNestedInput
+  manufacturer?: Prisma.manufacturersUpdateOneRequiredWithoutLasersNestedInput
+  pulse_specs?: Prisma.pulse_specsUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersUncheckedUpdateWithoutOptical_specsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  manufacturer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersCreateWithoutStability_specsInput = {
+  model_name: string
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsCreateNestedOneWithoutLaserInput
+  manufacturer: Prisma.manufacturersCreateNestedOneWithoutLasersInput
+  optical_specs?: Prisma.optical_specsCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsCreateNestedOneWithoutLaserInput
+}
+
+export type lasersUncheckedCreateWithoutStability_specsInput = {
+  id?: number
+  model_name: string
+  manufacturer_id: number
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+  optical_specs?: Prisma.optical_specsUncheckedCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
+}
+
+export type lasersCreateOrConnectWithoutStability_specsInput = {
+  where: Prisma.lasersWhereUniqueInput
+  create: Prisma.XOR<Prisma.lasersCreateWithoutStability_specsInput, Prisma.lasersUncheckedCreateWithoutStability_specsInput>
+}
+
+export type lasersUpsertWithoutStability_specsInput = {
+  update: Prisma.XOR<Prisma.lasersUpdateWithoutStability_specsInput, Prisma.lasersUncheckedUpdateWithoutStability_specsInput>
+  create: Prisma.XOR<Prisma.lasersCreateWithoutStability_specsInput, Prisma.lasersUncheckedCreateWithoutStability_specsInput>
+  where?: Prisma.lasersWhereInput
+}
+
+export type lasersUpdateToOneWithWhereWithoutStability_specsInput = {
+  where?: Prisma.lasersWhereInput
+  data: Prisma.XOR<Prisma.lasersUpdateWithoutStability_specsInput, Prisma.lasersUncheckedUpdateWithoutStability_specsInput>
+}
+
+export type lasersUpdateWithoutStability_specsInput = {
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUpdateOneWithoutLaserNestedInput
+  manufacturer?: Prisma.manufacturersUpdateOneRequiredWithoutLasersNestedInput
+  optical_specs?: Prisma.optical_specsUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersUncheckedUpdateWithoutStability_specsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  manufacturer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+  optical_specs?: Prisma.optical_specsUncheckedUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersCreateWithoutEnvironmental_specsInput = {
+  model_name: string
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  manufacturer: Prisma.manufacturersCreateNestedOneWithoutLasersInput
+  optical_specs?: Prisma.optical_specsCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsCreateNestedOneWithoutLaserInput
+}
+
+export type lasersUncheckedCreateWithoutEnvironmental_specsInput = {
+  id?: number
+  model_name: string
+  manufacturer_id: number
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  optical_specs?: Prisma.optical_specsUncheckedCreateNestedOneWithoutLaserInput
+  pulse_specs?: Prisma.pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsUncheckedCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
+}
+
+export type lasersCreateOrConnectWithoutEnvironmental_specsInput = {
+  where: Prisma.lasersWhereUniqueInput
+  create: Prisma.XOR<Prisma.lasersCreateWithoutEnvironmental_specsInput, Prisma.lasersUncheckedCreateWithoutEnvironmental_specsInput>
+}
+
+export type lasersUpsertWithoutEnvironmental_specsInput = {
+  update: Prisma.XOR<Prisma.lasersUpdateWithoutEnvironmental_specsInput, Prisma.lasersUncheckedUpdateWithoutEnvironmental_specsInput>
+  create: Prisma.XOR<Prisma.lasersCreateWithoutEnvironmental_specsInput, Prisma.lasersUncheckedCreateWithoutEnvironmental_specsInput>
+  where?: Prisma.lasersWhereInput
+}
+
+export type lasersUpdateToOneWithWhereWithoutEnvironmental_specsInput = {
+  where?: Prisma.lasersWhereInput
+  data: Prisma.XOR<Prisma.lasersUpdateWithoutEnvironmental_specsInput, Prisma.lasersUncheckedUpdateWithoutEnvironmental_specsInput>
+}
+
+export type lasersUpdateWithoutEnvironmental_specsInput = {
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  manufacturer?: Prisma.manufacturersUpdateOneRequiredWithoutLasersNestedInput
+  optical_specs?: Prisma.optical_specsUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersUncheckedUpdateWithoutEnvironmental_specsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  manufacturer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  optical_specs?: Prisma.optical_specsUncheckedUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersCreateWithoutPulse_specsInput = {
+  model_name: string
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsCreateNestedOneWithoutLaserInput
+  manufacturer: Prisma.manufacturersCreateNestedOneWithoutLasersInput
+  optical_specs?: Prisma.optical_specsCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsCreateNestedOneWithoutLaserInput
+}
+
+export type lasersUncheckedCreateWithoutPulse_specsInput = {
+  id?: number
+  model_name: string
+  manufacturer_id: number
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+  optical_specs?: Prisma.optical_specsUncheckedCreateNestedOneWithoutLaserInput
+  stability_specs?: Prisma.stability_specsUncheckedCreateNestedOneWithoutLaserInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
+}
+
+export type lasersCreateOrConnectWithoutPulse_specsInput = {
+  where: Prisma.lasersWhereUniqueInput
+  create: Prisma.XOR<Prisma.lasersCreateWithoutPulse_specsInput, Prisma.lasersUncheckedCreateWithoutPulse_specsInput>
+}
+
+export type lasersUpsertWithoutPulse_specsInput = {
+  update: Prisma.XOR<Prisma.lasersUpdateWithoutPulse_specsInput, Prisma.lasersUncheckedUpdateWithoutPulse_specsInput>
+  create: Prisma.XOR<Prisma.lasersCreateWithoutPulse_specsInput, Prisma.lasersUncheckedCreateWithoutPulse_specsInput>
+  where?: Prisma.lasersWhereInput
+}
+
+export type lasersUpdateToOneWithWhereWithoutPulse_specsInput = {
+  where?: Prisma.lasersWhereInput
+  data: Prisma.XOR<Prisma.lasersUpdateWithoutPulse_specsInput, Prisma.lasersUncheckedUpdateWithoutPulse_specsInput>
+}
+
+export type lasersUpdateWithoutPulse_specsInput = {
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUpdateOneWithoutLaserNestedInput
+  manufacturer?: Prisma.manufacturersUpdateOneRequiredWithoutLasersNestedInput
+  optical_specs?: Prisma.optical_specsUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUpdateOneWithoutLaserNestedInput
+}
+
+export type lasersUncheckedUpdateWithoutPulse_specsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  model_name?: Prisma.StringFieldUpdateOperationsInput | string
+  manufacturer_id?: Prisma.IntFieldUpdateOperationsInput | number
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+  optical_specs?: Prisma.optical_specsUncheckedUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
 }
 
 export type lasersCreateManyManufacturerInput = {
   id?: number
   model_name: string
-  wavelength_min_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm: runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: string | null
-  pulse_width_ns: runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz: runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2: runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: string | null
-  cooling?: string | null
   notes?: string | null
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  application?: string | null
+  cooling_method?: string | null
+  is_single_mode: boolean
+  laser_type: string
+  modulation_type: string
+  power_consumption_w?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type lasersUpdateWithoutManufacturerInput = {
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  applications?: Prisma.laser_applicationsUpdateManyWithoutLaserNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUpdateOneWithoutLaserNestedInput
+  optical_specs?: Prisma.optical_specsUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUpdateOneWithoutLaserNestedInput
 }
 
 export type lasersUncheckedUpdateWithoutManufacturerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  applications?: Prisma.laser_applicationsUncheckedUpdateManyWithoutLaserNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  environmental_specs?: Prisma.environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+  optical_specs?: Prisma.optical_specsUncheckedUpdateOneWithoutLaserNestedInput
+  pulse_specs?: Prisma.pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+  stability_specs?: Prisma.stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+  wavelength_specs?: Prisma.wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
 }
 
 export type lasersUncheckedUpdateManyWithoutManufacturerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   model_name?: Prisma.StringFieldUpdateOperationsInput | string
-  wavelength_min_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_max_nm?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  wavelength_nominal_nm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  power_mw?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  pulse_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pulse_width_ns?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  rep_rate_hz?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  beam_quality_m2?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  diode_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cooling?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  application?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cooling_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_single_mode?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  laser_type?: Prisma.StringFieldUpdateOperationsInput | string
+  modulation_type?: Prisma.StringFieldUpdateOperationsInput | string
+  power_consumption_w?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  power_output_w?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-
-/**
- * Count Type LasersCountOutputType
- */
-
-export type LasersCountOutputType = {
-  applications: number
-}
-
-export type LasersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  applications?: boolean | LasersCountOutputTypeCountApplicationsArgs
-}
-
-/**
- * LasersCountOutputType without action
- */
-export type LasersCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the LasersCountOutputType
-   */
-  select?: Prisma.LasersCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * LasersCountOutputType without action
- */
-export type LasersCountOutputTypeCountApplicationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.laser_applicationsWhereInput
-}
 
 
 export type lasersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   model_name?: boolean
   manufacturer_id?: boolean
-  wavelength_min_nm?: boolean
-  wavelength_max_nm?: boolean
-  wavelength_nominal_nm?: boolean
-  power_mw?: boolean
-  pulse_type?: boolean
-  pulse_width_ns?: boolean
-  rep_rate_hz?: boolean
-  beam_quality_m2?: boolean
-  diode_type?: boolean
-  cooling?: boolean
   notes?: boolean
   created_at?: boolean
   updated_at?: boolean
+  application?: boolean
+  cooling_method?: boolean
+  is_single_mode?: boolean
+  laser_type?: boolean
+  modulation_type?: boolean
+  power_consumption_w?: boolean
+  power_output_w?: boolean
+  environmental_specs?: boolean | Prisma.lasers$environmental_specsArgs<ExtArgs>
   manufacturer?: boolean | Prisma.manufacturersDefaultArgs<ExtArgs>
-  applications?: boolean | Prisma.lasers$applicationsArgs<ExtArgs>
-  _count?: boolean | Prisma.LasersCountOutputTypeDefaultArgs<ExtArgs>
+  optical_specs?: boolean | Prisma.lasers$optical_specsArgs<ExtArgs>
+  pulse_specs?: boolean | Prisma.lasers$pulse_specsArgs<ExtArgs>
+  stability_specs?: boolean | Prisma.lasers$stability_specsArgs<ExtArgs>
+  wavelength_specs?: boolean | Prisma.lasers$wavelength_specsArgs<ExtArgs>
 }, ExtArgs["result"]["lasers"]>
 
 export type lasersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   model_name?: boolean
   manufacturer_id?: boolean
-  wavelength_min_nm?: boolean
-  wavelength_max_nm?: boolean
-  wavelength_nominal_nm?: boolean
-  power_mw?: boolean
-  pulse_type?: boolean
-  pulse_width_ns?: boolean
-  rep_rate_hz?: boolean
-  beam_quality_m2?: boolean
-  diode_type?: boolean
-  cooling?: boolean
   notes?: boolean
   created_at?: boolean
   updated_at?: boolean
+  application?: boolean
+  cooling_method?: boolean
+  is_single_mode?: boolean
+  laser_type?: boolean
+  modulation_type?: boolean
+  power_consumption_w?: boolean
+  power_output_w?: boolean
   manufacturer?: boolean | Prisma.manufacturersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lasers"]>
 
@@ -1057,19 +1392,16 @@ export type lasersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   id?: boolean
   model_name?: boolean
   manufacturer_id?: boolean
-  wavelength_min_nm?: boolean
-  wavelength_max_nm?: boolean
-  wavelength_nominal_nm?: boolean
-  power_mw?: boolean
-  pulse_type?: boolean
-  pulse_width_ns?: boolean
-  rep_rate_hz?: boolean
-  beam_quality_m2?: boolean
-  diode_type?: boolean
-  cooling?: boolean
   notes?: boolean
   created_at?: boolean
   updated_at?: boolean
+  application?: boolean
+  cooling_method?: boolean
+  is_single_mode?: boolean
+  laser_type?: boolean
+  modulation_type?: boolean
+  power_consumption_w?: boolean
+  power_output_w?: boolean
   manufacturer?: boolean | Prisma.manufacturersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lasers"]>
 
@@ -1077,26 +1409,26 @@ export type lasersSelectScalar = {
   id?: boolean
   model_name?: boolean
   manufacturer_id?: boolean
-  wavelength_min_nm?: boolean
-  wavelength_max_nm?: boolean
-  wavelength_nominal_nm?: boolean
-  power_mw?: boolean
-  pulse_type?: boolean
-  pulse_width_ns?: boolean
-  rep_rate_hz?: boolean
-  beam_quality_m2?: boolean
-  diode_type?: boolean
-  cooling?: boolean
   notes?: boolean
   created_at?: boolean
   updated_at?: boolean
+  application?: boolean
+  cooling_method?: boolean
+  is_single_mode?: boolean
+  laser_type?: boolean
+  modulation_type?: boolean
+  power_consumption_w?: boolean
+  power_output_w?: boolean
 }
 
-export type lasersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "model_name" | "manufacturer_id" | "wavelength_min_nm" | "wavelength_max_nm" | "wavelength_nominal_nm" | "power_mw" | "pulse_type" | "pulse_width_ns" | "rep_rate_hz" | "beam_quality_m2" | "diode_type" | "cooling" | "notes" | "created_at" | "updated_at", ExtArgs["result"]["lasers"]>
+export type lasersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "model_name" | "manufacturer_id" | "notes" | "created_at" | "updated_at" | "application" | "cooling_method" | "is_single_mode" | "laser_type" | "modulation_type" | "power_consumption_w" | "power_output_w", ExtArgs["result"]["lasers"]>
 export type lasersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  environmental_specs?: boolean | Prisma.lasers$environmental_specsArgs<ExtArgs>
   manufacturer?: boolean | Prisma.manufacturersDefaultArgs<ExtArgs>
-  applications?: boolean | Prisma.lasers$applicationsArgs<ExtArgs>
-  _count?: boolean | Prisma.LasersCountOutputTypeDefaultArgs<ExtArgs>
+  optical_specs?: boolean | Prisma.lasers$optical_specsArgs<ExtArgs>
+  pulse_specs?: boolean | Prisma.lasers$pulse_specsArgs<ExtArgs>
+  stability_specs?: boolean | Prisma.lasers$stability_specsArgs<ExtArgs>
+  wavelength_specs?: boolean | Prisma.lasers$wavelength_specsArgs<ExtArgs>
 }
 export type lasersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   manufacturer?: boolean | Prisma.manufacturersDefaultArgs<ExtArgs>
@@ -1108,26 +1440,27 @@ export type lasersIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type $lasersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "lasers"
   objects: {
+    environmental_specs: Prisma.$environmental_specsPayload<ExtArgs> | null
     manufacturer: Prisma.$manufacturersPayload<ExtArgs>
-    applications: Prisma.$laser_applicationsPayload<ExtArgs>[]
+    optical_specs: Prisma.$optical_specsPayload<ExtArgs> | null
+    pulse_specs: Prisma.$pulse_specsPayload<ExtArgs> | null
+    stability_specs: Prisma.$stability_specsPayload<ExtArgs> | null
+    wavelength_specs: Prisma.$wavelength_specsPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     model_name: string
     manufacturer_id: number
-    wavelength_min_nm: runtime.Decimal
-    wavelength_max_nm: runtime.Decimal
-    wavelength_nominal_nm: runtime.Decimal | null
-    power_mw: runtime.Decimal | null
-    pulse_type: string | null
-    pulse_width_ns: runtime.Decimal
-    rep_rate_hz: runtime.Decimal
-    beam_quality_m2: runtime.Decimal
-    diode_type: string | null
-    cooling: string | null
     notes: string | null
-    created_at: Date
-    updated_at: Date
+    created_at: Date | null
+    updated_at: Date | null
+    application: string | null
+    cooling_method: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w: runtime.Decimal | null
+    power_output_w: runtime.Decimal
   }, ExtArgs["result"]["lasers"]>
   composites: {}
 }
@@ -1522,8 +1855,12 @@ readonly fields: lasersFieldRefs;
  */
 export interface Prisma__lasersClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  environmental_specs<T extends Prisma.lasers$environmental_specsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.lasers$environmental_specsArgs<ExtArgs>>): Prisma.Prisma__environmental_specsClient<runtime.Types.Result.GetResult<Prisma.$environmental_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   manufacturer<T extends Prisma.manufacturersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.manufacturersDefaultArgs<ExtArgs>>): Prisma.Prisma__manufacturersClient<runtime.Types.Result.GetResult<Prisma.$manufacturersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  applications<T extends Prisma.lasers$applicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.lasers$applicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$laser_applicationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  optical_specs<T extends Prisma.lasers$optical_specsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.lasers$optical_specsArgs<ExtArgs>>): Prisma.Prisma__optical_specsClient<runtime.Types.Result.GetResult<Prisma.$optical_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  pulse_specs<T extends Prisma.lasers$pulse_specsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.lasers$pulse_specsArgs<ExtArgs>>): Prisma.Prisma__pulse_specsClient<runtime.Types.Result.GetResult<Prisma.$pulse_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  stability_specs<T extends Prisma.lasers$stability_specsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.lasers$stability_specsArgs<ExtArgs>>): Prisma.Prisma__stability_specsClient<runtime.Types.Result.GetResult<Prisma.$stability_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  wavelength_specs<T extends Prisma.lasers$wavelength_specsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.lasers$wavelength_specsArgs<ExtArgs>>): Prisma.Prisma__wavelength_specsClient<runtime.Types.Result.GetResult<Prisma.$wavelength_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1556,19 +1893,16 @@ export interface lasersFieldRefs {
   readonly id: Prisma.FieldRef<"lasers", 'Int'>
   readonly model_name: Prisma.FieldRef<"lasers", 'String'>
   readonly manufacturer_id: Prisma.FieldRef<"lasers", 'Int'>
-  readonly wavelength_min_nm: Prisma.FieldRef<"lasers", 'Decimal'>
-  readonly wavelength_max_nm: Prisma.FieldRef<"lasers", 'Decimal'>
-  readonly wavelength_nominal_nm: Prisma.FieldRef<"lasers", 'Decimal'>
-  readonly power_mw: Prisma.FieldRef<"lasers", 'Decimal'>
-  readonly pulse_type: Prisma.FieldRef<"lasers", 'String'>
-  readonly pulse_width_ns: Prisma.FieldRef<"lasers", 'Decimal'>
-  readonly rep_rate_hz: Prisma.FieldRef<"lasers", 'Decimal'>
-  readonly beam_quality_m2: Prisma.FieldRef<"lasers", 'Decimal'>
-  readonly diode_type: Prisma.FieldRef<"lasers", 'String'>
-  readonly cooling: Prisma.FieldRef<"lasers", 'String'>
   readonly notes: Prisma.FieldRef<"lasers", 'String'>
   readonly created_at: Prisma.FieldRef<"lasers", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"lasers", 'DateTime'>
+  readonly application: Prisma.FieldRef<"lasers", 'String'>
+  readonly cooling_method: Prisma.FieldRef<"lasers", 'String'>
+  readonly is_single_mode: Prisma.FieldRef<"lasers", 'Boolean'>
+  readonly laser_type: Prisma.FieldRef<"lasers", 'String'>
+  readonly modulation_type: Prisma.FieldRef<"lasers", 'String'>
+  readonly power_consumption_w: Prisma.FieldRef<"lasers", 'Decimal'>
+  readonly power_output_w: Prisma.FieldRef<"lasers", 'Decimal'>
 }
     
 
@@ -1965,27 +2299,98 @@ export type lasersDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
- * lasers.applications
+ * lasers.environmental_specs
  */
-export type lasers$applicationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type lasers$environmental_specsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the laser_applications
+   * Select specific fields to fetch from the environmental_specs
    */
-  select?: Prisma.laser_applicationsSelect<ExtArgs> | null
+  select?: Prisma.environmental_specsSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the laser_applications
+   * Omit specific fields from the environmental_specs
    */
-  omit?: Prisma.laser_applicationsOmit<ExtArgs> | null
+  omit?: Prisma.environmental_specsOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.laser_applicationsInclude<ExtArgs> | null
-  where?: Prisma.laser_applicationsWhereInput
-  orderBy?: Prisma.laser_applicationsOrderByWithRelationInput | Prisma.laser_applicationsOrderByWithRelationInput[]
-  cursor?: Prisma.laser_applicationsWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.Laser_applicationsScalarFieldEnum | Prisma.Laser_applicationsScalarFieldEnum[]
+  include?: Prisma.environmental_specsInclude<ExtArgs> | null
+  where?: Prisma.environmental_specsWhereInput
+}
+
+/**
+ * lasers.optical_specs
+ */
+export type lasers$optical_specsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the optical_specs
+   */
+  select?: Prisma.optical_specsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the optical_specs
+   */
+  omit?: Prisma.optical_specsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.optical_specsInclude<ExtArgs> | null
+  where?: Prisma.optical_specsWhereInput
+}
+
+/**
+ * lasers.pulse_specs
+ */
+export type lasers$pulse_specsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the pulse_specs
+   */
+  select?: Prisma.pulse_specsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the pulse_specs
+   */
+  omit?: Prisma.pulse_specsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pulse_specsInclude<ExtArgs> | null
+  where?: Prisma.pulse_specsWhereInput
+}
+
+/**
+ * lasers.stability_specs
+ */
+export type lasers$stability_specsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the stability_specs
+   */
+  select?: Prisma.stability_specsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the stability_specs
+   */
+  omit?: Prisma.stability_specsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.stability_specsInclude<ExtArgs> | null
+  where?: Prisma.stability_specsWhereInput
+}
+
+/**
+ * lasers.wavelength_specs
+ */
+export type lasers$wavelength_specsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the wavelength_specs
+   */
+  select?: Prisma.wavelength_specsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the wavelength_specs
+   */
+  omit?: Prisma.wavelength_specsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.wavelength_specsInclude<ExtArgs> | null
+  where?: Prisma.wavelength_specsWhereInput
 }
 
 /**

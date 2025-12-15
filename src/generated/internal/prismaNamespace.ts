@@ -392,8 +392,11 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   manufacturers: 'manufacturers',
   lasers: 'lasers',
-  application_categories: 'application_categories',
-  laser_applications: 'laser_applications',
+  wavelength_specs: 'wavelength_specs',
+  optical_specs: 'optical_specs',
+  stability_specs: 'stability_specs',
+  environmental_specs: 'environmental_specs',
+  pulse_specs: 'pulse_specs',
   users: 'users',
   access_codes: 'access_codes',
   audit_log: 'audit_log',
@@ -414,7 +417,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "manufacturers" | "lasers" | "application_categories" | "laser_applications" | "users" | "access_codes" | "audit_log" | "pending_actions" | "rollback_history"
+    modelProps: "manufacturers" | "lasers" | "wavelength_specs" | "optical_specs" | "stability_specs" | "environmental_specs" | "pulse_specs" | "users" | "access_codes" | "audit_log" | "pending_actions" | "rollback_history"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -566,151 +569,373 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    application_categories: {
-      payload: Prisma.$application_categoriesPayload<ExtArgs>
-      fields: Prisma.application_categoriesFieldRefs
+    wavelength_specs: {
+      payload: Prisma.$wavelength_specsPayload<ExtArgs>
+      fields: Prisma.wavelength_specsFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.application_categoriesFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload> | null
+          args: Prisma.wavelength_specsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.application_categoriesFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>
+          args: Prisma.wavelength_specsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>
         }
         findFirst: {
-          args: Prisma.application_categoriesFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload> | null
+          args: Prisma.wavelength_specsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.application_categoriesFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>
+          args: Prisma.wavelength_specsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>
         }
         findMany: {
-          args: Prisma.application_categoriesFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>[]
+          args: Prisma.wavelength_specsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>[]
         }
         create: {
-          args: Prisma.application_categoriesCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>
+          args: Prisma.wavelength_specsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>
         }
         createMany: {
-          args: Prisma.application_categoriesCreateManyArgs<ExtArgs>
+          args: Prisma.wavelength_specsCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.application_categoriesCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>[]
+          args: Prisma.wavelength_specsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>[]
         }
         delete: {
-          args: Prisma.application_categoriesDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>
+          args: Prisma.wavelength_specsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>
         }
         update: {
-          args: Prisma.application_categoriesUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>
+          args: Prisma.wavelength_specsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>
         }
         deleteMany: {
-          args: Prisma.application_categoriesDeleteManyArgs<ExtArgs>
+          args: Prisma.wavelength_specsDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.application_categoriesUpdateManyArgs<ExtArgs>
+          args: Prisma.wavelength_specsUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.application_categoriesUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>[]
+          args: Prisma.wavelength_specsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>[]
         }
         upsert: {
-          args: Prisma.application_categoriesUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$application_categoriesPayload>
+          args: Prisma.wavelength_specsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$wavelength_specsPayload>
         }
         aggregate: {
-          args: Prisma.Application_categoriesAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateApplication_categories>
+          args: Prisma.Wavelength_specsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWavelength_specs>
         }
         groupBy: {
-          args: Prisma.application_categoriesGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Application_categoriesGroupByOutputType>[]
+          args: Prisma.wavelength_specsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Wavelength_specsGroupByOutputType>[]
         }
         count: {
-          args: Prisma.application_categoriesCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Application_categoriesCountAggregateOutputType> | number
+          args: Prisma.wavelength_specsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Wavelength_specsCountAggregateOutputType> | number
         }
       }
     }
-    laser_applications: {
-      payload: Prisma.$laser_applicationsPayload<ExtArgs>
-      fields: Prisma.laser_applicationsFieldRefs
+    optical_specs: {
+      payload: Prisma.$optical_specsPayload<ExtArgs>
+      fields: Prisma.optical_specsFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.laser_applicationsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload> | null
+          args: Prisma.optical_specsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.laser_applicationsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>
+          args: Prisma.optical_specsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>
         }
         findFirst: {
-          args: Prisma.laser_applicationsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload> | null
+          args: Prisma.optical_specsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.laser_applicationsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>
+          args: Prisma.optical_specsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>
         }
         findMany: {
-          args: Prisma.laser_applicationsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>[]
+          args: Prisma.optical_specsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>[]
         }
         create: {
-          args: Prisma.laser_applicationsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>
+          args: Prisma.optical_specsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>
         }
         createMany: {
-          args: Prisma.laser_applicationsCreateManyArgs<ExtArgs>
+          args: Prisma.optical_specsCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.laser_applicationsCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>[]
+          args: Prisma.optical_specsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>[]
         }
         delete: {
-          args: Prisma.laser_applicationsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>
+          args: Prisma.optical_specsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>
         }
         update: {
-          args: Prisma.laser_applicationsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>
+          args: Prisma.optical_specsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>
         }
         deleteMany: {
-          args: Prisma.laser_applicationsDeleteManyArgs<ExtArgs>
+          args: Prisma.optical_specsDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.laser_applicationsUpdateManyArgs<ExtArgs>
+          args: Prisma.optical_specsUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.laser_applicationsUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>[]
+          args: Prisma.optical_specsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>[]
         }
         upsert: {
-          args: Prisma.laser_applicationsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$laser_applicationsPayload>
+          args: Prisma.optical_specsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$optical_specsPayload>
         }
         aggregate: {
-          args: Prisma.Laser_applicationsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateLaser_applications>
+          args: Prisma.Optical_specsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOptical_specs>
         }
         groupBy: {
-          args: Prisma.laser_applicationsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Laser_applicationsGroupByOutputType>[]
+          args: Prisma.optical_specsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Optical_specsGroupByOutputType>[]
         }
         count: {
-          args: Prisma.laser_applicationsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Laser_applicationsCountAggregateOutputType> | number
+          args: Prisma.optical_specsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Optical_specsCountAggregateOutputType> | number
+        }
+      }
+    }
+    stability_specs: {
+      payload: Prisma.$stability_specsPayload<ExtArgs>
+      fields: Prisma.stability_specsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.stability_specsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.stability_specsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>
+        }
+        findFirst: {
+          args: Prisma.stability_specsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.stability_specsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>
+        }
+        findMany: {
+          args: Prisma.stability_specsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>[]
+        }
+        create: {
+          args: Prisma.stability_specsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>
+        }
+        createMany: {
+          args: Prisma.stability_specsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.stability_specsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>[]
+        }
+        delete: {
+          args: Prisma.stability_specsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>
+        }
+        update: {
+          args: Prisma.stability_specsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>
+        }
+        deleteMany: {
+          args: Prisma.stability_specsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.stability_specsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.stability_specsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>[]
+        }
+        upsert: {
+          args: Prisma.stability_specsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$stability_specsPayload>
+        }
+        aggregate: {
+          args: Prisma.Stability_specsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStability_specs>
+        }
+        groupBy: {
+          args: Prisma.stability_specsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Stability_specsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.stability_specsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Stability_specsCountAggregateOutputType> | number
+        }
+      }
+    }
+    environmental_specs: {
+      payload: Prisma.$environmental_specsPayload<ExtArgs>
+      fields: Prisma.environmental_specsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.environmental_specsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.environmental_specsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>
+        }
+        findFirst: {
+          args: Prisma.environmental_specsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.environmental_specsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>
+        }
+        findMany: {
+          args: Prisma.environmental_specsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>[]
+        }
+        create: {
+          args: Prisma.environmental_specsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>
+        }
+        createMany: {
+          args: Prisma.environmental_specsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.environmental_specsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>[]
+        }
+        delete: {
+          args: Prisma.environmental_specsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>
+        }
+        update: {
+          args: Prisma.environmental_specsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>
+        }
+        deleteMany: {
+          args: Prisma.environmental_specsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.environmental_specsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.environmental_specsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>[]
+        }
+        upsert: {
+          args: Prisma.environmental_specsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$environmental_specsPayload>
+        }
+        aggregate: {
+          args: Prisma.Environmental_specsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnvironmental_specs>
+        }
+        groupBy: {
+          args: Prisma.environmental_specsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Environmental_specsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.environmental_specsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Environmental_specsCountAggregateOutputType> | number
+        }
+      }
+    }
+    pulse_specs: {
+      payload: Prisma.$pulse_specsPayload<ExtArgs>
+      fields: Prisma.pulse_specsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.pulse_specsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.pulse_specsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>
+        }
+        findFirst: {
+          args: Prisma.pulse_specsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.pulse_specsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>
+        }
+        findMany: {
+          args: Prisma.pulse_specsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>[]
+        }
+        create: {
+          args: Prisma.pulse_specsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>
+        }
+        createMany: {
+          args: Prisma.pulse_specsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.pulse_specsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>[]
+        }
+        delete: {
+          args: Prisma.pulse_specsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>
+        }
+        update: {
+          args: Prisma.pulse_specsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>
+        }
+        deleteMany: {
+          args: Prisma.pulse_specsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.pulse_specsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.pulse_specsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>[]
+        }
+        upsert: {
+          args: Prisma.pulse_specsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$pulse_specsPayload>
+        }
+        aggregate: {
+          args: Prisma.Pulse_specsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePulse_specs>
+        }
+        groupBy: {
+          args: Prisma.pulse_specsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Pulse_specsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.pulse_specsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Pulse_specsCountAggregateOutputType> | number
         }
       }
     }
@@ -1128,7 +1353,9 @@ export const ManufacturersScalarFieldEnum = {
   name: 'name',
   country: 'country',
   website: 'website',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  contact_email: 'contact_email',
+  updated_at: 'updated_at'
 } as const
 
 export type ManufacturersScalarFieldEnum = (typeof ManufacturersScalarFieldEnum)[keyof typeof ManufacturersScalarFieldEnum]
@@ -1138,42 +1365,93 @@ export const LasersScalarFieldEnum = {
   id: 'id',
   model_name: 'model_name',
   manufacturer_id: 'manufacturer_id',
-  wavelength_min_nm: 'wavelength_min_nm',
-  wavelength_max_nm: 'wavelength_max_nm',
-  wavelength_nominal_nm: 'wavelength_nominal_nm',
-  power_mw: 'power_mw',
-  pulse_type: 'pulse_type',
-  pulse_width_ns: 'pulse_width_ns',
-  rep_rate_hz: 'rep_rate_hz',
-  beam_quality_m2: 'beam_quality_m2',
-  diode_type: 'diode_type',
-  cooling: 'cooling',
   notes: 'notes',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  application: 'application',
+  cooling_method: 'cooling_method',
+  is_single_mode: 'is_single_mode',
+  laser_type: 'laser_type',
+  modulation_type: 'modulation_type',
+  power_consumption_w: 'power_consumption_w',
+  power_output_w: 'power_output_w'
 } as const
 
 export type LasersScalarFieldEnum = (typeof LasersScalarFieldEnum)[keyof typeof LasersScalarFieldEnum]
 
 
-export const Application_categoriesScalarFieldEnum = {
+export const Wavelength_specsScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  description: 'description',
-  created_at: 'created_at'
-} as const
-
-export type Application_categoriesScalarFieldEnum = (typeof Application_categoriesScalarFieldEnum)[keyof typeof Application_categoriesScalarFieldEnum]
-
-
-export const Laser_applicationsScalarFieldEnum = {
   laser_id: 'laser_id',
-  category_id: 'category_id',
-  notes: 'notes',
+  wavelength_base_nm: 'wavelength_base_nm',
+  wavelength_tolerance_nm: 'wavelength_tolerance_nm',
+  bandwidth_nm: 'bandwidth_nm',
+  fwhm_nm: 'fwhm_nm',
+  wavelength_stability_nm_per_c: 'wavelength_stability_nm_per_c',
+  wavelength_tuning_range: 'wavelength_tuning_range',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Wavelength_specsScalarFieldEnum = (typeof Wavelength_specsScalarFieldEnum)[keyof typeof Wavelength_specsScalarFieldEnum]
+
+
+export const Optical_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  beam_divergence_mrad: 'beam_divergence_mrad',
+  beam_quality_m2: 'beam_quality_m2',
+  aperture_mm: 'aperture_mm',
+  numerical_aperture: 'numerical_aperture',
+  polarization: 'polarization',
+  polarization_ratio_db: 'polarization_ratio_db',
   created_at: 'created_at'
 } as const
 
-export type Laser_applicationsScalarFieldEnum = (typeof Laser_applicationsScalarFieldEnum)[keyof typeof Laser_applicationsScalarFieldEnum]
+export type Optical_specsScalarFieldEnum = (typeof Optical_specsScalarFieldEnum)[keyof typeof Optical_specsScalarFieldEnum]
+
+
+export const Stability_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  power_stability_percent: 'power_stability_percent',
+  pointing_stability_urad: 'pointing_stability_urad',
+  temperature_stability_c: 'temperature_stability_c',
+  warmup_time_min: 'warmup_time_min',
+  created_at: 'created_at'
+} as const
+
+export type Stability_specsScalarFieldEnum = (typeof Stability_specsScalarFieldEnum)[keyof typeof Stability_specsScalarFieldEnum]
+
+
+export const Environmental_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  operating_temp_min_c: 'operating_temp_min_c',
+  operating_temp_max_c: 'operating_temp_max_c',
+  storage_temp_min_c: 'storage_temp_min_c',
+  storage_temp_max_c: 'storage_temp_max_c',
+  humidity_max_percent: 'humidity_max_percent',
+  protection_class: 'protection_class',
+  created_at: 'created_at'
+} as const
+
+export type Environmental_specsScalarFieldEnum = (typeof Environmental_specsScalarFieldEnum)[keyof typeof Environmental_specsScalarFieldEnum]
+
+
+export const Pulse_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  pulse_width_ns: 'pulse_width_ns',
+  pulse_energy_j: 'pulse_energy_j',
+  rep_rate_hz: 'rep_rate_hz',
+  duty_cycle_percent: 'duty_cycle_percent',
+  rise_time_ns: 'rise_time_ns',
+  fall_time_ns: 'fall_time_ns',
+  created_at: 'created_at'
+} as const
+
+export type Pulse_specsScalarFieldEnum = (typeof Pulse_specsScalarFieldEnum)[keyof typeof Pulse_specsScalarFieldEnum]
 
 
 export const UsersScalarFieldEnum = {
@@ -1181,11 +1459,11 @@ export const UsersScalarFieldEnum = {
   email: 'email',
   password_hash: 'password_hash',
   name: 'name',
-  role: 'role',
   is_active: 'is_active',
   created_at: 'created_at',
   updated_at: 'updated_at',
-  last_login: 'last_login'
+  last_login: 'last_login',
+  role: 'role'
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
@@ -1195,14 +1473,14 @@ export const Access_codesScalarFieldEnum = {
   id: 'id',
   code_hash: 'code_hash',
   color_code: 'color_code',
-  role: 'role',
   created_by: 'created_by',
   expires_at: 'expires_at',
   max_uses: 'max_uses',
   current_uses: 'current_uses',
   is_active: 'is_active',
   notes: 'notes',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  role: 'role'
 } as const
 
 export type Access_codesScalarFieldEnum = (typeof Access_codesScalarFieldEnum)[keyof typeof Access_codesScalarFieldEnum]
@@ -1213,13 +1491,11 @@ export const Audit_logScalarFieldEnum = {
   user_id: 'user_id',
   table_name: 'table_name',
   record_id: 'record_id',
-  action: 'action',
   old_data: 'old_data',
   new_data: 'new_data',
-  changed_fields: 'changed_fields',
   ip_address: 'ip_address',
-  user_agent: 'user_agent',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  action: 'action'
 } as const
 
 export type Audit_logScalarFieldEnum = (typeof Audit_logScalarFieldEnum)[keyof typeof Audit_logScalarFieldEnum]
@@ -1227,18 +1503,18 @@ export type Audit_logScalarFieldEnum = (typeof Audit_logScalarFieldEnum)[keyof t
 
 export const Pending_actionsScalarFieldEnum = {
   id: 'id',
-  action_type: 'action_type',
   initiated_by: 'initiated_by',
   target_table: 'target_table',
   target_record_id: 'target_record_id',
   action_data: 'action_data',
   reason: 'reason',
-  status: 'status',
   expires_at: 'expires_at',
   approved_by: 'approved_by',
   approved_at: 'approved_at',
   completed_at: 'completed_at',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  action_type: 'action_type',
+  status: 'status'
 } as const
 
 export type Pending_actionsScalarFieldEnum = (typeof Pending_actionsScalarFieldEnum)[keyof typeof Pending_actionsScalarFieldEnum]
@@ -1247,12 +1523,11 @@ export type Pending_actionsScalarFieldEnum = (typeof Pending_actionsScalarFieldE
 export const Rollback_historyScalarFieldEnum = {
   id: 'id',
   audit_log_id: 'audit_log_id',
-  pending_action_id: 'pending_action_id',
   initiated_by: 'initiated_by',
   approved_by: 'approved_by',
-  status: 'status',
   error_message: 'error_message',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  status: 'status'
 } as const
 
 export type Rollback_historyScalarFieldEnum = (typeof Rollback_historyScalarFieldEnum)[keyof typeof Rollback_historyScalarFieldEnum]
@@ -1272,13 +1547,6 @@ export const NullableJsonNullValueInput = {
 } as const
 
 export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
-
-
-export const JsonNullValueInput = {
-  JsonNull: JsonNull
-} as const
-
-export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {
@@ -1355,6 +1623,13 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
  * Reference to a field of type 'Decimal'
  */
 export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
@@ -1369,41 +1644,6 @@ export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMo
 
 
 /**
- * Reference to a field of type 'UserRole'
- */
-export type EnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole'>
-    
-
-
-/**
- * Reference to a field of type 'UserRole[]'
- */
-export type ListEnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole[]'>
-    
-
-
-/**
- * Reference to a field of type 'Boolean'
- */
-export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-/**
- * Reference to a field of type 'AuditAction'
- */
-export type EnumAuditActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuditAction'>
-    
-
-
-/**
- * Reference to a field of type 'AuditAction[]'
- */
-export type ListEnumAuditActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuditAction[]'>
-    
-
-
-/**
  * Reference to a field of type 'Json'
  */
 export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
@@ -1414,48 +1654,6 @@ export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'J
  * Reference to a field of type 'QueryMode'
  */
 export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-/**
- * Reference to a field of type 'ActionType'
- */
-export type EnumActionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActionType'>
-    
-
-
-/**
- * Reference to a field of type 'ActionType[]'
- */
-export type ListEnumActionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActionType[]'>
-    
-
-
-/**
- * Reference to a field of type 'ActionStatus'
- */
-export type EnumActionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActionStatus'>
-    
-
-
-/**
- * Reference to a field of type 'ActionStatus[]'
- */
-export type ListEnumActionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActionStatus[]'>
-    
-
-
-/**
- * Reference to a field of type 'RollbackStatus'
- */
-export type EnumRollbackStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RollbackStatus'>
-    
-
-
-/**
- * Reference to a field of type 'RollbackStatus[]'
- */
-export type ListEnumRollbackStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RollbackStatus[]'>
     
 
 
@@ -1561,8 +1759,11 @@ export interface PrismaClientOptions {
 export type GlobalOmitConfig = {
   manufacturers?: Prisma.manufacturersOmit
   lasers?: Prisma.lasersOmit
-  application_categories?: Prisma.application_categoriesOmit
-  laser_applications?: Prisma.laser_applicationsOmit
+  wavelength_specs?: Prisma.wavelength_specsOmit
+  optical_specs?: Prisma.optical_specsOmit
+  stability_specs?: Prisma.stability_specsOmit
+  environmental_specs?: Prisma.environmental_specsOmit
+  pulse_specs?: Prisma.pulse_specsOmit
   users?: Prisma.usersOmit
   access_codes?: Prisma.access_codesOmit
   audit_log?: Prisma.audit_logOmit

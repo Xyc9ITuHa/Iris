@@ -1,26 +1,25 @@
-import Link from "next/link";
-import LasersMenu from "@/app/components/modules/LaserMenu/LaserMenu";
+import LaserMenuWrapper from "@/app/components/modules/LaserMenu/LaserMenuWrapper";
+import CommandInput from "../components/modules/LaserMenu/parts/IRISqa/CommandInput";
 import styles from "./layout.module.sass";
 
-export default function LaserLayout({
+export default async function LaserLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <div className={styles.container}>
-            <div className={styles.menuContainer}>
-                <div className={styles.header}>
-                    <h1 className={styles.heading}>Laser Database</h1>
-                    <p className={styles.subheading}>Browse our collection of infrared lasers</p>
+        <div className={styles.wrapper}>
+            <CommandInput />
+            <div className={styles.container}>
+                <div className={styles.menuContainer}>
+                    <div className={styles.header}>
+                        <h1 className={styles.heading}>Laser Database</h1>
+                        <p className={styles.subheading}>Browse our collection of infrared lasers</p>
+                    </div>
+                    <div className={styles.menuSection}>
+                        <LaserMenuWrapper />
+                    </div>
                 </div>
-
-                <div className={styles.menuSection}>
-                    <LasersMenu limit={20} />
-                </div>
-            </div>
-
-            <div className={styles.childrenWrapper}>
                 {children}
             </div>
         </div>

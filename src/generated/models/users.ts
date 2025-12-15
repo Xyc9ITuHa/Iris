@@ -39,11 +39,11 @@ export type UsersMinAggregateOutputType = {
   email: string | null
   password_hash: string | null
   name: string | null
-  role: $Enums.UserRole | null
   is_active: boolean | null
   created_at: Date | null
   updated_at: Date | null
   last_login: Date | null
+  role: string | null
 }
 
 export type UsersMaxAggregateOutputType = {
@@ -51,11 +51,11 @@ export type UsersMaxAggregateOutputType = {
   email: string | null
   password_hash: string | null
   name: string | null
-  role: $Enums.UserRole | null
   is_active: boolean | null
   created_at: Date | null
   updated_at: Date | null
   last_login: Date | null
+  role: string | null
 }
 
 export type UsersCountAggregateOutputType = {
@@ -63,11 +63,11 @@ export type UsersCountAggregateOutputType = {
   email: number
   password_hash: number
   name: number
-  role: number
   is_active: number
   created_at: number
   updated_at: number
   last_login: number
+  role: number
   _all: number
 }
 
@@ -85,11 +85,11 @@ export type UsersMinAggregateInputType = {
   email?: true
   password_hash?: true
   name?: true
-  role?: true
   is_active?: true
   created_at?: true
   updated_at?: true
   last_login?: true
+  role?: true
 }
 
 export type UsersMaxAggregateInputType = {
@@ -97,11 +97,11 @@ export type UsersMaxAggregateInputType = {
   email?: true
   password_hash?: true
   name?: true
-  role?: true
   is_active?: true
   created_at?: true
   updated_at?: true
   last_login?: true
+  role?: true
 }
 
 export type UsersCountAggregateInputType = {
@@ -109,11 +109,11 @@ export type UsersCountAggregateInputType = {
   email?: true
   password_hash?: true
   name?: true
-  role?: true
   is_active?: true
   created_at?: true
   updated_at?: true
   last_login?: true
+  role?: true
   _all?: true
 }
 
@@ -208,11 +208,11 @@ export type UsersGroupByOutputType = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active: boolean
-  created_at: Date
-  updated_at: Date
+  created_at: Date | null
+  updated_at: Date | null
   last_login: Date | null
+  role: string
   _count: UsersCountAggregateOutputType | null
   _avg: UsersAvgAggregateOutputType | null
   _sum: UsersSumAggregateOutputType | null
@@ -243,17 +243,17 @@ export type usersWhereInput = {
   email?: Prisma.StringFilter<"users"> | string
   password_hash?: Prisma.StringFilter<"users"> | string
   name?: Prisma.StringFilter<"users"> | string
-  role?: Prisma.EnumUserRoleFilter<"users"> | $Enums.UserRole
   is_active?: Prisma.BoolFilter<"users"> | boolean
-  created_at?: Prisma.DateTimeFilter<"users"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"users"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
   last_login?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
-  audit_logs?: Prisma.Audit_logListRelationFilter
-  created_access_codes?: Prisma.Access_codesListRelationFilter
-  initiated_actions?: Prisma.Pending_actionsListRelationFilter
-  approved_actions?: Prisma.Pending_actionsListRelationFilter
-  initiated_rollbacks?: Prisma.Rollback_historyListRelationFilter
-  approved_rollbacks?: Prisma.Rollback_historyListRelationFilter
+  role?: Prisma.StringFilter<"users"> | string
+  access_codes?: Prisma.Access_codesListRelationFilter
+  audit_log?: Prisma.Audit_logListRelationFilter
+  pending_actions_approved?: Prisma.Pending_actionsListRelationFilter
+  pending_actions_initiated?: Prisma.Pending_actionsListRelationFilter
+  rollback_history_approved?: Prisma.Rollback_historyListRelationFilter
+  rollback_history_initiated?: Prisma.Rollback_historyListRelationFilter
 }
 
 export type usersOrderByWithRelationInput = {
@@ -261,17 +261,17 @@ export type usersOrderByWithRelationInput = {
   email?: Prisma.SortOrder
   password_hash?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   is_active?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
   last_login?: Prisma.SortOrderInput | Prisma.SortOrder
-  audit_logs?: Prisma.audit_logOrderByRelationAggregateInput
-  created_access_codes?: Prisma.access_codesOrderByRelationAggregateInput
-  initiated_actions?: Prisma.pending_actionsOrderByRelationAggregateInput
-  approved_actions?: Prisma.pending_actionsOrderByRelationAggregateInput
-  initiated_rollbacks?: Prisma.rollback_historyOrderByRelationAggregateInput
-  approved_rollbacks?: Prisma.rollback_historyOrderByRelationAggregateInput
+  role?: Prisma.SortOrder
+  access_codes?: Prisma.access_codesOrderByRelationAggregateInput
+  audit_log?: Prisma.audit_logOrderByRelationAggregateInput
+  pending_actions_approved?: Prisma.pending_actionsOrderByRelationAggregateInput
+  pending_actions_initiated?: Prisma.pending_actionsOrderByRelationAggregateInput
+  rollback_history_approved?: Prisma.rollback_historyOrderByRelationAggregateInput
+  rollback_history_initiated?: Prisma.rollback_historyOrderByRelationAggregateInput
 }
 
 export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -282,17 +282,17 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.usersWhereInput | Prisma.usersWhereInput[]
   password_hash?: Prisma.StringFilter<"users"> | string
   name?: Prisma.StringFilter<"users"> | string
-  role?: Prisma.EnumUserRoleFilter<"users"> | $Enums.UserRole
   is_active?: Prisma.BoolFilter<"users"> | boolean
-  created_at?: Prisma.DateTimeFilter<"users"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"users"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
   last_login?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
-  audit_logs?: Prisma.Audit_logListRelationFilter
-  created_access_codes?: Prisma.Access_codesListRelationFilter
-  initiated_actions?: Prisma.Pending_actionsListRelationFilter
-  approved_actions?: Prisma.Pending_actionsListRelationFilter
-  initiated_rollbacks?: Prisma.Rollback_historyListRelationFilter
-  approved_rollbacks?: Prisma.Rollback_historyListRelationFilter
+  role?: Prisma.StringFilter<"users"> | string
+  access_codes?: Prisma.Access_codesListRelationFilter
+  audit_log?: Prisma.Audit_logListRelationFilter
+  pending_actions_approved?: Prisma.Pending_actionsListRelationFilter
+  pending_actions_initiated?: Prisma.Pending_actionsListRelationFilter
+  rollback_history_approved?: Prisma.Rollback_historyListRelationFilter
+  rollback_history_initiated?: Prisma.Rollback_historyListRelationFilter
 }, "id" | "email">
 
 export type usersOrderByWithAggregationInput = {
@@ -300,11 +300,11 @@ export type usersOrderByWithAggregationInput = {
   email?: Prisma.SortOrder
   password_hash?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   is_active?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
   last_login?: Prisma.SortOrderInput | Prisma.SortOrder
+  role?: Prisma.SortOrder
   _count?: Prisma.usersCountOrderByAggregateInput
   _avg?: Prisma.usersAvgOrderByAggregateInput
   _max?: Prisma.usersMaxOrderByAggregateInput
@@ -320,28 +320,28 @@ export type usersScalarWhereWithAggregatesInput = {
   email?: Prisma.StringWithAggregatesFilter<"users"> | string
   password_hash?: Prisma.StringWithAggregatesFilter<"users"> | string
   name?: Prisma.StringWithAggregatesFilter<"users"> | string
-  role?: Prisma.EnumUserRoleWithAggregatesFilter<"users"> | $Enums.UserRole
   is_active?: Prisma.BoolWithAggregatesFilter<"users"> | boolean
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"users"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"users"> | Date | string
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
   last_login?: Prisma.DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
+  role?: Prisma.StringWithAggregatesFilter<"users"> | string
 }
 
 export type usersCreateInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
 }
 
 export type usersUncheckedCreateInput = {
@@ -349,34 +349,34 @@ export type usersUncheckedCreateInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
 }
 
 export type usersUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
 }
 
 export type usersUncheckedUpdateInput = {
@@ -384,17 +384,17 @@ export type usersUncheckedUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
 }
 
 export type usersCreateManyInput = {
@@ -402,22 +402,22 @@ export type usersCreateManyInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
+  role: string
 }
 
 export type usersUpdateManyMutationInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type usersUncheckedUpdateManyInput = {
@@ -425,11 +425,11 @@ export type usersUncheckedUpdateManyInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type usersCountOrderByAggregateInput = {
@@ -437,11 +437,11 @@ export type usersCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   password_hash?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   last_login?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type usersAvgOrderByAggregateInput = {
@@ -453,11 +453,11 @@ export type usersMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   password_hash?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   last_login?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type usersMinOrderByAggregateInput = {
@@ -465,11 +465,11 @@ export type usersMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   password_hash?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   is_active?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   last_login?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type usersSumOrderByAggregateInput = {
@@ -486,596 +486,586 @@ export type UsersNullableScalarRelationFilter = {
   isNot?: Prisma.usersWhereInput | null
 }
 
-export type EnumUserRoleFieldUpdateOperationsInput = {
-  set?: $Enums.UserRole
-}
-
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: Date | string | null
-}
-
-export type usersCreateNestedOneWithoutCreated_access_codesInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutCreated_access_codesInput, Prisma.usersUncheckedCreateWithoutCreated_access_codesInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutCreated_access_codesInput
+export type usersCreateNestedOneWithoutAccess_codesInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutAccess_codesInput, Prisma.usersUncheckedCreateWithoutAccess_codesInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAccess_codesInput
   connect?: Prisma.usersWhereUniqueInput
 }
 
-export type usersUpdateOneRequiredWithoutCreated_access_codesNestedInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutCreated_access_codesInput, Prisma.usersUncheckedCreateWithoutCreated_access_codesInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutCreated_access_codesInput
-  upsert?: Prisma.usersUpsertWithoutCreated_access_codesInput
+export type usersUpdateOneRequiredWithoutAccess_codesNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutAccess_codesInput, Prisma.usersUncheckedCreateWithoutAccess_codesInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAccess_codesInput
+  upsert?: Prisma.usersUpsertWithoutAccess_codesInput
   connect?: Prisma.usersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutCreated_access_codesInput, Prisma.usersUpdateWithoutCreated_access_codesInput>, Prisma.usersUncheckedUpdateWithoutCreated_access_codesInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutAccess_codesInput, Prisma.usersUpdateWithoutAccess_codesInput>, Prisma.usersUncheckedUpdateWithoutAccess_codesInput>
 }
 
-export type usersCreateNestedOneWithoutAudit_logsInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutAudit_logsInput, Prisma.usersUncheckedCreateWithoutAudit_logsInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAudit_logsInput
-  connect?: Prisma.usersWhereUniqueInput
-}
-
-export type usersUpdateOneRequiredWithoutAudit_logsNestedInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutAudit_logsInput, Prisma.usersUncheckedCreateWithoutAudit_logsInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAudit_logsInput
-  upsert?: Prisma.usersUpsertWithoutAudit_logsInput
-  connect?: Prisma.usersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutAudit_logsInput, Prisma.usersUpdateWithoutAudit_logsInput>, Prisma.usersUncheckedUpdateWithoutAudit_logsInput>
-}
-
-export type usersCreateNestedOneWithoutInitiated_actionsInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutInitiated_actionsInput, Prisma.usersUncheckedCreateWithoutInitiated_actionsInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutInitiated_actionsInput
+export type usersCreateNestedOneWithoutAudit_logInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutAudit_logInput, Prisma.usersUncheckedCreateWithoutAudit_logInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAudit_logInput
   connect?: Prisma.usersWhereUniqueInput
 }
 
-export type usersCreateNestedOneWithoutApproved_actionsInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutApproved_actionsInput, Prisma.usersUncheckedCreateWithoutApproved_actionsInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutApproved_actionsInput
-  connect?: Prisma.usersWhereUniqueInput
-}
-
-export type usersUpdateOneRequiredWithoutInitiated_actionsNestedInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutInitiated_actionsInput, Prisma.usersUncheckedCreateWithoutInitiated_actionsInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutInitiated_actionsInput
-  upsert?: Prisma.usersUpsertWithoutInitiated_actionsInput
-  connect?: Prisma.usersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutInitiated_actionsInput, Prisma.usersUpdateWithoutInitiated_actionsInput>, Prisma.usersUncheckedUpdateWithoutInitiated_actionsInput>
-}
-
-export type usersUpdateOneWithoutApproved_actionsNestedInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutApproved_actionsInput, Prisma.usersUncheckedCreateWithoutApproved_actionsInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutApproved_actionsInput
-  upsert?: Prisma.usersUpsertWithoutApproved_actionsInput
+export type usersUpdateOneWithoutAudit_logNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutAudit_logInput, Prisma.usersUncheckedCreateWithoutAudit_logInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAudit_logInput
+  upsert?: Prisma.usersUpsertWithoutAudit_logInput
   disconnect?: Prisma.usersWhereInput | boolean
   delete?: Prisma.usersWhereInput | boolean
   connect?: Prisma.usersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutApproved_actionsInput, Prisma.usersUpdateWithoutApproved_actionsInput>, Prisma.usersUncheckedUpdateWithoutApproved_actionsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutAudit_logInput, Prisma.usersUpdateWithoutAudit_logInput>, Prisma.usersUncheckedUpdateWithoutAudit_logInput>
 }
 
-export type usersCreateNestedOneWithoutInitiated_rollbacksInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutInitiated_rollbacksInput, Prisma.usersUncheckedCreateWithoutInitiated_rollbacksInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutInitiated_rollbacksInput
+export type usersCreateNestedOneWithoutPending_actions_approvedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_approvedInput, Prisma.usersUncheckedCreateWithoutPending_actions_approvedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutPending_actions_approvedInput
   connect?: Prisma.usersWhereUniqueInput
 }
 
-export type usersCreateNestedOneWithoutApproved_rollbacksInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutApproved_rollbacksInput, Prisma.usersUncheckedCreateWithoutApproved_rollbacksInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutApproved_rollbacksInput
+export type usersCreateNestedOneWithoutPending_actions_initiatedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_initiatedInput, Prisma.usersUncheckedCreateWithoutPending_actions_initiatedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutPending_actions_initiatedInput
   connect?: Prisma.usersWhereUniqueInput
 }
 
-export type usersUpdateOneRequiredWithoutInitiated_rollbacksNestedInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutInitiated_rollbacksInput, Prisma.usersUncheckedCreateWithoutInitiated_rollbacksInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutInitiated_rollbacksInput
-  upsert?: Prisma.usersUpsertWithoutInitiated_rollbacksInput
-  connect?: Prisma.usersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutInitiated_rollbacksInput, Prisma.usersUpdateWithoutInitiated_rollbacksInput>, Prisma.usersUncheckedUpdateWithoutInitiated_rollbacksInput>
-}
-
-export type usersUpdateOneWithoutApproved_rollbacksNestedInput = {
-  create?: Prisma.XOR<Prisma.usersCreateWithoutApproved_rollbacksInput, Prisma.usersUncheckedCreateWithoutApproved_rollbacksInput>
-  connectOrCreate?: Prisma.usersCreateOrConnectWithoutApproved_rollbacksInput
-  upsert?: Prisma.usersUpsertWithoutApproved_rollbacksInput
+export type usersUpdateOneWithoutPending_actions_approvedNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_approvedInput, Prisma.usersUncheckedCreateWithoutPending_actions_approvedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutPending_actions_approvedInput
+  upsert?: Prisma.usersUpsertWithoutPending_actions_approvedInput
   disconnect?: Prisma.usersWhereInput | boolean
   delete?: Prisma.usersWhereInput | boolean
   connect?: Prisma.usersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutApproved_rollbacksInput, Prisma.usersUpdateWithoutApproved_rollbacksInput>, Prisma.usersUncheckedUpdateWithoutApproved_rollbacksInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutPending_actions_approvedInput, Prisma.usersUpdateWithoutPending_actions_approvedInput>, Prisma.usersUncheckedUpdateWithoutPending_actions_approvedInput>
 }
 
-export type usersCreateWithoutCreated_access_codesInput = {
+export type usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_initiatedInput, Prisma.usersUncheckedCreateWithoutPending_actions_initiatedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutPending_actions_initiatedInput
+  upsert?: Prisma.usersUpsertWithoutPending_actions_initiatedInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutPending_actions_initiatedInput, Prisma.usersUpdateWithoutPending_actions_initiatedInput>, Prisma.usersUncheckedUpdateWithoutPending_actions_initiatedInput>
+}
+
+export type usersCreateNestedOneWithoutRollback_history_approvedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_approvedInput, Prisma.usersUncheckedCreateWithoutRollback_history_approvedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRollback_history_approvedInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersCreateNestedOneWithoutRollback_history_initiatedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_initiatedInput, Prisma.usersUncheckedCreateWithoutRollback_history_initiatedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRollback_history_initiatedInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneWithoutRollback_history_approvedNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_approvedInput, Prisma.usersUncheckedCreateWithoutRollback_history_approvedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRollback_history_approvedInput
+  upsert?: Prisma.usersUpsertWithoutRollback_history_approvedInput
+  disconnect?: Prisma.usersWhereInput | boolean
+  delete?: Prisma.usersWhereInput | boolean
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutRollback_history_approvedInput, Prisma.usersUpdateWithoutRollback_history_approvedInput>, Prisma.usersUncheckedUpdateWithoutRollback_history_approvedInput>
+}
+
+export type usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_initiatedInput, Prisma.usersUncheckedCreateWithoutRollback_history_initiatedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRollback_history_initiatedInput
+  upsert?: Prisma.usersUpsertWithoutRollback_history_initiatedInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutRollback_history_initiatedInput, Prisma.usersUpdateWithoutRollback_history_initiatedInput>, Prisma.usersUncheckedUpdateWithoutRollback_history_initiatedInput>
+}
+
+export type usersCreateWithoutAccess_codesInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logCreateNestedManyWithoutUserInput
-  initiated_actions?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  role: string
+  audit_log?: Prisma.audit_logCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersUncheckedCreateWithoutCreated_access_codesInput = {
+export type usersUncheckedCreateWithoutAccess_codesInput = {
   id?: number
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
-  initiated_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  role: string
+  audit_log?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersCreateOrConnectWithoutCreated_access_codesInput = {
+export type usersCreateOrConnectWithoutAccess_codesInput = {
   where: Prisma.usersWhereUniqueInput
-  create: Prisma.XOR<Prisma.usersCreateWithoutCreated_access_codesInput, Prisma.usersUncheckedCreateWithoutCreated_access_codesInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutAccess_codesInput, Prisma.usersUncheckedCreateWithoutAccess_codesInput>
 }
 
-export type usersUpsertWithoutCreated_access_codesInput = {
-  update: Prisma.XOR<Prisma.usersUpdateWithoutCreated_access_codesInput, Prisma.usersUncheckedUpdateWithoutCreated_access_codesInput>
-  create: Prisma.XOR<Prisma.usersCreateWithoutCreated_access_codesInput, Prisma.usersUncheckedCreateWithoutCreated_access_codesInput>
+export type usersUpsertWithoutAccess_codesInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutAccess_codesInput, Prisma.usersUncheckedUpdateWithoutAccess_codesInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutAccess_codesInput, Prisma.usersUncheckedCreateWithoutAccess_codesInput>
   where?: Prisma.usersWhereInput
 }
 
-export type usersUpdateToOneWithWhereWithoutCreated_access_codesInput = {
+export type usersUpdateToOneWithWhereWithoutAccess_codesInput = {
   where?: Prisma.usersWhereInput
-  data: Prisma.XOR<Prisma.usersUpdateWithoutCreated_access_codesInput, Prisma.usersUncheckedUpdateWithoutCreated_access_codesInput>
+  data: Prisma.XOR<Prisma.usersUpdateWithoutAccess_codesInput, Prisma.usersUncheckedUpdateWithoutAccess_codesInput>
 }
 
-export type usersUpdateWithoutCreated_access_codesInput = {
+export type usersUpdateWithoutAccess_codesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUpdateManyWithoutUserNestedInput
-  initiated_actions?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  audit_log?: Prisma.audit_logUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersUncheckedUpdateWithoutCreated_access_codesInput = {
+export type usersUncheckedUpdateWithoutAccess_codesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
-  initiated_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  audit_log?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersCreateWithoutAudit_logsInput = {
+export type usersCreateWithoutAudit_logInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  created_access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
+  pending_actions_approved?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersUncheckedCreateWithoutAudit_logsInput = {
+export type usersUncheckedCreateWithoutAudit_logInput = {
   id?: number
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  created_access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersCreateOrConnectWithoutAudit_logsInput = {
+export type usersCreateOrConnectWithoutAudit_logInput = {
   where: Prisma.usersWhereUniqueInput
-  create: Prisma.XOR<Prisma.usersCreateWithoutAudit_logsInput, Prisma.usersUncheckedCreateWithoutAudit_logsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutAudit_logInput, Prisma.usersUncheckedCreateWithoutAudit_logInput>
 }
 
-export type usersUpsertWithoutAudit_logsInput = {
-  update: Prisma.XOR<Prisma.usersUpdateWithoutAudit_logsInput, Prisma.usersUncheckedUpdateWithoutAudit_logsInput>
-  create: Prisma.XOR<Prisma.usersCreateWithoutAudit_logsInput, Prisma.usersUncheckedCreateWithoutAudit_logsInput>
+export type usersUpsertWithoutAudit_logInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutAudit_logInput, Prisma.usersUncheckedUpdateWithoutAudit_logInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutAudit_logInput, Prisma.usersUncheckedCreateWithoutAudit_logInput>
   where?: Prisma.usersWhereInput
 }
 
-export type usersUpdateToOneWithWhereWithoutAudit_logsInput = {
+export type usersUpdateToOneWithWhereWithoutAudit_logInput = {
   where?: Prisma.usersWhereInput
-  data: Prisma.XOR<Prisma.usersUpdateWithoutAudit_logsInput, Prisma.usersUncheckedUpdateWithoutAudit_logsInput>
+  data: Prisma.XOR<Prisma.usersUpdateWithoutAudit_logInput, Prisma.usersUncheckedUpdateWithoutAudit_logInput>
 }
 
-export type usersUpdateWithoutAudit_logsInput = {
+export type usersUpdateWithoutAudit_logInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersUncheckedUpdateWithoutAudit_logsInput = {
+export type usersUncheckedUpdateWithoutAudit_logInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersCreateWithoutInitiated_actionsInput = {
+export type usersCreateWithoutPending_actions_approvedInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
-  approved_actions?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logCreateNestedManyWithoutUserInput
+  pending_actions_initiated?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersUncheckedCreateWithoutInitiated_actionsInput = {
+export type usersUncheckedCreateWithoutPending_actions_approvedInput = {
   id?: number
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
-  approved_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersCreateOrConnectWithoutInitiated_actionsInput = {
+export type usersCreateOrConnectWithoutPending_actions_approvedInput = {
   where: Prisma.usersWhereUniqueInput
-  create: Prisma.XOR<Prisma.usersCreateWithoutInitiated_actionsInput, Prisma.usersUncheckedCreateWithoutInitiated_actionsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_approvedInput, Prisma.usersUncheckedCreateWithoutPending_actions_approvedInput>
 }
 
-export type usersCreateWithoutApproved_actionsInput = {
+export type usersCreateWithoutPending_actions_initiatedInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
-  initiated_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
+  rollback_history_approved?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersUncheckedCreateWithoutApproved_actionsInput = {
+export type usersUncheckedCreateWithoutPending_actions_initiatedInput = {
   id?: number
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersCreateOrConnectWithoutApproved_actionsInput = {
+export type usersCreateOrConnectWithoutPending_actions_initiatedInput = {
   where: Prisma.usersWhereUniqueInput
-  create: Prisma.XOR<Prisma.usersCreateWithoutApproved_actionsInput, Prisma.usersUncheckedCreateWithoutApproved_actionsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_initiatedInput, Prisma.usersUncheckedCreateWithoutPending_actions_initiatedInput>
 }
 
-export type usersUpsertWithoutInitiated_actionsInput = {
-  update: Prisma.XOR<Prisma.usersUpdateWithoutInitiated_actionsInput, Prisma.usersUncheckedUpdateWithoutInitiated_actionsInput>
-  create: Prisma.XOR<Prisma.usersCreateWithoutInitiated_actionsInput, Prisma.usersUncheckedCreateWithoutInitiated_actionsInput>
+export type usersUpsertWithoutPending_actions_approvedInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutPending_actions_approvedInput, Prisma.usersUncheckedUpdateWithoutPending_actions_approvedInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_approvedInput, Prisma.usersUncheckedCreateWithoutPending_actions_approvedInput>
   where?: Prisma.usersWhereInput
 }
 
-export type usersUpdateToOneWithWhereWithoutInitiated_actionsInput = {
+export type usersUpdateToOneWithWhereWithoutPending_actions_approvedInput = {
   where?: Prisma.usersWhereInput
-  data: Prisma.XOR<Prisma.usersUpdateWithoutInitiated_actionsInput, Prisma.usersUncheckedUpdateWithoutInitiated_actionsInput>
+  data: Prisma.XOR<Prisma.usersUpdateWithoutPending_actions_approvedInput, Prisma.usersUncheckedUpdateWithoutPending_actions_approvedInput>
 }
 
-export type usersUpdateWithoutInitiated_actionsInput = {
+export type usersUpdateWithoutPending_actions_approvedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
-  approved_actions?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUpdateManyWithoutUserNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersUncheckedUpdateWithoutInitiated_actionsInput = {
+export type usersUncheckedUpdateWithoutPending_actions_approvedInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-  approved_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersUpsertWithoutApproved_actionsInput = {
-  update: Prisma.XOR<Prisma.usersUpdateWithoutApproved_actionsInput, Prisma.usersUncheckedUpdateWithoutApproved_actionsInput>
-  create: Prisma.XOR<Prisma.usersCreateWithoutApproved_actionsInput, Prisma.usersUncheckedCreateWithoutApproved_actionsInput>
+export type usersUpsertWithoutPending_actions_initiatedInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutPending_actions_initiatedInput, Prisma.usersUncheckedUpdateWithoutPending_actions_initiatedInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutPending_actions_initiatedInput, Prisma.usersUncheckedCreateWithoutPending_actions_initiatedInput>
   where?: Prisma.usersWhereInput
 }
 
-export type usersUpdateToOneWithWhereWithoutApproved_actionsInput = {
+export type usersUpdateToOneWithWhereWithoutPending_actions_initiatedInput = {
   where?: Prisma.usersWhereInput
-  data: Prisma.XOR<Prisma.usersUpdateWithoutApproved_actionsInput, Prisma.usersUncheckedUpdateWithoutApproved_actionsInput>
+  data: Prisma.XOR<Prisma.usersUpdateWithoutPending_actions_initiatedInput, Prisma.usersUncheckedUpdateWithoutPending_actions_initiatedInput>
 }
 
-export type usersUpdateWithoutApproved_actionsInput = {
+export type usersUpdateWithoutPending_actions_initiatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersUncheckedUpdateWithoutApproved_actionsInput = {
+export type usersUncheckedUpdateWithoutPending_actions_initiatedInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersCreateWithoutInitiated_rollbacksInput = {
+export type usersCreateWithoutRollback_history_approvedInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
-  approved_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
+  rollback_history_initiated?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersUncheckedCreateWithoutInitiated_rollbacksInput = {
+export type usersUncheckedCreateWithoutRollback_history_approvedInput = {
   id?: number
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+  role: string
+  access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
 }
 
-export type usersCreateOrConnectWithoutInitiated_rollbacksInput = {
+export type usersCreateOrConnectWithoutRollback_history_approvedInput = {
   where: Prisma.usersWhereUniqueInput
-  create: Prisma.XOR<Prisma.usersCreateWithoutInitiated_rollbacksInput, Prisma.usersUncheckedCreateWithoutInitiated_rollbacksInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_approvedInput, Prisma.usersUncheckedCreateWithoutRollback_history_approvedInput>
 }
 
-export type usersCreateWithoutApproved_rollbacksInput = {
+export type usersCreateWithoutRollback_history_initiatedInput = {
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyCreateNestedManyWithoutInitiatorInput
+  role: string
+  access_codes?: Prisma.access_codesCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyCreateNestedManyWithoutApproverInput
 }
 
-export type usersUncheckedCreateWithoutApproved_rollbacksInput = {
+export type usersUncheckedCreateWithoutRollback_history_initiatedInput = {
   id?: number
   email: string
   password_hash: string
   name: string
-  role: $Enums.UserRole
   is_active?: boolean
-  created_at?: Date | string
-  updated_at?: Date | string
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
   last_login?: Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
-  created_access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
-  initiated_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-  approved_actions?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
+  role: string
+  access_codes?: Prisma.access_codesUncheckedCreateNestedManyWithoutCreatorInput
+  audit_log?: Prisma.audit_logUncheckedCreateNestedManyWithoutUserInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutApproverInput
 }
 
-export type usersCreateOrConnectWithoutApproved_rollbacksInput = {
+export type usersCreateOrConnectWithoutRollback_history_initiatedInput = {
   where: Prisma.usersWhereUniqueInput
-  create: Prisma.XOR<Prisma.usersCreateWithoutApproved_rollbacksInput, Prisma.usersUncheckedCreateWithoutApproved_rollbacksInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_initiatedInput, Prisma.usersUncheckedCreateWithoutRollback_history_initiatedInput>
 }
 
-export type usersUpsertWithoutInitiated_rollbacksInput = {
-  update: Prisma.XOR<Prisma.usersUpdateWithoutInitiated_rollbacksInput, Prisma.usersUncheckedUpdateWithoutInitiated_rollbacksInput>
-  create: Prisma.XOR<Prisma.usersCreateWithoutInitiated_rollbacksInput, Prisma.usersUncheckedCreateWithoutInitiated_rollbacksInput>
+export type usersUpsertWithoutRollback_history_approvedInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutRollback_history_approvedInput, Prisma.usersUncheckedUpdateWithoutRollback_history_approvedInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_approvedInput, Prisma.usersUncheckedCreateWithoutRollback_history_approvedInput>
   where?: Prisma.usersWhereInput
 }
 
-export type usersUpdateToOneWithWhereWithoutInitiated_rollbacksInput = {
+export type usersUpdateToOneWithWhereWithoutRollback_history_approvedInput = {
   where?: Prisma.usersWhereInput
-  data: Prisma.XOR<Prisma.usersUpdateWithoutInitiated_rollbacksInput, Prisma.usersUncheckedUpdateWithoutInitiated_rollbacksInput>
+  data: Prisma.XOR<Prisma.usersUpdateWithoutRollback_history_approvedInput, Prisma.usersUncheckedUpdateWithoutRollback_history_approvedInput>
 }
 
-export type usersUpdateWithoutInitiated_rollbacksInput = {
+export type usersUpdateWithoutRollback_history_approvedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersUncheckedUpdateWithoutInitiated_rollbacksInput = {
+export type usersUncheckedUpdateWithoutRollback_history_approvedInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-  approved_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
+  rollback_history_initiated?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
 }
 
-export type usersUpsertWithoutApproved_rollbacksInput = {
-  update: Prisma.XOR<Prisma.usersUpdateWithoutApproved_rollbacksInput, Prisma.usersUncheckedUpdateWithoutApproved_rollbacksInput>
-  create: Prisma.XOR<Prisma.usersCreateWithoutApproved_rollbacksInput, Prisma.usersUncheckedCreateWithoutApproved_rollbacksInput>
+export type usersUpsertWithoutRollback_history_initiatedInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutRollback_history_initiatedInput, Prisma.usersUncheckedUpdateWithoutRollback_history_initiatedInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutRollback_history_initiatedInput, Prisma.usersUncheckedCreateWithoutRollback_history_initiatedInput>
   where?: Prisma.usersWhereInput
 }
 
-export type usersUpdateToOneWithWhereWithoutApproved_rollbacksInput = {
+export type usersUpdateToOneWithWhereWithoutRollback_history_initiatedInput = {
   where?: Prisma.usersWhereInput
-  data: Prisma.XOR<Prisma.usersUpdateWithoutApproved_rollbacksInput, Prisma.usersUncheckedUpdateWithoutApproved_rollbacksInput>
+  data: Prisma.XOR<Prisma.usersUpdateWithoutRollback_history_initiatedInput, Prisma.usersUncheckedUpdateWithoutRollback_history_initiatedInput>
 }
 
-export type usersUpdateWithoutApproved_rollbacksInput = {
+export type usersUpdateWithoutRollback_history_initiatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUpdateManyWithoutInitiatorNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUpdateManyWithoutApproverNestedInput
 }
 
-export type usersUncheckedUpdateWithoutApproved_rollbacksInput = {
+export type usersUncheckedUpdateWithoutRollback_history_initiatedInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password_hash?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_login?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  audit_logs?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
-  created_access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-  initiated_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-  approved_actions?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-  initiated_rollbacks?: Prisma.rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  access_codes?: Prisma.access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+  audit_log?: Prisma.audit_logUncheckedUpdateManyWithoutUserNestedInput
+  pending_actions_approved?: Prisma.pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+  pending_actions_initiated?: Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
+  rollback_history_approved?: Prisma.rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
 }
 
 
@@ -1084,21 +1074,21 @@ export type usersUncheckedUpdateWithoutApproved_rollbacksInput = {
  */
 
 export type UsersCountOutputType = {
-  audit_logs: number
-  created_access_codes: number
-  initiated_actions: number
-  approved_actions: number
-  initiated_rollbacks: number
-  approved_rollbacks: number
+  access_codes: number
+  audit_log: number
+  pending_actions_approved: number
+  pending_actions_initiated: number
+  rollback_history_approved: number
+  rollback_history_initiated: number
 }
 
 export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  audit_logs?: boolean | UsersCountOutputTypeCountAudit_logsArgs
-  created_access_codes?: boolean | UsersCountOutputTypeCountCreated_access_codesArgs
-  initiated_actions?: boolean | UsersCountOutputTypeCountInitiated_actionsArgs
-  approved_actions?: boolean | UsersCountOutputTypeCountApproved_actionsArgs
-  initiated_rollbacks?: boolean | UsersCountOutputTypeCountInitiated_rollbacksArgs
-  approved_rollbacks?: boolean | UsersCountOutputTypeCountApproved_rollbacksArgs
+  access_codes?: boolean | UsersCountOutputTypeCountAccess_codesArgs
+  audit_log?: boolean | UsersCountOutputTypeCountAudit_logArgs
+  pending_actions_approved?: boolean | UsersCountOutputTypeCountPending_actions_approvedArgs
+  pending_actions_initiated?: boolean | UsersCountOutputTypeCountPending_actions_initiatedArgs
+  rollback_history_approved?: boolean | UsersCountOutputTypeCountRollback_history_approvedArgs
+  rollback_history_initiated?: boolean | UsersCountOutputTypeCountRollback_history_initiatedArgs
 }
 
 /**
@@ -1114,42 +1104,42 @@ export type UsersCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extens
 /**
  * UsersCountOutputType without action
  */
-export type UsersCountOutputTypeCountAudit_logsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.audit_logWhereInput
-}
-
-/**
- * UsersCountOutputType without action
- */
-export type UsersCountOutputTypeCountCreated_access_codesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UsersCountOutputTypeCountAccess_codesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.access_codesWhereInput
 }
 
 /**
  * UsersCountOutputType without action
  */
-export type UsersCountOutputTypeCountInitiated_actionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UsersCountOutputTypeCountAudit_logArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.audit_logWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountPending_actions_approvedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.pending_actionsWhereInput
 }
 
 /**
  * UsersCountOutputType without action
  */
-export type UsersCountOutputTypeCountApproved_actionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UsersCountOutputTypeCountPending_actions_initiatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.pending_actionsWhereInput
 }
 
 /**
  * UsersCountOutputType without action
  */
-export type UsersCountOutputTypeCountInitiated_rollbacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UsersCountOutputTypeCountRollback_history_approvedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.rollback_historyWhereInput
 }
 
 /**
  * UsersCountOutputType without action
  */
-export type UsersCountOutputTypeCountApproved_rollbacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UsersCountOutputTypeCountRollback_history_initiatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.rollback_historyWhereInput
 }
 
@@ -1159,17 +1149,17 @@ export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   email?: boolean
   password_hash?: boolean
   name?: boolean
-  role?: boolean
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
   last_login?: boolean
-  audit_logs?: boolean | Prisma.users$audit_logsArgs<ExtArgs>
-  created_access_codes?: boolean | Prisma.users$created_access_codesArgs<ExtArgs>
-  initiated_actions?: boolean | Prisma.users$initiated_actionsArgs<ExtArgs>
-  approved_actions?: boolean | Prisma.users$approved_actionsArgs<ExtArgs>
-  initiated_rollbacks?: boolean | Prisma.users$initiated_rollbacksArgs<ExtArgs>
-  approved_rollbacks?: boolean | Prisma.users$approved_rollbacksArgs<ExtArgs>
+  role?: boolean
+  access_codes?: boolean | Prisma.users$access_codesArgs<ExtArgs>
+  audit_log?: boolean | Prisma.users$audit_logArgs<ExtArgs>
+  pending_actions_approved?: boolean | Prisma.users$pending_actions_approvedArgs<ExtArgs>
+  pending_actions_initiated?: boolean | Prisma.users$pending_actions_initiatedArgs<ExtArgs>
+  rollback_history_approved?: boolean | Prisma.users$rollback_history_approvedArgs<ExtArgs>
+  rollback_history_initiated?: boolean | Prisma.users$rollback_history_initiatedArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
@@ -1178,11 +1168,11 @@ export type usersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   email?: boolean
   password_hash?: boolean
   name?: boolean
-  role?: boolean
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
   last_login?: boolean
+  role?: boolean
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1190,11 +1180,11 @@ export type usersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   email?: boolean
   password_hash?: boolean
   name?: boolean
-  role?: boolean
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
   last_login?: boolean
+  role?: boolean
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectScalar = {
@@ -1202,21 +1192,21 @@ export type usersSelectScalar = {
   email?: boolean
   password_hash?: boolean
   name?: boolean
-  role?: boolean
   is_active?: boolean
   created_at?: boolean
   updated_at?: boolean
   last_login?: boolean
+  role?: boolean
 }
 
-export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password_hash" | "name" | "role" | "is_active" | "created_at" | "updated_at" | "last_login", ExtArgs["result"]["users"]>
+export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password_hash" | "name" | "is_active" | "created_at" | "updated_at" | "last_login" | "role", ExtArgs["result"]["users"]>
 export type usersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  audit_logs?: boolean | Prisma.users$audit_logsArgs<ExtArgs>
-  created_access_codes?: boolean | Prisma.users$created_access_codesArgs<ExtArgs>
-  initiated_actions?: boolean | Prisma.users$initiated_actionsArgs<ExtArgs>
-  approved_actions?: boolean | Prisma.users$approved_actionsArgs<ExtArgs>
-  initiated_rollbacks?: boolean | Prisma.users$initiated_rollbacksArgs<ExtArgs>
-  approved_rollbacks?: boolean | Prisma.users$approved_rollbacksArgs<ExtArgs>
+  access_codes?: boolean | Prisma.users$access_codesArgs<ExtArgs>
+  audit_log?: boolean | Prisma.users$audit_logArgs<ExtArgs>
+  pending_actions_approved?: boolean | Prisma.users$pending_actions_approvedArgs<ExtArgs>
+  pending_actions_initiated?: boolean | Prisma.users$pending_actions_initiatedArgs<ExtArgs>
+  rollback_history_approved?: boolean | Prisma.users$rollback_history_approvedArgs<ExtArgs>
+  rollback_history_initiated?: boolean | Prisma.users$rollback_history_initiatedArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type usersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1225,23 +1215,23 @@ export type usersIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "users"
   objects: {
-    audit_logs: Prisma.$audit_logPayload<ExtArgs>[]
-    created_access_codes: Prisma.$access_codesPayload<ExtArgs>[]
-    initiated_actions: Prisma.$pending_actionsPayload<ExtArgs>[]
-    approved_actions: Prisma.$pending_actionsPayload<ExtArgs>[]
-    initiated_rollbacks: Prisma.$rollback_historyPayload<ExtArgs>[]
-    approved_rollbacks: Prisma.$rollback_historyPayload<ExtArgs>[]
+    access_codes: Prisma.$access_codesPayload<ExtArgs>[]
+    audit_log: Prisma.$audit_logPayload<ExtArgs>[]
+    pending_actions_approved: Prisma.$pending_actionsPayload<ExtArgs>[]
+    pending_actions_initiated: Prisma.$pending_actionsPayload<ExtArgs>[]
+    rollback_history_approved: Prisma.$rollback_historyPayload<ExtArgs>[]
+    rollback_history_initiated: Prisma.$rollback_historyPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     email: string
     password_hash: string
     name: string
-    role: $Enums.UserRole
     is_active: boolean
-    created_at: Date
-    updated_at: Date
+    created_at: Date | null
+    updated_at: Date | null
     last_login: Date | null
+    role: string
   }, ExtArgs["result"]["users"]>
   composites: {}
 }
@@ -1636,12 +1626,12 @@ readonly fields: usersFieldRefs;
  */
 export interface Prisma__usersClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  audit_logs<T extends Prisma.users$audit_logsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$audit_logsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$audit_logPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  created_access_codes<T extends Prisma.users$created_access_codesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$created_access_codesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$access_codesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  initiated_actions<T extends Prisma.users$initiated_actionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$initiated_actionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  approved_actions<T extends Prisma.users$approved_actionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$approved_actionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  initiated_rollbacks<T extends Prisma.users$initiated_rollbacksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$initiated_rollbacksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  approved_rollbacks<T extends Prisma.users$approved_rollbacksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$approved_rollbacksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  access_codes<T extends Prisma.users$access_codesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$access_codesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$access_codesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  audit_log<T extends Prisma.users$audit_logArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$audit_logArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$audit_logPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pending_actions_approved<T extends Prisma.users$pending_actions_approvedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$pending_actions_approvedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pending_actions_initiated<T extends Prisma.users$pending_actions_initiatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$pending_actions_initiatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  rollback_history_approved<T extends Prisma.users$rollback_history_approvedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$rollback_history_approvedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  rollback_history_initiated<T extends Prisma.users$rollback_history_initiatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$rollback_history_initiatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1675,11 +1665,11 @@ export interface usersFieldRefs {
   readonly email: Prisma.FieldRef<"users", 'String'>
   readonly password_hash: Prisma.FieldRef<"users", 'String'>
   readonly name: Prisma.FieldRef<"users", 'String'>
-  readonly role: Prisma.FieldRef<"users", 'UserRole'>
   readonly is_active: Prisma.FieldRef<"users", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"users", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"users", 'DateTime'>
   readonly last_login: Prisma.FieldRef<"users", 'DateTime'>
+  readonly role: Prisma.FieldRef<"users", 'String'>
 }
     
 
@@ -2068,33 +2058,9 @@ export type usersDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
- * users.audit_logs
+ * users.access_codes
  */
-export type users$audit_logsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the audit_log
-   */
-  select?: Prisma.audit_logSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the audit_log
-   */
-  omit?: Prisma.audit_logOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.audit_logInclude<ExtArgs> | null
-  where?: Prisma.audit_logWhereInput
-  orderBy?: Prisma.audit_logOrderByWithRelationInput | Prisma.audit_logOrderByWithRelationInput[]
-  cursor?: Prisma.audit_logWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.Audit_logScalarFieldEnum | Prisma.Audit_logScalarFieldEnum[]
-}
-
-/**
- * users.created_access_codes
- */
-export type users$created_access_codesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type users$access_codesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the access_codes
    */
@@ -2116,9 +2082,33 @@ export type users$created_access_codesArgs<ExtArgs extends runtime.Types.Extensi
 }
 
 /**
- * users.initiated_actions
+ * users.audit_log
  */
-export type users$initiated_actionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type users$audit_logArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the audit_log
+   */
+  select?: Prisma.audit_logSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the audit_log
+   */
+  omit?: Prisma.audit_logOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.audit_logInclude<ExtArgs> | null
+  where?: Prisma.audit_logWhereInput
+  orderBy?: Prisma.audit_logOrderByWithRelationInput | Prisma.audit_logOrderByWithRelationInput[]
+  cursor?: Prisma.audit_logWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Audit_logScalarFieldEnum | Prisma.Audit_logScalarFieldEnum[]
+}
+
+/**
+ * users.pending_actions_approved
+ */
+export type users$pending_actions_approvedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the pending_actions
    */
@@ -2140,9 +2130,9 @@ export type users$initiated_actionsArgs<ExtArgs extends runtime.Types.Extensions
 }
 
 /**
- * users.approved_actions
+ * users.pending_actions_initiated
  */
-export type users$approved_actionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type users$pending_actions_initiatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the pending_actions
    */
@@ -2164,9 +2154,9 @@ export type users$approved_actionsArgs<ExtArgs extends runtime.Types.Extensions.
 }
 
 /**
- * users.initiated_rollbacks
+ * users.rollback_history_approved
  */
-export type users$initiated_rollbacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type users$rollback_history_approvedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the rollback_history
    */
@@ -2188,9 +2178,9 @@ export type users$initiated_rollbacksArgs<ExtArgs extends runtime.Types.Extensio
 }
 
 /**
- * users.approved_rollbacks
+ * users.rollback_history_initiated
  */
-export type users$approved_rollbacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type users$rollback_history_initiatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the rollback_history
    */

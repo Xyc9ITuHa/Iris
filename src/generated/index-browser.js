@@ -126,8 +126,8 @@ exports.Prisma.ManufacturersScalarFieldEnum = {
   name: 'name',
   country: 'country',
   website: 'website',
-  contact_email: 'contact_email',
   created_at: 'created_at',
+  contact_email: 'contact_email',
   updated_at: 'updated_at'
 };
 
@@ -135,16 +135,16 @@ exports.Prisma.LasersScalarFieldEnum = {
   id: 'id',
   model_name: 'model_name',
   manufacturer_id: 'manufacturer_id',
-  laser_type: 'laser_type',
-  modulation_type: 'modulation_type',
-  cooling_method: 'cooling_method',
-  is_single_mode: 'is_single_mode',
-  power_output_w: 'power_output_w',
-  power_consumption_w: 'power_consumption_w',
-  application: 'application',
   notes: 'notes',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  application: 'application',
+  cooling_method: 'cooling_method',
+  is_single_mode: 'is_single_mode',
+  laser_type: 'laser_type',
+  modulation_type: 'modulation_type',
+  power_consumption_w: 'power_consumption_w',
+  power_output_w: 'power_output_w'
 };
 
 exports.Prisma.Wavelength_specsScalarFieldEnum = {
@@ -211,25 +211,25 @@ exports.Prisma.UsersScalarFieldEnum = {
   email: 'email',
   password_hash: 'password_hash',
   name: 'name',
-  role: 'role',
   is_active: 'is_active',
   created_at: 'created_at',
   updated_at: 'updated_at',
-  last_login: 'last_login'
+  last_login: 'last_login',
+  role: 'role'
 };
 
 exports.Prisma.Access_codesScalarFieldEnum = {
   id: 'id',
   code_hash: 'code_hash',
   color_code: 'color_code',
-  role: 'role',
   created_by: 'created_by',
   expires_at: 'expires_at',
   max_uses: 'max_uses',
   current_uses: 'current_uses',
   is_active: 'is_active',
   notes: 'notes',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  role: 'role'
 };
 
 exports.Prisma.Audit_logScalarFieldEnum = {
@@ -237,27 +237,27 @@ exports.Prisma.Audit_logScalarFieldEnum = {
   user_id: 'user_id',
   table_name: 'table_name',
   record_id: 'record_id',
-  action: 'action',
   old_data: 'old_data',
   new_data: 'new_data',
   ip_address: 'ip_address',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  action: 'action'
 };
 
 exports.Prisma.Pending_actionsScalarFieldEnum = {
   id: 'id',
-  action_type: 'action_type',
   initiated_by: 'initiated_by',
   target_table: 'target_table',
   target_record_id: 'target_record_id',
   action_data: 'action_data',
   reason: 'reason',
-  status: 'status',
   expires_at: 'expires_at',
   approved_by: 'approved_by',
   approved_at: 'approved_at',
   completed_at: 'completed_at',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  action_type: 'action_type',
+  status: 'status'
 };
 
 exports.Prisma.Rollback_historyScalarFieldEnum = {
@@ -265,9 +265,9 @@ exports.Prisma.Rollback_historyScalarFieldEnum = {
   audit_log_id: 'audit_log_id',
   initiated_by: 'initiated_by',
   approved_by: 'approved_by',
-  status: 'status',
   error_message: 'error_message',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  status: 'status'
 };
 
 exports.Prisma.SortOrder = {

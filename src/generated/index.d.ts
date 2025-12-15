@@ -1895,19 +1895,19 @@ export namespace Prisma {
   export type UsersCountOutputType = {
     access_codes: number
     audit_log: number
-    pending_actions_initiated: number
     pending_actions_approved: number
-    rollback_history_initiated: number
+    pending_actions_initiated: number
     rollback_history_approved: number
+    rollback_history_initiated: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     access_codes?: boolean | UsersCountOutputTypeCountAccess_codesArgs
     audit_log?: boolean | UsersCountOutputTypeCountAudit_logArgs
-    pending_actions_initiated?: boolean | UsersCountOutputTypeCountPending_actions_initiatedArgs
     pending_actions_approved?: boolean | UsersCountOutputTypeCountPending_actions_approvedArgs
-    rollback_history_initiated?: boolean | UsersCountOutputTypeCountRollback_history_initiatedArgs
+    pending_actions_initiated?: boolean | UsersCountOutputTypeCountPending_actions_initiatedArgs
     rollback_history_approved?: boolean | UsersCountOutputTypeCountRollback_history_approvedArgs
+    rollback_history_initiated?: boolean | UsersCountOutputTypeCountRollback_history_initiatedArgs
   }
 
   // Custom InputTypes
@@ -1938,13 +1938,6 @@ export namespace Prisma {
   /**
    * UsersCountOutputType without action
    */
-  export type UsersCountOutputTypeCountPending_actions_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: pending_actionsWhereInput
-  }
-
-  /**
-   * UsersCountOutputType without action
-   */
   export type UsersCountOutputTypeCountPending_actions_approvedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: pending_actionsWhereInput
   }
@@ -1952,14 +1945,21 @@ export namespace Prisma {
   /**
    * UsersCountOutputType without action
    */
-  export type UsersCountOutputTypeCountRollback_history_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: rollback_historyWhereInput
+  export type UsersCountOutputTypeCountPending_actions_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: pending_actionsWhereInput
   }
 
   /**
    * UsersCountOutputType without action
    */
   export type UsersCountOutputTypeCountRollback_history_approvedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: rollback_historyWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountRollback_history_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: rollback_historyWhereInput
   }
 
@@ -2024,8 +2024,8 @@ export namespace Prisma {
     name: string | null
     country: string | null
     website: string | null
-    contact_email: string | null
     created_at: Date | null
+    contact_email: string | null
     updated_at: Date | null
   }
 
@@ -2034,8 +2034,8 @@ export namespace Prisma {
     name: string | null
     country: string | null
     website: string | null
-    contact_email: string | null
     created_at: Date | null
+    contact_email: string | null
     updated_at: Date | null
   }
 
@@ -2044,8 +2044,8 @@ export namespace Prisma {
     name: number
     country: number
     website: number
-    contact_email: number
     created_at: number
+    contact_email: number
     updated_at: number
     _all: number
   }
@@ -2064,8 +2064,8 @@ export namespace Prisma {
     name?: true
     country?: true
     website?: true
-    contact_email?: true
     created_at?: true
+    contact_email?: true
     updated_at?: true
   }
 
@@ -2074,8 +2074,8 @@ export namespace Prisma {
     name?: true
     country?: true
     website?: true
-    contact_email?: true
     created_at?: true
+    contact_email?: true
     updated_at?: true
   }
 
@@ -2084,8 +2084,8 @@ export namespace Prisma {
     name?: true
     country?: true
     website?: true
-    contact_email?: true
     created_at?: true
+    contact_email?: true
     updated_at?: true
     _all?: true
   }
@@ -2181,8 +2181,8 @@ export namespace Prisma {
     name: string
     country: string | null
     website: string | null
-    contact_email: string | null
     created_at: Date | null
+    contact_email: string | null
     updated_at: Date | null
     _count: ManufacturersCountAggregateOutputType | null
     _avg: ManufacturersAvgAggregateOutputType | null
@@ -2210,8 +2210,8 @@ export namespace Prisma {
     name?: boolean
     country?: boolean
     website?: boolean
-    contact_email?: boolean
     created_at?: boolean
+    contact_email?: boolean
     updated_at?: boolean
     lasers?: boolean | manufacturers$lasersArgs<ExtArgs>
     _count?: boolean | ManufacturersCountOutputTypeDefaultArgs<ExtArgs>
@@ -2222,8 +2222,8 @@ export namespace Prisma {
     name?: boolean
     country?: boolean
     website?: boolean
-    contact_email?: boolean
     created_at?: boolean
+    contact_email?: boolean
     updated_at?: boolean
   }, ExtArgs["result"]["manufacturers"]>
 
@@ -2232,8 +2232,8 @@ export namespace Prisma {
     name?: boolean
     country?: boolean
     website?: boolean
-    contact_email?: boolean
     created_at?: boolean
+    contact_email?: boolean
     updated_at?: boolean
   }, ExtArgs["result"]["manufacturers"]>
 
@@ -2242,12 +2242,12 @@ export namespace Prisma {
     name?: boolean
     country?: boolean
     website?: boolean
-    contact_email?: boolean
     created_at?: boolean
+    contact_email?: boolean
     updated_at?: boolean
   }
 
-  export type manufacturersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "country" | "website" | "contact_email" | "created_at" | "updated_at", ExtArgs["result"]["manufacturers"]>
+  export type manufacturersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "country" | "website" | "created_at" | "contact_email" | "updated_at", ExtArgs["result"]["manufacturers"]>
   export type manufacturersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     lasers?: boolean | manufacturers$lasersArgs<ExtArgs>
     _count?: boolean | ManufacturersCountOutputTypeDefaultArgs<ExtArgs>
@@ -2265,8 +2265,8 @@ export namespace Prisma {
       name: string
       country: string | null
       website: string | null
-      contact_email: string | null
       created_at: Date | null
+      contact_email: string | null
       updated_at: Date | null
     }, ExtArgs["result"]["manufacturers"]>
     composites: {}
@@ -2696,8 +2696,8 @@ export namespace Prisma {
     readonly name: FieldRef<"manufacturers", 'String'>
     readonly country: FieldRef<"manufacturers", 'String'>
     readonly website: FieldRef<"manufacturers", 'String'>
-    readonly contact_email: FieldRef<"manufacturers", 'String'>
     readonly created_at: FieldRef<"manufacturers", 'DateTime'>
+    readonly contact_email: FieldRef<"manufacturers", 'String'>
     readonly updated_at: FieldRef<"manufacturers", 'DateTime'>
   }
     
@@ -3144,63 +3144,63 @@ export namespace Prisma {
   export type LasersAvgAggregateOutputType = {
     id: number | null
     manufacturer_id: number | null
-    power_output_w: Decimal | null
     power_consumption_w: Decimal | null
+    power_output_w: Decimal | null
   }
 
   export type LasersSumAggregateOutputType = {
     id: number | null
     manufacturer_id: number | null
-    power_output_w: Decimal | null
     power_consumption_w: Decimal | null
+    power_output_w: Decimal | null
   }
 
   export type LasersMinAggregateOutputType = {
     id: number | null
     model_name: string | null
     manufacturer_id: number | null
-    laser_type: string | null
-    modulation_type: string | null
-    cooling_method: string | null
-    is_single_mode: boolean | null
-    power_output_w: Decimal | null
-    power_consumption_w: Decimal | null
-    application: string | null
     notes: string | null
     created_at: Date | null
     updated_at: Date | null
+    application: string | null
+    cooling_method: string | null
+    is_single_mode: boolean | null
+    laser_type: string | null
+    modulation_type: string | null
+    power_consumption_w: Decimal | null
+    power_output_w: Decimal | null
   }
 
   export type LasersMaxAggregateOutputType = {
     id: number | null
     model_name: string | null
     manufacturer_id: number | null
-    laser_type: string | null
-    modulation_type: string | null
-    cooling_method: string | null
-    is_single_mode: boolean | null
-    power_output_w: Decimal | null
-    power_consumption_w: Decimal | null
-    application: string | null
     notes: string | null
     created_at: Date | null
     updated_at: Date | null
+    application: string | null
+    cooling_method: string | null
+    is_single_mode: boolean | null
+    laser_type: string | null
+    modulation_type: string | null
+    power_consumption_w: Decimal | null
+    power_output_w: Decimal | null
   }
 
   export type LasersCountAggregateOutputType = {
     id: number
     model_name: number
     manufacturer_id: number
-    laser_type: number
-    modulation_type: number
-    cooling_method: number
-    is_single_mode: number
-    power_output_w: number
-    power_consumption_w: number
-    application: number
     notes: number
     created_at: number
     updated_at: number
+    application: number
+    cooling_method: number
+    is_single_mode: number
+    laser_type: number
+    modulation_type: number
+    power_consumption_w: number
+    power_output_w: number
     _all: number
   }
 
@@ -3208,63 +3208,63 @@ export namespace Prisma {
   export type LasersAvgAggregateInputType = {
     id?: true
     manufacturer_id?: true
-    power_output_w?: true
     power_consumption_w?: true
+    power_output_w?: true
   }
 
   export type LasersSumAggregateInputType = {
     id?: true
     manufacturer_id?: true
-    power_output_w?: true
     power_consumption_w?: true
+    power_output_w?: true
   }
 
   export type LasersMinAggregateInputType = {
     id?: true
     model_name?: true
     manufacturer_id?: true
-    laser_type?: true
-    modulation_type?: true
-    cooling_method?: true
-    is_single_mode?: true
-    power_output_w?: true
-    power_consumption_w?: true
-    application?: true
     notes?: true
     created_at?: true
     updated_at?: true
+    application?: true
+    cooling_method?: true
+    is_single_mode?: true
+    laser_type?: true
+    modulation_type?: true
+    power_consumption_w?: true
+    power_output_w?: true
   }
 
   export type LasersMaxAggregateInputType = {
     id?: true
     model_name?: true
     manufacturer_id?: true
-    laser_type?: true
-    modulation_type?: true
-    cooling_method?: true
-    is_single_mode?: true
-    power_output_w?: true
-    power_consumption_w?: true
-    application?: true
     notes?: true
     created_at?: true
     updated_at?: true
+    application?: true
+    cooling_method?: true
+    is_single_mode?: true
+    laser_type?: true
+    modulation_type?: true
+    power_consumption_w?: true
+    power_output_w?: true
   }
 
   export type LasersCountAggregateInputType = {
     id?: true
     model_name?: true
     manufacturer_id?: true
-    laser_type?: true
-    modulation_type?: true
-    cooling_method?: true
-    is_single_mode?: true
-    power_output_w?: true
-    power_consumption_w?: true
-    application?: true
     notes?: true
     created_at?: true
     updated_at?: true
+    application?: true
+    cooling_method?: true
+    is_single_mode?: true
+    laser_type?: true
+    modulation_type?: true
+    power_consumption_w?: true
+    power_output_w?: true
     _all?: true
   }
 
@@ -3358,16 +3358,16 @@ export namespace Prisma {
     id: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal
-    power_consumption_w: Decimal | null
-    application: string | null
     notes: string | null
     created_at: Date | null
     updated_at: Date | null
+    application: string | null
+    cooling_method: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w: Decimal | null
+    power_output_w: Decimal
     _count: LasersCountAggregateOutputType | null
     _avg: LasersAvgAggregateOutputType | null
     _sum: LasersSumAggregateOutputType | null
@@ -3393,38 +3393,38 @@ export namespace Prisma {
     id?: boolean
     model_name?: boolean
     manufacturer_id?: boolean
-    laser_type?: boolean
-    modulation_type?: boolean
-    cooling_method?: boolean
-    is_single_mode?: boolean
-    power_output_w?: boolean
-    power_consumption_w?: boolean
-    application?: boolean
     notes?: boolean
     created_at?: boolean
     updated_at?: boolean
-    manufacturer?: boolean | manufacturersDefaultArgs<ExtArgs>
-    wavelength_specs?: boolean | lasers$wavelength_specsArgs<ExtArgs>
-    optical_specs?: boolean | lasers$optical_specsArgs<ExtArgs>
-    stability_specs?: boolean | lasers$stability_specsArgs<ExtArgs>
+    application?: boolean
+    cooling_method?: boolean
+    is_single_mode?: boolean
+    laser_type?: boolean
+    modulation_type?: boolean
+    power_consumption_w?: boolean
+    power_output_w?: boolean
     environmental_specs?: boolean | lasers$environmental_specsArgs<ExtArgs>
+    manufacturer?: boolean | manufacturersDefaultArgs<ExtArgs>
+    optical_specs?: boolean | lasers$optical_specsArgs<ExtArgs>
     pulse_specs?: boolean | lasers$pulse_specsArgs<ExtArgs>
+    stability_specs?: boolean | lasers$stability_specsArgs<ExtArgs>
+    wavelength_specs?: boolean | lasers$wavelength_specsArgs<ExtArgs>
   }, ExtArgs["result"]["lasers"]>
 
   export type lasersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     model_name?: boolean
     manufacturer_id?: boolean
-    laser_type?: boolean
-    modulation_type?: boolean
-    cooling_method?: boolean
-    is_single_mode?: boolean
-    power_output_w?: boolean
-    power_consumption_w?: boolean
-    application?: boolean
     notes?: boolean
     created_at?: boolean
     updated_at?: boolean
+    application?: boolean
+    cooling_method?: boolean
+    is_single_mode?: boolean
+    laser_type?: boolean
+    modulation_type?: boolean
+    power_consumption_w?: boolean
+    power_output_w?: boolean
     manufacturer?: boolean | manufacturersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["lasers"]>
 
@@ -3432,16 +3432,16 @@ export namespace Prisma {
     id?: boolean
     model_name?: boolean
     manufacturer_id?: boolean
-    laser_type?: boolean
-    modulation_type?: boolean
-    cooling_method?: boolean
-    is_single_mode?: boolean
-    power_output_w?: boolean
-    power_consumption_w?: boolean
-    application?: boolean
     notes?: boolean
     created_at?: boolean
     updated_at?: boolean
+    application?: boolean
+    cooling_method?: boolean
+    is_single_mode?: boolean
+    laser_type?: boolean
+    modulation_type?: boolean
+    power_consumption_w?: boolean
+    power_output_w?: boolean
     manufacturer?: boolean | manufacturersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["lasers"]>
 
@@ -3449,26 +3449,26 @@ export namespace Prisma {
     id?: boolean
     model_name?: boolean
     manufacturer_id?: boolean
-    laser_type?: boolean
-    modulation_type?: boolean
-    cooling_method?: boolean
-    is_single_mode?: boolean
-    power_output_w?: boolean
-    power_consumption_w?: boolean
-    application?: boolean
     notes?: boolean
     created_at?: boolean
     updated_at?: boolean
+    application?: boolean
+    cooling_method?: boolean
+    is_single_mode?: boolean
+    laser_type?: boolean
+    modulation_type?: boolean
+    power_consumption_w?: boolean
+    power_output_w?: boolean
   }
 
-  export type lasersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model_name" | "manufacturer_id" | "laser_type" | "modulation_type" | "cooling_method" | "is_single_mode" | "power_output_w" | "power_consumption_w" | "application" | "notes" | "created_at" | "updated_at", ExtArgs["result"]["lasers"]>
+  export type lasersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model_name" | "manufacturer_id" | "notes" | "created_at" | "updated_at" | "application" | "cooling_method" | "is_single_mode" | "laser_type" | "modulation_type" | "power_consumption_w" | "power_output_w", ExtArgs["result"]["lasers"]>
   export type lasersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    manufacturer?: boolean | manufacturersDefaultArgs<ExtArgs>
-    wavelength_specs?: boolean | lasers$wavelength_specsArgs<ExtArgs>
-    optical_specs?: boolean | lasers$optical_specsArgs<ExtArgs>
-    stability_specs?: boolean | lasers$stability_specsArgs<ExtArgs>
     environmental_specs?: boolean | lasers$environmental_specsArgs<ExtArgs>
+    manufacturer?: boolean | manufacturersDefaultArgs<ExtArgs>
+    optical_specs?: boolean | lasers$optical_specsArgs<ExtArgs>
     pulse_specs?: boolean | lasers$pulse_specsArgs<ExtArgs>
+    stability_specs?: boolean | lasers$stability_specsArgs<ExtArgs>
+    wavelength_specs?: boolean | lasers$wavelength_specsArgs<ExtArgs>
   }
   export type lasersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     manufacturer?: boolean | manufacturersDefaultArgs<ExtArgs>
@@ -3480,27 +3480,27 @@ export namespace Prisma {
   export type $lasersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "lasers"
     objects: {
-      manufacturer: Prisma.$manufacturersPayload<ExtArgs>
-      wavelength_specs: Prisma.$wavelength_specsPayload<ExtArgs> | null
-      optical_specs: Prisma.$optical_specsPayload<ExtArgs> | null
-      stability_specs: Prisma.$stability_specsPayload<ExtArgs> | null
       environmental_specs: Prisma.$environmental_specsPayload<ExtArgs> | null
+      manufacturer: Prisma.$manufacturersPayload<ExtArgs>
+      optical_specs: Prisma.$optical_specsPayload<ExtArgs> | null
       pulse_specs: Prisma.$pulse_specsPayload<ExtArgs> | null
+      stability_specs: Prisma.$stability_specsPayload<ExtArgs> | null
+      wavelength_specs: Prisma.$wavelength_specsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       model_name: string
       manufacturer_id: number
-      laser_type: string
-      modulation_type: string
-      cooling_method: string | null
-      is_single_mode: boolean
-      power_output_w: Prisma.Decimal
-      power_consumption_w: Prisma.Decimal | null
-      application: string | null
       notes: string | null
       created_at: Date | null
       updated_at: Date | null
+      application: string | null
+      cooling_method: string | null
+      is_single_mode: boolean
+      laser_type: string
+      modulation_type: string
+      power_consumption_w: Prisma.Decimal | null
+      power_output_w: Prisma.Decimal
     }, ExtArgs["result"]["lasers"]>
     composites: {}
   }
@@ -3895,12 +3895,12 @@ export namespace Prisma {
    */
   export interface Prisma__lasersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    manufacturer<T extends manufacturersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, manufacturersDefaultArgs<ExtArgs>>): Prisma__manufacturersClient<$Result.GetResult<Prisma.$manufacturersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    wavelength_specs<T extends lasers$wavelength_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$wavelength_specsArgs<ExtArgs>>): Prisma__wavelength_specsClient<$Result.GetResult<Prisma.$wavelength_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    optical_specs<T extends lasers$optical_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$optical_specsArgs<ExtArgs>>): Prisma__optical_specsClient<$Result.GetResult<Prisma.$optical_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    stability_specs<T extends lasers$stability_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$stability_specsArgs<ExtArgs>>): Prisma__stability_specsClient<$Result.GetResult<Prisma.$stability_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     environmental_specs<T extends lasers$environmental_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$environmental_specsArgs<ExtArgs>>): Prisma__environmental_specsClient<$Result.GetResult<Prisma.$environmental_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    manufacturer<T extends manufacturersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, manufacturersDefaultArgs<ExtArgs>>): Prisma__manufacturersClient<$Result.GetResult<Prisma.$manufacturersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    optical_specs<T extends lasers$optical_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$optical_specsArgs<ExtArgs>>): Prisma__optical_specsClient<$Result.GetResult<Prisma.$optical_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     pulse_specs<T extends lasers$pulse_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$pulse_specsArgs<ExtArgs>>): Prisma__pulse_specsClient<$Result.GetResult<Prisma.$pulse_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    stability_specs<T extends lasers$stability_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$stability_specsArgs<ExtArgs>>): Prisma__stability_specsClient<$Result.GetResult<Prisma.$stability_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    wavelength_specs<T extends lasers$wavelength_specsArgs<ExtArgs> = {}>(args?: Subset<T, lasers$wavelength_specsArgs<ExtArgs>>): Prisma__wavelength_specsClient<$Result.GetResult<Prisma.$wavelength_specsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3933,16 +3933,16 @@ export namespace Prisma {
     readonly id: FieldRef<"lasers", 'Int'>
     readonly model_name: FieldRef<"lasers", 'String'>
     readonly manufacturer_id: FieldRef<"lasers", 'Int'>
-    readonly laser_type: FieldRef<"lasers", 'String'>
-    readonly modulation_type: FieldRef<"lasers", 'String'>
-    readonly cooling_method: FieldRef<"lasers", 'String'>
-    readonly is_single_mode: FieldRef<"lasers", 'Boolean'>
-    readonly power_output_w: FieldRef<"lasers", 'Decimal'>
-    readonly power_consumption_w: FieldRef<"lasers", 'Decimal'>
-    readonly application: FieldRef<"lasers", 'String'>
     readonly notes: FieldRef<"lasers", 'String'>
     readonly created_at: FieldRef<"lasers", 'DateTime'>
     readonly updated_at: FieldRef<"lasers", 'DateTime'>
+    readonly application: FieldRef<"lasers", 'String'>
+    readonly cooling_method: FieldRef<"lasers", 'String'>
+    readonly is_single_mode: FieldRef<"lasers", 'Boolean'>
+    readonly laser_type: FieldRef<"lasers", 'String'>
+    readonly modulation_type: FieldRef<"lasers", 'String'>
+    readonly power_consumption_w: FieldRef<"lasers", 'Decimal'>
+    readonly power_output_w: FieldRef<"lasers", 'Decimal'>
   }
     
 
@@ -4339,22 +4339,22 @@ export namespace Prisma {
   }
 
   /**
-   * lasers.wavelength_specs
+   * lasers.environmental_specs
    */
-  export type lasers$wavelength_specsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type lasers$environmental_specsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the wavelength_specs
+     * Select specific fields to fetch from the environmental_specs
      */
-    select?: wavelength_specsSelect<ExtArgs> | null
+    select?: environmental_specsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the wavelength_specs
+     * Omit specific fields from the environmental_specs
      */
-    omit?: wavelength_specsOmit<ExtArgs> | null
+    omit?: environmental_specsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: wavelength_specsInclude<ExtArgs> | null
-    where?: wavelength_specsWhereInput
+    include?: environmental_specsInclude<ExtArgs> | null
+    where?: environmental_specsWhereInput
   }
 
   /**
@@ -4377,6 +4377,25 @@ export namespace Prisma {
   }
 
   /**
+   * lasers.pulse_specs
+   */
+  export type lasers$pulse_specsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pulse_specs
+     */
+    select?: pulse_specsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the pulse_specs
+     */
+    omit?: pulse_specsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: pulse_specsInclude<ExtArgs> | null
+    where?: pulse_specsWhereInput
+  }
+
+  /**
    * lasers.stability_specs
    */
   export type lasers$stability_specsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4396,41 +4415,22 @@ export namespace Prisma {
   }
 
   /**
-   * lasers.environmental_specs
+   * lasers.wavelength_specs
    */
-  export type lasers$environmental_specsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type lasers$wavelength_specsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the environmental_specs
+     * Select specific fields to fetch from the wavelength_specs
      */
-    select?: environmental_specsSelect<ExtArgs> | null
+    select?: wavelength_specsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the environmental_specs
+     * Omit specific fields from the wavelength_specs
      */
-    omit?: environmental_specsOmit<ExtArgs> | null
+    omit?: wavelength_specsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: environmental_specsInclude<ExtArgs> | null
-    where?: environmental_specsWhereInput
-  }
-
-  /**
-   * lasers.pulse_specs
-   */
-  export type lasers$pulse_specsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the pulse_specs
-     */
-    select?: pulse_specsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the pulse_specs
-     */
-    omit?: pulse_specsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: pulse_specsInclude<ExtArgs> | null
-    where?: pulse_specsWhereInput
+    include?: wavelength_specsInclude<ExtArgs> | null
+    where?: wavelength_specsWhereInput
   }
 
   /**
@@ -10304,11 +10304,11 @@ export namespace Prisma {
     email: string | null
     password_hash: string | null
     name: string | null
-    role: string | null
     is_active: boolean | null
     created_at: Date | null
     updated_at: Date | null
     last_login: Date | null
+    role: string | null
   }
 
   export type UsersMaxAggregateOutputType = {
@@ -10316,11 +10316,11 @@ export namespace Prisma {
     email: string | null
     password_hash: string | null
     name: string | null
-    role: string | null
     is_active: boolean | null
     created_at: Date | null
     updated_at: Date | null
     last_login: Date | null
+    role: string | null
   }
 
   export type UsersCountAggregateOutputType = {
@@ -10328,11 +10328,11 @@ export namespace Prisma {
     email: number
     password_hash: number
     name: number
-    role: number
     is_active: number
     created_at: number
     updated_at: number
     last_login: number
+    role: number
     _all: number
   }
 
@@ -10350,11 +10350,11 @@ export namespace Prisma {
     email?: true
     password_hash?: true
     name?: true
-    role?: true
     is_active?: true
     created_at?: true
     updated_at?: true
     last_login?: true
+    role?: true
   }
 
   export type UsersMaxAggregateInputType = {
@@ -10362,11 +10362,11 @@ export namespace Prisma {
     email?: true
     password_hash?: true
     name?: true
-    role?: true
     is_active?: true
     created_at?: true
     updated_at?: true
     last_login?: true
+    role?: true
   }
 
   export type UsersCountAggregateInputType = {
@@ -10374,11 +10374,11 @@ export namespace Prisma {
     email?: true
     password_hash?: true
     name?: true
-    role?: true
     is_active?: true
     created_at?: true
     updated_at?: true
     last_login?: true
+    role?: true
     _all?: true
   }
 
@@ -10473,11 +10473,11 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active: boolean
     created_at: Date | null
     updated_at: Date | null
     last_login: Date | null
+    role: string
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
     _sum: UsersSumAggregateOutputType | null
@@ -10504,17 +10504,17 @@ export namespace Prisma {
     email?: boolean
     password_hash?: boolean
     name?: boolean
-    role?: boolean
     is_active?: boolean
     created_at?: boolean
     updated_at?: boolean
     last_login?: boolean
+    role?: boolean
     access_codes?: boolean | users$access_codesArgs<ExtArgs>
     audit_log?: boolean | users$audit_logArgs<ExtArgs>
-    pending_actions_initiated?: boolean | users$pending_actions_initiatedArgs<ExtArgs>
     pending_actions_approved?: boolean | users$pending_actions_approvedArgs<ExtArgs>
-    rollback_history_initiated?: boolean | users$rollback_history_initiatedArgs<ExtArgs>
+    pending_actions_initiated?: boolean | users$pending_actions_initiatedArgs<ExtArgs>
     rollback_history_approved?: boolean | users$rollback_history_approvedArgs<ExtArgs>
+    rollback_history_initiated?: boolean | users$rollback_history_initiatedArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
@@ -10523,11 +10523,11 @@ export namespace Prisma {
     email?: boolean
     password_hash?: boolean
     name?: boolean
-    role?: boolean
     is_active?: boolean
     created_at?: boolean
     updated_at?: boolean
     last_login?: boolean
+    role?: boolean
   }, ExtArgs["result"]["users"]>
 
   export type usersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -10535,11 +10535,11 @@ export namespace Prisma {
     email?: boolean
     password_hash?: boolean
     name?: boolean
-    role?: boolean
     is_active?: boolean
     created_at?: boolean
     updated_at?: boolean
     last_login?: boolean
+    role?: boolean
   }, ExtArgs["result"]["users"]>
 
   export type usersSelectScalar = {
@@ -10547,21 +10547,21 @@ export namespace Prisma {
     email?: boolean
     password_hash?: boolean
     name?: boolean
-    role?: boolean
     is_active?: boolean
     created_at?: boolean
     updated_at?: boolean
     last_login?: boolean
+    role?: boolean
   }
 
-  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password_hash" | "name" | "role" | "is_active" | "created_at" | "updated_at" | "last_login", ExtArgs["result"]["users"]>
+  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password_hash" | "name" | "is_active" | "created_at" | "updated_at" | "last_login" | "role", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     access_codes?: boolean | users$access_codesArgs<ExtArgs>
     audit_log?: boolean | users$audit_logArgs<ExtArgs>
-    pending_actions_initiated?: boolean | users$pending_actions_initiatedArgs<ExtArgs>
     pending_actions_approved?: boolean | users$pending_actions_approvedArgs<ExtArgs>
-    rollback_history_initiated?: boolean | users$rollback_history_initiatedArgs<ExtArgs>
+    pending_actions_initiated?: boolean | users$pending_actions_initiatedArgs<ExtArgs>
     rollback_history_approved?: boolean | users$rollback_history_approvedArgs<ExtArgs>
+    rollback_history_initiated?: boolean | users$rollback_history_initiatedArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type usersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -10572,21 +10572,21 @@ export namespace Prisma {
     objects: {
       access_codes: Prisma.$access_codesPayload<ExtArgs>[]
       audit_log: Prisma.$audit_logPayload<ExtArgs>[]
-      pending_actions_initiated: Prisma.$pending_actionsPayload<ExtArgs>[]
       pending_actions_approved: Prisma.$pending_actionsPayload<ExtArgs>[]
-      rollback_history_initiated: Prisma.$rollback_historyPayload<ExtArgs>[]
+      pending_actions_initiated: Prisma.$pending_actionsPayload<ExtArgs>[]
       rollback_history_approved: Prisma.$rollback_historyPayload<ExtArgs>[]
+      rollback_history_initiated: Prisma.$rollback_historyPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       email: string
       password_hash: string
       name: string
-      role: string
       is_active: boolean
       created_at: Date | null
       updated_at: Date | null
       last_login: Date | null
+      role: string
     }, ExtArgs["result"]["users"]>
     composites: {}
   }
@@ -10983,10 +10983,10 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     access_codes<T extends users$access_codesArgs<ExtArgs> = {}>(args?: Subset<T, users$access_codesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$access_codesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     audit_log<T extends users$audit_logArgs<ExtArgs> = {}>(args?: Subset<T, users$audit_logArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$audit_logPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    pending_actions_initiated<T extends users$pending_actions_initiatedArgs<ExtArgs> = {}>(args?: Subset<T, users$pending_actions_initiatedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pending_actions_approved<T extends users$pending_actions_approvedArgs<ExtArgs> = {}>(args?: Subset<T, users$pending_actions_approvedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    rollback_history_initiated<T extends users$rollback_history_initiatedArgs<ExtArgs> = {}>(args?: Subset<T, users$rollback_history_initiatedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    pending_actions_initiated<T extends users$pending_actions_initiatedArgs<ExtArgs> = {}>(args?: Subset<T, users$pending_actions_initiatedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pending_actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     rollback_history_approved<T extends users$rollback_history_approvedArgs<ExtArgs> = {}>(args?: Subset<T, users$rollback_history_approvedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    rollback_history_initiated<T extends users$rollback_history_initiatedArgs<ExtArgs> = {}>(args?: Subset<T, users$rollback_history_initiatedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11020,11 +11020,11 @@ export namespace Prisma {
     readonly email: FieldRef<"users", 'String'>
     readonly password_hash: FieldRef<"users", 'String'>
     readonly name: FieldRef<"users", 'String'>
-    readonly role: FieldRef<"users", 'String'>
     readonly is_active: FieldRef<"users", 'Boolean'>
     readonly created_at: FieldRef<"users", 'DateTime'>
     readonly updated_at: FieldRef<"users", 'DateTime'>
     readonly last_login: FieldRef<"users", 'DateTime'>
+    readonly role: FieldRef<"users", 'String'>
   }
     
 
@@ -11461,30 +11461,6 @@ export namespace Prisma {
   }
 
   /**
-   * users.pending_actions_initiated
-   */
-  export type users$pending_actions_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the pending_actions
-     */
-    select?: pending_actionsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the pending_actions
-     */
-    omit?: pending_actionsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: pending_actionsInclude<ExtArgs> | null
-    where?: pending_actionsWhereInput
-    orderBy?: pending_actionsOrderByWithRelationInput | pending_actionsOrderByWithRelationInput[]
-    cursor?: pending_actionsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Pending_actionsScalarFieldEnum | Pending_actionsScalarFieldEnum[]
-  }
-
-  /**
    * users.pending_actions_approved
    */
   export type users$pending_actions_approvedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11509,9 +11485,33 @@ export namespace Prisma {
   }
 
   /**
-   * users.rollback_history_initiated
+   * users.pending_actions_initiated
    */
-  export type users$rollback_history_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users$pending_actions_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pending_actions
+     */
+    select?: pending_actionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the pending_actions
+     */
+    omit?: pending_actionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: pending_actionsInclude<ExtArgs> | null
+    where?: pending_actionsWhereInput
+    orderBy?: pending_actionsOrderByWithRelationInput | pending_actionsOrderByWithRelationInput[]
+    cursor?: pending_actionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Pending_actionsScalarFieldEnum | Pending_actionsScalarFieldEnum[]
+  }
+
+  /**
+   * users.rollback_history_approved
+   */
+  export type users$rollback_history_approvedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the rollback_history
      */
@@ -11533,9 +11533,9 @@ export namespace Prisma {
   }
 
   /**
-   * users.rollback_history_approved
+   * users.rollback_history_initiated
    */
-  export type users$rollback_history_approvedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users$rollback_history_initiatedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the rollback_history
      */
@@ -11605,7 +11605,6 @@ export namespace Prisma {
     id: number | null
     code_hash: string | null
     color_code: string | null
-    role: string | null
     created_by: number | null
     expires_at: Date | null
     max_uses: number | null
@@ -11613,13 +11612,13 @@ export namespace Prisma {
     is_active: boolean | null
     notes: string | null
     created_at: Date | null
+    role: string | null
   }
 
   export type Access_codesMaxAggregateOutputType = {
     id: number | null
     code_hash: string | null
     color_code: string | null
-    role: string | null
     created_by: number | null
     expires_at: Date | null
     max_uses: number | null
@@ -11627,13 +11626,13 @@ export namespace Prisma {
     is_active: boolean | null
     notes: string | null
     created_at: Date | null
+    role: string | null
   }
 
   export type Access_codesCountAggregateOutputType = {
     id: number
     code_hash: number
     color_code: number
-    role: number
     created_by: number
     expires_at: number
     max_uses: number
@@ -11641,6 +11640,7 @@ export namespace Prisma {
     is_active: number
     notes: number
     created_at: number
+    role: number
     _all: number
   }
 
@@ -11663,7 +11663,6 @@ export namespace Prisma {
     id?: true
     code_hash?: true
     color_code?: true
-    role?: true
     created_by?: true
     expires_at?: true
     max_uses?: true
@@ -11671,13 +11670,13 @@ export namespace Prisma {
     is_active?: true
     notes?: true
     created_at?: true
+    role?: true
   }
 
   export type Access_codesMaxAggregateInputType = {
     id?: true
     code_hash?: true
     color_code?: true
-    role?: true
     created_by?: true
     expires_at?: true
     max_uses?: true
@@ -11685,13 +11684,13 @@ export namespace Prisma {
     is_active?: true
     notes?: true
     created_at?: true
+    role?: true
   }
 
   export type Access_codesCountAggregateInputType = {
     id?: true
     code_hash?: true
     color_code?: true
-    role?: true
     created_by?: true
     expires_at?: true
     max_uses?: true
@@ -11699,6 +11698,7 @@ export namespace Prisma {
     is_active?: true
     notes?: true
     created_at?: true
+    role?: true
     _all?: true
   }
 
@@ -11792,7 +11792,6 @@ export namespace Prisma {
     id: number
     code_hash: string
     color_code: string
-    role: string
     created_by: number
     expires_at: Date | null
     max_uses: number | null
@@ -11800,6 +11799,7 @@ export namespace Prisma {
     is_active: boolean
     notes: string | null
     created_at: Date | null
+    role: string
     _count: Access_codesCountAggregateOutputType | null
     _avg: Access_codesAvgAggregateOutputType | null
     _sum: Access_codesSumAggregateOutputType | null
@@ -11825,7 +11825,6 @@ export namespace Prisma {
     id?: boolean
     code_hash?: boolean
     color_code?: boolean
-    role?: boolean
     created_by?: boolean
     expires_at?: boolean
     max_uses?: boolean
@@ -11833,6 +11832,7 @@ export namespace Prisma {
     is_active?: boolean
     notes?: boolean
     created_at?: boolean
+    role?: boolean
     creator?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["access_codes"]>
 
@@ -11840,7 +11840,6 @@ export namespace Prisma {
     id?: boolean
     code_hash?: boolean
     color_code?: boolean
-    role?: boolean
     created_by?: boolean
     expires_at?: boolean
     max_uses?: boolean
@@ -11848,6 +11847,7 @@ export namespace Prisma {
     is_active?: boolean
     notes?: boolean
     created_at?: boolean
+    role?: boolean
     creator?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["access_codes"]>
 
@@ -11855,7 +11855,6 @@ export namespace Prisma {
     id?: boolean
     code_hash?: boolean
     color_code?: boolean
-    role?: boolean
     created_by?: boolean
     expires_at?: boolean
     max_uses?: boolean
@@ -11863,6 +11862,7 @@ export namespace Prisma {
     is_active?: boolean
     notes?: boolean
     created_at?: boolean
+    role?: boolean
     creator?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["access_codes"]>
 
@@ -11870,7 +11870,6 @@ export namespace Prisma {
     id?: boolean
     code_hash?: boolean
     color_code?: boolean
-    role?: boolean
     created_by?: boolean
     expires_at?: boolean
     max_uses?: boolean
@@ -11878,9 +11877,10 @@ export namespace Prisma {
     is_active?: boolean
     notes?: boolean
     created_at?: boolean
+    role?: boolean
   }
 
-  export type access_codesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code_hash" | "color_code" | "role" | "created_by" | "expires_at" | "max_uses" | "current_uses" | "is_active" | "notes" | "created_at", ExtArgs["result"]["access_codes"]>
+  export type access_codesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code_hash" | "color_code" | "created_by" | "expires_at" | "max_uses" | "current_uses" | "is_active" | "notes" | "created_at" | "role", ExtArgs["result"]["access_codes"]>
   export type access_codesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     creator?: boolean | usersDefaultArgs<ExtArgs>
   }
@@ -11900,7 +11900,6 @@ export namespace Prisma {
       id: number
       code_hash: string
       color_code: string
-      role: string
       created_by: number
       expires_at: Date | null
       max_uses: number | null
@@ -11908,6 +11907,7 @@ export namespace Prisma {
       is_active: boolean
       notes: string | null
       created_at: Date | null
+      role: string
     }, ExtArgs["result"]["access_codes"]>
     composites: {}
   }
@@ -12335,7 +12335,6 @@ export namespace Prisma {
     readonly id: FieldRef<"access_codes", 'Int'>
     readonly code_hash: FieldRef<"access_codes", 'String'>
     readonly color_code: FieldRef<"access_codes", 'String'>
-    readonly role: FieldRef<"access_codes", 'String'>
     readonly created_by: FieldRef<"access_codes", 'Int'>
     readonly expires_at: FieldRef<"access_codes", 'DateTime'>
     readonly max_uses: FieldRef<"access_codes", 'Int'>
@@ -12343,6 +12342,7 @@ export namespace Prisma {
     readonly is_active: FieldRef<"access_codes", 'Boolean'>
     readonly notes: FieldRef<"access_codes", 'String'>
     readonly created_at: FieldRef<"access_codes", 'DateTime'>
+    readonly role: FieldRef<"access_codes", 'String'>
   }
     
 
@@ -12786,9 +12786,9 @@ export namespace Prisma {
     user_id: number | null
     table_name: string | null
     record_id: number | null
-    action: string | null
     ip_address: string | null
     created_at: Date | null
+    action: string | null
   }
 
   export type Audit_logMaxAggregateOutputType = {
@@ -12796,9 +12796,9 @@ export namespace Prisma {
     user_id: number | null
     table_name: string | null
     record_id: number | null
-    action: string | null
     ip_address: string | null
     created_at: Date | null
+    action: string | null
   }
 
   export type Audit_logCountAggregateOutputType = {
@@ -12806,11 +12806,11 @@ export namespace Prisma {
     user_id: number
     table_name: number
     record_id: number
-    action: number
     old_data: number
     new_data: number
     ip_address: number
     created_at: number
+    action: number
     _all: number
   }
 
@@ -12832,9 +12832,9 @@ export namespace Prisma {
     user_id?: true
     table_name?: true
     record_id?: true
-    action?: true
     ip_address?: true
     created_at?: true
+    action?: true
   }
 
   export type Audit_logMaxAggregateInputType = {
@@ -12842,9 +12842,9 @@ export namespace Prisma {
     user_id?: true
     table_name?: true
     record_id?: true
-    action?: true
     ip_address?: true
     created_at?: true
+    action?: true
   }
 
   export type Audit_logCountAggregateInputType = {
@@ -12852,11 +12852,11 @@ export namespace Prisma {
     user_id?: true
     table_name?: true
     record_id?: true
-    action?: true
     old_data?: true
     new_data?: true
     ip_address?: true
     created_at?: true
+    action?: true
     _all?: true
   }
 
@@ -12951,11 +12951,11 @@ export namespace Prisma {
     user_id: number | null
     table_name: string
     record_id: number | null
-    action: string
     old_data: JsonValue | null
     new_data: JsonValue | null
     ip_address: string | null
     created_at: Date | null
+    action: string
     _count: Audit_logCountAggregateOutputType | null
     _avg: Audit_logAvgAggregateOutputType | null
     _sum: Audit_logSumAggregateOutputType | null
@@ -12982,11 +12982,11 @@ export namespace Prisma {
     user_id?: boolean
     table_name?: boolean
     record_id?: boolean
-    action?: boolean
     old_data?: boolean
     new_data?: boolean
     ip_address?: boolean
     created_at?: boolean
+    action?: boolean
     user?: boolean | audit_log$userArgs<ExtArgs>
     rollback_history?: boolean | audit_log$rollback_historyArgs<ExtArgs>
     _count?: boolean | Audit_logCountOutputTypeDefaultArgs<ExtArgs>
@@ -12997,11 +12997,11 @@ export namespace Prisma {
     user_id?: boolean
     table_name?: boolean
     record_id?: boolean
-    action?: boolean
     old_data?: boolean
     new_data?: boolean
     ip_address?: boolean
     created_at?: boolean
+    action?: boolean
     user?: boolean | audit_log$userArgs<ExtArgs>
   }, ExtArgs["result"]["audit_log"]>
 
@@ -13010,11 +13010,11 @@ export namespace Prisma {
     user_id?: boolean
     table_name?: boolean
     record_id?: boolean
-    action?: boolean
     old_data?: boolean
     new_data?: boolean
     ip_address?: boolean
     created_at?: boolean
+    action?: boolean
     user?: boolean | audit_log$userArgs<ExtArgs>
   }, ExtArgs["result"]["audit_log"]>
 
@@ -13023,14 +13023,14 @@ export namespace Prisma {
     user_id?: boolean
     table_name?: boolean
     record_id?: boolean
-    action?: boolean
     old_data?: boolean
     new_data?: boolean
     ip_address?: boolean
     created_at?: boolean
+    action?: boolean
   }
 
-  export type audit_logOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "table_name" | "record_id" | "action" | "old_data" | "new_data" | "ip_address" | "created_at", ExtArgs["result"]["audit_log"]>
+  export type audit_logOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "table_name" | "record_id" | "old_data" | "new_data" | "ip_address" | "created_at" | "action", ExtArgs["result"]["audit_log"]>
   export type audit_logInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | audit_log$userArgs<ExtArgs>
     rollback_history?: boolean | audit_log$rollback_historyArgs<ExtArgs>
@@ -13054,11 +13054,11 @@ export namespace Prisma {
       user_id: number | null
       table_name: string
       record_id: number | null
-      action: string
       old_data: Prisma.JsonValue | null
       new_data: Prisma.JsonValue | null
       ip_address: string | null
       created_at: Date | null
+      action: string
     }, ExtArgs["result"]["audit_log"]>
     composites: {}
   }
@@ -13488,11 +13488,11 @@ export namespace Prisma {
     readonly user_id: FieldRef<"audit_log", 'Int'>
     readonly table_name: FieldRef<"audit_log", 'String'>
     readonly record_id: FieldRef<"audit_log", 'Int'>
-    readonly action: FieldRef<"audit_log", 'String'>
     readonly old_data: FieldRef<"audit_log", 'Json'>
     readonly new_data: FieldRef<"audit_log", 'Json'>
     readonly ip_address: FieldRef<"audit_log", 'String'>
     readonly created_at: FieldRef<"audit_log", 'DateTime'>
+    readonly action: FieldRef<"audit_log", 'String'>
   }
     
 
@@ -13978,48 +13978,48 @@ export namespace Prisma {
 
   export type Pending_actionsMinAggregateOutputType = {
     id: number | null
-    action_type: string | null
     initiated_by: number | null
     target_table: string | null
     target_record_id: number | null
     reason: string | null
-    status: string | null
     expires_at: Date | null
     approved_by: number | null
     approved_at: Date | null
     completed_at: Date | null
     created_at: Date | null
+    action_type: string | null
+    status: string | null
   }
 
   export type Pending_actionsMaxAggregateOutputType = {
     id: number | null
-    action_type: string | null
     initiated_by: number | null
     target_table: string | null
     target_record_id: number | null
     reason: string | null
-    status: string | null
     expires_at: Date | null
     approved_by: number | null
     approved_at: Date | null
     completed_at: Date | null
     created_at: Date | null
+    action_type: string | null
+    status: string | null
   }
 
   export type Pending_actionsCountAggregateOutputType = {
     id: number
-    action_type: number
     initiated_by: number
     target_table: number
     target_record_id: number
     action_data: number
     reason: number
-    status: number
     expires_at: number
     approved_by: number
     approved_at: number
     completed_at: number
     created_at: number
+    action_type: number
+    status: number
     _all: number
   }
 
@@ -14040,48 +14040,48 @@ export namespace Prisma {
 
   export type Pending_actionsMinAggregateInputType = {
     id?: true
-    action_type?: true
     initiated_by?: true
     target_table?: true
     target_record_id?: true
     reason?: true
-    status?: true
     expires_at?: true
     approved_by?: true
     approved_at?: true
     completed_at?: true
     created_at?: true
+    action_type?: true
+    status?: true
   }
 
   export type Pending_actionsMaxAggregateInputType = {
     id?: true
-    action_type?: true
     initiated_by?: true
     target_table?: true
     target_record_id?: true
     reason?: true
-    status?: true
     expires_at?: true
     approved_by?: true
     approved_at?: true
     completed_at?: true
     created_at?: true
+    action_type?: true
+    status?: true
   }
 
   export type Pending_actionsCountAggregateInputType = {
     id?: true
-    action_type?: true
     initiated_by?: true
     target_table?: true
     target_record_id?: true
     action_data?: true
     reason?: true
-    status?: true
     expires_at?: true
     approved_by?: true
     approved_at?: true
     completed_at?: true
     created_at?: true
+    action_type?: true
+    status?: true
     _all?: true
   }
 
@@ -14173,18 +14173,18 @@ export namespace Prisma {
 
   export type Pending_actionsGroupByOutputType = {
     id: number
-    action_type: string
     initiated_by: number
     target_table: string
     target_record_id: number | null
     action_data: JsonValue | null
     reason: string | null
-    status: string
     expires_at: Date | null
     approved_by: number | null
     approved_at: Date | null
     completed_at: Date | null
     created_at: Date | null
+    action_type: string
+    status: string
     _count: Pending_actionsCountAggregateOutputType | null
     _avg: Pending_actionsAvgAggregateOutputType | null
     _sum: Pending_actionsSumAggregateOutputType | null
@@ -14208,108 +14208,108 @@ export namespace Prisma {
 
   export type pending_actionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    action_type?: boolean
     initiated_by?: boolean
     target_table?: boolean
     target_record_id?: boolean
     action_data?: boolean
     reason?: boolean
-    status?: boolean
     expires_at?: boolean
     approved_by?: boolean
     approved_at?: boolean
     completed_at?: boolean
     created_at?: boolean
-    initiator?: boolean | usersDefaultArgs<ExtArgs>
+    action_type?: boolean
+    status?: boolean
     approver?: boolean | pending_actions$approverArgs<ExtArgs>
+    initiator?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pending_actions"]>
 
   export type pending_actionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    action_type?: boolean
     initiated_by?: boolean
     target_table?: boolean
     target_record_id?: boolean
     action_data?: boolean
     reason?: boolean
-    status?: boolean
     expires_at?: boolean
     approved_by?: boolean
     approved_at?: boolean
     completed_at?: boolean
     created_at?: boolean
-    initiator?: boolean | usersDefaultArgs<ExtArgs>
+    action_type?: boolean
+    status?: boolean
     approver?: boolean | pending_actions$approverArgs<ExtArgs>
+    initiator?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pending_actions"]>
 
   export type pending_actionsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    action_type?: boolean
     initiated_by?: boolean
     target_table?: boolean
     target_record_id?: boolean
     action_data?: boolean
     reason?: boolean
-    status?: boolean
     expires_at?: boolean
     approved_by?: boolean
     approved_at?: boolean
     completed_at?: boolean
     created_at?: boolean
-    initiator?: boolean | usersDefaultArgs<ExtArgs>
+    action_type?: boolean
+    status?: boolean
     approver?: boolean | pending_actions$approverArgs<ExtArgs>
+    initiator?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pending_actions"]>
 
   export type pending_actionsSelectScalar = {
     id?: boolean
-    action_type?: boolean
     initiated_by?: boolean
     target_table?: boolean
     target_record_id?: boolean
     action_data?: boolean
     reason?: boolean
-    status?: boolean
     expires_at?: boolean
     approved_by?: boolean
     approved_at?: boolean
     completed_at?: boolean
     created_at?: boolean
+    action_type?: boolean
+    status?: boolean
   }
 
-  export type pending_actionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "action_type" | "initiated_by" | "target_table" | "target_record_id" | "action_data" | "reason" | "status" | "expires_at" | "approved_by" | "approved_at" | "completed_at" | "created_at", ExtArgs["result"]["pending_actions"]>
+  export type pending_actionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "initiated_by" | "target_table" | "target_record_id" | "action_data" | "reason" | "expires_at" | "approved_by" | "approved_at" | "completed_at" | "created_at" | "action_type" | "status", ExtArgs["result"]["pending_actions"]>
   export type pending_actionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    initiator?: boolean | usersDefaultArgs<ExtArgs>
     approver?: boolean | pending_actions$approverArgs<ExtArgs>
+    initiator?: boolean | usersDefaultArgs<ExtArgs>
   }
   export type pending_actionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    initiator?: boolean | usersDefaultArgs<ExtArgs>
     approver?: boolean | pending_actions$approverArgs<ExtArgs>
+    initiator?: boolean | usersDefaultArgs<ExtArgs>
   }
   export type pending_actionsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    initiator?: boolean | usersDefaultArgs<ExtArgs>
     approver?: boolean | pending_actions$approverArgs<ExtArgs>
+    initiator?: boolean | usersDefaultArgs<ExtArgs>
   }
 
   export type $pending_actionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "pending_actions"
     objects: {
-      initiator: Prisma.$usersPayload<ExtArgs>
       approver: Prisma.$usersPayload<ExtArgs> | null
+      initiator: Prisma.$usersPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      action_type: string
       initiated_by: number
       target_table: string
       target_record_id: number | null
       action_data: Prisma.JsonValue | null
       reason: string | null
-      status: string
       expires_at: Date | null
       approved_by: number | null
       approved_at: Date | null
       completed_at: Date | null
       created_at: Date | null
+      action_type: string
+      status: string
     }, ExtArgs["result"]["pending_actions"]>
     composites: {}
   }
@@ -14704,8 +14704,8 @@ export namespace Prisma {
    */
   export interface Prisma__pending_actionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    initiator<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     approver<T extends pending_actions$approverArgs<ExtArgs> = {}>(args?: Subset<T, pending_actions$approverArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    initiator<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14736,18 +14736,18 @@ export namespace Prisma {
    */
   interface pending_actionsFieldRefs {
     readonly id: FieldRef<"pending_actions", 'Int'>
-    readonly action_type: FieldRef<"pending_actions", 'String'>
     readonly initiated_by: FieldRef<"pending_actions", 'Int'>
     readonly target_table: FieldRef<"pending_actions", 'String'>
     readonly target_record_id: FieldRef<"pending_actions", 'Int'>
     readonly action_data: FieldRef<"pending_actions", 'Json'>
     readonly reason: FieldRef<"pending_actions", 'String'>
-    readonly status: FieldRef<"pending_actions", 'String'>
     readonly expires_at: FieldRef<"pending_actions", 'DateTime'>
     readonly approved_by: FieldRef<"pending_actions", 'Int'>
     readonly approved_at: FieldRef<"pending_actions", 'DateTime'>
     readonly completed_at: FieldRef<"pending_actions", 'DateTime'>
     readonly created_at: FieldRef<"pending_actions", 'DateTime'>
+    readonly action_type: FieldRef<"pending_actions", 'String'>
+    readonly status: FieldRef<"pending_actions", 'String'>
   }
     
 
@@ -15212,9 +15212,9 @@ export namespace Prisma {
     audit_log_id: number | null
     initiated_by: number | null
     approved_by: number | null
-    status: string | null
     error_message: string | null
     created_at: Date | null
+    status: string | null
   }
 
   export type Rollback_historyMaxAggregateOutputType = {
@@ -15222,9 +15222,9 @@ export namespace Prisma {
     audit_log_id: number | null
     initiated_by: number | null
     approved_by: number | null
-    status: string | null
     error_message: string | null
     created_at: Date | null
+    status: string | null
   }
 
   export type Rollback_historyCountAggregateOutputType = {
@@ -15232,9 +15232,9 @@ export namespace Prisma {
     audit_log_id: number
     initiated_by: number
     approved_by: number
-    status: number
     error_message: number
     created_at: number
+    status: number
     _all: number
   }
 
@@ -15258,9 +15258,9 @@ export namespace Prisma {
     audit_log_id?: true
     initiated_by?: true
     approved_by?: true
-    status?: true
     error_message?: true
     created_at?: true
+    status?: true
   }
 
   export type Rollback_historyMaxAggregateInputType = {
@@ -15268,9 +15268,9 @@ export namespace Prisma {
     audit_log_id?: true
     initiated_by?: true
     approved_by?: true
-    status?: true
     error_message?: true
     created_at?: true
+    status?: true
   }
 
   export type Rollback_historyCountAggregateInputType = {
@@ -15278,9 +15278,9 @@ export namespace Prisma {
     audit_log_id?: true
     initiated_by?: true
     approved_by?: true
-    status?: true
     error_message?: true
     created_at?: true
+    status?: true
     _all?: true
   }
 
@@ -15375,9 +15375,9 @@ export namespace Prisma {
     audit_log_id: number
     initiated_by: number
     approved_by: number | null
-    status: string
     error_message: string | null
     created_at: Date | null
+    status: string
     _count: Rollback_historyCountAggregateOutputType | null
     _avg: Rollback_historyAvgAggregateOutputType | null
     _sum: Rollback_historySumAggregateOutputType | null
@@ -15404,12 +15404,12 @@ export namespace Prisma {
     audit_log_id?: boolean
     initiated_by?: boolean
     approved_by?: boolean
-    status?: boolean
     error_message?: boolean
     created_at?: boolean
+    status?: boolean
+    approver?: boolean | rollback_history$approverArgs<ExtArgs>
     audit_log?: boolean | audit_logDefaultArgs<ExtArgs>
     initiator?: boolean | usersDefaultArgs<ExtArgs>
-    approver?: boolean | rollback_history$approverArgs<ExtArgs>
   }, ExtArgs["result"]["rollback_history"]>
 
   export type rollback_historySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -15417,12 +15417,12 @@ export namespace Prisma {
     audit_log_id?: boolean
     initiated_by?: boolean
     approved_by?: boolean
-    status?: boolean
     error_message?: boolean
     created_at?: boolean
+    status?: boolean
+    approver?: boolean | rollback_history$approverArgs<ExtArgs>
     audit_log?: boolean | audit_logDefaultArgs<ExtArgs>
     initiator?: boolean | usersDefaultArgs<ExtArgs>
-    approver?: boolean | rollback_history$approverArgs<ExtArgs>
   }, ExtArgs["result"]["rollback_history"]>
 
   export type rollback_historySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -15430,12 +15430,12 @@ export namespace Prisma {
     audit_log_id?: boolean
     initiated_by?: boolean
     approved_by?: boolean
-    status?: boolean
     error_message?: boolean
     created_at?: boolean
+    status?: boolean
+    approver?: boolean | rollback_history$approverArgs<ExtArgs>
     audit_log?: boolean | audit_logDefaultArgs<ExtArgs>
     initiator?: boolean | usersDefaultArgs<ExtArgs>
-    approver?: boolean | rollback_history$approverArgs<ExtArgs>
   }, ExtArgs["result"]["rollback_history"]>
 
   export type rollback_historySelectScalar = {
@@ -15443,43 +15443,43 @@ export namespace Prisma {
     audit_log_id?: boolean
     initiated_by?: boolean
     approved_by?: boolean
-    status?: boolean
     error_message?: boolean
     created_at?: boolean
+    status?: boolean
   }
 
-  export type rollback_historyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "audit_log_id" | "initiated_by" | "approved_by" | "status" | "error_message" | "created_at", ExtArgs["result"]["rollback_history"]>
+  export type rollback_historyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "audit_log_id" | "initiated_by" | "approved_by" | "error_message" | "created_at" | "status", ExtArgs["result"]["rollback_history"]>
   export type rollback_historyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    approver?: boolean | rollback_history$approverArgs<ExtArgs>
     audit_log?: boolean | audit_logDefaultArgs<ExtArgs>
     initiator?: boolean | usersDefaultArgs<ExtArgs>
-    approver?: boolean | rollback_history$approverArgs<ExtArgs>
   }
   export type rollback_historyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    approver?: boolean | rollback_history$approverArgs<ExtArgs>
     audit_log?: boolean | audit_logDefaultArgs<ExtArgs>
     initiator?: boolean | usersDefaultArgs<ExtArgs>
-    approver?: boolean | rollback_history$approverArgs<ExtArgs>
   }
   export type rollback_historyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    approver?: boolean | rollback_history$approverArgs<ExtArgs>
     audit_log?: boolean | audit_logDefaultArgs<ExtArgs>
     initiator?: boolean | usersDefaultArgs<ExtArgs>
-    approver?: boolean | rollback_history$approverArgs<ExtArgs>
   }
 
   export type $rollback_historyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "rollback_history"
     objects: {
+      approver: Prisma.$usersPayload<ExtArgs> | null
       audit_log: Prisma.$audit_logPayload<ExtArgs>
       initiator: Prisma.$usersPayload<ExtArgs>
-      approver: Prisma.$usersPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       audit_log_id: number
       initiated_by: number
       approved_by: number | null
-      status: string
       error_message: string | null
       created_at: Date | null
+      status: string
     }, ExtArgs["result"]["rollback_history"]>
     composites: {}
   }
@@ -15874,9 +15874,9 @@ export namespace Prisma {
    */
   export interface Prisma__rollback_historyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    approver<T extends rollback_history$approverArgs<ExtArgs> = {}>(args?: Subset<T, rollback_history$approverArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     audit_log<T extends audit_logDefaultArgs<ExtArgs> = {}>(args?: Subset<T, audit_logDefaultArgs<ExtArgs>>): Prisma__audit_logClient<$Result.GetResult<Prisma.$audit_logPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     initiator<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    approver<T extends rollback_history$approverArgs<ExtArgs> = {}>(args?: Subset<T, rollback_history$approverArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -15910,9 +15910,9 @@ export namespace Prisma {
     readonly audit_log_id: FieldRef<"rollback_history", 'Int'>
     readonly initiated_by: FieldRef<"rollback_history", 'Int'>
     readonly approved_by: FieldRef<"rollback_history", 'Int'>
-    readonly status: FieldRef<"rollback_history", 'String'>
     readonly error_message: FieldRef<"rollback_history", 'String'>
     readonly created_at: FieldRef<"rollback_history", 'DateTime'>
+    readonly status: FieldRef<"rollback_history", 'String'>
   }
     
 
@@ -16365,8 +16365,8 @@ export namespace Prisma {
     name: 'name',
     country: 'country',
     website: 'website',
-    contact_email: 'contact_email',
     created_at: 'created_at',
+    contact_email: 'contact_email',
     updated_at: 'updated_at'
   };
 
@@ -16377,16 +16377,16 @@ export namespace Prisma {
     id: 'id',
     model_name: 'model_name',
     manufacturer_id: 'manufacturer_id',
-    laser_type: 'laser_type',
-    modulation_type: 'modulation_type',
-    cooling_method: 'cooling_method',
-    is_single_mode: 'is_single_mode',
-    power_output_w: 'power_output_w',
-    power_consumption_w: 'power_consumption_w',
-    application: 'application',
     notes: 'notes',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    application: 'application',
+    cooling_method: 'cooling_method',
+    is_single_mode: 'is_single_mode',
+    laser_type: 'laser_type',
+    modulation_type: 'modulation_type',
+    power_consumption_w: 'power_consumption_w',
+    power_output_w: 'power_output_w'
   };
 
   export type LasersScalarFieldEnum = (typeof LasersScalarFieldEnum)[keyof typeof LasersScalarFieldEnum]
@@ -16471,11 +16471,11 @@ export namespace Prisma {
     email: 'email',
     password_hash: 'password_hash',
     name: 'name',
-    role: 'role',
     is_active: 'is_active',
     created_at: 'created_at',
     updated_at: 'updated_at',
-    last_login: 'last_login'
+    last_login: 'last_login',
+    role: 'role'
   };
 
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
@@ -16485,14 +16485,14 @@ export namespace Prisma {
     id: 'id',
     code_hash: 'code_hash',
     color_code: 'color_code',
-    role: 'role',
     created_by: 'created_by',
     expires_at: 'expires_at',
     max_uses: 'max_uses',
     current_uses: 'current_uses',
     is_active: 'is_active',
     notes: 'notes',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    role: 'role'
   };
 
   export type Access_codesScalarFieldEnum = (typeof Access_codesScalarFieldEnum)[keyof typeof Access_codesScalarFieldEnum]
@@ -16503,11 +16503,11 @@ export namespace Prisma {
     user_id: 'user_id',
     table_name: 'table_name',
     record_id: 'record_id',
-    action: 'action',
     old_data: 'old_data',
     new_data: 'new_data',
     ip_address: 'ip_address',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    action: 'action'
   };
 
   export type Audit_logScalarFieldEnum = (typeof Audit_logScalarFieldEnum)[keyof typeof Audit_logScalarFieldEnum]
@@ -16515,18 +16515,18 @@ export namespace Prisma {
 
   export const Pending_actionsScalarFieldEnum: {
     id: 'id',
-    action_type: 'action_type',
     initiated_by: 'initiated_by',
     target_table: 'target_table',
     target_record_id: 'target_record_id',
     action_data: 'action_data',
     reason: 'reason',
-    status: 'status',
     expires_at: 'expires_at',
     approved_by: 'approved_by',
     approved_at: 'approved_at',
     completed_at: 'completed_at',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    action_type: 'action_type',
+    status: 'status'
   };
 
   export type Pending_actionsScalarFieldEnum = (typeof Pending_actionsScalarFieldEnum)[keyof typeof Pending_actionsScalarFieldEnum]
@@ -16537,9 +16537,9 @@ export namespace Prisma {
     audit_log_id: 'audit_log_id',
     initiated_by: 'initiated_by',
     approved_by: 'approved_by',
-    status: 'status',
     error_message: 'error_message',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    status: 'status'
   };
 
   export type Rollback_historyScalarFieldEnum = (typeof Rollback_historyScalarFieldEnum)[keyof typeof Rollback_historyScalarFieldEnum]
@@ -16693,8 +16693,8 @@ export namespace Prisma {
     name?: StringFilter<"manufacturers"> | string
     country?: StringNullableFilter<"manufacturers"> | string | null
     website?: StringNullableFilter<"manufacturers"> | string | null
-    contact_email?: StringNullableFilter<"manufacturers"> | string | null
     created_at?: DateTimeNullableFilter<"manufacturers"> | Date | string | null
+    contact_email?: StringNullableFilter<"manufacturers"> | string | null
     updated_at?: DateTimeNullableFilter<"manufacturers"> | Date | string | null
     lasers?: LasersListRelationFilter
   }
@@ -16704,8 +16704,8 @@ export namespace Prisma {
     name?: SortOrder
     country?: SortOrderInput | SortOrder
     website?: SortOrderInput | SortOrder
-    contact_email?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    contact_email?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
     lasers?: lasersOrderByRelationAggregateInput
   }
@@ -16718,8 +16718,8 @@ export namespace Prisma {
     name?: StringFilter<"manufacturers"> | string
     country?: StringNullableFilter<"manufacturers"> | string | null
     website?: StringNullableFilter<"manufacturers"> | string | null
-    contact_email?: StringNullableFilter<"manufacturers"> | string | null
     created_at?: DateTimeNullableFilter<"manufacturers"> | Date | string | null
+    contact_email?: StringNullableFilter<"manufacturers"> | string | null
     updated_at?: DateTimeNullableFilter<"manufacturers"> | Date | string | null
     lasers?: LasersListRelationFilter
   }, "id">
@@ -16729,8 +16729,8 @@ export namespace Prisma {
     name?: SortOrder
     country?: SortOrderInput | SortOrder
     website?: SortOrderInput | SortOrder
-    contact_email?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    contact_email?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: manufacturersCountOrderByAggregateInput
     _avg?: manufacturersAvgOrderByAggregateInput
@@ -16747,8 +16747,8 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"manufacturers"> | string
     country?: StringNullableWithAggregatesFilter<"manufacturers"> | string | null
     website?: StringNullableWithAggregatesFilter<"manufacturers"> | string | null
-    contact_email?: StringNullableWithAggregatesFilter<"manufacturers"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"manufacturers"> | Date | string | null
+    contact_email?: StringNullableWithAggregatesFilter<"manufacturers"> | string | null
     updated_at?: DateTimeNullableWithAggregatesFilter<"manufacturers"> | Date | string | null
   }
 
@@ -16759,44 +16759,44 @@ export namespace Prisma {
     id?: IntFilter<"lasers"> | number
     model_name?: StringFilter<"lasers"> | string
     manufacturer_id?: IntFilter<"lasers"> | number
-    laser_type?: StringFilter<"lasers"> | string
-    modulation_type?: StringFilter<"lasers"> | string
-    cooling_method?: StringNullableFilter<"lasers"> | string | null
-    is_single_mode?: BoolFilter<"lasers"> | boolean
-    power_output_w?: DecimalFilter<"lasers"> | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: DecimalNullableFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
-    application?: StringNullableFilter<"lasers"> | string | null
     notes?: StringNullableFilter<"lasers"> | string | null
     created_at?: DateTimeNullableFilter<"lasers"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"lasers"> | Date | string | null
-    manufacturer?: XOR<ManufacturersScalarRelationFilter, manufacturersWhereInput>
-    wavelength_specs?: XOR<Wavelength_specsNullableScalarRelationFilter, wavelength_specsWhereInput> | null
-    optical_specs?: XOR<Optical_specsNullableScalarRelationFilter, optical_specsWhereInput> | null
-    stability_specs?: XOR<Stability_specsNullableScalarRelationFilter, stability_specsWhereInput> | null
+    application?: StringNullableFilter<"lasers"> | string | null
+    cooling_method?: StringNullableFilter<"lasers"> | string | null
+    is_single_mode?: BoolFilter<"lasers"> | boolean
+    laser_type?: StringFilter<"lasers"> | string
+    modulation_type?: StringFilter<"lasers"> | string
+    power_consumption_w?: DecimalNullableFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFilter<"lasers"> | Decimal | DecimalJsLike | number | string
     environmental_specs?: XOR<Environmental_specsNullableScalarRelationFilter, environmental_specsWhereInput> | null
+    manufacturer?: XOR<ManufacturersScalarRelationFilter, manufacturersWhereInput>
+    optical_specs?: XOR<Optical_specsNullableScalarRelationFilter, optical_specsWhereInput> | null
     pulse_specs?: XOR<Pulse_specsNullableScalarRelationFilter, pulse_specsWhereInput> | null
+    stability_specs?: XOR<Stability_specsNullableScalarRelationFilter, stability_specsWhereInput> | null
+    wavelength_specs?: XOR<Wavelength_specsNullableScalarRelationFilter, wavelength_specsWhereInput> | null
   }
 
   export type lasersOrderByWithRelationInput = {
     id?: SortOrder
     model_name?: SortOrder
     manufacturer_id?: SortOrder
-    laser_type?: SortOrder
-    modulation_type?: SortOrder
-    cooling_method?: SortOrderInput | SortOrder
-    is_single_mode?: SortOrder
-    power_output_w?: SortOrder
-    power_consumption_w?: SortOrderInput | SortOrder
-    application?: SortOrderInput | SortOrder
     notes?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
-    manufacturer?: manufacturersOrderByWithRelationInput
-    wavelength_specs?: wavelength_specsOrderByWithRelationInput
-    optical_specs?: optical_specsOrderByWithRelationInput
-    stability_specs?: stability_specsOrderByWithRelationInput
+    application?: SortOrderInput | SortOrder
+    cooling_method?: SortOrderInput | SortOrder
+    is_single_mode?: SortOrder
+    laser_type?: SortOrder
+    modulation_type?: SortOrder
+    power_consumption_w?: SortOrderInput | SortOrder
+    power_output_w?: SortOrder
     environmental_specs?: environmental_specsOrderByWithRelationInput
+    manufacturer?: manufacturersOrderByWithRelationInput
+    optical_specs?: optical_specsOrderByWithRelationInput
     pulse_specs?: pulse_specsOrderByWithRelationInput
+    stability_specs?: stability_specsOrderByWithRelationInput
+    wavelength_specs?: wavelength_specsOrderByWithRelationInput
   }
 
   export type lasersWhereUniqueInput = Prisma.AtLeast<{
@@ -16806,38 +16806,38 @@ export namespace Prisma {
     NOT?: lasersWhereInput | lasersWhereInput[]
     model_name?: StringFilter<"lasers"> | string
     manufacturer_id?: IntFilter<"lasers"> | number
-    laser_type?: StringFilter<"lasers"> | string
-    modulation_type?: StringFilter<"lasers"> | string
-    cooling_method?: StringNullableFilter<"lasers"> | string | null
-    is_single_mode?: BoolFilter<"lasers"> | boolean
-    power_output_w?: DecimalFilter<"lasers"> | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: DecimalNullableFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
-    application?: StringNullableFilter<"lasers"> | string | null
     notes?: StringNullableFilter<"lasers"> | string | null
     created_at?: DateTimeNullableFilter<"lasers"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"lasers"> | Date | string | null
-    manufacturer?: XOR<ManufacturersScalarRelationFilter, manufacturersWhereInput>
-    wavelength_specs?: XOR<Wavelength_specsNullableScalarRelationFilter, wavelength_specsWhereInput> | null
-    optical_specs?: XOR<Optical_specsNullableScalarRelationFilter, optical_specsWhereInput> | null
-    stability_specs?: XOR<Stability_specsNullableScalarRelationFilter, stability_specsWhereInput> | null
+    application?: StringNullableFilter<"lasers"> | string | null
+    cooling_method?: StringNullableFilter<"lasers"> | string | null
+    is_single_mode?: BoolFilter<"lasers"> | boolean
+    laser_type?: StringFilter<"lasers"> | string
+    modulation_type?: StringFilter<"lasers"> | string
+    power_consumption_w?: DecimalNullableFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFilter<"lasers"> | Decimal | DecimalJsLike | number | string
     environmental_specs?: XOR<Environmental_specsNullableScalarRelationFilter, environmental_specsWhereInput> | null
+    manufacturer?: XOR<ManufacturersScalarRelationFilter, manufacturersWhereInput>
+    optical_specs?: XOR<Optical_specsNullableScalarRelationFilter, optical_specsWhereInput> | null
     pulse_specs?: XOR<Pulse_specsNullableScalarRelationFilter, pulse_specsWhereInput> | null
+    stability_specs?: XOR<Stability_specsNullableScalarRelationFilter, stability_specsWhereInput> | null
+    wavelength_specs?: XOR<Wavelength_specsNullableScalarRelationFilter, wavelength_specsWhereInput> | null
   }, "id">
 
   export type lasersOrderByWithAggregationInput = {
     id?: SortOrder
     model_name?: SortOrder
     manufacturer_id?: SortOrder
-    laser_type?: SortOrder
-    modulation_type?: SortOrder
-    cooling_method?: SortOrderInput | SortOrder
-    is_single_mode?: SortOrder
-    power_output_w?: SortOrder
-    power_consumption_w?: SortOrderInput | SortOrder
-    application?: SortOrderInput | SortOrder
     notes?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
+    application?: SortOrderInput | SortOrder
+    cooling_method?: SortOrderInput | SortOrder
+    is_single_mode?: SortOrder
+    laser_type?: SortOrder
+    modulation_type?: SortOrder
+    power_consumption_w?: SortOrderInput | SortOrder
+    power_output_w?: SortOrder
     _count?: lasersCountOrderByAggregateInput
     _avg?: lasersAvgOrderByAggregateInput
     _max?: lasersMaxOrderByAggregateInput
@@ -16852,16 +16852,16 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"lasers"> | number
     model_name?: StringWithAggregatesFilter<"lasers"> | string
     manufacturer_id?: IntWithAggregatesFilter<"lasers"> | number
-    laser_type?: StringWithAggregatesFilter<"lasers"> | string
-    modulation_type?: StringWithAggregatesFilter<"lasers"> | string
-    cooling_method?: StringNullableWithAggregatesFilter<"lasers"> | string | null
-    is_single_mode?: BoolWithAggregatesFilter<"lasers"> | boolean
-    power_output_w?: DecimalWithAggregatesFilter<"lasers"> | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: DecimalNullableWithAggregatesFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
-    application?: StringNullableWithAggregatesFilter<"lasers"> | string | null
     notes?: StringNullableWithAggregatesFilter<"lasers"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"lasers"> | Date | string | null
     updated_at?: DateTimeNullableWithAggregatesFilter<"lasers"> | Date | string | null
+    application?: StringNullableWithAggregatesFilter<"lasers"> | string | null
+    cooling_method?: StringNullableWithAggregatesFilter<"lasers"> | string | null
+    is_single_mode?: BoolWithAggregatesFilter<"lasers"> | boolean
+    laser_type?: StringWithAggregatesFilter<"lasers"> | string
+    modulation_type?: StringWithAggregatesFilter<"lasers"> | string
+    power_consumption_w?: DecimalNullableWithAggregatesFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalWithAggregatesFilter<"lasers"> | Decimal | DecimalJsLike | number | string
   }
 
   export type wavelength_specsWhereInput = {
@@ -17252,17 +17252,17 @@ export namespace Prisma {
     email?: StringFilter<"users"> | string
     password_hash?: StringFilter<"users"> | string
     name?: StringFilter<"users"> | string
-    role?: StringFilter<"users"> | string
     is_active?: BoolFilter<"users"> | boolean
     created_at?: DateTimeNullableFilter<"users"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"users"> | Date | string | null
     last_login?: DateTimeNullableFilter<"users"> | Date | string | null
+    role?: StringFilter<"users"> | string
     access_codes?: Access_codesListRelationFilter
     audit_log?: Audit_logListRelationFilter
-    pending_actions_initiated?: Pending_actionsListRelationFilter
     pending_actions_approved?: Pending_actionsListRelationFilter
-    rollback_history_initiated?: Rollback_historyListRelationFilter
+    pending_actions_initiated?: Pending_actionsListRelationFilter
     rollback_history_approved?: Rollback_historyListRelationFilter
+    rollback_history_initiated?: Rollback_historyListRelationFilter
   }
 
   export type usersOrderByWithRelationInput = {
@@ -17270,17 +17270,17 @@ export namespace Prisma {
     email?: SortOrder
     password_hash?: SortOrder
     name?: SortOrder
-    role?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
     last_login?: SortOrderInput | SortOrder
+    role?: SortOrder
     access_codes?: access_codesOrderByRelationAggregateInput
     audit_log?: audit_logOrderByRelationAggregateInput
-    pending_actions_initiated?: pending_actionsOrderByRelationAggregateInput
     pending_actions_approved?: pending_actionsOrderByRelationAggregateInput
-    rollback_history_initiated?: rollback_historyOrderByRelationAggregateInput
+    pending_actions_initiated?: pending_actionsOrderByRelationAggregateInput
     rollback_history_approved?: rollback_historyOrderByRelationAggregateInput
+    rollback_history_initiated?: rollback_historyOrderByRelationAggregateInput
   }
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -17291,17 +17291,17 @@ export namespace Prisma {
     NOT?: usersWhereInput | usersWhereInput[]
     password_hash?: StringFilter<"users"> | string
     name?: StringFilter<"users"> | string
-    role?: StringFilter<"users"> | string
     is_active?: BoolFilter<"users"> | boolean
     created_at?: DateTimeNullableFilter<"users"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"users"> | Date | string | null
     last_login?: DateTimeNullableFilter<"users"> | Date | string | null
+    role?: StringFilter<"users"> | string
     access_codes?: Access_codesListRelationFilter
     audit_log?: Audit_logListRelationFilter
-    pending_actions_initiated?: Pending_actionsListRelationFilter
     pending_actions_approved?: Pending_actionsListRelationFilter
-    rollback_history_initiated?: Rollback_historyListRelationFilter
+    pending_actions_initiated?: Pending_actionsListRelationFilter
     rollback_history_approved?: Rollback_historyListRelationFilter
+    rollback_history_initiated?: Rollback_historyListRelationFilter
   }, "id" | "email">
 
   export type usersOrderByWithAggregationInput = {
@@ -17309,11 +17309,11 @@ export namespace Prisma {
     email?: SortOrder
     password_hash?: SortOrder
     name?: SortOrder
-    role?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
     last_login?: SortOrderInput | SortOrder
+    role?: SortOrder
     _count?: usersCountOrderByAggregateInput
     _avg?: usersAvgOrderByAggregateInput
     _max?: usersMaxOrderByAggregateInput
@@ -17329,11 +17329,11 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"users"> | string
     password_hash?: StringWithAggregatesFilter<"users"> | string
     name?: StringWithAggregatesFilter<"users"> | string
-    role?: StringWithAggregatesFilter<"users"> | string
     is_active?: BoolWithAggregatesFilter<"users"> | boolean
     created_at?: DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
     updated_at?: DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
     last_login?: DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
+    role?: StringWithAggregatesFilter<"users"> | string
   }
 
   export type access_codesWhereInput = {
@@ -17343,7 +17343,6 @@ export namespace Prisma {
     id?: IntFilter<"access_codes"> | number
     code_hash?: StringFilter<"access_codes"> | string
     color_code?: StringFilter<"access_codes"> | string
-    role?: StringFilter<"access_codes"> | string
     created_by?: IntFilter<"access_codes"> | number
     expires_at?: DateTimeNullableFilter<"access_codes"> | Date | string | null
     max_uses?: IntNullableFilter<"access_codes"> | number | null
@@ -17351,6 +17350,7 @@ export namespace Prisma {
     is_active?: BoolFilter<"access_codes"> | boolean
     notes?: StringNullableFilter<"access_codes"> | string | null
     created_at?: DateTimeNullableFilter<"access_codes"> | Date | string | null
+    role?: StringFilter<"access_codes"> | string
     creator?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }
 
@@ -17358,7 +17358,6 @@ export namespace Prisma {
     id?: SortOrder
     code_hash?: SortOrder
     color_code?: SortOrder
-    role?: SortOrder
     created_by?: SortOrder
     expires_at?: SortOrderInput | SortOrder
     max_uses?: SortOrderInput | SortOrder
@@ -17366,6 +17365,7 @@ export namespace Prisma {
     is_active?: SortOrder
     notes?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    role?: SortOrder
     creator?: usersOrderByWithRelationInput
   }
 
@@ -17376,7 +17376,6 @@ export namespace Prisma {
     NOT?: access_codesWhereInput | access_codesWhereInput[]
     code_hash?: StringFilter<"access_codes"> | string
     color_code?: StringFilter<"access_codes"> | string
-    role?: StringFilter<"access_codes"> | string
     created_by?: IntFilter<"access_codes"> | number
     expires_at?: DateTimeNullableFilter<"access_codes"> | Date | string | null
     max_uses?: IntNullableFilter<"access_codes"> | number | null
@@ -17384,6 +17383,7 @@ export namespace Prisma {
     is_active?: BoolFilter<"access_codes"> | boolean
     notes?: StringNullableFilter<"access_codes"> | string | null
     created_at?: DateTimeNullableFilter<"access_codes"> | Date | string | null
+    role?: StringFilter<"access_codes"> | string
     creator?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }, "id">
 
@@ -17391,7 +17391,6 @@ export namespace Prisma {
     id?: SortOrder
     code_hash?: SortOrder
     color_code?: SortOrder
-    role?: SortOrder
     created_by?: SortOrder
     expires_at?: SortOrderInput | SortOrder
     max_uses?: SortOrderInput | SortOrder
@@ -17399,6 +17398,7 @@ export namespace Prisma {
     is_active?: SortOrder
     notes?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    role?: SortOrder
     _count?: access_codesCountOrderByAggregateInput
     _avg?: access_codesAvgOrderByAggregateInput
     _max?: access_codesMaxOrderByAggregateInput
@@ -17413,7 +17413,6 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"access_codes"> | number
     code_hash?: StringWithAggregatesFilter<"access_codes"> | string
     color_code?: StringWithAggregatesFilter<"access_codes"> | string
-    role?: StringWithAggregatesFilter<"access_codes"> | string
     created_by?: IntWithAggregatesFilter<"access_codes"> | number
     expires_at?: DateTimeNullableWithAggregatesFilter<"access_codes"> | Date | string | null
     max_uses?: IntNullableWithAggregatesFilter<"access_codes"> | number | null
@@ -17421,6 +17420,7 @@ export namespace Prisma {
     is_active?: BoolWithAggregatesFilter<"access_codes"> | boolean
     notes?: StringNullableWithAggregatesFilter<"access_codes"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"access_codes"> | Date | string | null
+    role?: StringWithAggregatesFilter<"access_codes"> | string
   }
 
   export type audit_logWhereInput = {
@@ -17431,11 +17431,11 @@ export namespace Prisma {
     user_id?: IntNullableFilter<"audit_log"> | number | null
     table_name?: StringFilter<"audit_log"> | string
     record_id?: IntNullableFilter<"audit_log"> | number | null
-    action?: StringFilter<"audit_log"> | string
     old_data?: JsonNullableFilter<"audit_log">
     new_data?: JsonNullableFilter<"audit_log">
     ip_address?: StringNullableFilter<"audit_log"> | string | null
     created_at?: DateTimeNullableFilter<"audit_log"> | Date | string | null
+    action?: StringFilter<"audit_log"> | string
     user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     rollback_history?: Rollback_historyListRelationFilter
   }
@@ -17445,11 +17445,11 @@ export namespace Prisma {
     user_id?: SortOrderInput | SortOrder
     table_name?: SortOrder
     record_id?: SortOrderInput | SortOrder
-    action?: SortOrder
     old_data?: SortOrderInput | SortOrder
     new_data?: SortOrderInput | SortOrder
     ip_address?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    action?: SortOrder
     user?: usersOrderByWithRelationInput
     rollback_history?: rollback_historyOrderByRelationAggregateInput
   }
@@ -17462,11 +17462,11 @@ export namespace Prisma {
     user_id?: IntNullableFilter<"audit_log"> | number | null
     table_name?: StringFilter<"audit_log"> | string
     record_id?: IntNullableFilter<"audit_log"> | number | null
-    action?: StringFilter<"audit_log"> | string
     old_data?: JsonNullableFilter<"audit_log">
     new_data?: JsonNullableFilter<"audit_log">
     ip_address?: StringNullableFilter<"audit_log"> | string | null
     created_at?: DateTimeNullableFilter<"audit_log"> | Date | string | null
+    action?: StringFilter<"audit_log"> | string
     user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     rollback_history?: Rollback_historyListRelationFilter
   }, "id">
@@ -17476,11 +17476,11 @@ export namespace Prisma {
     user_id?: SortOrderInput | SortOrder
     table_name?: SortOrder
     record_id?: SortOrderInput | SortOrder
-    action?: SortOrder
     old_data?: SortOrderInput | SortOrder
     new_data?: SortOrderInput | SortOrder
     ip_address?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    action?: SortOrder
     _count?: audit_logCountOrderByAggregateInput
     _avg?: audit_logAvgOrderByAggregateInput
     _max?: audit_logMaxOrderByAggregateInput
@@ -17496,11 +17496,11 @@ export namespace Prisma {
     user_id?: IntNullableWithAggregatesFilter<"audit_log"> | number | null
     table_name?: StringWithAggregatesFilter<"audit_log"> | string
     record_id?: IntNullableWithAggregatesFilter<"audit_log"> | number | null
-    action?: StringWithAggregatesFilter<"audit_log"> | string
     old_data?: JsonNullableWithAggregatesFilter<"audit_log">
     new_data?: JsonNullableWithAggregatesFilter<"audit_log">
     ip_address?: StringNullableWithAggregatesFilter<"audit_log"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"audit_log"> | Date | string | null
+    action?: StringWithAggregatesFilter<"audit_log"> | string
   }
 
   export type pending_actionsWhereInput = {
@@ -17508,38 +17508,38 @@ export namespace Prisma {
     OR?: pending_actionsWhereInput[]
     NOT?: pending_actionsWhereInput | pending_actionsWhereInput[]
     id?: IntFilter<"pending_actions"> | number
-    action_type?: StringFilter<"pending_actions"> | string
     initiated_by?: IntFilter<"pending_actions"> | number
     target_table?: StringFilter<"pending_actions"> | string
     target_record_id?: IntNullableFilter<"pending_actions"> | number | null
     action_data?: JsonNullableFilter<"pending_actions">
     reason?: StringNullableFilter<"pending_actions"> | string | null
-    status?: StringFilter<"pending_actions"> | string
     expires_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
     approved_by?: IntNullableFilter<"pending_actions"> | number | null
     approved_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
     completed_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
     created_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
-    initiator?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    action_type?: StringFilter<"pending_actions"> | string
+    status?: StringFilter<"pending_actions"> | string
     approver?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    initiator?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }
 
   export type pending_actionsOrderByWithRelationInput = {
     id?: SortOrder
-    action_type?: SortOrder
     initiated_by?: SortOrder
     target_table?: SortOrder
     target_record_id?: SortOrderInput | SortOrder
     action_data?: SortOrderInput | SortOrder
     reason?: SortOrderInput | SortOrder
-    status?: SortOrder
     expires_at?: SortOrderInput | SortOrder
     approved_by?: SortOrderInput | SortOrder
     approved_at?: SortOrderInput | SortOrder
     completed_at?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
-    initiator?: usersOrderByWithRelationInput
+    action_type?: SortOrder
+    status?: SortOrder
     approver?: usersOrderByWithRelationInput
+    initiator?: usersOrderByWithRelationInput
   }
 
   export type pending_actionsWhereUniqueInput = Prisma.AtLeast<{
@@ -17547,36 +17547,36 @@ export namespace Prisma {
     AND?: pending_actionsWhereInput | pending_actionsWhereInput[]
     OR?: pending_actionsWhereInput[]
     NOT?: pending_actionsWhereInput | pending_actionsWhereInput[]
-    action_type?: StringFilter<"pending_actions"> | string
     initiated_by?: IntFilter<"pending_actions"> | number
     target_table?: StringFilter<"pending_actions"> | string
     target_record_id?: IntNullableFilter<"pending_actions"> | number | null
     action_data?: JsonNullableFilter<"pending_actions">
     reason?: StringNullableFilter<"pending_actions"> | string | null
-    status?: StringFilter<"pending_actions"> | string
     expires_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
     approved_by?: IntNullableFilter<"pending_actions"> | number | null
     approved_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
     completed_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
     created_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
-    initiator?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    action_type?: StringFilter<"pending_actions"> | string
+    status?: StringFilter<"pending_actions"> | string
     approver?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    initiator?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }, "id">
 
   export type pending_actionsOrderByWithAggregationInput = {
     id?: SortOrder
-    action_type?: SortOrder
     initiated_by?: SortOrder
     target_table?: SortOrder
     target_record_id?: SortOrderInput | SortOrder
     action_data?: SortOrderInput | SortOrder
     reason?: SortOrderInput | SortOrder
-    status?: SortOrder
     expires_at?: SortOrderInput | SortOrder
     approved_by?: SortOrderInput | SortOrder
     approved_at?: SortOrderInput | SortOrder
     completed_at?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    action_type?: SortOrder
+    status?: SortOrder
     _count?: pending_actionsCountOrderByAggregateInput
     _avg?: pending_actionsAvgOrderByAggregateInput
     _max?: pending_actionsMaxOrderByAggregateInput
@@ -17589,18 +17589,18 @@ export namespace Prisma {
     OR?: pending_actionsScalarWhereWithAggregatesInput[]
     NOT?: pending_actionsScalarWhereWithAggregatesInput | pending_actionsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"pending_actions"> | number
-    action_type?: StringWithAggregatesFilter<"pending_actions"> | string
     initiated_by?: IntWithAggregatesFilter<"pending_actions"> | number
     target_table?: StringWithAggregatesFilter<"pending_actions"> | string
     target_record_id?: IntNullableWithAggregatesFilter<"pending_actions"> | number | null
     action_data?: JsonNullableWithAggregatesFilter<"pending_actions">
     reason?: StringNullableWithAggregatesFilter<"pending_actions"> | string | null
-    status?: StringWithAggregatesFilter<"pending_actions"> | string
     expires_at?: DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
     approved_by?: IntNullableWithAggregatesFilter<"pending_actions"> | number | null
     approved_at?: DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
     completed_at?: DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
+    action_type?: StringWithAggregatesFilter<"pending_actions"> | string
+    status?: StringWithAggregatesFilter<"pending_actions"> | string
   }
 
   export type rollback_historyWhereInput = {
@@ -17611,12 +17611,12 @@ export namespace Prisma {
     audit_log_id?: IntFilter<"rollback_history"> | number
     initiated_by?: IntFilter<"rollback_history"> | number
     approved_by?: IntNullableFilter<"rollback_history"> | number | null
-    status?: StringFilter<"rollback_history"> | string
     error_message?: StringNullableFilter<"rollback_history"> | string | null
     created_at?: DateTimeNullableFilter<"rollback_history"> | Date | string | null
+    status?: StringFilter<"rollback_history"> | string
+    approver?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     audit_log?: XOR<Audit_logScalarRelationFilter, audit_logWhereInput>
     initiator?: XOR<UsersScalarRelationFilter, usersWhereInput>
-    approver?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }
 
   export type rollback_historyOrderByWithRelationInput = {
@@ -17624,12 +17624,12 @@ export namespace Prisma {
     audit_log_id?: SortOrder
     initiated_by?: SortOrder
     approved_by?: SortOrderInput | SortOrder
-    status?: SortOrder
     error_message?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    status?: SortOrder
+    approver?: usersOrderByWithRelationInput
     audit_log?: audit_logOrderByWithRelationInput
     initiator?: usersOrderByWithRelationInput
-    approver?: usersOrderByWithRelationInput
   }
 
   export type rollback_historyWhereUniqueInput = Prisma.AtLeast<{
@@ -17640,12 +17640,12 @@ export namespace Prisma {
     audit_log_id?: IntFilter<"rollback_history"> | number
     initiated_by?: IntFilter<"rollback_history"> | number
     approved_by?: IntNullableFilter<"rollback_history"> | number | null
-    status?: StringFilter<"rollback_history"> | string
     error_message?: StringNullableFilter<"rollback_history"> | string | null
     created_at?: DateTimeNullableFilter<"rollback_history"> | Date | string | null
+    status?: StringFilter<"rollback_history"> | string
+    approver?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     audit_log?: XOR<Audit_logScalarRelationFilter, audit_logWhereInput>
     initiator?: XOR<UsersScalarRelationFilter, usersWhereInput>
-    approver?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }, "id">
 
   export type rollback_historyOrderByWithAggregationInput = {
@@ -17653,9 +17653,9 @@ export namespace Prisma {
     audit_log_id?: SortOrder
     initiated_by?: SortOrder
     approved_by?: SortOrderInput | SortOrder
-    status?: SortOrder
     error_message?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    status?: SortOrder
     _count?: rollback_historyCountOrderByAggregateInput
     _avg?: rollback_historyAvgOrderByAggregateInput
     _max?: rollback_historyMaxOrderByAggregateInput
@@ -17671,17 +17671,17 @@ export namespace Prisma {
     audit_log_id?: IntWithAggregatesFilter<"rollback_history"> | number
     initiated_by?: IntWithAggregatesFilter<"rollback_history"> | number
     approved_by?: IntNullableWithAggregatesFilter<"rollback_history"> | number | null
-    status?: StringWithAggregatesFilter<"rollback_history"> | string
     error_message?: StringNullableWithAggregatesFilter<"rollback_history"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"rollback_history"> | Date | string | null
+    status?: StringWithAggregatesFilter<"rollback_history"> | string
   }
 
   export type manufacturersCreateInput = {
     name: string
     country?: string | null
     website?: string | null
-    contact_email?: string | null
     created_at?: Date | string | null
+    contact_email?: string | null
     updated_at?: Date | string | null
     lasers?: lasersCreateNestedManyWithoutManufacturerInput
   }
@@ -17691,8 +17691,8 @@ export namespace Prisma {
     name: string
     country?: string | null
     website?: string | null
-    contact_email?: string | null
     created_at?: Date | string | null
+    contact_email?: string | null
     updated_at?: Date | string | null
     lasers?: lasersUncheckedCreateNestedManyWithoutManufacturerInput
   }
@@ -17701,8 +17701,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     country?: NullableStringFieldUpdateOperationsInput | string | null
     website?: NullableStringFieldUpdateOperationsInput | string | null
-    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     lasers?: lasersUpdateManyWithoutManufacturerNestedInput
   }
@@ -17712,8 +17712,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     country?: NullableStringFieldUpdateOperationsInput | string | null
     website?: NullableStringFieldUpdateOperationsInput | string | null
-    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     lasers?: lasersUncheckedUpdateManyWithoutManufacturerNestedInput
   }
@@ -17723,8 +17723,8 @@ export namespace Prisma {
     name: string
     country?: string | null
     website?: string | null
-    contact_email?: string | null
     created_at?: Date | string | null
+    contact_email?: string | null
     updated_at?: Date | string | null
   }
 
@@ -17732,8 +17732,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     country?: NullableStringFieldUpdateOperationsInput | string | null
     website?: NullableStringFieldUpdateOperationsInput | string | null
-    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -17742,137 +17742,137 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     country?: NullableStringFieldUpdateOperationsInput | string | null
     website?: NullableStringFieldUpdateOperationsInput | string | null
-    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type lasersCreateInput = {
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    manufacturer: manufacturersCreateNestedOneWithoutLasersInput
-    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
-    optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
+    manufacturer: manufacturersCreateNestedOneWithoutLasersInput
+    optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUncheckedCreateInput = {
     id?: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
-    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUpdateInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
-    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
-    optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
+    manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
+    optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
     manufacturer_id?: IntFieldUpdateOperationsInput | number
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
-    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersCreateManyInput = {
     id?: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
   }
 
   export type lasersUpdateManyMutationInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type lasersUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
     manufacturer_id?: IntFieldUpdateOperationsInput | number
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type wavelength_specsCreateInput = {
@@ -18272,17 +18272,17 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesCreateNestedManyWithoutCreatorInput
     audit_log?: audit_logCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
+    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -18290,34 +18290,34 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
     audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
+    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
     audit_log?: audit_logUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
+    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -18325,17 +18325,17 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
     audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
+    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
   }
 
   export type usersCreateManyInput = {
@@ -18343,22 +18343,22 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
   }
 
   export type usersUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type usersUncheckedUpdateManyInput = {
@@ -18366,23 +18366,23 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type access_codesCreateInput = {
     code_hash: string
     color_code: string
-    role: string
     expires_at?: Date | string | null
     max_uses?: number | null
     current_uses?: number
     is_active?: boolean
     notes?: string | null
     created_at?: Date | string | null
+    role: string
     creator: usersCreateNestedOneWithoutAccess_codesInput
   }
 
@@ -18390,7 +18390,6 @@ export namespace Prisma {
     id?: number
     code_hash: string
     color_code: string
-    role: string
     created_by: number
     expires_at?: Date | string | null
     max_uses?: number | null
@@ -18398,18 +18397,19 @@ export namespace Prisma {
     is_active?: boolean
     notes?: string | null
     created_at?: Date | string | null
+    role: string
   }
 
   export type access_codesUpdateInput = {
     code_hash?: StringFieldUpdateOperationsInput | string
     color_code?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     max_uses?: NullableIntFieldUpdateOperationsInput | number | null
     current_uses?: IntFieldUpdateOperationsInput | number
     is_active?: BoolFieldUpdateOperationsInput | boolean
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     creator?: usersUpdateOneRequiredWithoutAccess_codesNestedInput
   }
 
@@ -18417,7 +18417,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     code_hash?: StringFieldUpdateOperationsInput | string
     color_code?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     created_by?: IntFieldUpdateOperationsInput | number
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     max_uses?: NullableIntFieldUpdateOperationsInput | number | null
@@ -18425,13 +18424,13 @@ export namespace Prisma {
     is_active?: BoolFieldUpdateOperationsInput | boolean
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type access_codesCreateManyInput = {
     id?: number
     code_hash: string
     color_code: string
-    role: string
     created_by: number
     expires_at?: Date | string | null
     max_uses?: number | null
@@ -18439,25 +18438,25 @@ export namespace Prisma {
     is_active?: boolean
     notes?: string | null
     created_at?: Date | string | null
+    role: string
   }
 
   export type access_codesUpdateManyMutationInput = {
     code_hash?: StringFieldUpdateOperationsInput | string
     color_code?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     max_uses?: NullableIntFieldUpdateOperationsInput | number | null
     current_uses?: IntFieldUpdateOperationsInput | number
     is_active?: BoolFieldUpdateOperationsInput | boolean
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type access_codesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     code_hash?: StringFieldUpdateOperationsInput | string
     color_code?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     created_by?: IntFieldUpdateOperationsInput | number
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     max_uses?: NullableIntFieldUpdateOperationsInput | number | null
@@ -18465,16 +18464,17 @@ export namespace Prisma {
     is_active?: BoolFieldUpdateOperationsInput | boolean
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type audit_logCreateInput = {
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
+    action: string
     user?: usersCreateNestedOneWithoutAudit_logInput
     rollback_history?: rollback_historyCreateNestedManyWithoutAudit_logInput
   }
@@ -18484,22 +18484,22 @@ export namespace Prisma {
     user_id?: number | null
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
+    action: string
     rollback_history?: rollback_historyUncheckedCreateNestedManyWithoutAudit_logInput
   }
 
   export type audit_logUpdateInput = {
     table_name?: StringFieldUpdateOperationsInput | string
     record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
     user?: usersUpdateOneWithoutAudit_logNestedInput
     rollback_history?: rollback_historyUpdateManyWithoutAudit_logNestedInput
   }
@@ -18509,11 +18509,11 @@ export namespace Prisma {
     user_id?: NullableIntFieldUpdateOperationsInput | number | null
     table_name?: StringFieldUpdateOperationsInput | string
     record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
     rollback_history?: rollback_historyUncheckedUpdateManyWithoutAudit_logNestedInput
   }
 
@@ -18522,21 +18522,21 @@ export namespace Prisma {
     user_id?: number | null
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
+    action: string
   }
 
   export type audit_logUpdateManyMutationInput = {
     table_name?: StringFieldUpdateOperationsInput | string
     record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
   }
 
   export type audit_logUncheckedUpdateManyInput = {
@@ -18544,127 +18544,127 @@ export namespace Prisma {
     user_id?: NullableIntFieldUpdateOperationsInput | number | null
     table_name?: StringFieldUpdateOperationsInput | string
     record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
   }
 
   export type pending_actionsCreateInput = {
-    action_type: string
     target_table: string
     target_record_id?: number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: string | null
-    status?: string
     expires_at?: Date | string | null
     approved_at?: Date | string | null
     completed_at?: Date | string | null
     created_at?: Date | string | null
-    initiator: usersCreateNestedOneWithoutPending_actions_initiatedInput
+    action_type: string
+    status?: string
     approver?: usersCreateNestedOneWithoutPending_actions_approvedInput
+    initiator: usersCreateNestedOneWithoutPending_actions_initiatedInput
   }
 
   export type pending_actionsUncheckedCreateInput = {
     id?: number
-    action_type: string
     initiated_by: number
     target_table: string
     target_record_id?: number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: string | null
-    status?: string
     expires_at?: Date | string | null
     approved_by?: number | null
     approved_at?: Date | string | null
     completed_at?: Date | string | null
     created_at?: Date | string | null
+    action_type: string
+    status?: string
   }
 
   export type pending_actionsUpdateInput = {
-    action_type?: StringFieldUpdateOperationsInput | string
     target_table?: StringFieldUpdateOperationsInput | string
     target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    initiator?: usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     approver?: usersUpdateOneWithoutPending_actions_approvedNestedInput
+    initiator?: usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput
   }
 
   export type pending_actionsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    action_type?: StringFieldUpdateOperationsInput | string
     initiated_by?: IntFieldUpdateOperationsInput | number
     target_table?: StringFieldUpdateOperationsInput | string
     target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
     approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type pending_actionsCreateManyInput = {
     id?: number
-    action_type: string
     initiated_by: number
     target_table: string
     target_record_id?: number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: string | null
-    status?: string
     expires_at?: Date | string | null
     approved_by?: number | null
     approved_at?: Date | string | null
     completed_at?: Date | string | null
     created_at?: Date | string | null
+    action_type: string
+    status?: string
   }
 
   export type pending_actionsUpdateManyMutationInput = {
-    action_type?: StringFieldUpdateOperationsInput | string
     target_table?: StringFieldUpdateOperationsInput | string
     target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type pending_actionsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    action_type?: StringFieldUpdateOperationsInput | string
     initiated_by?: IntFieldUpdateOperationsInput | number
     target_table?: StringFieldUpdateOperationsInput | string
     target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
     approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type rollback_historyCreateInput = {
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
+    approver?: usersCreateNestedOneWithoutRollback_history_approvedInput
     audit_log: audit_logCreateNestedOneWithoutRollback_historyInput
     initiator: usersCreateNestedOneWithoutRollback_history_initiatedInput
-    approver?: usersCreateNestedOneWithoutRollback_history_approvedInput
   }
 
   export type rollback_historyUncheckedCreateInput = {
@@ -18672,18 +18672,18 @@ export namespace Prisma {
     audit_log_id: number
     initiated_by: number
     approved_by?: number | null
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
   }
 
   export type rollback_historyUpdateInput = {
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    approver?: usersUpdateOneWithoutRollback_history_approvedNestedInput
     audit_log?: audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
     initiator?: usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput
-    approver?: usersUpdateOneWithoutRollback_history_approvedNestedInput
   }
 
   export type rollback_historyUncheckedUpdateInput = {
@@ -18691,9 +18691,9 @@ export namespace Prisma {
     audit_log_id?: IntFieldUpdateOperationsInput | number
     initiated_by?: IntFieldUpdateOperationsInput | number
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type rollback_historyCreateManyInput = {
@@ -18701,15 +18701,15 @@ export namespace Prisma {
     audit_log_id: number
     initiated_by: number
     approved_by?: number | null
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
   }
 
   export type rollback_historyUpdateManyMutationInput = {
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type rollback_historyUncheckedUpdateManyInput = {
@@ -18717,9 +18717,9 @@ export namespace Prisma {
     audit_log_id?: IntFieldUpdateOperationsInput | number
     initiated_by?: IntFieldUpdateOperationsInput | number
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -18794,8 +18794,8 @@ export namespace Prisma {
     name?: SortOrder
     country?: SortOrder
     website?: SortOrder
-    contact_email?: SortOrder
     created_at?: SortOrder
+    contact_email?: SortOrder
     updated_at?: SortOrder
   }
 
@@ -18808,8 +18808,8 @@ export namespace Prisma {
     name?: SortOrder
     country?: SortOrder
     website?: SortOrder
-    contact_email?: SortOrder
     created_at?: SortOrder
+    contact_email?: SortOrder
     updated_at?: SortOrder
   }
 
@@ -18818,8 +18818,8 @@ export namespace Prisma {
     name?: SortOrder
     country?: SortOrder
     website?: SortOrder
-    contact_email?: SortOrder
     created_at?: SortOrder
+    contact_email?: SortOrder
     updated_at?: SortOrder
   }
 
@@ -18898,17 +18898,6 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type DecimalFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
-  }
-
   export type DecimalNullableFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
@@ -18920,24 +18909,15 @@ export namespace Prisma {
     not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
-  export type ManufacturersScalarRelationFilter = {
-    is?: manufacturersWhereInput
-    isNot?: manufacturersWhereInput
-  }
-
-  export type Wavelength_specsNullableScalarRelationFilter = {
-    is?: wavelength_specsWhereInput | null
-    isNot?: wavelength_specsWhereInput | null
-  }
-
-  export type Optical_specsNullableScalarRelationFilter = {
-    is?: optical_specsWhereInput | null
-    isNot?: optical_specsWhereInput | null
-  }
-
-  export type Stability_specsNullableScalarRelationFilter = {
-    is?: stability_specsWhereInput | null
-    isNot?: stability_specsWhereInput | null
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
   export type Environmental_specsNullableScalarRelationFilter = {
@@ -18945,71 +18925,91 @@ export namespace Prisma {
     isNot?: environmental_specsWhereInput | null
   }
 
+  export type ManufacturersScalarRelationFilter = {
+    is?: manufacturersWhereInput
+    isNot?: manufacturersWhereInput
+  }
+
+  export type Optical_specsNullableScalarRelationFilter = {
+    is?: optical_specsWhereInput | null
+    isNot?: optical_specsWhereInput | null
+  }
+
   export type Pulse_specsNullableScalarRelationFilter = {
     is?: pulse_specsWhereInput | null
     isNot?: pulse_specsWhereInput | null
+  }
+
+  export type Stability_specsNullableScalarRelationFilter = {
+    is?: stability_specsWhereInput | null
+    isNot?: stability_specsWhereInput | null
+  }
+
+  export type Wavelength_specsNullableScalarRelationFilter = {
+    is?: wavelength_specsWhereInput | null
+    isNot?: wavelength_specsWhereInput | null
   }
 
   export type lasersCountOrderByAggregateInput = {
     id?: SortOrder
     model_name?: SortOrder
     manufacturer_id?: SortOrder
-    laser_type?: SortOrder
-    modulation_type?: SortOrder
-    cooling_method?: SortOrder
-    is_single_mode?: SortOrder
-    power_output_w?: SortOrder
-    power_consumption_w?: SortOrder
-    application?: SortOrder
     notes?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    application?: SortOrder
+    cooling_method?: SortOrder
+    is_single_mode?: SortOrder
+    laser_type?: SortOrder
+    modulation_type?: SortOrder
+    power_consumption_w?: SortOrder
+    power_output_w?: SortOrder
   }
 
   export type lasersAvgOrderByAggregateInput = {
     id?: SortOrder
     manufacturer_id?: SortOrder
-    power_output_w?: SortOrder
     power_consumption_w?: SortOrder
+    power_output_w?: SortOrder
   }
 
   export type lasersMaxOrderByAggregateInput = {
     id?: SortOrder
     model_name?: SortOrder
     manufacturer_id?: SortOrder
-    laser_type?: SortOrder
-    modulation_type?: SortOrder
-    cooling_method?: SortOrder
-    is_single_mode?: SortOrder
-    power_output_w?: SortOrder
-    power_consumption_w?: SortOrder
-    application?: SortOrder
     notes?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    application?: SortOrder
+    cooling_method?: SortOrder
+    is_single_mode?: SortOrder
+    laser_type?: SortOrder
+    modulation_type?: SortOrder
+    power_consumption_w?: SortOrder
+    power_output_w?: SortOrder
   }
 
   export type lasersMinOrderByAggregateInput = {
     id?: SortOrder
     model_name?: SortOrder
     manufacturer_id?: SortOrder
-    laser_type?: SortOrder
-    modulation_type?: SortOrder
-    cooling_method?: SortOrder
-    is_single_mode?: SortOrder
-    power_output_w?: SortOrder
-    power_consumption_w?: SortOrder
-    application?: SortOrder
     notes?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    application?: SortOrder
+    cooling_method?: SortOrder
+    is_single_mode?: SortOrder
+    laser_type?: SortOrder
+    modulation_type?: SortOrder
+    power_consumption_w?: SortOrder
+    power_output_w?: SortOrder
   }
 
   export type lasersSumOrderByAggregateInput = {
     id?: SortOrder
     manufacturer_id?: SortOrder
-    power_output_w?: SortOrder
     power_consumption_w?: SortOrder
+    power_output_w?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -19018,22 +19018,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedDecimalFilter<$PrismaModel>
-    _sum?: NestedDecimalFilter<$PrismaModel>
-    _min?: NestedDecimalFilter<$PrismaModel>
-    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
   export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -19050,6 +19034,22 @@ export namespace Prisma {
     _sum?: NestedDecimalNullableFilter<$PrismaModel>
     _min?: NestedDecimalNullableFilter<$PrismaModel>
     _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
   export type LasersScalarRelationFilter = {
@@ -19379,11 +19379,11 @@ export namespace Prisma {
     email?: SortOrder
     password_hash?: SortOrder
     name?: SortOrder
-    role?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
     last_login?: SortOrder
+    role?: SortOrder
   }
 
   export type usersAvgOrderByAggregateInput = {
@@ -19395,11 +19395,11 @@ export namespace Prisma {
     email?: SortOrder
     password_hash?: SortOrder
     name?: SortOrder
-    role?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
     last_login?: SortOrder
+    role?: SortOrder
   }
 
   export type usersMinOrderByAggregateInput = {
@@ -19407,11 +19407,11 @@ export namespace Prisma {
     email?: SortOrder
     password_hash?: SortOrder
     name?: SortOrder
-    role?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
     last_login?: SortOrder
+    role?: SortOrder
   }
 
   export type usersSumOrderByAggregateInput = {
@@ -19438,7 +19438,6 @@ export namespace Prisma {
     id?: SortOrder
     code_hash?: SortOrder
     color_code?: SortOrder
-    role?: SortOrder
     created_by?: SortOrder
     expires_at?: SortOrder
     max_uses?: SortOrder
@@ -19446,6 +19445,7 @@ export namespace Prisma {
     is_active?: SortOrder
     notes?: SortOrder
     created_at?: SortOrder
+    role?: SortOrder
   }
 
   export type access_codesAvgOrderByAggregateInput = {
@@ -19459,7 +19459,6 @@ export namespace Prisma {
     id?: SortOrder
     code_hash?: SortOrder
     color_code?: SortOrder
-    role?: SortOrder
     created_by?: SortOrder
     expires_at?: SortOrder
     max_uses?: SortOrder
@@ -19467,13 +19466,13 @@ export namespace Prisma {
     is_active?: SortOrder
     notes?: SortOrder
     created_at?: SortOrder
+    role?: SortOrder
   }
 
   export type access_codesMinOrderByAggregateInput = {
     id?: SortOrder
     code_hash?: SortOrder
     color_code?: SortOrder
-    role?: SortOrder
     created_by?: SortOrder
     expires_at?: SortOrder
     max_uses?: SortOrder
@@ -19481,6 +19480,7 @@ export namespace Prisma {
     is_active?: SortOrder
     notes?: SortOrder
     created_at?: SortOrder
+    role?: SortOrder
   }
 
   export type access_codesSumOrderByAggregateInput = {
@@ -19539,11 +19539,11 @@ export namespace Prisma {
     user_id?: SortOrder
     table_name?: SortOrder
     record_id?: SortOrder
-    action?: SortOrder
     old_data?: SortOrder
     new_data?: SortOrder
     ip_address?: SortOrder
     created_at?: SortOrder
+    action?: SortOrder
   }
 
   export type audit_logAvgOrderByAggregateInput = {
@@ -19557,9 +19557,9 @@ export namespace Prisma {
     user_id?: SortOrder
     table_name?: SortOrder
     record_id?: SortOrder
-    action?: SortOrder
     ip_address?: SortOrder
     created_at?: SortOrder
+    action?: SortOrder
   }
 
   export type audit_logMinOrderByAggregateInput = {
@@ -19567,9 +19567,9 @@ export namespace Prisma {
     user_id?: SortOrder
     table_name?: SortOrder
     record_id?: SortOrder
-    action?: SortOrder
     ip_address?: SortOrder
     created_at?: SortOrder
+    action?: SortOrder
   }
 
   export type audit_logSumOrderByAggregateInput = {
@@ -19606,18 +19606,18 @@ export namespace Prisma {
 
   export type pending_actionsCountOrderByAggregateInput = {
     id?: SortOrder
-    action_type?: SortOrder
     initiated_by?: SortOrder
     target_table?: SortOrder
     target_record_id?: SortOrder
     action_data?: SortOrder
     reason?: SortOrder
-    status?: SortOrder
     expires_at?: SortOrder
     approved_by?: SortOrder
     approved_at?: SortOrder
     completed_at?: SortOrder
     created_at?: SortOrder
+    action_type?: SortOrder
+    status?: SortOrder
   }
 
   export type pending_actionsAvgOrderByAggregateInput = {
@@ -19629,32 +19629,32 @@ export namespace Prisma {
 
   export type pending_actionsMaxOrderByAggregateInput = {
     id?: SortOrder
-    action_type?: SortOrder
     initiated_by?: SortOrder
     target_table?: SortOrder
     target_record_id?: SortOrder
     reason?: SortOrder
-    status?: SortOrder
     expires_at?: SortOrder
     approved_by?: SortOrder
     approved_at?: SortOrder
     completed_at?: SortOrder
     created_at?: SortOrder
+    action_type?: SortOrder
+    status?: SortOrder
   }
 
   export type pending_actionsMinOrderByAggregateInput = {
     id?: SortOrder
-    action_type?: SortOrder
     initiated_by?: SortOrder
     target_table?: SortOrder
     target_record_id?: SortOrder
     reason?: SortOrder
-    status?: SortOrder
     expires_at?: SortOrder
     approved_by?: SortOrder
     approved_at?: SortOrder
     completed_at?: SortOrder
     created_at?: SortOrder
+    action_type?: SortOrder
+    status?: SortOrder
   }
 
   export type pending_actionsSumOrderByAggregateInput = {
@@ -19674,9 +19674,9 @@ export namespace Prisma {
     audit_log_id?: SortOrder
     initiated_by?: SortOrder
     approved_by?: SortOrder
-    status?: SortOrder
     error_message?: SortOrder
     created_at?: SortOrder
+    status?: SortOrder
   }
 
   export type rollback_historyAvgOrderByAggregateInput = {
@@ -19691,9 +19691,9 @@ export namespace Prisma {
     audit_log_id?: SortOrder
     initiated_by?: SortOrder
     approved_by?: SortOrder
-    status?: SortOrder
     error_message?: SortOrder
     created_at?: SortOrder
+    status?: SortOrder
   }
 
   export type rollback_historyMinOrderByAggregateInput = {
@@ -19701,9 +19701,9 @@ export namespace Prisma {
     audit_log_id?: SortOrder
     initiated_by?: SortOrder
     approved_by?: SortOrder
-    status?: SortOrder
     error_message?: SortOrder
     created_at?: SortOrder
+    status?: SortOrder
   }
 
   export type rollback_historySumOrderByAggregateInput = {
@@ -19775,16 +19775,16 @@ export namespace Prisma {
     deleteMany?: lasersScalarWhereInput | lasersScalarWhereInput[]
   }
 
+  export type environmental_specsCreateNestedOneWithoutLaserInput = {
+    create?: XOR<environmental_specsCreateWithoutLaserInput, environmental_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: environmental_specsCreateOrConnectWithoutLaserInput
+    connect?: environmental_specsWhereUniqueInput
+  }
+
   export type manufacturersCreateNestedOneWithoutLasersInput = {
     create?: XOR<manufacturersCreateWithoutLasersInput, manufacturersUncheckedCreateWithoutLasersInput>
     connectOrCreate?: manufacturersCreateOrConnectWithoutLasersInput
     connect?: manufacturersWhereUniqueInput
-  }
-
-  export type wavelength_specsCreateNestedOneWithoutLaserInput = {
-    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
-    connect?: wavelength_specsWhereUniqueInput
   }
 
   export type optical_specsCreateNestedOneWithoutLaserInput = {
@@ -19793,40 +19793,22 @@ export namespace Prisma {
     connect?: optical_specsWhereUniqueInput
   }
 
-  export type stability_specsCreateNestedOneWithoutLaserInput = {
-    create?: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: stability_specsCreateOrConnectWithoutLaserInput
-    connect?: stability_specsWhereUniqueInput
-  }
-
-  export type environmental_specsCreateNestedOneWithoutLaserInput = {
-    create?: XOR<environmental_specsCreateWithoutLaserInput, environmental_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: environmental_specsCreateOrConnectWithoutLaserInput
-    connect?: environmental_specsWhereUniqueInput
-  }
-
   export type pulse_specsCreateNestedOneWithoutLaserInput = {
     create?: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
     connectOrCreate?: pulse_specsCreateOrConnectWithoutLaserInput
     connect?: pulse_specsWhereUniqueInput
   }
 
-  export type wavelength_specsUncheckedCreateNestedOneWithoutLaserInput = {
-    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
-    connect?: wavelength_specsWhereUniqueInput
-  }
-
-  export type optical_specsUncheckedCreateNestedOneWithoutLaserInput = {
-    create?: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: optical_specsCreateOrConnectWithoutLaserInput
-    connect?: optical_specsWhereUniqueInput
-  }
-
-  export type stability_specsUncheckedCreateNestedOneWithoutLaserInput = {
+  export type stability_specsCreateNestedOneWithoutLaserInput = {
     create?: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
     connectOrCreate?: stability_specsCreateOrConnectWithoutLaserInput
     connect?: stability_specsWhereUniqueInput
+  }
+
+  export type wavelength_specsCreateNestedOneWithoutLaserInput = {
+    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
+    connect?: wavelength_specsWhereUniqueInput
   }
 
   export type environmental_specsUncheckedCreateNestedOneWithoutLaserInput = {
@@ -19835,22 +19817,32 @@ export namespace Prisma {
     connect?: environmental_specsWhereUniqueInput
   }
 
+  export type optical_specsUncheckedCreateNestedOneWithoutLaserInput = {
+    create?: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: optical_specsCreateOrConnectWithoutLaserInput
+    connect?: optical_specsWhereUniqueInput
+  }
+
   export type pulse_specsUncheckedCreateNestedOneWithoutLaserInput = {
     create?: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
     connectOrCreate?: pulse_specsCreateOrConnectWithoutLaserInput
     connect?: pulse_specsWhereUniqueInput
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
+  export type stability_specsUncheckedCreateNestedOneWithoutLaserInput = {
+    create?: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: stability_specsCreateOrConnectWithoutLaserInput
+    connect?: stability_specsWhereUniqueInput
   }
 
-  export type DecimalFieldUpdateOperationsInput = {
-    set?: Decimal | DecimalJsLike | number | string
-    increment?: Decimal | DecimalJsLike | number | string
-    decrement?: Decimal | DecimalJsLike | number | string
-    multiply?: Decimal | DecimalJsLike | number | string
-    divide?: Decimal | DecimalJsLike | number | string
+  export type wavelength_specsUncheckedCreateNestedOneWithoutLaserInput = {
+    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
+    connect?: wavelength_specsWhereUniqueInput
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NullableDecimalFieldUpdateOperationsInput = {
@@ -19861,42 +19853,12 @@ export namespace Prisma {
     divide?: Decimal | DecimalJsLike | number | string
   }
 
-  export type manufacturersUpdateOneRequiredWithoutLasersNestedInput = {
-    create?: XOR<manufacturersCreateWithoutLasersInput, manufacturersUncheckedCreateWithoutLasersInput>
-    connectOrCreate?: manufacturersCreateOrConnectWithoutLasersInput
-    upsert?: manufacturersUpsertWithoutLasersInput
-    connect?: manufacturersWhereUniqueInput
-    update?: XOR<XOR<manufacturersUpdateToOneWithWhereWithoutLasersInput, manufacturersUpdateWithoutLasersInput>, manufacturersUncheckedUpdateWithoutLasersInput>
-  }
-
-  export type wavelength_specsUpdateOneWithoutLaserNestedInput = {
-    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
-    upsert?: wavelength_specsUpsertWithoutLaserInput
-    disconnect?: wavelength_specsWhereInput | boolean
-    delete?: wavelength_specsWhereInput | boolean
-    connect?: wavelength_specsWhereUniqueInput
-    update?: XOR<XOR<wavelength_specsUpdateToOneWithWhereWithoutLaserInput, wavelength_specsUpdateWithoutLaserInput>, wavelength_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type optical_specsUpdateOneWithoutLaserNestedInput = {
-    create?: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: optical_specsCreateOrConnectWithoutLaserInput
-    upsert?: optical_specsUpsertWithoutLaserInput
-    disconnect?: optical_specsWhereInput | boolean
-    delete?: optical_specsWhereInput | boolean
-    connect?: optical_specsWhereUniqueInput
-    update?: XOR<XOR<optical_specsUpdateToOneWithWhereWithoutLaserInput, optical_specsUpdateWithoutLaserInput>, optical_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type stability_specsUpdateOneWithoutLaserNestedInput = {
-    create?: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: stability_specsCreateOrConnectWithoutLaserInput
-    upsert?: stability_specsUpsertWithoutLaserInput
-    disconnect?: stability_specsWhereInput | boolean
-    delete?: stability_specsWhereInput | boolean
-    connect?: stability_specsWhereUniqueInput
-    update?: XOR<XOR<stability_specsUpdateToOneWithWhereWithoutLaserInput, stability_specsUpdateWithoutLaserInput>, stability_specsUncheckedUpdateWithoutLaserInput>
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
   }
 
   export type environmental_specsUpdateOneWithoutLaserNestedInput = {
@@ -19909,6 +19871,24 @@ export namespace Prisma {
     update?: XOR<XOR<environmental_specsUpdateToOneWithWhereWithoutLaserInput, environmental_specsUpdateWithoutLaserInput>, environmental_specsUncheckedUpdateWithoutLaserInput>
   }
 
+  export type manufacturersUpdateOneRequiredWithoutLasersNestedInput = {
+    create?: XOR<manufacturersCreateWithoutLasersInput, manufacturersUncheckedCreateWithoutLasersInput>
+    connectOrCreate?: manufacturersCreateOrConnectWithoutLasersInput
+    upsert?: manufacturersUpsertWithoutLasersInput
+    connect?: manufacturersWhereUniqueInput
+    update?: XOR<XOR<manufacturersUpdateToOneWithWhereWithoutLasersInput, manufacturersUpdateWithoutLasersInput>, manufacturersUncheckedUpdateWithoutLasersInput>
+  }
+
+  export type optical_specsUpdateOneWithoutLaserNestedInput = {
+    create?: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: optical_specsCreateOrConnectWithoutLaserInput
+    upsert?: optical_specsUpsertWithoutLaserInput
+    disconnect?: optical_specsWhereInput | boolean
+    delete?: optical_specsWhereInput | boolean
+    connect?: optical_specsWhereUniqueInput
+    update?: XOR<XOR<optical_specsUpdateToOneWithWhereWithoutLaserInput, optical_specsUpdateWithoutLaserInput>, optical_specsUncheckedUpdateWithoutLaserInput>
+  }
+
   export type pulse_specsUpdateOneWithoutLaserNestedInput = {
     create?: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
     connectOrCreate?: pulse_specsCreateOrConnectWithoutLaserInput
@@ -19919,27 +19899,7 @@ export namespace Prisma {
     update?: XOR<XOR<pulse_specsUpdateToOneWithWhereWithoutLaserInput, pulse_specsUpdateWithoutLaserInput>, pulse_specsUncheckedUpdateWithoutLaserInput>
   }
 
-  export type wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput = {
-    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
-    upsert?: wavelength_specsUpsertWithoutLaserInput
-    disconnect?: wavelength_specsWhereInput | boolean
-    delete?: wavelength_specsWhereInput | boolean
-    connect?: wavelength_specsWhereUniqueInput
-    update?: XOR<XOR<wavelength_specsUpdateToOneWithWhereWithoutLaserInput, wavelength_specsUpdateWithoutLaserInput>, wavelength_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type optical_specsUncheckedUpdateOneWithoutLaserNestedInput = {
-    create?: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
-    connectOrCreate?: optical_specsCreateOrConnectWithoutLaserInput
-    upsert?: optical_specsUpsertWithoutLaserInput
-    disconnect?: optical_specsWhereInput | boolean
-    delete?: optical_specsWhereInput | boolean
-    connect?: optical_specsWhereUniqueInput
-    update?: XOR<XOR<optical_specsUpdateToOneWithWhereWithoutLaserInput, optical_specsUpdateWithoutLaserInput>, optical_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type stability_specsUncheckedUpdateOneWithoutLaserNestedInput = {
+  export type stability_specsUpdateOneWithoutLaserNestedInput = {
     create?: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
     connectOrCreate?: stability_specsCreateOrConnectWithoutLaserInput
     upsert?: stability_specsUpsertWithoutLaserInput
@@ -19947,6 +19907,16 @@ export namespace Prisma {
     delete?: stability_specsWhereInput | boolean
     connect?: stability_specsWhereUniqueInput
     update?: XOR<XOR<stability_specsUpdateToOneWithWhereWithoutLaserInput, stability_specsUpdateWithoutLaserInput>, stability_specsUncheckedUpdateWithoutLaserInput>
+  }
+
+  export type wavelength_specsUpdateOneWithoutLaserNestedInput = {
+    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
+    upsert?: wavelength_specsUpsertWithoutLaserInput
+    disconnect?: wavelength_specsWhereInput | boolean
+    delete?: wavelength_specsWhereInput | boolean
+    connect?: wavelength_specsWhereUniqueInput
+    update?: XOR<XOR<wavelength_specsUpdateToOneWithWhereWithoutLaserInput, wavelength_specsUpdateWithoutLaserInput>, wavelength_specsUncheckedUpdateWithoutLaserInput>
   }
 
   export type environmental_specsUncheckedUpdateOneWithoutLaserNestedInput = {
@@ -19959,6 +19929,16 @@ export namespace Prisma {
     update?: XOR<XOR<environmental_specsUpdateToOneWithWhereWithoutLaserInput, environmental_specsUpdateWithoutLaserInput>, environmental_specsUncheckedUpdateWithoutLaserInput>
   }
 
+  export type optical_specsUncheckedUpdateOneWithoutLaserNestedInput = {
+    create?: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: optical_specsCreateOrConnectWithoutLaserInput
+    upsert?: optical_specsUpsertWithoutLaserInput
+    disconnect?: optical_specsWhereInput | boolean
+    delete?: optical_specsWhereInput | boolean
+    connect?: optical_specsWhereUniqueInput
+    update?: XOR<XOR<optical_specsUpdateToOneWithWhereWithoutLaserInput, optical_specsUpdateWithoutLaserInput>, optical_specsUncheckedUpdateWithoutLaserInput>
+  }
+
   export type pulse_specsUncheckedUpdateOneWithoutLaserNestedInput = {
     create?: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
     connectOrCreate?: pulse_specsCreateOrConnectWithoutLaserInput
@@ -19967,6 +19947,26 @@ export namespace Prisma {
     delete?: pulse_specsWhereInput | boolean
     connect?: pulse_specsWhereUniqueInput
     update?: XOR<XOR<pulse_specsUpdateToOneWithWhereWithoutLaserInput, pulse_specsUpdateWithoutLaserInput>, pulse_specsUncheckedUpdateWithoutLaserInput>
+  }
+
+  export type stability_specsUncheckedUpdateOneWithoutLaserNestedInput = {
+    create?: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: stability_specsCreateOrConnectWithoutLaserInput
+    upsert?: stability_specsUpsertWithoutLaserInput
+    disconnect?: stability_specsWhereInput | boolean
+    delete?: stability_specsWhereInput | boolean
+    connect?: stability_specsWhereUniqueInput
+    update?: XOR<XOR<stability_specsUpdateToOneWithWhereWithoutLaserInput, stability_specsUpdateWithoutLaserInput>, stability_specsUncheckedUpdateWithoutLaserInput>
+  }
+
+  export type wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput = {
+    create?: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
+    connectOrCreate?: wavelength_specsCreateOrConnectWithoutLaserInput
+    upsert?: wavelength_specsUpsertWithoutLaserInput
+    disconnect?: wavelength_specsWhereInput | boolean
+    delete?: wavelength_specsWhereInput | boolean
+    connect?: wavelength_specsWhereUniqueInput
+    update?: XOR<XOR<wavelength_specsUpdateToOneWithWhereWithoutLaserInput, wavelength_specsUpdateWithoutLaserInput>, wavelength_specsUncheckedUpdateWithoutLaserInput>
   }
 
   export type lasersCreateNestedOneWithoutWavelength_specsInput = {
@@ -20053,13 +20053,6 @@ export namespace Prisma {
     connect?: audit_logWhereUniqueInput | audit_logWhereUniqueInput[]
   }
 
-  export type pending_actionsCreateNestedManyWithoutInitiatorInput = {
-    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
-    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
-    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-  }
-
   export type pending_actionsCreateNestedManyWithoutApproverInput = {
     create?: XOR<pending_actionsCreateWithoutApproverInput, pending_actionsUncheckedCreateWithoutApproverInput> | pending_actionsCreateWithoutApproverInput[] | pending_actionsUncheckedCreateWithoutApproverInput[]
     connectOrCreate?: pending_actionsCreateOrConnectWithoutApproverInput | pending_actionsCreateOrConnectWithoutApproverInput[]
@@ -20067,17 +20060,24 @@ export namespace Prisma {
     connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
   }
 
-  export type rollback_historyCreateNestedManyWithoutInitiatorInput = {
-    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
-    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
-    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+  export type pending_actionsCreateNestedManyWithoutInitiatorInput = {
+    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
+    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
+    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
   }
 
   export type rollback_historyCreateNestedManyWithoutApproverInput = {
     create?: XOR<rollback_historyCreateWithoutApproverInput, rollback_historyUncheckedCreateWithoutApproverInput> | rollback_historyCreateWithoutApproverInput[] | rollback_historyUncheckedCreateWithoutApproverInput[]
     connectOrCreate?: rollback_historyCreateOrConnectWithoutApproverInput | rollback_historyCreateOrConnectWithoutApproverInput[]
     createMany?: rollback_historyCreateManyApproverInputEnvelope
+    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+  }
+
+  export type rollback_historyCreateNestedManyWithoutInitiatorInput = {
+    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
+    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
     connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
   }
 
@@ -20095,13 +20095,6 @@ export namespace Prisma {
     connect?: audit_logWhereUniqueInput | audit_logWhereUniqueInput[]
   }
 
-  export type pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput = {
-    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
-    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
-    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-  }
-
   export type pending_actionsUncheckedCreateNestedManyWithoutApproverInput = {
     create?: XOR<pending_actionsCreateWithoutApproverInput, pending_actionsUncheckedCreateWithoutApproverInput> | pending_actionsCreateWithoutApproverInput[] | pending_actionsUncheckedCreateWithoutApproverInput[]
     connectOrCreate?: pending_actionsCreateOrConnectWithoutApproverInput | pending_actionsCreateOrConnectWithoutApproverInput[]
@@ -20109,17 +20102,24 @@ export namespace Prisma {
     connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
   }
 
-  export type rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput = {
-    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
-    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
-    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+  export type pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput = {
+    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
+    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
+    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
   }
 
   export type rollback_historyUncheckedCreateNestedManyWithoutApproverInput = {
     create?: XOR<rollback_historyCreateWithoutApproverInput, rollback_historyUncheckedCreateWithoutApproverInput> | rollback_historyCreateWithoutApproverInput[] | rollback_historyUncheckedCreateWithoutApproverInput[]
     connectOrCreate?: rollback_historyCreateOrConnectWithoutApproverInput | rollback_historyCreateOrConnectWithoutApproverInput[]
     createMany?: rollback_historyCreateManyApproverInputEnvelope
+    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+  }
+
+  export type rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput = {
+    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
+    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
     connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
   }
 
@@ -20151,20 +20151,6 @@ export namespace Prisma {
     deleteMany?: audit_logScalarWhereInput | audit_logScalarWhereInput[]
   }
 
-  export type pending_actionsUpdateManyWithoutInitiatorNestedInput = {
-    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
-    upsert?: pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput | pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput[]
-    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
-    set?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    disconnect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    delete?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    update?: pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput | pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput[]
-    updateMany?: pending_actionsUpdateManyWithWhereWithoutInitiatorInput | pending_actionsUpdateManyWithWhereWithoutInitiatorInput[]
-    deleteMany?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
-  }
-
   export type pending_actionsUpdateManyWithoutApproverNestedInput = {
     create?: XOR<pending_actionsCreateWithoutApproverInput, pending_actionsUncheckedCreateWithoutApproverInput> | pending_actionsCreateWithoutApproverInput[] | pending_actionsUncheckedCreateWithoutApproverInput[]
     connectOrCreate?: pending_actionsCreateOrConnectWithoutApproverInput | pending_actionsCreateOrConnectWithoutApproverInput[]
@@ -20179,18 +20165,18 @@ export namespace Prisma {
     deleteMany?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
   }
 
-  export type rollback_historyUpdateManyWithoutInitiatorNestedInput = {
-    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
-    upsert?: rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput | rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput[]
-    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
-    set?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    disconnect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    delete?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    update?: rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput | rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput[]
-    updateMany?: rollback_historyUpdateManyWithWhereWithoutInitiatorInput | rollback_historyUpdateManyWithWhereWithoutInitiatorInput[]
-    deleteMany?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
+  export type pending_actionsUpdateManyWithoutInitiatorNestedInput = {
+    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
+    upsert?: pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput | pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput[]
+    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
+    set?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    disconnect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    delete?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    update?: pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput | pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput[]
+    updateMany?: pending_actionsUpdateManyWithWhereWithoutInitiatorInput | pending_actionsUpdateManyWithWhereWithoutInitiatorInput[]
+    deleteMany?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
   }
 
   export type rollback_historyUpdateManyWithoutApproverNestedInput = {
@@ -20204,6 +20190,20 @@ export namespace Prisma {
     connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
     update?: rollback_historyUpdateWithWhereUniqueWithoutApproverInput | rollback_historyUpdateWithWhereUniqueWithoutApproverInput[]
     updateMany?: rollback_historyUpdateManyWithWhereWithoutApproverInput | rollback_historyUpdateManyWithWhereWithoutApproverInput[]
+    deleteMany?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
+  }
+
+  export type rollback_historyUpdateManyWithoutInitiatorNestedInput = {
+    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
+    upsert?: rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput | rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput[]
+    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
+    set?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    disconnect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    delete?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    update?: rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput | rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput[]
+    updateMany?: rollback_historyUpdateManyWithWhereWithoutInitiatorInput | rollback_historyUpdateManyWithWhereWithoutInitiatorInput[]
     deleteMany?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
   }
 
@@ -20235,20 +20235,6 @@ export namespace Prisma {
     deleteMany?: audit_logScalarWhereInput | audit_logScalarWhereInput[]
   }
 
-  export type pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput = {
-    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
-    upsert?: pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput | pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput[]
-    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
-    set?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    disconnect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    delete?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
-    update?: pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput | pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput[]
-    updateMany?: pending_actionsUpdateManyWithWhereWithoutInitiatorInput | pending_actionsUpdateManyWithWhereWithoutInitiatorInput[]
-    deleteMany?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
-  }
-
   export type pending_actionsUncheckedUpdateManyWithoutApproverNestedInput = {
     create?: XOR<pending_actionsCreateWithoutApproverInput, pending_actionsUncheckedCreateWithoutApproverInput> | pending_actionsCreateWithoutApproverInput[] | pending_actionsUncheckedCreateWithoutApproverInput[]
     connectOrCreate?: pending_actionsCreateOrConnectWithoutApproverInput | pending_actionsCreateOrConnectWithoutApproverInput[]
@@ -20263,18 +20249,18 @@ export namespace Prisma {
     deleteMany?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
   }
 
-  export type rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput = {
-    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
-    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
-    upsert?: rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput | rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput[]
-    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
-    set?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    disconnect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    delete?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
-    update?: rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput | rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput[]
-    updateMany?: rollback_historyUpdateManyWithWhereWithoutInitiatorInput | rollback_historyUpdateManyWithWhereWithoutInitiatorInput[]
-    deleteMany?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
+  export type pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput = {
+    create?: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput> | pending_actionsCreateWithoutInitiatorInput[] | pending_actionsUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: pending_actionsCreateOrConnectWithoutInitiatorInput | pending_actionsCreateOrConnectWithoutInitiatorInput[]
+    upsert?: pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput | pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput[]
+    createMany?: pending_actionsCreateManyInitiatorInputEnvelope
+    set?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    disconnect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    delete?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    connect?: pending_actionsWhereUniqueInput | pending_actionsWhereUniqueInput[]
+    update?: pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput | pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput[]
+    updateMany?: pending_actionsUpdateManyWithWhereWithoutInitiatorInput | pending_actionsUpdateManyWithWhereWithoutInitiatorInput[]
+    deleteMany?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
   }
 
   export type rollback_historyUncheckedUpdateManyWithoutApproverNestedInput = {
@@ -20288,6 +20274,20 @@ export namespace Prisma {
     connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
     update?: rollback_historyUpdateWithWhereUniqueWithoutApproverInput | rollback_historyUpdateWithWhereUniqueWithoutApproverInput[]
     updateMany?: rollback_historyUpdateManyWithWhereWithoutApproverInput | rollback_historyUpdateManyWithWhereWithoutApproverInput[]
+    deleteMany?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
+  }
+
+  export type rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput = {
+    create?: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput> | rollback_historyCreateWithoutInitiatorInput[] | rollback_historyUncheckedCreateWithoutInitiatorInput[]
+    connectOrCreate?: rollback_historyCreateOrConnectWithoutInitiatorInput | rollback_historyCreateOrConnectWithoutInitiatorInput[]
+    upsert?: rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput | rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput[]
+    createMany?: rollback_historyCreateManyInitiatorInputEnvelope
+    set?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    disconnect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    delete?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    connect?: rollback_historyWhereUniqueInput | rollback_historyWhereUniqueInput[]
+    update?: rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput | rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput[]
+    updateMany?: rollback_historyUpdateManyWithWhereWithoutInitiatorInput | rollback_historyUpdateManyWithWhereWithoutInitiatorInput[]
     deleteMany?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
   }
 
@@ -20371,24 +20371,16 @@ export namespace Prisma {
     deleteMany?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
   }
 
-  export type usersCreateNestedOneWithoutPending_actions_initiatedInput = {
-    create?: XOR<usersCreateWithoutPending_actions_initiatedInput, usersUncheckedCreateWithoutPending_actions_initiatedInput>
-    connectOrCreate?: usersCreateOrConnectWithoutPending_actions_initiatedInput
-    connect?: usersWhereUniqueInput
-  }
-
   export type usersCreateNestedOneWithoutPending_actions_approvedInput = {
     create?: XOR<usersCreateWithoutPending_actions_approvedInput, usersUncheckedCreateWithoutPending_actions_approvedInput>
     connectOrCreate?: usersCreateOrConnectWithoutPending_actions_approvedInput
     connect?: usersWhereUniqueInput
   }
 
-  export type usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput = {
+  export type usersCreateNestedOneWithoutPending_actions_initiatedInput = {
     create?: XOR<usersCreateWithoutPending_actions_initiatedInput, usersUncheckedCreateWithoutPending_actions_initiatedInput>
     connectOrCreate?: usersCreateOrConnectWithoutPending_actions_initiatedInput
-    upsert?: usersUpsertWithoutPending_actions_initiatedInput
     connect?: usersWhereUniqueInput
-    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutPending_actions_initiatedInput, usersUpdateWithoutPending_actions_initiatedInput>, usersUncheckedUpdateWithoutPending_actions_initiatedInput>
   }
 
   export type usersUpdateOneWithoutPending_actions_approvedNestedInput = {
@@ -20399,6 +20391,20 @@ export namespace Prisma {
     delete?: usersWhereInput | boolean
     connect?: usersWhereUniqueInput
     update?: XOR<XOR<usersUpdateToOneWithWhereWithoutPending_actions_approvedInput, usersUpdateWithoutPending_actions_approvedInput>, usersUncheckedUpdateWithoutPending_actions_approvedInput>
+  }
+
+  export type usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput = {
+    create?: XOR<usersCreateWithoutPending_actions_initiatedInput, usersUncheckedCreateWithoutPending_actions_initiatedInput>
+    connectOrCreate?: usersCreateOrConnectWithoutPending_actions_initiatedInput
+    upsert?: usersUpsertWithoutPending_actions_initiatedInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutPending_actions_initiatedInput, usersUpdateWithoutPending_actions_initiatedInput>, usersUncheckedUpdateWithoutPending_actions_initiatedInput>
+  }
+
+  export type usersCreateNestedOneWithoutRollback_history_approvedInput = {
+    create?: XOR<usersCreateWithoutRollback_history_approvedInput, usersUncheckedCreateWithoutRollback_history_approvedInput>
+    connectOrCreate?: usersCreateOrConnectWithoutRollback_history_approvedInput
+    connect?: usersWhereUniqueInput
   }
 
   export type audit_logCreateNestedOneWithoutRollback_historyInput = {
@@ -20413,10 +20419,14 @@ export namespace Prisma {
     connect?: usersWhereUniqueInput
   }
 
-  export type usersCreateNestedOneWithoutRollback_history_approvedInput = {
+  export type usersUpdateOneWithoutRollback_history_approvedNestedInput = {
     create?: XOR<usersCreateWithoutRollback_history_approvedInput, usersUncheckedCreateWithoutRollback_history_approvedInput>
     connectOrCreate?: usersCreateOrConnectWithoutRollback_history_approvedInput
+    upsert?: usersUpsertWithoutRollback_history_approvedInput
+    disconnect?: usersWhereInput | boolean
+    delete?: usersWhereInput | boolean
     connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutRollback_history_approvedInput, usersUpdateWithoutRollback_history_approvedInput>, usersUncheckedUpdateWithoutRollback_history_approvedInput>
   }
 
   export type audit_logUpdateOneRequiredWithoutRollback_historyNestedInput = {
@@ -20433,16 +20443,6 @@ export namespace Prisma {
     upsert?: usersUpsertWithoutRollback_history_initiatedInput
     connect?: usersWhereUniqueInput
     update?: XOR<XOR<usersUpdateToOneWithWhereWithoutRollback_history_initiatedInput, usersUpdateWithoutRollback_history_initiatedInput>, usersUncheckedUpdateWithoutRollback_history_initiatedInput>
-  }
-
-  export type usersUpdateOneWithoutRollback_history_approvedNestedInput = {
-    create?: XOR<usersCreateWithoutRollback_history_approvedInput, usersUncheckedCreateWithoutRollback_history_approvedInput>
-    connectOrCreate?: usersCreateOrConnectWithoutRollback_history_approvedInput
-    upsert?: usersUpsertWithoutRollback_history_approvedInput
-    disconnect?: usersWhereInput | boolean
-    delete?: usersWhereInput | boolean
-    connect?: usersWhereUniqueInput
-    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutRollback_history_approvedInput, usersUpdateWithoutRollback_history_approvedInput>, usersUncheckedUpdateWithoutRollback_history_approvedInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -20586,17 +20586,6 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type NestedDecimalFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
-  }
-
   export type NestedDecimalNullableFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
@@ -20608,15 +20597,7 @@ export namespace Prisma {
     not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedDecimalFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
     notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
@@ -20624,12 +20605,15 @@ export namespace Prisma {
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedDecimalFilter<$PrismaModel>
-    _sum?: NestedDecimalFilter<$PrismaModel>
-    _min?: NestedDecimalFilter<$PrismaModel>
-    _max?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -20646,6 +20630,22 @@ export namespace Prisma {
     _sum?: NestedDecimalNullableFilter<$PrismaModel>
     _min?: NestedDecimalNullableFilter<$PrismaModel>
     _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -20700,41 +20700,41 @@ export namespace Prisma {
 
   export type lasersCreateWithoutManufacturerInput = {
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
-    optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
+    optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUncheckedCreateWithoutManufacturerInput = {
     id?: number
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
-    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
   }
 
   export type lasersCreateOrConnectWithoutManufacturerInput = {
@@ -20770,24 +20770,50 @@ export namespace Prisma {
     id?: IntFilter<"lasers"> | number
     model_name?: StringFilter<"lasers"> | string
     manufacturer_id?: IntFilter<"lasers"> | number
-    laser_type?: StringFilter<"lasers"> | string
-    modulation_type?: StringFilter<"lasers"> | string
-    cooling_method?: StringNullableFilter<"lasers"> | string | null
-    is_single_mode?: BoolFilter<"lasers"> | boolean
-    power_output_w?: DecimalFilter<"lasers"> | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: DecimalNullableFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
-    application?: StringNullableFilter<"lasers"> | string | null
     notes?: StringNullableFilter<"lasers"> | string | null
     created_at?: DateTimeNullableFilter<"lasers"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"lasers"> | Date | string | null
+    application?: StringNullableFilter<"lasers"> | string | null
+    cooling_method?: StringNullableFilter<"lasers"> | string | null
+    is_single_mode?: BoolFilter<"lasers"> | boolean
+    laser_type?: StringFilter<"lasers"> | string
+    modulation_type?: StringFilter<"lasers"> | string
+    power_consumption_w?: DecimalNullableFilter<"lasers"> | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFilter<"lasers"> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type environmental_specsCreateWithoutLaserInput = {
+    operating_temp_min_c?: Decimal | DecimalJsLike | number | string | null
+    operating_temp_max_c?: Decimal | DecimalJsLike | number | string | null
+    storage_temp_min_c?: Decimal | DecimalJsLike | number | string | null
+    storage_temp_max_c?: Decimal | DecimalJsLike | number | string | null
+    humidity_max_percent?: Decimal | DecimalJsLike | number | string | null
+    protection_class?: string | null
+    created_at?: Date | string | null
+  }
+
+  export type environmental_specsUncheckedCreateWithoutLaserInput = {
+    id?: number
+    operating_temp_min_c?: Decimal | DecimalJsLike | number | string | null
+    operating_temp_max_c?: Decimal | DecimalJsLike | number | string | null
+    storage_temp_min_c?: Decimal | DecimalJsLike | number | string | null
+    storage_temp_max_c?: Decimal | DecimalJsLike | number | string | null
+    humidity_max_percent?: Decimal | DecimalJsLike | number | string | null
+    protection_class?: string | null
+    created_at?: Date | string | null
+  }
+
+  export type environmental_specsCreateOrConnectWithoutLaserInput = {
+    where: environmental_specsWhereUniqueInput
+    create: XOR<environmental_specsCreateWithoutLaserInput, environmental_specsUncheckedCreateWithoutLaserInput>
   }
 
   export type manufacturersCreateWithoutLasersInput = {
     name: string
     country?: string | null
     website?: string | null
-    contact_email?: string | null
     created_at?: Date | string | null
+    contact_email?: string | null
     updated_at?: Date | string | null
   }
 
@@ -20796,14 +20822,88 @@ export namespace Prisma {
     name: string
     country?: string | null
     website?: string | null
-    contact_email?: string | null
     created_at?: Date | string | null
+    contact_email?: string | null
     updated_at?: Date | string | null
   }
 
   export type manufacturersCreateOrConnectWithoutLasersInput = {
     where: manufacturersWhereUniqueInput
     create: XOR<manufacturersCreateWithoutLasersInput, manufacturersUncheckedCreateWithoutLasersInput>
+  }
+
+  export type optical_specsCreateWithoutLaserInput = {
+    beam_divergence_mrad?: Decimal | DecimalJsLike | number | string | null
+    beam_quality_m2?: Decimal | DecimalJsLike | number | string | null
+    aperture_mm?: Decimal | DecimalJsLike | number | string | null
+    numerical_aperture?: Decimal | DecimalJsLike | number | string | null
+    polarization?: string | null
+    polarization_ratio_db?: Decimal | DecimalJsLike | number | string | null
+    created_at?: Date | string | null
+  }
+
+  export type optical_specsUncheckedCreateWithoutLaserInput = {
+    id?: number
+    beam_divergence_mrad?: Decimal | DecimalJsLike | number | string | null
+    beam_quality_m2?: Decimal | DecimalJsLike | number | string | null
+    aperture_mm?: Decimal | DecimalJsLike | number | string | null
+    numerical_aperture?: Decimal | DecimalJsLike | number | string | null
+    polarization?: string | null
+    polarization_ratio_db?: Decimal | DecimalJsLike | number | string | null
+    created_at?: Date | string | null
+  }
+
+  export type optical_specsCreateOrConnectWithoutLaserInput = {
+    where: optical_specsWhereUniqueInput
+    create: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
+  }
+
+  export type pulse_specsCreateWithoutLaserInput = {
+    pulse_width_ns?: Decimal | DecimalJsLike | number | string | null
+    pulse_energy_j?: Decimal | DecimalJsLike | number | string | null
+    rep_rate_hz?: Decimal | DecimalJsLike | number | string | null
+    duty_cycle_percent?: Decimal | DecimalJsLike | number | string | null
+    rise_time_ns?: Decimal | DecimalJsLike | number | string | null
+    fall_time_ns?: Decimal | DecimalJsLike | number | string | null
+    created_at?: Date | string | null
+  }
+
+  export type pulse_specsUncheckedCreateWithoutLaserInput = {
+    id?: number
+    pulse_width_ns?: Decimal | DecimalJsLike | number | string | null
+    pulse_energy_j?: Decimal | DecimalJsLike | number | string | null
+    rep_rate_hz?: Decimal | DecimalJsLike | number | string | null
+    duty_cycle_percent?: Decimal | DecimalJsLike | number | string | null
+    rise_time_ns?: Decimal | DecimalJsLike | number | string | null
+    fall_time_ns?: Decimal | DecimalJsLike | number | string | null
+    created_at?: Date | string | null
+  }
+
+  export type pulse_specsCreateOrConnectWithoutLaserInput = {
+    where: pulse_specsWhereUniqueInput
+    create: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
+  }
+
+  export type stability_specsCreateWithoutLaserInput = {
+    power_stability_percent?: Decimal | DecimalJsLike | number | string | null
+    pointing_stability_urad?: Decimal | DecimalJsLike | number | string | null
+    temperature_stability_c?: Decimal | DecimalJsLike | number | string | null
+    warmup_time_min?: Decimal | DecimalJsLike | number | string | null
+    created_at?: Date | string | null
+  }
+
+  export type stability_specsUncheckedCreateWithoutLaserInput = {
+    id?: number
+    power_stability_percent?: Decimal | DecimalJsLike | number | string | null
+    pointing_stability_urad?: Decimal | DecimalJsLike | number | string | null
+    temperature_stability_c?: Decimal | DecimalJsLike | number | string | null
+    warmup_time_min?: Decimal | DecimalJsLike | number | string | null
+    created_at?: Date | string | null
+  }
+
+  export type stability_specsCreateOrConnectWithoutLaserInput = {
+    where: stability_specsWhereUniqueInput
+    create: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
   }
 
   export type wavelength_specsCreateWithoutLaserInput = {
@@ -20834,104 +20934,36 @@ export namespace Prisma {
     create: XOR<wavelength_specsCreateWithoutLaserInput, wavelength_specsUncheckedCreateWithoutLaserInput>
   }
 
-  export type optical_specsCreateWithoutLaserInput = {
-    beam_divergence_mrad?: Decimal | DecimalJsLike | number | string | null
-    beam_quality_m2?: Decimal | DecimalJsLike | number | string | null
-    aperture_mm?: Decimal | DecimalJsLike | number | string | null
-    numerical_aperture?: Decimal | DecimalJsLike | number | string | null
-    polarization?: string | null
-    polarization_ratio_db?: Decimal | DecimalJsLike | number | string | null
-    created_at?: Date | string | null
-  }
-
-  export type optical_specsUncheckedCreateWithoutLaserInput = {
-    id?: number
-    beam_divergence_mrad?: Decimal | DecimalJsLike | number | string | null
-    beam_quality_m2?: Decimal | DecimalJsLike | number | string | null
-    aperture_mm?: Decimal | DecimalJsLike | number | string | null
-    numerical_aperture?: Decimal | DecimalJsLike | number | string | null
-    polarization?: string | null
-    polarization_ratio_db?: Decimal | DecimalJsLike | number | string | null
-    created_at?: Date | string | null
-  }
-
-  export type optical_specsCreateOrConnectWithoutLaserInput = {
-    where: optical_specsWhereUniqueInput
-    create: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
-  }
-
-  export type stability_specsCreateWithoutLaserInput = {
-    power_stability_percent?: Decimal | DecimalJsLike | number | string | null
-    pointing_stability_urad?: Decimal | DecimalJsLike | number | string | null
-    temperature_stability_c?: Decimal | DecimalJsLike | number | string | null
-    warmup_time_min?: Decimal | DecimalJsLike | number | string | null
-    created_at?: Date | string | null
-  }
-
-  export type stability_specsUncheckedCreateWithoutLaserInput = {
-    id?: number
-    power_stability_percent?: Decimal | DecimalJsLike | number | string | null
-    pointing_stability_urad?: Decimal | DecimalJsLike | number | string | null
-    temperature_stability_c?: Decimal | DecimalJsLike | number | string | null
-    warmup_time_min?: Decimal | DecimalJsLike | number | string | null
-    created_at?: Date | string | null
-  }
-
-  export type stability_specsCreateOrConnectWithoutLaserInput = {
-    where: stability_specsWhereUniqueInput
-    create: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
-  }
-
-  export type environmental_specsCreateWithoutLaserInput = {
-    operating_temp_min_c?: Decimal | DecimalJsLike | number | string | null
-    operating_temp_max_c?: Decimal | DecimalJsLike | number | string | null
-    storage_temp_min_c?: Decimal | DecimalJsLike | number | string | null
-    storage_temp_max_c?: Decimal | DecimalJsLike | number | string | null
-    humidity_max_percent?: Decimal | DecimalJsLike | number | string | null
-    protection_class?: string | null
-    created_at?: Date | string | null
-  }
-
-  export type environmental_specsUncheckedCreateWithoutLaserInput = {
-    id?: number
-    operating_temp_min_c?: Decimal | DecimalJsLike | number | string | null
-    operating_temp_max_c?: Decimal | DecimalJsLike | number | string | null
-    storage_temp_min_c?: Decimal | DecimalJsLike | number | string | null
-    storage_temp_max_c?: Decimal | DecimalJsLike | number | string | null
-    humidity_max_percent?: Decimal | DecimalJsLike | number | string | null
-    protection_class?: string | null
-    created_at?: Date | string | null
-  }
-
-  export type environmental_specsCreateOrConnectWithoutLaserInput = {
-    where: environmental_specsWhereUniqueInput
+  export type environmental_specsUpsertWithoutLaserInput = {
+    update: XOR<environmental_specsUpdateWithoutLaserInput, environmental_specsUncheckedUpdateWithoutLaserInput>
     create: XOR<environmental_specsCreateWithoutLaserInput, environmental_specsUncheckedCreateWithoutLaserInput>
+    where?: environmental_specsWhereInput
   }
 
-  export type pulse_specsCreateWithoutLaserInput = {
-    pulse_width_ns?: Decimal | DecimalJsLike | number | string | null
-    pulse_energy_j?: Decimal | DecimalJsLike | number | string | null
-    rep_rate_hz?: Decimal | DecimalJsLike | number | string | null
-    duty_cycle_percent?: Decimal | DecimalJsLike | number | string | null
-    rise_time_ns?: Decimal | DecimalJsLike | number | string | null
-    fall_time_ns?: Decimal | DecimalJsLike | number | string | null
-    created_at?: Date | string | null
+  export type environmental_specsUpdateToOneWithWhereWithoutLaserInput = {
+    where?: environmental_specsWhereInput
+    data: XOR<environmental_specsUpdateWithoutLaserInput, environmental_specsUncheckedUpdateWithoutLaserInput>
   }
 
-  export type pulse_specsUncheckedCreateWithoutLaserInput = {
-    id?: number
-    pulse_width_ns?: Decimal | DecimalJsLike | number | string | null
-    pulse_energy_j?: Decimal | DecimalJsLike | number | string | null
-    rep_rate_hz?: Decimal | DecimalJsLike | number | string | null
-    duty_cycle_percent?: Decimal | DecimalJsLike | number | string | null
-    rise_time_ns?: Decimal | DecimalJsLike | number | string | null
-    fall_time_ns?: Decimal | DecimalJsLike | number | string | null
-    created_at?: Date | string | null
+  export type environmental_specsUpdateWithoutLaserInput = {
+    operating_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    operating_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    storage_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    storage_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    humidity_max_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    protection_class?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type pulse_specsCreateOrConnectWithoutLaserInput = {
-    where: pulse_specsWhereUniqueInput
-    create: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
+  export type environmental_specsUncheckedUpdateWithoutLaserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    operating_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    operating_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    storage_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    storage_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    humidity_max_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    protection_class?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type manufacturersUpsertWithoutLasersInput = {
@@ -20949,8 +20981,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     country?: NullableStringFieldUpdateOperationsInput | string | null
     website?: NullableStringFieldUpdateOperationsInput | string | null
-    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -20959,9 +20991,101 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     country?: NullableStringFieldUpdateOperationsInput | string | null
     website?: NullableStringFieldUpdateOperationsInput | string | null
-    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contact_email?: NullableStringFieldUpdateOperationsInput | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type optical_specsUpsertWithoutLaserInput = {
+    update: XOR<optical_specsUpdateWithoutLaserInput, optical_specsUncheckedUpdateWithoutLaserInput>
+    create: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
+    where?: optical_specsWhereInput
+  }
+
+  export type optical_specsUpdateToOneWithWhereWithoutLaserInput = {
+    where?: optical_specsWhereInput
+    data: XOR<optical_specsUpdateWithoutLaserInput, optical_specsUncheckedUpdateWithoutLaserInput>
+  }
+
+  export type optical_specsUpdateWithoutLaserInput = {
+    beam_divergence_mrad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    beam_quality_m2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    aperture_mm?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    numerical_aperture?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    polarization?: NullableStringFieldUpdateOperationsInput | string | null
+    polarization_ratio_db?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type optical_specsUncheckedUpdateWithoutLaserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    beam_divergence_mrad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    beam_quality_m2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    aperture_mm?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    numerical_aperture?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    polarization?: NullableStringFieldUpdateOperationsInput | string | null
+    polarization_ratio_db?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type pulse_specsUpsertWithoutLaserInput = {
+    update: XOR<pulse_specsUpdateWithoutLaserInput, pulse_specsUncheckedUpdateWithoutLaserInput>
+    create: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
+    where?: pulse_specsWhereInput
+  }
+
+  export type pulse_specsUpdateToOneWithWhereWithoutLaserInput = {
+    where?: pulse_specsWhereInput
+    data: XOR<pulse_specsUpdateWithoutLaserInput, pulse_specsUncheckedUpdateWithoutLaserInput>
+  }
+
+  export type pulse_specsUpdateWithoutLaserInput = {
+    pulse_width_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    pulse_energy_j?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    rep_rate_hz?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    duty_cycle_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    rise_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    fall_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type pulse_specsUncheckedUpdateWithoutLaserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pulse_width_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    pulse_energy_j?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    rep_rate_hz?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    duty_cycle_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    rise_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    fall_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type stability_specsUpsertWithoutLaserInput = {
+    update: XOR<stability_specsUpdateWithoutLaserInput, stability_specsUncheckedUpdateWithoutLaserInput>
+    create: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
+    where?: stability_specsWhereInput
+  }
+
+  export type stability_specsUpdateToOneWithWhereWithoutLaserInput = {
+    where?: stability_specsWhereInput
+    data: XOR<stability_specsUpdateWithoutLaserInput, stability_specsUncheckedUpdateWithoutLaserInput>
+  }
+
+  export type stability_specsUpdateWithoutLaserInput = {
+    power_stability_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    pointing_stability_urad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    temperature_stability_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    warmup_time_min?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type stability_specsUncheckedUpdateWithoutLaserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    power_stability_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    pointing_stability_urad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    temperature_stability_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    warmup_time_min?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type wavelength_specsUpsertWithoutLaserInput = {
@@ -20998,167 +21122,43 @@ export namespace Prisma {
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type optical_specsUpsertWithoutLaserInput = {
-    update: XOR<optical_specsUpdateWithoutLaserInput, optical_specsUncheckedUpdateWithoutLaserInput>
-    create: XOR<optical_specsCreateWithoutLaserInput, optical_specsUncheckedCreateWithoutLaserInput>
-    where?: optical_specsWhereInput
-  }
-
-  export type optical_specsUpdateToOneWithWhereWithoutLaserInput = {
-    where?: optical_specsWhereInput
-    data: XOR<optical_specsUpdateWithoutLaserInput, optical_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type optical_specsUpdateWithoutLaserInput = {
-    beam_divergence_mrad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    beam_quality_m2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    aperture_mm?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    numerical_aperture?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    polarization?: NullableStringFieldUpdateOperationsInput | string | null
-    polarization_ratio_db?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type optical_specsUncheckedUpdateWithoutLaserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    beam_divergence_mrad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    beam_quality_m2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    aperture_mm?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    numerical_aperture?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    polarization?: NullableStringFieldUpdateOperationsInput | string | null
-    polarization_ratio_db?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type stability_specsUpsertWithoutLaserInput = {
-    update: XOR<stability_specsUpdateWithoutLaserInput, stability_specsUncheckedUpdateWithoutLaserInput>
-    create: XOR<stability_specsCreateWithoutLaserInput, stability_specsUncheckedCreateWithoutLaserInput>
-    where?: stability_specsWhereInput
-  }
-
-  export type stability_specsUpdateToOneWithWhereWithoutLaserInput = {
-    where?: stability_specsWhereInput
-    data: XOR<stability_specsUpdateWithoutLaserInput, stability_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type stability_specsUpdateWithoutLaserInput = {
-    power_stability_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    pointing_stability_urad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    temperature_stability_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    warmup_time_min?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type stability_specsUncheckedUpdateWithoutLaserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    power_stability_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    pointing_stability_urad?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    temperature_stability_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    warmup_time_min?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type environmental_specsUpsertWithoutLaserInput = {
-    update: XOR<environmental_specsUpdateWithoutLaserInput, environmental_specsUncheckedUpdateWithoutLaserInput>
-    create: XOR<environmental_specsCreateWithoutLaserInput, environmental_specsUncheckedCreateWithoutLaserInput>
-    where?: environmental_specsWhereInput
-  }
-
-  export type environmental_specsUpdateToOneWithWhereWithoutLaserInput = {
-    where?: environmental_specsWhereInput
-    data: XOR<environmental_specsUpdateWithoutLaserInput, environmental_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type environmental_specsUpdateWithoutLaserInput = {
-    operating_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    operating_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    storage_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    storage_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    humidity_max_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    protection_class?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type environmental_specsUncheckedUpdateWithoutLaserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    operating_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    operating_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    storage_temp_min_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    storage_temp_max_c?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    humidity_max_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    protection_class?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type pulse_specsUpsertWithoutLaserInput = {
-    update: XOR<pulse_specsUpdateWithoutLaserInput, pulse_specsUncheckedUpdateWithoutLaserInput>
-    create: XOR<pulse_specsCreateWithoutLaserInput, pulse_specsUncheckedCreateWithoutLaserInput>
-    where?: pulse_specsWhereInput
-  }
-
-  export type pulse_specsUpdateToOneWithWhereWithoutLaserInput = {
-    where?: pulse_specsWhereInput
-    data: XOR<pulse_specsUpdateWithoutLaserInput, pulse_specsUncheckedUpdateWithoutLaserInput>
-  }
-
-  export type pulse_specsUpdateWithoutLaserInput = {
-    pulse_width_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    pulse_energy_j?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    rep_rate_hz?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    duty_cycle_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    rise_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    fall_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type pulse_specsUncheckedUpdateWithoutLaserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    pulse_width_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    pulse_energy_j?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    rep_rate_hz?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    duty_cycle_percent?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    rise_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    fall_time_ns?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type lasersCreateWithoutWavelength_specsInput = {
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
+    environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
     manufacturer: manufacturersCreateNestedOneWithoutLasersInput
     optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
-    environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUncheckedCreateWithoutWavelength_specsInput = {
     id?: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
   }
 
   export type lasersCreateOrConnectWithoutWavelength_specsInput = {
@@ -21179,80 +21179,80 @@ export namespace Prisma {
 
   export type lasersUpdateWithoutWavelength_specsInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
     manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
     optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
-    environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateWithoutWavelength_specsInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
     manufacturer_id?: IntFieldUpdateOperationsInput | number
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersCreateWithoutOptical_specsInput = {
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    manufacturer: manufacturersCreateNestedOneWithoutLasersInput
-    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
+    manufacturer: manufacturersCreateNestedOneWithoutLasersInput
     pulse_specs?: pulse_specsCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUncheckedCreateWithoutOptical_specsInput = {
     id?: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
   }
 
   export type lasersCreateOrConnectWithoutOptical_specsInput = {
@@ -21273,80 +21273,80 @@ export namespace Prisma {
 
   export type lasersUpdateWithoutOptical_specsInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
-    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
+    manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
     pulse_specs?: pulse_specsUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateWithoutOptical_specsInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
     manufacturer_id?: IntFieldUpdateOperationsInput | number
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersCreateWithoutStability_specsInput = {
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    manufacturer: manufacturersCreateNestedOneWithoutLasersInput
-    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
-    optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
+    manufacturer: manufacturersCreateNestedOneWithoutLasersInput
+    optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUncheckedCreateWithoutStability_specsInput = {
     id?: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
-    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+    optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
   }
 
   export type lasersCreateOrConnectWithoutStability_specsInput = {
@@ -21367,80 +21367,80 @@ export namespace Prisma {
 
   export type lasersUpdateWithoutStability_specsInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
-    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
-    optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
+    manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
+    optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateWithoutStability_specsInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
     manufacturer_id?: IntFieldUpdateOperationsInput | number
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
-    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersCreateWithoutEnvironmental_specsInput = {
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     manufacturer: manufacturersCreateNestedOneWithoutLasersInput
-    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
     optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUncheckedCreateWithoutEnvironmental_specsInput = {
     id?: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
     optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
-    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
     pulse_specs?: pulse_specsUncheckedCreateNestedOneWithoutLaserInput
+    stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
   }
 
   export type lasersCreateOrConnectWithoutEnvironmental_specsInput = {
@@ -21461,80 +21461,80 @@ export namespace Prisma {
 
   export type lasersUpdateWithoutEnvironmental_specsInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
-    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
     optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateWithoutEnvironmental_specsInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
     manufacturer_id?: IntFieldUpdateOperationsInput | number
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersCreateWithoutPulse_specsInput = {
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
+    environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
     manufacturer: manufacturersCreateNestedOneWithoutLasersInput
-    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
     optical_specs?: optical_specsCreateNestedOneWithoutLaserInput
     stability_specs?: stability_specsCreateNestedOneWithoutLaserInput
-    environmental_specs?: environmental_specsCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsCreateNestedOneWithoutLaserInput
   }
 
   export type lasersUncheckedCreateWithoutPulse_specsInput = {
     id?: number
     model_name: string
     manufacturer_id: number
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
+    environmental_specs?: environmental_specsUncheckedCreateNestedOneWithoutLaserInput
     optical_specs?: optical_specsUncheckedCreateNestedOneWithoutLaserInput
     stability_specs?: stability_specsUncheckedCreateNestedOneWithoutLaserInput
-    environmental_specs?: environmental_specsUncheckedCreateNestedOneWithoutLaserInput
+    wavelength_specs?: wavelength_specsUncheckedCreateNestedOneWithoutLaserInput
   }
 
   export type lasersCreateOrConnectWithoutPulse_specsInput = {
@@ -21555,66 +21555,66 @@ export namespace Prisma {
 
   export type lasersUpdateWithoutPulse_specsInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
     manufacturer?: manufacturersUpdateOneRequiredWithoutLasersNestedInput
-    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
     optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
     stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
-    environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateWithoutPulse_specsInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
     manufacturer_id?: IntFieldUpdateOperationsInput | number
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    environmental_specs?: environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
     optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
     stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
-    environmental_specs?: environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
   }
 
   export type access_codesCreateWithoutCreatorInput = {
     code_hash: string
     color_code: string
-    role: string
     expires_at?: Date | string | null
     max_uses?: number | null
     current_uses?: number
     is_active?: boolean
     notes?: string | null
     created_at?: Date | string | null
+    role: string
   }
 
   export type access_codesUncheckedCreateWithoutCreatorInput = {
     id?: number
     code_hash: string
     color_code: string
-    role: string
     expires_at?: Date | string | null
     max_uses?: number | null
     current_uses?: number
     is_active?: boolean
     notes?: string | null
     created_at?: Date | string | null
+    role: string
   }
 
   export type access_codesCreateOrConnectWithoutCreatorInput = {
@@ -21630,11 +21630,11 @@ export namespace Prisma {
   export type audit_logCreateWithoutUserInput = {
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
+    action: string
     rollback_history?: rollback_historyCreateNestedManyWithoutAudit_logInput
   }
 
@@ -21642,11 +21642,11 @@ export namespace Prisma {
     id?: number
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
+    action: string
     rollback_history?: rollback_historyUncheckedCreateNestedManyWithoutAudit_logInput
   }
 
@@ -21660,72 +21660,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type pending_actionsCreateWithoutInitiatorInput = {
-    action_type: string
-    target_table: string
-    target_record_id?: number | null
-    action_data?: NullableJsonNullValueInput | InputJsonValue
-    reason?: string | null
-    status?: string
-    expires_at?: Date | string | null
-    approved_at?: Date | string | null
-    completed_at?: Date | string | null
-    created_at?: Date | string | null
-    approver?: usersCreateNestedOneWithoutPending_actions_approvedInput
-  }
-
-  export type pending_actionsUncheckedCreateWithoutInitiatorInput = {
-    id?: number
-    action_type: string
-    target_table: string
-    target_record_id?: number | null
-    action_data?: NullableJsonNullValueInput | InputJsonValue
-    reason?: string | null
-    status?: string
-    expires_at?: Date | string | null
-    approved_by?: number | null
-    approved_at?: Date | string | null
-    completed_at?: Date | string | null
-    created_at?: Date | string | null
-  }
-
-  export type pending_actionsCreateOrConnectWithoutInitiatorInput = {
-    where: pending_actionsWhereUniqueInput
-    create: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput>
-  }
-
-  export type pending_actionsCreateManyInitiatorInputEnvelope = {
-    data: pending_actionsCreateManyInitiatorInput | pending_actionsCreateManyInitiatorInput[]
-    skipDuplicates?: boolean
-  }
-
   export type pending_actionsCreateWithoutApproverInput = {
-    action_type: string
     target_table: string
     target_record_id?: number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: string | null
-    status?: string
     expires_at?: Date | string | null
     approved_at?: Date | string | null
     completed_at?: Date | string | null
     created_at?: Date | string | null
+    action_type: string
+    status?: string
     initiator: usersCreateNestedOneWithoutPending_actions_initiatedInput
   }
 
   export type pending_actionsUncheckedCreateWithoutApproverInput = {
     id?: number
-    action_type: string
     initiated_by: number
     target_table: string
     target_record_id?: number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: string | null
-    status?: string
     expires_at?: Date | string | null
     approved_at?: Date | string | null
     completed_at?: Date | string | null
     created_at?: Date | string | null
+    action_type: string
+    status?: string
   }
 
   export type pending_actionsCreateOrConnectWithoutApproverInput = {
@@ -21738,37 +21699,49 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type rollback_historyCreateWithoutInitiatorInput = {
-    status: string
-    error_message?: string | null
+  export type pending_actionsCreateWithoutInitiatorInput = {
+    target_table: string
+    target_record_id?: number | null
+    action_data?: NullableJsonNullValueInput | InputJsonValue
+    reason?: string | null
+    expires_at?: Date | string | null
+    approved_at?: Date | string | null
+    completed_at?: Date | string | null
     created_at?: Date | string | null
-    audit_log: audit_logCreateNestedOneWithoutRollback_historyInput
-    approver?: usersCreateNestedOneWithoutRollback_history_approvedInput
+    action_type: string
+    status?: string
+    approver?: usersCreateNestedOneWithoutPending_actions_approvedInput
   }
 
-  export type rollback_historyUncheckedCreateWithoutInitiatorInput = {
+  export type pending_actionsUncheckedCreateWithoutInitiatorInput = {
     id?: number
-    audit_log_id: number
+    target_table: string
+    target_record_id?: number | null
+    action_data?: NullableJsonNullValueInput | InputJsonValue
+    reason?: string | null
+    expires_at?: Date | string | null
     approved_by?: number | null
-    status: string
-    error_message?: string | null
+    approved_at?: Date | string | null
+    completed_at?: Date | string | null
     created_at?: Date | string | null
+    action_type: string
+    status?: string
   }
 
-  export type rollback_historyCreateOrConnectWithoutInitiatorInput = {
-    where: rollback_historyWhereUniqueInput
-    create: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput>
+  export type pending_actionsCreateOrConnectWithoutInitiatorInput = {
+    where: pending_actionsWhereUniqueInput
+    create: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput>
   }
 
-  export type rollback_historyCreateManyInitiatorInputEnvelope = {
-    data: rollback_historyCreateManyInitiatorInput | rollback_historyCreateManyInitiatorInput[]
+  export type pending_actionsCreateManyInitiatorInputEnvelope = {
+    data: pending_actionsCreateManyInitiatorInput | pending_actionsCreateManyInitiatorInput[]
     skipDuplicates?: boolean
   }
 
   export type rollback_historyCreateWithoutApproverInput = {
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
     audit_log: audit_logCreateNestedOneWithoutRollback_historyInput
     initiator: usersCreateNestedOneWithoutRollback_history_initiatedInput
   }
@@ -21777,9 +21750,9 @@ export namespace Prisma {
     id?: number
     audit_log_id: number
     initiated_by: number
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
   }
 
   export type rollback_historyCreateOrConnectWithoutApproverInput = {
@@ -21789,6 +21762,33 @@ export namespace Prisma {
 
   export type rollback_historyCreateManyApproverInputEnvelope = {
     data: rollback_historyCreateManyApproverInput | rollback_historyCreateManyApproverInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type rollback_historyCreateWithoutInitiatorInput = {
+    error_message?: string | null
+    created_at?: Date | string | null
+    status: string
+    approver?: usersCreateNestedOneWithoutRollback_history_approvedInput
+    audit_log: audit_logCreateNestedOneWithoutRollback_historyInput
+  }
+
+  export type rollback_historyUncheckedCreateWithoutInitiatorInput = {
+    id?: number
+    audit_log_id: number
+    approved_by?: number | null
+    error_message?: string | null
+    created_at?: Date | string | null
+    status: string
+  }
+
+  export type rollback_historyCreateOrConnectWithoutInitiatorInput = {
+    where: rollback_historyWhereUniqueInput
+    create: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput>
+  }
+
+  export type rollback_historyCreateManyInitiatorInputEnvelope = {
+    data: rollback_historyCreateManyInitiatorInput | rollback_historyCreateManyInitiatorInput[]
     skipDuplicates?: boolean
   }
 
@@ -21815,7 +21815,6 @@ export namespace Prisma {
     id?: IntFilter<"access_codes"> | number
     code_hash?: StringFilter<"access_codes"> | string
     color_code?: StringFilter<"access_codes"> | string
-    role?: StringFilter<"access_codes"> | string
     created_by?: IntFilter<"access_codes"> | number
     expires_at?: DateTimeNullableFilter<"access_codes"> | Date | string | null
     max_uses?: IntNullableFilter<"access_codes"> | number | null
@@ -21823,6 +21822,7 @@ export namespace Prisma {
     is_active?: BoolFilter<"access_codes"> | boolean
     notes?: StringNullableFilter<"access_codes"> | string | null
     created_at?: DateTimeNullableFilter<"access_codes"> | Date | string | null
+    role?: StringFilter<"access_codes"> | string
   }
 
   export type audit_logUpsertWithWhereUniqueWithoutUserInput = {
@@ -21849,46 +21849,11 @@ export namespace Prisma {
     user_id?: IntNullableFilter<"audit_log"> | number | null
     table_name?: StringFilter<"audit_log"> | string
     record_id?: IntNullableFilter<"audit_log"> | number | null
-    action?: StringFilter<"audit_log"> | string
     old_data?: JsonNullableFilter<"audit_log">
     new_data?: JsonNullableFilter<"audit_log">
     ip_address?: StringNullableFilter<"audit_log"> | string | null
     created_at?: DateTimeNullableFilter<"audit_log"> | Date | string | null
-  }
-
-  export type pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput = {
-    where: pending_actionsWhereUniqueInput
-    update: XOR<pending_actionsUpdateWithoutInitiatorInput, pending_actionsUncheckedUpdateWithoutInitiatorInput>
-    create: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput>
-  }
-
-  export type pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput = {
-    where: pending_actionsWhereUniqueInput
-    data: XOR<pending_actionsUpdateWithoutInitiatorInput, pending_actionsUncheckedUpdateWithoutInitiatorInput>
-  }
-
-  export type pending_actionsUpdateManyWithWhereWithoutInitiatorInput = {
-    where: pending_actionsScalarWhereInput
-    data: XOR<pending_actionsUpdateManyMutationInput, pending_actionsUncheckedUpdateManyWithoutInitiatorInput>
-  }
-
-  export type pending_actionsScalarWhereInput = {
-    AND?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
-    OR?: pending_actionsScalarWhereInput[]
-    NOT?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
-    id?: IntFilter<"pending_actions"> | number
-    action_type?: StringFilter<"pending_actions"> | string
-    initiated_by?: IntFilter<"pending_actions"> | number
-    target_table?: StringFilter<"pending_actions"> | string
-    target_record_id?: IntNullableFilter<"pending_actions"> | number | null
-    action_data?: JsonNullableFilter<"pending_actions">
-    reason?: StringNullableFilter<"pending_actions"> | string | null
-    status?: StringFilter<"pending_actions"> | string
-    expires_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
-    approved_by?: IntNullableFilter<"pending_actions"> | number | null
-    approved_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
-    completed_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
-    created_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
+    action?: StringFilter<"audit_log"> | string
   }
 
   export type pending_actionsUpsertWithWhereUniqueWithoutApproverInput = {
@@ -21907,33 +21872,39 @@ export namespace Prisma {
     data: XOR<pending_actionsUpdateManyMutationInput, pending_actionsUncheckedUpdateManyWithoutApproverInput>
   }
 
-  export type rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput = {
-    where: rollback_historyWhereUniqueInput
-    update: XOR<rollback_historyUpdateWithoutInitiatorInput, rollback_historyUncheckedUpdateWithoutInitiatorInput>
-    create: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput>
+  export type pending_actionsScalarWhereInput = {
+    AND?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
+    OR?: pending_actionsScalarWhereInput[]
+    NOT?: pending_actionsScalarWhereInput | pending_actionsScalarWhereInput[]
+    id?: IntFilter<"pending_actions"> | number
+    initiated_by?: IntFilter<"pending_actions"> | number
+    target_table?: StringFilter<"pending_actions"> | string
+    target_record_id?: IntNullableFilter<"pending_actions"> | number | null
+    action_data?: JsonNullableFilter<"pending_actions">
+    reason?: StringNullableFilter<"pending_actions"> | string | null
+    expires_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
+    approved_by?: IntNullableFilter<"pending_actions"> | number | null
+    approved_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
+    completed_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
+    created_at?: DateTimeNullableFilter<"pending_actions"> | Date | string | null
+    action_type?: StringFilter<"pending_actions"> | string
+    status?: StringFilter<"pending_actions"> | string
   }
 
-  export type rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput = {
-    where: rollback_historyWhereUniqueInput
-    data: XOR<rollback_historyUpdateWithoutInitiatorInput, rollback_historyUncheckedUpdateWithoutInitiatorInput>
+  export type pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput = {
+    where: pending_actionsWhereUniqueInput
+    update: XOR<pending_actionsUpdateWithoutInitiatorInput, pending_actionsUncheckedUpdateWithoutInitiatorInput>
+    create: XOR<pending_actionsCreateWithoutInitiatorInput, pending_actionsUncheckedCreateWithoutInitiatorInput>
   }
 
-  export type rollback_historyUpdateManyWithWhereWithoutInitiatorInput = {
-    where: rollback_historyScalarWhereInput
-    data: XOR<rollback_historyUpdateManyMutationInput, rollback_historyUncheckedUpdateManyWithoutInitiatorInput>
+  export type pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput = {
+    where: pending_actionsWhereUniqueInput
+    data: XOR<pending_actionsUpdateWithoutInitiatorInput, pending_actionsUncheckedUpdateWithoutInitiatorInput>
   }
 
-  export type rollback_historyScalarWhereInput = {
-    AND?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
-    OR?: rollback_historyScalarWhereInput[]
-    NOT?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
-    id?: IntFilter<"rollback_history"> | number
-    audit_log_id?: IntFilter<"rollback_history"> | number
-    initiated_by?: IntFilter<"rollback_history"> | number
-    approved_by?: IntNullableFilter<"rollback_history"> | number | null
-    status?: StringFilter<"rollback_history"> | string
-    error_message?: StringNullableFilter<"rollback_history"> | string | null
-    created_at?: DateTimeNullableFilter<"rollback_history"> | Date | string | null
+  export type pending_actionsUpdateManyWithWhereWithoutInitiatorInput = {
+    where: pending_actionsScalarWhereInput
+    data: XOR<pending_actionsUpdateManyMutationInput, pending_actionsUncheckedUpdateManyWithoutInitiatorInput>
   }
 
   export type rollback_historyUpsertWithWhereUniqueWithoutApproverInput = {
@@ -21952,20 +21923,49 @@ export namespace Prisma {
     data: XOR<rollback_historyUpdateManyMutationInput, rollback_historyUncheckedUpdateManyWithoutApproverInput>
   }
 
+  export type rollback_historyScalarWhereInput = {
+    AND?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
+    OR?: rollback_historyScalarWhereInput[]
+    NOT?: rollback_historyScalarWhereInput | rollback_historyScalarWhereInput[]
+    id?: IntFilter<"rollback_history"> | number
+    audit_log_id?: IntFilter<"rollback_history"> | number
+    initiated_by?: IntFilter<"rollback_history"> | number
+    approved_by?: IntNullableFilter<"rollback_history"> | number | null
+    error_message?: StringNullableFilter<"rollback_history"> | string | null
+    created_at?: DateTimeNullableFilter<"rollback_history"> | Date | string | null
+    status?: StringFilter<"rollback_history"> | string
+  }
+
+  export type rollback_historyUpsertWithWhereUniqueWithoutInitiatorInput = {
+    where: rollback_historyWhereUniqueInput
+    update: XOR<rollback_historyUpdateWithoutInitiatorInput, rollback_historyUncheckedUpdateWithoutInitiatorInput>
+    create: XOR<rollback_historyCreateWithoutInitiatorInput, rollback_historyUncheckedCreateWithoutInitiatorInput>
+  }
+
+  export type rollback_historyUpdateWithWhereUniqueWithoutInitiatorInput = {
+    where: rollback_historyWhereUniqueInput
+    data: XOR<rollback_historyUpdateWithoutInitiatorInput, rollback_historyUncheckedUpdateWithoutInitiatorInput>
+  }
+
+  export type rollback_historyUpdateManyWithWhereWithoutInitiatorInput = {
+    where: rollback_historyScalarWhereInput
+    data: XOR<rollback_historyUpdateManyMutationInput, rollback_historyUncheckedUpdateManyWithoutInitiatorInput>
+  }
+
   export type usersCreateWithoutAccess_codesInput = {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     audit_log?: audit_logCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
+    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersUncheckedCreateWithoutAccess_codesInput = {
@@ -21973,16 +21973,16 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
+    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersCreateOrConnectWithoutAccess_codesInput = {
@@ -22005,16 +22005,16 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     audit_log?: audit_logUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
+    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
   }
 
   export type usersUncheckedUpdateWithoutAccess_codesInput = {
@@ -22022,32 +22022,32 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
+    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
   }
 
   export type usersCreateWithoutAudit_logInput = {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesCreateNestedManyWithoutCreatorInput
-    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
+    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersUncheckedCreateWithoutAudit_logInput = {
@@ -22055,16 +22055,16 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
-    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
+    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersCreateOrConnectWithoutAudit_logInput = {
@@ -22073,20 +22073,20 @@ export namespace Prisma {
   }
 
   export type rollback_historyCreateWithoutAudit_logInput = {
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
-    initiator: usersCreateNestedOneWithoutRollback_history_initiatedInput
+    status: string
     approver?: usersCreateNestedOneWithoutRollback_history_approvedInput
+    initiator: usersCreateNestedOneWithoutRollback_history_initiatedInput
   }
 
   export type rollback_historyUncheckedCreateWithoutAudit_logInput = {
     id?: number
     initiated_by: number
     approved_by?: number | null
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
   }
 
   export type rollback_historyCreateOrConnectWithoutAudit_logInput = {
@@ -22114,16 +22114,16 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
-    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
+    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
   }
 
   export type usersUncheckedUpdateWithoutAudit_logInput = {
@@ -22131,16 +22131,16 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
+    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
   }
 
   export type rollback_historyUpsertWithWhereUniqueWithoutAudit_logInput = {
@@ -22159,58 +22159,20 @@ export namespace Prisma {
     data: XOR<rollback_historyUpdateManyMutationInput, rollback_historyUncheckedUpdateManyWithoutAudit_logInput>
   }
 
-  export type usersCreateWithoutPending_actions_initiatedInput = {
-    email: string
-    password_hash: string
-    name: string
-    role: string
-    is_active?: boolean
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    last_login?: Date | string | null
-    access_codes?: access_codesCreateNestedManyWithoutCreatorInput
-    audit_log?: audit_logCreateNestedManyWithoutUserInput
-    pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
-    rollback_history_approved?: rollback_historyCreateNestedManyWithoutApproverInput
-  }
-
-  export type usersUncheckedCreateWithoutPending_actions_initiatedInput = {
-    id?: number
-    email: string
-    password_hash: string
-    name: string
-    role: string
-    is_active?: boolean
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    last_login?: Date | string | null
-    access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
-    audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
-    pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
-    rollback_history_approved?: rollback_historyUncheckedCreateNestedManyWithoutApproverInput
-  }
-
-  export type usersCreateOrConnectWithoutPending_actions_initiatedInput = {
-    where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutPending_actions_initiatedInput, usersUncheckedCreateWithoutPending_actions_initiatedInput>
-  }
-
   export type usersCreateWithoutPending_actions_approvedInput = {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesCreateNestedManyWithoutCreatorInput
     audit_log?: audit_logCreateNestedManyWithoutUserInput
     pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
-    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersUncheckedCreateWithoutPending_actions_approvedInput = {
@@ -22218,16 +22180,16 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
     audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
     pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
   }
 
   export type usersCreateOrConnectWithoutPending_actions_approvedInput = {
@@ -22235,48 +22197,42 @@ export namespace Prisma {
     create: XOR<usersCreateWithoutPending_actions_approvedInput, usersUncheckedCreateWithoutPending_actions_approvedInput>
   }
 
-  export type usersUpsertWithoutPending_actions_initiatedInput = {
-    update: XOR<usersUpdateWithoutPending_actions_initiatedInput, usersUncheckedUpdateWithoutPending_actions_initiatedInput>
+  export type usersCreateWithoutPending_actions_initiatedInput = {
+    email: string
+    password_hash: string
+    name: string
+    is_active?: boolean
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    last_login?: Date | string | null
+    role: string
+    access_codes?: access_codesCreateNestedManyWithoutCreatorInput
+    audit_log?: audit_logCreateNestedManyWithoutUserInput
+    pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
+    rollback_history_approved?: rollback_historyCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
+  }
+
+  export type usersUncheckedCreateWithoutPending_actions_initiatedInput = {
+    id?: number
+    email: string
+    password_hash: string
+    name: string
+    is_active?: boolean
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    last_login?: Date | string | null
+    role: string
+    access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
+    audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
+    pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+    rollback_history_approved?: rollback_historyUncheckedCreateNestedManyWithoutApproverInput
+    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
+  }
+
+  export type usersCreateOrConnectWithoutPending_actions_initiatedInput = {
+    where: usersWhereUniqueInput
     create: XOR<usersCreateWithoutPending_actions_initiatedInput, usersUncheckedCreateWithoutPending_actions_initiatedInput>
-    where?: usersWhereInput
-  }
-
-  export type usersUpdateToOneWithWhereWithoutPending_actions_initiatedInput = {
-    where?: usersWhereInput
-    data: XOR<usersUpdateWithoutPending_actions_initiatedInput, usersUncheckedUpdateWithoutPending_actions_initiatedInput>
-  }
-
-  export type usersUpdateWithoutPending_actions_initiatedInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password_hash?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    is_active?: BoolFieldUpdateOperationsInput | boolean
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
-    audit_log?: audit_logUpdateManyWithoutUserNestedInput
-    pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
-    rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
-  }
-
-  export type usersUncheckedUpdateWithoutPending_actions_initiatedInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    password_hash?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    is_active?: BoolFieldUpdateOperationsInput | boolean
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-    audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
-    pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
-    rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
   }
 
   export type usersUpsertWithoutPending_actions_approvedInput = {
@@ -22294,16 +22250,16 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
     audit_log?: audit_logUpdateManyWithoutUserNestedInput
     pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
-    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
   }
 
   export type usersUncheckedUpdateWithoutPending_actions_approvedInput = {
@@ -22311,26 +22267,108 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
     audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
     pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
     rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
+  }
+
+  export type usersUpsertWithoutPending_actions_initiatedInput = {
+    update: XOR<usersUpdateWithoutPending_actions_initiatedInput, usersUncheckedUpdateWithoutPending_actions_initiatedInput>
+    create: XOR<usersCreateWithoutPending_actions_initiatedInput, usersUncheckedCreateWithoutPending_actions_initiatedInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutPending_actions_initiatedInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutPending_actions_initiatedInput, usersUncheckedUpdateWithoutPending_actions_initiatedInput>
+  }
+
+  export type usersUpdateWithoutPending_actions_initiatedInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password_hash?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
+    audit_log?: audit_logUpdateManyWithoutUserNestedInput
+    pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
+    rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutPending_actions_initiatedInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    password_hash?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+    audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
+    pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+    rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
+    rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
+  }
+
+  export type usersCreateWithoutRollback_history_approvedInput = {
+    email: string
+    password_hash: string
+    name: string
+    is_active?: boolean
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    last_login?: Date | string | null
+    role: string
+    access_codes?: access_codesCreateNestedManyWithoutCreatorInput
+    audit_log?: audit_logCreateNestedManyWithoutUserInput
+    pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
+    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
+    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
+  }
+
+  export type usersUncheckedCreateWithoutRollback_history_approvedInput = {
+    id?: number
+    email: string
+    password_hash: string
+    name: string
+    is_active?: boolean
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    last_login?: Date | string | null
+    role: string
+    access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
+    audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
+    pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
+    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
+  }
+
+  export type usersCreateOrConnectWithoutRollback_history_approvedInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutRollback_history_approvedInput, usersUncheckedCreateWithoutRollback_history_approvedInput>
   }
 
   export type audit_logCreateWithoutRollback_historyInput = {
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
+    action: string
     user?: usersCreateNestedOneWithoutAudit_logInput
   }
 
@@ -22339,11 +22377,11 @@ export namespace Prisma {
     user_id?: number | null
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
+    action: string
   }
 
   export type audit_logCreateOrConnectWithoutRollback_historyInput = {
@@ -22355,15 +22393,15 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesCreateNestedManyWithoutCreatorInput
     audit_log?: audit_logCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
+    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyCreateNestedManyWithoutApproverInput
   }
 
@@ -22372,137 +22410,21 @@ export namespace Prisma {
     email: string
     password_hash: string
     name: string
-    role: string
     is_active?: boolean
     created_at?: Date | string | null
     updated_at?: Date | string | null
     last_login?: Date | string | null
+    role: string
     access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
     audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
+    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
     rollback_history_approved?: rollback_historyUncheckedCreateNestedManyWithoutApproverInput
   }
 
   export type usersCreateOrConnectWithoutRollback_history_initiatedInput = {
     where: usersWhereUniqueInput
     create: XOR<usersCreateWithoutRollback_history_initiatedInput, usersUncheckedCreateWithoutRollback_history_initiatedInput>
-  }
-
-  export type usersCreateWithoutRollback_history_approvedInput = {
-    email: string
-    password_hash: string
-    name: string
-    role: string
-    is_active?: boolean
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    last_login?: Date | string | null
-    access_codes?: access_codesCreateNestedManyWithoutCreatorInput
-    audit_log?: audit_logCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsCreateNestedManyWithoutInitiatorInput
-    pending_actions_approved?: pending_actionsCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyCreateNestedManyWithoutInitiatorInput
-  }
-
-  export type usersUncheckedCreateWithoutRollback_history_approvedInput = {
-    id?: number
-    email: string
-    password_hash: string
-    name: string
-    role: string
-    is_active?: boolean
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    last_login?: Date | string | null
-    access_codes?: access_codesUncheckedCreateNestedManyWithoutCreatorInput
-    audit_log?: audit_logUncheckedCreateNestedManyWithoutUserInput
-    pending_actions_initiated?: pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput
-    pending_actions_approved?: pending_actionsUncheckedCreateNestedManyWithoutApproverInput
-    rollback_history_initiated?: rollback_historyUncheckedCreateNestedManyWithoutInitiatorInput
-  }
-
-  export type usersCreateOrConnectWithoutRollback_history_approvedInput = {
-    where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutRollback_history_approvedInput, usersUncheckedCreateWithoutRollback_history_approvedInput>
-  }
-
-  export type audit_logUpsertWithoutRollback_historyInput = {
-    update: XOR<audit_logUpdateWithoutRollback_historyInput, audit_logUncheckedUpdateWithoutRollback_historyInput>
-    create: XOR<audit_logCreateWithoutRollback_historyInput, audit_logUncheckedCreateWithoutRollback_historyInput>
-    where?: audit_logWhereInput
-  }
-
-  export type audit_logUpdateToOneWithWhereWithoutRollback_historyInput = {
-    where?: audit_logWhereInput
-    data: XOR<audit_logUpdateWithoutRollback_historyInput, audit_logUncheckedUpdateWithoutRollback_historyInput>
-  }
-
-  export type audit_logUpdateWithoutRollback_historyInput = {
-    table_name?: StringFieldUpdateOperationsInput | string
-    record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
-    old_data?: NullableJsonNullValueInput | InputJsonValue
-    new_data?: NullableJsonNullValueInput | InputJsonValue
-    ip_address?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: usersUpdateOneWithoutAudit_logNestedInput
-  }
-
-  export type audit_logUncheckedUpdateWithoutRollback_historyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
-    table_name?: StringFieldUpdateOperationsInput | string
-    record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
-    old_data?: NullableJsonNullValueInput | InputJsonValue
-    new_data?: NullableJsonNullValueInput | InputJsonValue
-    ip_address?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type usersUpsertWithoutRollback_history_initiatedInput = {
-    update: XOR<usersUpdateWithoutRollback_history_initiatedInput, usersUncheckedUpdateWithoutRollback_history_initiatedInput>
-    create: XOR<usersCreateWithoutRollback_history_initiatedInput, usersUncheckedCreateWithoutRollback_history_initiatedInput>
-    where?: usersWhereInput
-  }
-
-  export type usersUpdateToOneWithWhereWithoutRollback_history_initiatedInput = {
-    where?: usersWhereInput
-    data: XOR<usersUpdateWithoutRollback_history_initiatedInput, usersUncheckedUpdateWithoutRollback_history_initiatedInput>
-  }
-
-  export type usersUpdateWithoutRollback_history_initiatedInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password_hash?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    is_active?: BoolFieldUpdateOperationsInput | boolean
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
-    audit_log?: audit_logUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
-    pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
-    rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
-  }
-
-  export type usersUncheckedUpdateWithoutRollback_history_initiatedInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    password_hash?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    is_active?: BoolFieldUpdateOperationsInput | boolean
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
-    audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
-    pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
-    rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
   }
 
   export type usersUpsertWithoutRollback_history_approvedInput = {
@@ -22520,15 +22442,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
     audit_log?: audit_logUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
+    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
     rollback_history_initiated?: rollback_historyUpdateManyWithoutInitiatorNestedInput
   }
 
@@ -22537,205 +22459,283 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
     access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
     audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
-    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
     rollback_history_initiated?: rollback_historyUncheckedUpdateManyWithoutInitiatorNestedInput
+  }
+
+  export type audit_logUpsertWithoutRollback_historyInput = {
+    update: XOR<audit_logUpdateWithoutRollback_historyInput, audit_logUncheckedUpdateWithoutRollback_historyInput>
+    create: XOR<audit_logCreateWithoutRollback_historyInput, audit_logUncheckedCreateWithoutRollback_historyInput>
+    where?: audit_logWhereInput
+  }
+
+  export type audit_logUpdateToOneWithWhereWithoutRollback_historyInput = {
+    where?: audit_logWhereInput
+    data: XOR<audit_logUpdateWithoutRollback_historyInput, audit_logUncheckedUpdateWithoutRollback_historyInput>
+  }
+
+  export type audit_logUpdateWithoutRollback_historyInput = {
+    table_name?: StringFieldUpdateOperationsInput | string
+    record_id?: NullableIntFieldUpdateOperationsInput | number | null
+    old_data?: NullableJsonNullValueInput | InputJsonValue
+    new_data?: NullableJsonNullValueInput | InputJsonValue
+    ip_address?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
+    user?: usersUpdateOneWithoutAudit_logNestedInput
+  }
+
+  export type audit_logUncheckedUpdateWithoutRollback_historyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    table_name?: StringFieldUpdateOperationsInput | string
+    record_id?: NullableIntFieldUpdateOperationsInput | number | null
+    old_data?: NullableJsonNullValueInput | InputJsonValue
+    new_data?: NullableJsonNullValueInput | InputJsonValue
+    ip_address?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type usersUpsertWithoutRollback_history_initiatedInput = {
+    update: XOR<usersUpdateWithoutRollback_history_initiatedInput, usersUncheckedUpdateWithoutRollback_history_initiatedInput>
+    create: XOR<usersCreateWithoutRollback_history_initiatedInput, usersUncheckedCreateWithoutRollback_history_initiatedInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutRollback_history_initiatedInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutRollback_history_initiatedInput, usersUncheckedUpdateWithoutRollback_history_initiatedInput>
+  }
+
+  export type usersUpdateWithoutRollback_history_initiatedInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password_hash?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    access_codes?: access_codesUpdateManyWithoutCreatorNestedInput
+    audit_log?: audit_logUpdateManyWithoutUserNestedInput
+    pending_actions_approved?: pending_actionsUpdateManyWithoutApproverNestedInput
+    pending_actions_initiated?: pending_actionsUpdateManyWithoutInitiatorNestedInput
+    rollback_history_approved?: rollback_historyUpdateManyWithoutApproverNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutRollback_history_initiatedInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    password_hash?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_login?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    access_codes?: access_codesUncheckedUpdateManyWithoutCreatorNestedInput
+    audit_log?: audit_logUncheckedUpdateManyWithoutUserNestedInput
+    pending_actions_approved?: pending_actionsUncheckedUpdateManyWithoutApproverNestedInput
+    pending_actions_initiated?: pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput
+    rollback_history_approved?: rollback_historyUncheckedUpdateManyWithoutApproverNestedInput
   }
 
   export type lasersCreateManyManufacturerInput = {
     id?: number
     model_name: string
-    laser_type: string
-    modulation_type: string
-    cooling_method?: string | null
-    is_single_mode: boolean
-    power_output_w: Decimal | DecimalJsLike | number | string
-    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
-    application?: string | null
     notes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    application?: string | null
+    cooling_method?: string | null
+    is_single_mode: boolean
+    laser_type: string
+    modulation_type: string
+    power_consumption_w?: Decimal | DecimalJsLike | number | string | null
+    power_output_w: Decimal | DecimalJsLike | number | string
   }
 
   export type lasersUpdateWithoutManufacturerInput = {
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
-    optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUpdateOneWithoutLaserNestedInput
+    optical_specs?: optical_specsUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateWithoutManufacturerInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
-    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
-    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     environmental_specs?: environmental_specsUncheckedUpdateOneWithoutLaserNestedInput
+    optical_specs?: optical_specsUncheckedUpdateOneWithoutLaserNestedInput
     pulse_specs?: pulse_specsUncheckedUpdateOneWithoutLaserNestedInput
+    stability_specs?: stability_specsUncheckedUpdateOneWithoutLaserNestedInput
+    wavelength_specs?: wavelength_specsUncheckedUpdateOneWithoutLaserNestedInput
   }
 
   export type lasersUncheckedUpdateManyWithoutManufacturerInput = {
     id?: IntFieldUpdateOperationsInput | number
     model_name?: StringFieldUpdateOperationsInput | string
-    laser_type?: StringFieldUpdateOperationsInput | string
-    modulation_type?: StringFieldUpdateOperationsInput | string
-    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
-    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
-    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    application?: NullableStringFieldUpdateOperationsInput | string | null
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    cooling_method?: NullableStringFieldUpdateOperationsInput | string | null
+    is_single_mode?: BoolFieldUpdateOperationsInput | boolean
+    laser_type?: StringFieldUpdateOperationsInput | string
+    modulation_type?: StringFieldUpdateOperationsInput | string
+    power_consumption_w?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    power_output_w?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type access_codesCreateManyCreatorInput = {
     id?: number
     code_hash: string
     color_code: string
-    role: string
     expires_at?: Date | string | null
     max_uses?: number | null
     current_uses?: number
     is_active?: boolean
     notes?: string | null
     created_at?: Date | string | null
+    role: string
   }
 
   export type audit_logCreateManyUserInput = {
     id?: number
     table_name: string
     record_id?: number | null
-    action: string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: string | null
     created_at?: Date | string | null
-  }
-
-  export type pending_actionsCreateManyInitiatorInput = {
-    id?: number
-    action_type: string
-    target_table: string
-    target_record_id?: number | null
-    action_data?: NullableJsonNullValueInput | InputJsonValue
-    reason?: string | null
-    status?: string
-    expires_at?: Date | string | null
-    approved_by?: number | null
-    approved_at?: Date | string | null
-    completed_at?: Date | string | null
-    created_at?: Date | string | null
+    action: string
   }
 
   export type pending_actionsCreateManyApproverInput = {
     id?: number
-    action_type: string
     initiated_by: number
     target_table: string
     target_record_id?: number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: string | null
-    status?: string
     expires_at?: Date | string | null
     approved_at?: Date | string | null
     completed_at?: Date | string | null
     created_at?: Date | string | null
+    action_type: string
+    status?: string
   }
 
-  export type rollback_historyCreateManyInitiatorInput = {
+  export type pending_actionsCreateManyInitiatorInput = {
     id?: number
-    audit_log_id: number
+    target_table: string
+    target_record_id?: number | null
+    action_data?: NullableJsonNullValueInput | InputJsonValue
+    reason?: string | null
+    expires_at?: Date | string | null
     approved_by?: number | null
-    status: string
-    error_message?: string | null
+    approved_at?: Date | string | null
+    completed_at?: Date | string | null
     created_at?: Date | string | null
+    action_type: string
+    status?: string
   }
 
   export type rollback_historyCreateManyApproverInput = {
     id?: number
     audit_log_id: number
     initiated_by: number
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
+  }
+
+  export type rollback_historyCreateManyInitiatorInput = {
+    id?: number
+    audit_log_id: number
+    approved_by?: number | null
+    error_message?: string | null
+    created_at?: Date | string | null
+    status: string
   }
 
   export type access_codesUpdateWithoutCreatorInput = {
     code_hash?: StringFieldUpdateOperationsInput | string
     color_code?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     max_uses?: NullableIntFieldUpdateOperationsInput | number | null
     current_uses?: IntFieldUpdateOperationsInput | number
     is_active?: BoolFieldUpdateOperationsInput | boolean
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type access_codesUncheckedUpdateWithoutCreatorInput = {
     id?: IntFieldUpdateOperationsInput | number
     code_hash?: StringFieldUpdateOperationsInput | string
     color_code?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     max_uses?: NullableIntFieldUpdateOperationsInput | number | null
     current_uses?: IntFieldUpdateOperationsInput | number
     is_active?: BoolFieldUpdateOperationsInput | boolean
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type access_codesUncheckedUpdateManyWithoutCreatorInput = {
     id?: IntFieldUpdateOperationsInput | number
     code_hash?: StringFieldUpdateOperationsInput | string
     color_code?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     max_uses?: NullableIntFieldUpdateOperationsInput | number | null
     current_uses?: IntFieldUpdateOperationsInput | number
     is_active?: BoolFieldUpdateOperationsInput | boolean
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type audit_logUpdateWithoutUserInput = {
     table_name?: StringFieldUpdateOperationsInput | string
     record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
     rollback_history?: rollback_historyUpdateManyWithoutAudit_logNestedInput
   }
 
@@ -22743,11 +22743,11 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     table_name?: StringFieldUpdateOperationsInput | string
     record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
     rollback_history?: rollback_historyUncheckedUpdateManyWithoutAudit_logNestedInput
   }
 
@@ -22755,131 +22755,105 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     table_name?: StringFieldUpdateOperationsInput | string
     record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action?: StringFieldUpdateOperationsInput | string
     old_data?: NullableJsonNullValueInput | InputJsonValue
     new_data?: NullableJsonNullValueInput | InputJsonValue
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type pending_actionsUpdateWithoutInitiatorInput = {
-    action_type?: StringFieldUpdateOperationsInput | string
-    target_table?: StringFieldUpdateOperationsInput | string
-    target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action_data?: NullableJsonNullValueInput | InputJsonValue
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    approver?: usersUpdateOneWithoutPending_actions_approvedNestedInput
-  }
-
-  export type pending_actionsUncheckedUpdateWithoutInitiatorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    action_type?: StringFieldUpdateOperationsInput | string
-    target_table?: StringFieldUpdateOperationsInput | string
-    target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action_data?: NullableJsonNullValueInput | InputJsonValue
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type pending_actionsUncheckedUpdateManyWithoutInitiatorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    action_type?: StringFieldUpdateOperationsInput | string
-    target_table?: StringFieldUpdateOperationsInput | string
-    target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
-    action_data?: NullableJsonNullValueInput | InputJsonValue
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action?: StringFieldUpdateOperationsInput | string
   }
 
   export type pending_actionsUpdateWithoutApproverInput = {
-    action_type?: StringFieldUpdateOperationsInput | string
     target_table?: StringFieldUpdateOperationsInput | string
     target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     initiator?: usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput
   }
 
   export type pending_actionsUncheckedUpdateWithoutApproverInput = {
     id?: IntFieldUpdateOperationsInput | number
-    action_type?: StringFieldUpdateOperationsInput | string
     initiated_by?: IntFieldUpdateOperationsInput | number
     target_table?: StringFieldUpdateOperationsInput | string
     target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type pending_actionsUncheckedUpdateManyWithoutApproverInput = {
     id?: IntFieldUpdateOperationsInput | number
-    action_type?: StringFieldUpdateOperationsInput | string
     initiated_by?: IntFieldUpdateOperationsInput | number
     target_table?: StringFieldUpdateOperationsInput | string
     target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
     action_data?: NullableJsonNullValueInput | InputJsonValue
     reason?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type rollback_historyUpdateWithoutInitiatorInput = {
+    action_type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
-    error_message?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    audit_log?: audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
-    approver?: usersUpdateOneWithoutRollback_history_approvedNestedInput
   }
 
-  export type rollback_historyUncheckedUpdateWithoutInitiatorInput = {
+  export type pending_actionsUpdateWithoutInitiatorInput = {
+    target_table?: StringFieldUpdateOperationsInput | string
+    target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
+    action_data?: NullableJsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    approver?: usersUpdateOneWithoutPending_actions_approvedNestedInput
+  }
+
+  export type pending_actionsUncheckedUpdateWithoutInitiatorInput = {
     id?: IntFieldUpdateOperationsInput | number
-    audit_log_id?: IntFieldUpdateOperationsInput | number
+    target_table?: StringFieldUpdateOperationsInput | string
+    target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
+    action_data?: NullableJsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    status?: StringFieldUpdateOperationsInput | string
-    error_message?: NullableStringFieldUpdateOperationsInput | string | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type rollback_historyUncheckedUpdateManyWithoutInitiatorInput = {
+  export type pending_actionsUncheckedUpdateManyWithoutInitiatorInput = {
     id?: IntFieldUpdateOperationsInput | number
-    audit_log_id?: IntFieldUpdateOperationsInput | number
+    target_table?: StringFieldUpdateOperationsInput | string
+    target_record_id?: NullableIntFieldUpdateOperationsInput | number | null
+    action_data?: NullableJsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    status?: StringFieldUpdateOperationsInput | string
-    error_message?: NullableStringFieldUpdateOperationsInput | string | null
+    approved_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    action_type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type rollback_historyUpdateWithoutApproverInput = {
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
     audit_log?: audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
     initiator?: usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput
   }
@@ -22888,53 +22862,79 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     audit_log_id?: IntFieldUpdateOperationsInput | number
     initiated_by?: IntFieldUpdateOperationsInput | number
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type rollback_historyUncheckedUpdateManyWithoutApproverInput = {
     id?: IntFieldUpdateOperationsInput | number
     audit_log_id?: IntFieldUpdateOperationsInput | number
     initiated_by?: IntFieldUpdateOperationsInput | number
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type rollback_historyUpdateWithoutInitiatorInput = {
+    error_message?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    approver?: usersUpdateOneWithoutRollback_history_approvedNestedInput
+    audit_log?: audit_logUpdateOneRequiredWithoutRollback_historyNestedInput
+  }
+
+  export type rollback_historyUncheckedUpdateWithoutInitiatorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    audit_log_id?: IntFieldUpdateOperationsInput | number
+    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
+    error_message?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type rollback_historyUncheckedUpdateManyWithoutInitiatorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    audit_log_id?: IntFieldUpdateOperationsInput | number
+    approved_by?: NullableIntFieldUpdateOperationsInput | number | null
+    error_message?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type rollback_historyCreateManyAudit_logInput = {
     id?: number
     initiated_by: number
     approved_by?: number | null
-    status: string
     error_message?: string | null
     created_at?: Date | string | null
+    status: string
   }
 
   export type rollback_historyUpdateWithoutAudit_logInput = {
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    initiator?: usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput
+    status?: StringFieldUpdateOperationsInput | string
     approver?: usersUpdateOneWithoutRollback_history_approvedNestedInput
+    initiator?: usersUpdateOneRequiredWithoutRollback_history_initiatedNestedInput
   }
 
   export type rollback_historyUncheckedUpdateWithoutAudit_logInput = {
     id?: IntFieldUpdateOperationsInput | number
     initiated_by?: IntFieldUpdateOperationsInput | number
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type rollback_historyUncheckedUpdateManyWithoutAudit_logInput = {
     id?: IntFieldUpdateOperationsInput | number
     initiated_by?: IntFieldUpdateOperationsInput | number
     approved_by?: NullableIntFieldUpdateOperationsInput | number | null
-    status?: StringFieldUpdateOperationsInput | string
     error_message?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
 

@@ -51,8 +51,11 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 export const ModelName = {
   manufacturers: 'manufacturers',
   lasers: 'lasers',
-  application_categories: 'application_categories',
-  laser_applications: 'laser_applications',
+  wavelength_specs: 'wavelength_specs',
+  optical_specs: 'optical_specs',
+  stability_specs: 'stability_specs',
+  environmental_specs: 'environmental_specs',
+  pulse_specs: 'pulse_specs',
   users: 'users',
   access_codes: 'access_codes',
   audit_log: 'audit_log',
@@ -81,7 +84,9 @@ export const ManufacturersScalarFieldEnum = {
   name: 'name',
   country: 'country',
   website: 'website',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  contact_email: 'contact_email',
+  updated_at: 'updated_at'
 } as const
 
 export type ManufacturersScalarFieldEnum = (typeof ManufacturersScalarFieldEnum)[keyof typeof ManufacturersScalarFieldEnum]
@@ -91,42 +96,93 @@ export const LasersScalarFieldEnum = {
   id: 'id',
   model_name: 'model_name',
   manufacturer_id: 'manufacturer_id',
-  wavelength_min_nm: 'wavelength_min_nm',
-  wavelength_max_nm: 'wavelength_max_nm',
-  wavelength_nominal_nm: 'wavelength_nominal_nm',
-  power_mw: 'power_mw',
-  pulse_type: 'pulse_type',
-  pulse_width_ns: 'pulse_width_ns',
-  rep_rate_hz: 'rep_rate_hz',
-  beam_quality_m2: 'beam_quality_m2',
-  diode_type: 'diode_type',
-  cooling: 'cooling',
   notes: 'notes',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  application: 'application',
+  cooling_method: 'cooling_method',
+  is_single_mode: 'is_single_mode',
+  laser_type: 'laser_type',
+  modulation_type: 'modulation_type',
+  power_consumption_w: 'power_consumption_w',
+  power_output_w: 'power_output_w'
 } as const
 
 export type LasersScalarFieldEnum = (typeof LasersScalarFieldEnum)[keyof typeof LasersScalarFieldEnum]
 
 
-export const Application_categoriesScalarFieldEnum = {
+export const Wavelength_specsScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  description: 'description',
-  created_at: 'created_at'
-} as const
-
-export type Application_categoriesScalarFieldEnum = (typeof Application_categoriesScalarFieldEnum)[keyof typeof Application_categoriesScalarFieldEnum]
-
-
-export const Laser_applicationsScalarFieldEnum = {
   laser_id: 'laser_id',
-  category_id: 'category_id',
-  notes: 'notes',
+  wavelength_base_nm: 'wavelength_base_nm',
+  wavelength_tolerance_nm: 'wavelength_tolerance_nm',
+  bandwidth_nm: 'bandwidth_nm',
+  fwhm_nm: 'fwhm_nm',
+  wavelength_stability_nm_per_c: 'wavelength_stability_nm_per_c',
+  wavelength_tuning_range: 'wavelength_tuning_range',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Wavelength_specsScalarFieldEnum = (typeof Wavelength_specsScalarFieldEnum)[keyof typeof Wavelength_specsScalarFieldEnum]
+
+
+export const Optical_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  beam_divergence_mrad: 'beam_divergence_mrad',
+  beam_quality_m2: 'beam_quality_m2',
+  aperture_mm: 'aperture_mm',
+  numerical_aperture: 'numerical_aperture',
+  polarization: 'polarization',
+  polarization_ratio_db: 'polarization_ratio_db',
   created_at: 'created_at'
 } as const
 
-export type Laser_applicationsScalarFieldEnum = (typeof Laser_applicationsScalarFieldEnum)[keyof typeof Laser_applicationsScalarFieldEnum]
+export type Optical_specsScalarFieldEnum = (typeof Optical_specsScalarFieldEnum)[keyof typeof Optical_specsScalarFieldEnum]
+
+
+export const Stability_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  power_stability_percent: 'power_stability_percent',
+  pointing_stability_urad: 'pointing_stability_urad',
+  temperature_stability_c: 'temperature_stability_c',
+  warmup_time_min: 'warmup_time_min',
+  created_at: 'created_at'
+} as const
+
+export type Stability_specsScalarFieldEnum = (typeof Stability_specsScalarFieldEnum)[keyof typeof Stability_specsScalarFieldEnum]
+
+
+export const Environmental_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  operating_temp_min_c: 'operating_temp_min_c',
+  operating_temp_max_c: 'operating_temp_max_c',
+  storage_temp_min_c: 'storage_temp_min_c',
+  storage_temp_max_c: 'storage_temp_max_c',
+  humidity_max_percent: 'humidity_max_percent',
+  protection_class: 'protection_class',
+  created_at: 'created_at'
+} as const
+
+export type Environmental_specsScalarFieldEnum = (typeof Environmental_specsScalarFieldEnum)[keyof typeof Environmental_specsScalarFieldEnum]
+
+
+export const Pulse_specsScalarFieldEnum = {
+  id: 'id',
+  laser_id: 'laser_id',
+  pulse_width_ns: 'pulse_width_ns',
+  pulse_energy_j: 'pulse_energy_j',
+  rep_rate_hz: 'rep_rate_hz',
+  duty_cycle_percent: 'duty_cycle_percent',
+  rise_time_ns: 'rise_time_ns',
+  fall_time_ns: 'fall_time_ns',
+  created_at: 'created_at'
+} as const
+
+export type Pulse_specsScalarFieldEnum = (typeof Pulse_specsScalarFieldEnum)[keyof typeof Pulse_specsScalarFieldEnum]
 
 
 export const UsersScalarFieldEnum = {
@@ -134,11 +190,11 @@ export const UsersScalarFieldEnum = {
   email: 'email',
   password_hash: 'password_hash',
   name: 'name',
-  role: 'role',
   is_active: 'is_active',
   created_at: 'created_at',
   updated_at: 'updated_at',
-  last_login: 'last_login'
+  last_login: 'last_login',
+  role: 'role'
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
@@ -148,14 +204,14 @@ export const Access_codesScalarFieldEnum = {
   id: 'id',
   code_hash: 'code_hash',
   color_code: 'color_code',
-  role: 'role',
   created_by: 'created_by',
   expires_at: 'expires_at',
   max_uses: 'max_uses',
   current_uses: 'current_uses',
   is_active: 'is_active',
   notes: 'notes',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  role: 'role'
 } as const
 
 export type Access_codesScalarFieldEnum = (typeof Access_codesScalarFieldEnum)[keyof typeof Access_codesScalarFieldEnum]
@@ -166,13 +222,11 @@ export const Audit_logScalarFieldEnum = {
   user_id: 'user_id',
   table_name: 'table_name',
   record_id: 'record_id',
-  action: 'action',
   old_data: 'old_data',
   new_data: 'new_data',
-  changed_fields: 'changed_fields',
   ip_address: 'ip_address',
-  user_agent: 'user_agent',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  action: 'action'
 } as const
 
 export type Audit_logScalarFieldEnum = (typeof Audit_logScalarFieldEnum)[keyof typeof Audit_logScalarFieldEnum]
@@ -180,18 +234,18 @@ export type Audit_logScalarFieldEnum = (typeof Audit_logScalarFieldEnum)[keyof t
 
 export const Pending_actionsScalarFieldEnum = {
   id: 'id',
-  action_type: 'action_type',
   initiated_by: 'initiated_by',
   target_table: 'target_table',
   target_record_id: 'target_record_id',
   action_data: 'action_data',
   reason: 'reason',
-  status: 'status',
   expires_at: 'expires_at',
   approved_by: 'approved_by',
   approved_at: 'approved_at',
   completed_at: 'completed_at',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  action_type: 'action_type',
+  status: 'status'
 } as const
 
 export type Pending_actionsScalarFieldEnum = (typeof Pending_actionsScalarFieldEnum)[keyof typeof Pending_actionsScalarFieldEnum]
@@ -200,12 +254,11 @@ export type Pending_actionsScalarFieldEnum = (typeof Pending_actionsScalarFieldE
 export const Rollback_historyScalarFieldEnum = {
   id: 'id',
   audit_log_id: 'audit_log_id',
-  pending_action_id: 'pending_action_id',
   initiated_by: 'initiated_by',
   approved_by: 'approved_by',
-  status: 'status',
   error_message: 'error_message',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  status: 'status'
 } as const
 
 export type Rollback_historyScalarFieldEnum = (typeof Rollback_historyScalarFieldEnum)[keyof typeof Rollback_historyScalarFieldEnum]
@@ -225,13 +278,6 @@ export const NullableJsonNullValueInput = {
 } as const
 
 export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
-
-
-export const JsonNullValueInput = {
-  JsonNull: JsonNull
-} as const
-
-export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {

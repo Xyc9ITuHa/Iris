@@ -40,6 +40,8 @@ export type ManufacturersMinAggregateOutputType = {
   country: string | null
   website: string | null
   created_at: Date | null
+  contact_email: string | null
+  updated_at: Date | null
 }
 
 export type ManufacturersMaxAggregateOutputType = {
@@ -48,6 +50,8 @@ export type ManufacturersMaxAggregateOutputType = {
   country: string | null
   website: string | null
   created_at: Date | null
+  contact_email: string | null
+  updated_at: Date | null
 }
 
 export type ManufacturersCountAggregateOutputType = {
@@ -56,6 +60,8 @@ export type ManufacturersCountAggregateOutputType = {
   country: number
   website: number
   created_at: number
+  contact_email: number
+  updated_at: number
   _all: number
 }
 
@@ -74,6 +80,8 @@ export type ManufacturersMinAggregateInputType = {
   country?: true
   website?: true
   created_at?: true
+  contact_email?: true
+  updated_at?: true
 }
 
 export type ManufacturersMaxAggregateInputType = {
@@ -82,6 +90,8 @@ export type ManufacturersMaxAggregateInputType = {
   country?: true
   website?: true
   created_at?: true
+  contact_email?: true
+  updated_at?: true
 }
 
 export type ManufacturersCountAggregateInputType = {
@@ -90,6 +100,8 @@ export type ManufacturersCountAggregateInputType = {
   country?: true
   website?: true
   created_at?: true
+  contact_email?: true
+  updated_at?: true
   _all?: true
 }
 
@@ -184,7 +196,9 @@ export type ManufacturersGroupByOutputType = {
   name: string
   country: string | null
   website: string | null
-  created_at: Date
+  created_at: Date | null
+  contact_email: string | null
+  updated_at: Date | null
   _count: ManufacturersCountAggregateOutputType | null
   _avg: ManufacturersAvgAggregateOutputType | null
   _sum: ManufacturersSumAggregateOutputType | null
@@ -215,7 +229,9 @@ export type manufacturersWhereInput = {
   name?: Prisma.StringFilter<"manufacturers"> | string
   country?: Prisma.StringNullableFilter<"manufacturers"> | string | null
   website?: Prisma.StringNullableFilter<"manufacturers"> | string | null
-  created_at?: Prisma.DateTimeFilter<"manufacturers"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"manufacturers"> | Date | string | null
+  contact_email?: Prisma.StringNullableFilter<"manufacturers"> | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"manufacturers"> | Date | string | null
   lasers?: Prisma.LasersListRelationFilter
 }
 
@@ -224,28 +240,34 @@ export type manufacturersOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
   website?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  contact_email?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
   lasers?: Prisma.lasersOrderByRelationAggregateInput
 }
 
 export type manufacturersWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
   AND?: Prisma.manufacturersWhereInput | Prisma.manufacturersWhereInput[]
   OR?: Prisma.manufacturersWhereInput[]
   NOT?: Prisma.manufacturersWhereInput | Prisma.manufacturersWhereInput[]
+  name?: Prisma.StringFilter<"manufacturers"> | string
   country?: Prisma.StringNullableFilter<"manufacturers"> | string | null
   website?: Prisma.StringNullableFilter<"manufacturers"> | string | null
-  created_at?: Prisma.DateTimeFilter<"manufacturers"> | Date | string
+  created_at?: Prisma.DateTimeNullableFilter<"manufacturers"> | Date | string | null
+  contact_email?: Prisma.StringNullableFilter<"manufacturers"> | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"manufacturers"> | Date | string | null
   lasers?: Prisma.LasersListRelationFilter
-}, "id" | "name">
+}, "id">
 
 export type manufacturersOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
   website?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  contact_email?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.manufacturersCountOrderByAggregateInput
   _avg?: Prisma.manufacturersAvgOrderByAggregateInput
   _max?: Prisma.manufacturersMaxOrderByAggregateInput
@@ -261,14 +283,18 @@ export type manufacturersScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"manufacturers"> | string
   country?: Prisma.StringNullableWithAggregatesFilter<"manufacturers"> | string | null
   website?: Prisma.StringNullableWithAggregatesFilter<"manufacturers"> | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"manufacturers"> | Date | string
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"manufacturers"> | Date | string | null
+  contact_email?: Prisma.StringNullableWithAggregatesFilter<"manufacturers"> | string | null
+  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"manufacturers"> | Date | string | null
 }
 
 export type manufacturersCreateInput = {
   name: string
   country?: string | null
   website?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  contact_email?: string | null
+  updated_at?: Date | string | null
   lasers?: Prisma.lasersCreateNestedManyWithoutManufacturerInput
 }
 
@@ -277,7 +303,9 @@ export type manufacturersUncheckedCreateInput = {
   name: string
   country?: string | null
   website?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  contact_email?: string | null
+  updated_at?: Date | string | null
   lasers?: Prisma.lasersUncheckedCreateNestedManyWithoutManufacturerInput
 }
 
@@ -285,7 +313,9 @@ export type manufacturersUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contact_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lasers?: Prisma.lasersUpdateManyWithoutManufacturerNestedInput
 }
 
@@ -294,7 +324,9 @@ export type manufacturersUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contact_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lasers?: Prisma.lasersUncheckedUpdateManyWithoutManufacturerNestedInput
 }
 
@@ -303,14 +335,18 @@ export type manufacturersCreateManyInput = {
   name: string
   country?: string | null
   website?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  contact_email?: string | null
+  updated_at?: Date | string | null
 }
 
 export type manufacturersUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contact_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type manufacturersUncheckedUpdateManyInput = {
@@ -318,7 +354,9 @@ export type manufacturersUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contact_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type manufacturersCountOrderByAggregateInput = {
@@ -327,6 +365,8 @@ export type manufacturersCountOrderByAggregateInput = {
   country?: Prisma.SortOrder
   website?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  contact_email?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type manufacturersAvgOrderByAggregateInput = {
@@ -339,6 +379,8 @@ export type manufacturersMaxOrderByAggregateInput = {
   country?: Prisma.SortOrder
   website?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  contact_email?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type manufacturersMinOrderByAggregateInput = {
@@ -347,6 +389,8 @@ export type manufacturersMinOrderByAggregateInput = {
   country?: Prisma.SortOrder
   website?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  contact_email?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type manufacturersSumOrderByAggregateInput = {
@@ -366,8 +410,8 @@ export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -396,7 +440,9 @@ export type manufacturersCreateWithoutLasersInput = {
   name: string
   country?: string | null
   website?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  contact_email?: string | null
+  updated_at?: Date | string | null
 }
 
 export type manufacturersUncheckedCreateWithoutLasersInput = {
@@ -404,7 +450,9 @@ export type manufacturersUncheckedCreateWithoutLasersInput = {
   name: string
   country?: string | null
   website?: string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  contact_email?: string | null
+  updated_at?: Date | string | null
 }
 
 export type manufacturersCreateOrConnectWithoutLasersInput = {
@@ -427,7 +475,9 @@ export type manufacturersUpdateWithoutLasersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contact_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type manufacturersUncheckedUpdateWithoutLasersInput = {
@@ -435,7 +485,9 @@ export type manufacturersUncheckedUpdateWithoutLasersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contact_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -475,6 +527,8 @@ export type manufacturersSelect<ExtArgs extends runtime.Types.Extensions.Interna
   country?: boolean
   website?: boolean
   created_at?: boolean
+  contact_email?: boolean
+  updated_at?: boolean
   lasers?: boolean | Prisma.manufacturers$lasersArgs<ExtArgs>
   _count?: boolean | Prisma.ManufacturersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["manufacturers"]>
@@ -485,6 +539,8 @@ export type manufacturersSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   country?: boolean
   website?: boolean
   created_at?: boolean
+  contact_email?: boolean
+  updated_at?: boolean
 }, ExtArgs["result"]["manufacturers"]>
 
 export type manufacturersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -493,6 +549,8 @@ export type manufacturersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   country?: boolean
   website?: boolean
   created_at?: boolean
+  contact_email?: boolean
+  updated_at?: boolean
 }, ExtArgs["result"]["manufacturers"]>
 
 export type manufacturersSelectScalar = {
@@ -501,9 +559,11 @@ export type manufacturersSelectScalar = {
   country?: boolean
   website?: boolean
   created_at?: boolean
+  contact_email?: boolean
+  updated_at?: boolean
 }
 
-export type manufacturersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "country" | "website" | "created_at", ExtArgs["result"]["manufacturers"]>
+export type manufacturersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "country" | "website" | "created_at" | "contact_email" | "updated_at", ExtArgs["result"]["manufacturers"]>
 export type manufacturersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   lasers?: boolean | Prisma.manufacturers$lasersArgs<ExtArgs>
   _count?: boolean | Prisma.ManufacturersCountOutputTypeDefaultArgs<ExtArgs>
@@ -521,7 +581,9 @@ export type $manufacturersPayload<ExtArgs extends runtime.Types.Extensions.Inter
     name: string
     country: string | null
     website: string | null
-    created_at: Date
+    created_at: Date | null
+    contact_email: string | null
+    updated_at: Date | null
   }, ExtArgs["result"]["manufacturers"]>
   composites: {}
 }
@@ -951,6 +1013,8 @@ export interface manufacturersFieldRefs {
   readonly country: Prisma.FieldRef<"manufacturers", 'String'>
   readonly website: Prisma.FieldRef<"manufacturers", 'String'>
   readonly created_at: Prisma.FieldRef<"manufacturers", 'DateTime'>
+  readonly contact_email: Prisma.FieldRef<"manufacturers", 'String'>
+  readonly updated_at: Prisma.FieldRef<"manufacturers", 'DateTime'>
 }
     
 

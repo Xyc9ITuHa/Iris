@@ -42,48 +42,48 @@ export type Pending_actionsSumAggregateOutputType = {
 
 export type Pending_actionsMinAggregateOutputType = {
   id: number | null
-  action_type: $Enums.ActionType | null
   initiated_by: number | null
   target_table: string | null
   target_record_id: number | null
   reason: string | null
-  status: $Enums.ActionStatus | null
   expires_at: Date | null
   approved_by: number | null
   approved_at: Date | null
   completed_at: Date | null
   created_at: Date | null
+  action_type: string | null
+  status: string | null
 }
 
 export type Pending_actionsMaxAggregateOutputType = {
   id: number | null
-  action_type: $Enums.ActionType | null
   initiated_by: number | null
   target_table: string | null
   target_record_id: number | null
   reason: string | null
-  status: $Enums.ActionStatus | null
   expires_at: Date | null
   approved_by: number | null
   approved_at: Date | null
   completed_at: Date | null
   created_at: Date | null
+  action_type: string | null
+  status: string | null
 }
 
 export type Pending_actionsCountAggregateOutputType = {
   id: number
-  action_type: number
   initiated_by: number
   target_table: number
   target_record_id: number
   action_data: number
   reason: number
-  status: number
   expires_at: number
   approved_by: number
   approved_at: number
   completed_at: number
   created_at: number
+  action_type: number
+  status: number
   _all: number
 }
 
@@ -104,48 +104,48 @@ export type Pending_actionsSumAggregateInputType = {
 
 export type Pending_actionsMinAggregateInputType = {
   id?: true
-  action_type?: true
   initiated_by?: true
   target_table?: true
   target_record_id?: true
   reason?: true
-  status?: true
   expires_at?: true
   approved_by?: true
   approved_at?: true
   completed_at?: true
   created_at?: true
+  action_type?: true
+  status?: true
 }
 
 export type Pending_actionsMaxAggregateInputType = {
   id?: true
-  action_type?: true
   initiated_by?: true
   target_table?: true
   target_record_id?: true
   reason?: true
-  status?: true
   expires_at?: true
   approved_by?: true
   approved_at?: true
   completed_at?: true
   created_at?: true
+  action_type?: true
+  status?: true
 }
 
 export type Pending_actionsCountAggregateInputType = {
   id?: true
-  action_type?: true
   initiated_by?: true
   target_table?: true
   target_record_id?: true
   action_data?: true
   reason?: true
-  status?: true
   expires_at?: true
   approved_by?: true
   approved_at?: true
   completed_at?: true
   created_at?: true
+  action_type?: true
+  status?: true
   _all?: true
 }
 
@@ -237,18 +237,18 @@ export type pending_actionsGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 
 export type Pending_actionsGroupByOutputType = {
   id: number
-  action_type: $Enums.ActionType
   initiated_by: number
   target_table: string
   target_record_id: number | null
-  action_data: runtime.JsonValue
+  action_data: runtime.JsonValue | null
   reason: string | null
-  status: $Enums.ActionStatus
-  expires_at: Date
+  expires_at: Date | null
   approved_by: number | null
   approved_at: Date | null
   completed_at: Date | null
-  created_at: Date
+  created_at: Date | null
+  action_type: string
+  status: string
   _count: Pending_actionsCountAggregateOutputType | null
   _avg: Pending_actionsAvgAggregateOutputType | null
   _sum: Pending_actionsSumAggregateOutputType | null
@@ -276,40 +276,38 @@ export type pending_actionsWhereInput = {
   OR?: Prisma.pending_actionsWhereInput[]
   NOT?: Prisma.pending_actionsWhereInput | Prisma.pending_actionsWhereInput[]
   id?: Prisma.IntFilter<"pending_actions"> | number
-  action_type?: Prisma.EnumActionTypeFilter<"pending_actions"> | $Enums.ActionType
   initiated_by?: Prisma.IntFilter<"pending_actions"> | number
   target_table?: Prisma.StringFilter<"pending_actions"> | string
   target_record_id?: Prisma.IntNullableFilter<"pending_actions"> | number | null
-  action_data?: Prisma.JsonFilter<"pending_actions">
+  action_data?: Prisma.JsonNullableFilter<"pending_actions">
   reason?: Prisma.StringNullableFilter<"pending_actions"> | string | null
-  status?: Prisma.EnumActionStatusFilter<"pending_actions"> | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFilter<"pending_actions"> | Date | string
+  expires_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
   approved_by?: Prisma.IntNullableFilter<"pending_actions"> | number | null
   approved_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
   completed_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"pending_actions"> | Date | string
-  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
+  created_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
+  action_type?: Prisma.StringFilter<"pending_actions"> | string
+  status?: Prisma.StringFilter<"pending_actions"> | string
   approver?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null
-  rollback_history?: Prisma.Rollback_historyListRelationFilter
+  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }
 
 export type pending_actionsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  action_type?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   target_table?: Prisma.SortOrder
   target_record_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  action_data?: Prisma.SortOrder
+  action_data?: Prisma.SortOrderInput | Prisma.SortOrder
   reason?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
+  expires_at?: Prisma.SortOrderInput | Prisma.SortOrder
   approved_by?: Prisma.SortOrderInput | Prisma.SortOrder
   approved_at?: Prisma.SortOrderInput | Prisma.SortOrder
   completed_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  initiator?: Prisma.usersOrderByWithRelationInput
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  action_type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   approver?: Prisma.usersOrderByWithRelationInput
-  rollback_history?: Prisma.rollback_historyOrderByRelationAggregateInput
+  initiator?: Prisma.usersOrderByWithRelationInput
 }
 
 export type pending_actionsWhereUniqueInput = Prisma.AtLeast<{
@@ -317,37 +315,36 @@ export type pending_actionsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.pending_actionsWhereInput | Prisma.pending_actionsWhereInput[]
   OR?: Prisma.pending_actionsWhereInput[]
   NOT?: Prisma.pending_actionsWhereInput | Prisma.pending_actionsWhereInput[]
-  action_type?: Prisma.EnumActionTypeFilter<"pending_actions"> | $Enums.ActionType
   initiated_by?: Prisma.IntFilter<"pending_actions"> | number
   target_table?: Prisma.StringFilter<"pending_actions"> | string
   target_record_id?: Prisma.IntNullableFilter<"pending_actions"> | number | null
-  action_data?: Prisma.JsonFilter<"pending_actions">
+  action_data?: Prisma.JsonNullableFilter<"pending_actions">
   reason?: Prisma.StringNullableFilter<"pending_actions"> | string | null
-  status?: Prisma.EnumActionStatusFilter<"pending_actions"> | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFilter<"pending_actions"> | Date | string
+  expires_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
   approved_by?: Prisma.IntNullableFilter<"pending_actions"> | number | null
   approved_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
   completed_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"pending_actions"> | Date | string
-  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
+  created_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
+  action_type?: Prisma.StringFilter<"pending_actions"> | string
+  status?: Prisma.StringFilter<"pending_actions"> | string
   approver?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null
-  rollback_history?: Prisma.Rollback_historyListRelationFilter
+  initiator?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }, "id">
 
 export type pending_actionsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  action_type?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   target_table?: Prisma.SortOrder
   target_record_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  action_data?: Prisma.SortOrder
+  action_data?: Prisma.SortOrderInput | Prisma.SortOrder
   reason?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
+  expires_at?: Prisma.SortOrderInput | Prisma.SortOrder
   approved_by?: Prisma.SortOrderInput | Prisma.SortOrder
   approved_at?: Prisma.SortOrderInput | Prisma.SortOrder
   completed_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
+  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  action_type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   _count?: Prisma.pending_actionsCountOrderByAggregateInput
   _avg?: Prisma.pending_actionsAvgOrderByAggregateInput
   _max?: Prisma.pending_actionsMaxOrderByAggregateInput
@@ -360,129 +357,125 @@ export type pending_actionsScalarWhereWithAggregatesInput = {
   OR?: Prisma.pending_actionsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.pending_actionsScalarWhereWithAggregatesInput | Prisma.pending_actionsScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"pending_actions"> | number
-  action_type?: Prisma.EnumActionTypeWithAggregatesFilter<"pending_actions"> | $Enums.ActionType
   initiated_by?: Prisma.IntWithAggregatesFilter<"pending_actions"> | number
   target_table?: Prisma.StringWithAggregatesFilter<"pending_actions"> | string
   target_record_id?: Prisma.IntNullableWithAggregatesFilter<"pending_actions"> | number | null
-  action_data?: Prisma.JsonWithAggregatesFilter<"pending_actions">
+  action_data?: Prisma.JsonNullableWithAggregatesFilter<"pending_actions">
   reason?: Prisma.StringNullableWithAggregatesFilter<"pending_actions"> | string | null
-  status?: Prisma.EnumActionStatusWithAggregatesFilter<"pending_actions"> | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeWithAggregatesFilter<"pending_actions"> | Date | string
+  expires_at?: Prisma.DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
   approved_by?: Prisma.IntNullableWithAggregatesFilter<"pending_actions"> | number | null
   approved_at?: Prisma.DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
   completed_at?: Prisma.DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"pending_actions"> | Date | string
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"pending_actions"> | Date | string | null
+  action_type?: Prisma.StringWithAggregatesFilter<"pending_actions"> | string
+  status?: Prisma.StringWithAggregatesFilter<"pending_actions"> | string
 }
 
 export type pending_actionsCreateInput = {
-  action_type: $Enums.ActionType
   target_table: string
   target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
+  expires_at?: Date | string | null
   approved_at?: Date | string | null
   completed_at?: Date | string | null
-  created_at?: Date | string
-  initiator: Prisma.usersCreateNestedOneWithoutInitiated_actionsInput
-  approver?: Prisma.usersCreateNestedOneWithoutApproved_actionsInput
-  rollback_history?: Prisma.rollback_historyCreateNestedManyWithoutPending_actionInput
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
+  approver?: Prisma.usersCreateNestedOneWithoutPending_actions_approvedInput
+  initiator: Prisma.usersCreateNestedOneWithoutPending_actions_initiatedInput
 }
 
 export type pending_actionsUncheckedCreateInput = {
   id?: number
-  action_type: $Enums.ActionType
   initiated_by: number
   target_table: string
   target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
+  expires_at?: Date | string | null
   approved_by?: number | null
   approved_at?: Date | string | null
   completed_at?: Date | string | null
-  created_at?: Date | string
-  rollback_history?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutPending_actionInput
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
 }
 
 export type pending_actionsUpdateInput = {
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
   target_table?: Prisma.StringFieldUpdateOperationsInput | string
   target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  initiator?: Prisma.usersUpdateOneRequiredWithoutInitiated_actionsNestedInput
-  approver?: Prisma.usersUpdateOneWithoutApproved_actionsNestedInput
-  rollback_history?: Prisma.rollback_historyUpdateManyWithoutPending_actionNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  approver?: Prisma.usersUpdateOneWithoutPending_actions_approvedNestedInput
+  initiator?: Prisma.usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput
 }
 
 export type pending_actionsUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   target_table?: Prisma.StringFieldUpdateOperationsInput | string
   target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  rollback_history?: Prisma.rollback_historyUncheckedUpdateManyWithoutPending_actionNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type pending_actionsCreateManyInput = {
   id?: number
-  action_type: $Enums.ActionType
   initiated_by: number
   target_table: string
   target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
+  expires_at?: Date | string | null
   approved_by?: number | null
   approved_at?: Date | string | null
   completed_at?: Date | string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
 }
 
 export type pending_actionsUpdateManyMutationInput = {
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
   target_table?: Prisma.StringFieldUpdateOperationsInput | string
   target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type pending_actionsUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   target_table?: Prisma.StringFieldUpdateOperationsInput | string
   target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type Pending_actionsListRelationFilter = {
@@ -497,18 +490,18 @@ export type pending_actionsOrderByRelationAggregateInput = {
 
 export type pending_actionsCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  action_type?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   target_table?: Prisma.SortOrder
   target_record_id?: Prisma.SortOrder
   action_data?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
   approved_at?: Prisma.SortOrder
   completed_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  action_type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type pending_actionsAvgOrderByAggregateInput = {
@@ -520,32 +513,32 @@ export type pending_actionsAvgOrderByAggregateInput = {
 
 export type pending_actionsMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  action_type?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   target_table?: Prisma.SortOrder
   target_record_id?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
   approved_at?: Prisma.SortOrder
   completed_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  action_type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type pending_actionsMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  action_type?: Prisma.SortOrder
   initiated_by?: Prisma.SortOrder
   target_table?: Prisma.SortOrder
   target_record_id?: Prisma.SortOrder
   reason?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   approved_by?: Prisma.SortOrder
   approved_at?: Prisma.SortOrder
   completed_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  action_type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type pending_actionsSumOrderByAggregateInput = {
@@ -555,18 +548,6 @@ export type pending_actionsSumOrderByAggregateInput = {
   approved_by?: Prisma.SortOrder
 }
 
-export type Pending_actionsNullableScalarRelationFilter = {
-  is?: Prisma.pending_actionsWhereInput | null
-  isNot?: Prisma.pending_actionsWhereInput | null
-}
-
-export type pending_actionsCreateNestedManyWithoutInitiatorInput = {
-  create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput> | Prisma.pending_actionsCreateWithoutInitiatorInput[] | Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput[]
-  connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput | Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput[]
-  createMany?: Prisma.pending_actionsCreateManyInitiatorInputEnvelope
-  connect?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
-}
-
 export type pending_actionsCreateNestedManyWithoutApproverInput = {
   create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutApproverInput, Prisma.pending_actionsUncheckedCreateWithoutApproverInput> | Prisma.pending_actionsCreateWithoutApproverInput[] | Prisma.pending_actionsUncheckedCreateWithoutApproverInput[]
   connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutApproverInput | Prisma.pending_actionsCreateOrConnectWithoutApproverInput[]
@@ -574,7 +555,7 @@ export type pending_actionsCreateNestedManyWithoutApproverInput = {
   connect?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
 }
 
-export type pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput = {
+export type pending_actionsCreateNestedManyWithoutInitiatorInput = {
   create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput> | Prisma.pending_actionsCreateWithoutInitiatorInput[] | Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput[]
   connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput | Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput[]
   createMany?: Prisma.pending_actionsCreateManyInitiatorInputEnvelope
@@ -588,18 +569,11 @@ export type pending_actionsUncheckedCreateNestedManyWithoutApproverInput = {
   connect?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
 }
 
-export type pending_actionsUpdateManyWithoutInitiatorNestedInput = {
+export type pending_actionsUncheckedCreateNestedManyWithoutInitiatorInput = {
   create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput> | Prisma.pending_actionsCreateWithoutInitiatorInput[] | Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput[]
   connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput | Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput[]
-  upsert?: Prisma.pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput | Prisma.pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput[]
   createMany?: Prisma.pending_actionsCreateManyInitiatorInputEnvelope
-  set?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
-  disconnect?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
-  delete?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
   connect?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
-  update?: Prisma.pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput | Prisma.pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput[]
-  updateMany?: Prisma.pending_actionsUpdateManyWithWhereWithoutInitiatorInput | Prisma.pending_actionsUpdateManyWithWhereWithoutInitiatorInput[]
-  deleteMany?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
 }
 
 export type pending_actionsUpdateManyWithoutApproverNestedInput = {
@@ -616,7 +590,7 @@ export type pending_actionsUpdateManyWithoutApproverNestedInput = {
   deleteMany?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
 }
 
-export type pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput = {
+export type pending_actionsUpdateManyWithoutInitiatorNestedInput = {
   create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput> | Prisma.pending_actionsCreateWithoutInitiatorInput[] | Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput[]
   connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput | Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput[]
   upsert?: Prisma.pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput | Prisma.pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput[]
@@ -644,108 +618,47 @@ export type pending_actionsUncheckedUpdateManyWithoutApproverNestedInput = {
   deleteMany?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
 }
 
-export type EnumActionTypeFieldUpdateOperationsInput = {
-  set?: $Enums.ActionType
-}
-
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
-export type EnumActionStatusFieldUpdateOperationsInput = {
-  set?: $Enums.ActionStatus
-}
-
-export type pending_actionsCreateNestedOneWithoutRollback_historyInput = {
-  create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutRollback_historyInput, Prisma.pending_actionsUncheckedCreateWithoutRollback_historyInput>
-  connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutRollback_historyInput
-  connect?: Prisma.pending_actionsWhereUniqueInput
-}
-
-export type pending_actionsUpdateOneWithoutRollback_historyNestedInput = {
-  create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutRollback_historyInput, Prisma.pending_actionsUncheckedCreateWithoutRollback_historyInput>
-  connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutRollback_historyInput
-  upsert?: Prisma.pending_actionsUpsertWithoutRollback_historyInput
-  disconnect?: Prisma.pending_actionsWhereInput | boolean
-  delete?: Prisma.pending_actionsWhereInput | boolean
-  connect?: Prisma.pending_actionsWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.pending_actionsUpdateToOneWithWhereWithoutRollback_historyInput, Prisma.pending_actionsUpdateWithoutRollback_historyInput>, Prisma.pending_actionsUncheckedUpdateWithoutRollback_historyInput>
-}
-
-export type pending_actionsCreateWithoutInitiatorInput = {
-  action_type: $Enums.ActionType
-  target_table: string
-  target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
-  approved_at?: Date | string | null
-  completed_at?: Date | string | null
-  created_at?: Date | string
-  approver?: Prisma.usersCreateNestedOneWithoutApproved_actionsInput
-  rollback_history?: Prisma.rollback_historyCreateNestedManyWithoutPending_actionInput
-}
-
-export type pending_actionsUncheckedCreateWithoutInitiatorInput = {
-  id?: number
-  action_type: $Enums.ActionType
-  target_table: string
-  target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
-  approved_by?: number | null
-  approved_at?: Date | string | null
-  completed_at?: Date | string | null
-  created_at?: Date | string
-  rollback_history?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutPending_actionInput
-}
-
-export type pending_actionsCreateOrConnectWithoutInitiatorInput = {
-  where: Prisma.pending_actionsWhereUniqueInput
-  create: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput>
-}
-
-export type pending_actionsCreateManyInitiatorInputEnvelope = {
-  data: Prisma.pending_actionsCreateManyInitiatorInput | Prisma.pending_actionsCreateManyInitiatorInput[]
-  skipDuplicates?: boolean
+export type pending_actionsUncheckedUpdateManyWithoutInitiatorNestedInput = {
+  create?: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput> | Prisma.pending_actionsCreateWithoutInitiatorInput[] | Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput[]
+  connectOrCreate?: Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput | Prisma.pending_actionsCreateOrConnectWithoutInitiatorInput[]
+  upsert?: Prisma.pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput | Prisma.pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput[]
+  createMany?: Prisma.pending_actionsCreateManyInitiatorInputEnvelope
+  set?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
+  disconnect?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
+  delete?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
+  connect?: Prisma.pending_actionsWhereUniqueInput | Prisma.pending_actionsWhereUniqueInput[]
+  update?: Prisma.pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput | Prisma.pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput[]
+  updateMany?: Prisma.pending_actionsUpdateManyWithWhereWithoutInitiatorInput | Prisma.pending_actionsUpdateManyWithWhereWithoutInitiatorInput[]
+  deleteMany?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
 }
 
 export type pending_actionsCreateWithoutApproverInput = {
-  action_type: $Enums.ActionType
   target_table: string
   target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
+  expires_at?: Date | string | null
   approved_at?: Date | string | null
   completed_at?: Date | string | null
-  created_at?: Date | string
-  initiator: Prisma.usersCreateNestedOneWithoutInitiated_actionsInput
-  rollback_history?: Prisma.rollback_historyCreateNestedManyWithoutPending_actionInput
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
+  initiator: Prisma.usersCreateNestedOneWithoutPending_actions_initiatedInput
 }
 
 export type pending_actionsUncheckedCreateWithoutApproverInput = {
   id?: number
-  action_type: $Enums.ActionType
   initiated_by: number
   target_table: string
   target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
+  expires_at?: Date | string | null
   approved_at?: Date | string | null
   completed_at?: Date | string | null
-  created_at?: Date | string
-  rollback_history?: Prisma.rollback_historyUncheckedCreateNestedManyWithoutPending_actionInput
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
 }
 
 export type pending_actionsCreateOrConnectWithoutApproverInput = {
@@ -758,39 +671,43 @@ export type pending_actionsCreateManyApproverInputEnvelope = {
   skipDuplicates?: boolean
 }
 
-export type pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput = {
+export type pending_actionsCreateWithoutInitiatorInput = {
+  target_table: string
+  target_record_id?: number | null
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  reason?: string | null
+  expires_at?: Date | string | null
+  approved_at?: Date | string | null
+  completed_at?: Date | string | null
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
+  approver?: Prisma.usersCreateNestedOneWithoutPending_actions_approvedInput
+}
+
+export type pending_actionsUncheckedCreateWithoutInitiatorInput = {
+  id?: number
+  target_table: string
+  target_record_id?: number | null
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  reason?: string | null
+  expires_at?: Date | string | null
+  approved_by?: number | null
+  approved_at?: Date | string | null
+  completed_at?: Date | string | null
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
+}
+
+export type pending_actionsCreateOrConnectWithoutInitiatorInput = {
   where: Prisma.pending_actionsWhereUniqueInput
-  update: Prisma.XOR<Prisma.pending_actionsUpdateWithoutInitiatorInput, Prisma.pending_actionsUncheckedUpdateWithoutInitiatorInput>
   create: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput>
 }
 
-export type pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput = {
-  where: Prisma.pending_actionsWhereUniqueInput
-  data: Prisma.XOR<Prisma.pending_actionsUpdateWithoutInitiatorInput, Prisma.pending_actionsUncheckedUpdateWithoutInitiatorInput>
-}
-
-export type pending_actionsUpdateManyWithWhereWithoutInitiatorInput = {
-  where: Prisma.pending_actionsScalarWhereInput
-  data: Prisma.XOR<Prisma.pending_actionsUpdateManyMutationInput, Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorInput>
-}
-
-export type pending_actionsScalarWhereInput = {
-  AND?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
-  OR?: Prisma.pending_actionsScalarWhereInput[]
-  NOT?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
-  id?: Prisma.IntFilter<"pending_actions"> | number
-  action_type?: Prisma.EnumActionTypeFilter<"pending_actions"> | $Enums.ActionType
-  initiated_by?: Prisma.IntFilter<"pending_actions"> | number
-  target_table?: Prisma.StringFilter<"pending_actions"> | string
-  target_record_id?: Prisma.IntNullableFilter<"pending_actions"> | number | null
-  action_data?: Prisma.JsonFilter<"pending_actions">
-  reason?: Prisma.StringNullableFilter<"pending_actions"> | string | null
-  status?: Prisma.EnumActionStatusFilter<"pending_actions"> | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFilter<"pending_actions"> | Date | string
-  approved_by?: Prisma.IntNullableFilter<"pending_actions"> | number | null
-  approved_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
-  completed_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"pending_actions"> | Date | string
+export type pending_actionsCreateManyInitiatorInputEnvelope = {
+  data: Prisma.pending_actionsCreateManyInitiatorInput | Prisma.pending_actionsCreateManyInitiatorInput[]
+  skipDuplicates?: boolean
 }
 
 export type pending_actionsUpsertWithWhereUniqueWithoutApproverInput = {
@@ -809,346 +726,265 @@ export type pending_actionsUpdateManyWithWhereWithoutApproverInput = {
   data: Prisma.XOR<Prisma.pending_actionsUpdateManyMutationInput, Prisma.pending_actionsUncheckedUpdateManyWithoutApproverInput>
 }
 
-export type pending_actionsCreateWithoutRollback_historyInput = {
-  action_type: $Enums.ActionType
-  target_table: string
-  target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
-  approved_at?: Date | string | null
-  completed_at?: Date | string | null
-  created_at?: Date | string
-  initiator: Prisma.usersCreateNestedOneWithoutInitiated_actionsInput
-  approver?: Prisma.usersCreateNestedOneWithoutApproved_actionsInput
+export type pending_actionsScalarWhereInput = {
+  AND?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
+  OR?: Prisma.pending_actionsScalarWhereInput[]
+  NOT?: Prisma.pending_actionsScalarWhereInput | Prisma.pending_actionsScalarWhereInput[]
+  id?: Prisma.IntFilter<"pending_actions"> | number
+  initiated_by?: Prisma.IntFilter<"pending_actions"> | number
+  target_table?: Prisma.StringFilter<"pending_actions"> | string
+  target_record_id?: Prisma.IntNullableFilter<"pending_actions"> | number | null
+  action_data?: Prisma.JsonNullableFilter<"pending_actions">
+  reason?: Prisma.StringNullableFilter<"pending_actions"> | string | null
+  expires_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
+  approved_by?: Prisma.IntNullableFilter<"pending_actions"> | number | null
+  approved_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
+  completed_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
+  created_at?: Prisma.DateTimeNullableFilter<"pending_actions"> | Date | string | null
+  action_type?: Prisma.StringFilter<"pending_actions"> | string
+  status?: Prisma.StringFilter<"pending_actions"> | string
 }
 
-export type pending_actionsUncheckedCreateWithoutRollback_historyInput = {
-  id?: number
-  action_type: $Enums.ActionType
-  initiated_by: number
-  target_table: string
-  target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
-  approved_by?: number | null
-  approved_at?: Date | string | null
-  completed_at?: Date | string | null
-  created_at?: Date | string
-}
-
-export type pending_actionsCreateOrConnectWithoutRollback_historyInput = {
+export type pending_actionsUpsertWithWhereUniqueWithoutInitiatorInput = {
   where: Prisma.pending_actionsWhereUniqueInput
-  create: Prisma.XOR<Prisma.pending_actionsCreateWithoutRollback_historyInput, Prisma.pending_actionsUncheckedCreateWithoutRollback_historyInput>
+  update: Prisma.XOR<Prisma.pending_actionsUpdateWithoutInitiatorInput, Prisma.pending_actionsUncheckedUpdateWithoutInitiatorInput>
+  create: Prisma.XOR<Prisma.pending_actionsCreateWithoutInitiatorInput, Prisma.pending_actionsUncheckedCreateWithoutInitiatorInput>
 }
 
-export type pending_actionsUpsertWithoutRollback_historyInput = {
-  update: Prisma.XOR<Prisma.pending_actionsUpdateWithoutRollback_historyInput, Prisma.pending_actionsUncheckedUpdateWithoutRollback_historyInput>
-  create: Prisma.XOR<Prisma.pending_actionsCreateWithoutRollback_historyInput, Prisma.pending_actionsUncheckedCreateWithoutRollback_historyInput>
-  where?: Prisma.pending_actionsWhereInput
+export type pending_actionsUpdateWithWhereUniqueWithoutInitiatorInput = {
+  where: Prisma.pending_actionsWhereUniqueInput
+  data: Prisma.XOR<Prisma.pending_actionsUpdateWithoutInitiatorInput, Prisma.pending_actionsUncheckedUpdateWithoutInitiatorInput>
 }
 
-export type pending_actionsUpdateToOneWithWhereWithoutRollback_historyInput = {
-  where?: Prisma.pending_actionsWhereInput
-  data: Prisma.XOR<Prisma.pending_actionsUpdateWithoutRollback_historyInput, Prisma.pending_actionsUncheckedUpdateWithoutRollback_historyInput>
-}
-
-export type pending_actionsUpdateWithoutRollback_historyInput = {
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
-  target_table?: Prisma.StringFieldUpdateOperationsInput | string
-  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  initiator?: Prisma.usersUpdateOneRequiredWithoutInitiated_actionsNestedInput
-  approver?: Prisma.usersUpdateOneWithoutApproved_actionsNestedInput
-}
-
-export type pending_actionsUncheckedUpdateWithoutRollback_historyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
-  initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
-  target_table?: Prisma.StringFieldUpdateOperationsInput | string
-  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type pending_actionsCreateManyInitiatorInput = {
-  id?: number
-  action_type: $Enums.ActionType
-  target_table: string
-  target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
-  approved_by?: number | null
-  approved_at?: Date | string | null
-  completed_at?: Date | string | null
-  created_at?: Date | string
+export type pending_actionsUpdateManyWithWhereWithoutInitiatorInput = {
+  where: Prisma.pending_actionsScalarWhereInput
+  data: Prisma.XOR<Prisma.pending_actionsUpdateManyMutationInput, Prisma.pending_actionsUncheckedUpdateManyWithoutInitiatorInput>
 }
 
 export type pending_actionsCreateManyApproverInput = {
   id?: number
-  action_type: $Enums.ActionType
   initiated_by: number
   target_table: string
   target_record_id?: number | null
-  action_data: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: string | null
-  status?: $Enums.ActionStatus
-  expires_at?: Date | string
+  expires_at?: Date | string | null
   approved_at?: Date | string | null
   completed_at?: Date | string | null
-  created_at?: Date | string
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
 }
 
-export type pending_actionsUpdateWithoutInitiatorInput = {
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
-  target_table?: Prisma.StringFieldUpdateOperationsInput | string
-  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  approver?: Prisma.usersUpdateOneWithoutApproved_actionsNestedInput
-  rollback_history?: Prisma.rollback_historyUpdateManyWithoutPending_actionNestedInput
-}
-
-export type pending_actionsUncheckedUpdateWithoutInitiatorInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
-  target_table?: Prisma.StringFieldUpdateOperationsInput | string
-  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  rollback_history?: Prisma.rollback_historyUncheckedUpdateManyWithoutPending_actionNestedInput
-}
-
-export type pending_actionsUncheckedUpdateManyWithoutInitiatorInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
-  target_table?: Prisma.StringFieldUpdateOperationsInput | string
-  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type pending_actionsCreateManyInitiatorInput = {
+  id?: number
+  target_table: string
+  target_record_id?: number | null
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  reason?: string | null
+  expires_at?: Date | string | null
+  approved_by?: number | null
+  approved_at?: Date | string | null
+  completed_at?: Date | string | null
+  created_at?: Date | string | null
+  action_type: string
+  status?: string
 }
 
 export type pending_actionsUpdateWithoutApproverInput = {
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
   target_table?: Prisma.StringFieldUpdateOperationsInput | string
   target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  initiator?: Prisma.usersUpdateOneRequiredWithoutInitiated_actionsNestedInput
-  rollback_history?: Prisma.rollback_historyUpdateManyWithoutPending_actionNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  initiator?: Prisma.usersUpdateOneRequiredWithoutPending_actions_initiatedNestedInput
 }
 
 export type pending_actionsUncheckedUpdateWithoutApproverInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   target_table?: Prisma.StringFieldUpdateOperationsInput | string
   target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  rollback_history?: Prisma.rollback_historyUncheckedUpdateManyWithoutPending_actionNestedInput
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type pending_actionsUncheckedUpdateManyWithoutApproverInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  action_type?: Prisma.EnumActionTypeFieldUpdateOperationsInput | $Enums.ActionType
   initiated_by?: Prisma.IntFieldUpdateOperationsInput | number
   target_table?: Prisma.StringFieldUpdateOperationsInput | string
   target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  action_data?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumActionStatusFieldUpdateOperationsInput | $Enums.ActionStatus
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-
-/**
- * Count Type Pending_actionsCountOutputType
- */
-
-export type Pending_actionsCountOutputType = {
-  rollback_history: number
+export type pending_actionsUpdateWithoutInitiatorInput = {
+  target_table?: Prisma.StringFieldUpdateOperationsInput | string
+  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  approver?: Prisma.usersUpdateOneWithoutPending_actions_approvedNestedInput
 }
 
-export type Pending_actionsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  rollback_history?: boolean | Pending_actionsCountOutputTypeCountRollback_historyArgs
+export type pending_actionsUncheckedUpdateWithoutInitiatorInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_table?: Prisma.StringFieldUpdateOperationsInput | string
+  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-/**
- * Pending_actionsCountOutputType without action
- */
-export type Pending_actionsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Pending_actionsCountOutputType
-   */
-  select?: Prisma.Pending_actionsCountOutputTypeSelect<ExtArgs> | null
+export type pending_actionsUncheckedUpdateManyWithoutInitiatorInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_table?: Prisma.StringFieldUpdateOperationsInput | string
+  target_record_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  action_data?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expires_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approved_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  approved_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  action_type?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-/**
- * Pending_actionsCountOutputType without action
- */
-export type Pending_actionsCountOutputTypeCountRollback_historyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.rollback_historyWhereInput
-}
 
 
 export type pending_actionsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  action_type?: boolean
   initiated_by?: boolean
   target_table?: boolean
   target_record_id?: boolean
   action_data?: boolean
   reason?: boolean
-  status?: boolean
   expires_at?: boolean
   approved_by?: boolean
   approved_at?: boolean
   completed_at?: boolean
   created_at?: boolean
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
+  action_type?: boolean
+  status?: boolean
   approver?: boolean | Prisma.pending_actions$approverArgs<ExtArgs>
-  rollback_history?: boolean | Prisma.pending_actions$rollback_historyArgs<ExtArgs>
-  _count?: boolean | Prisma.Pending_actionsCountOutputTypeDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pending_actions"]>
 
 export type pending_actionsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  action_type?: boolean
   initiated_by?: boolean
   target_table?: boolean
   target_record_id?: boolean
   action_data?: boolean
   reason?: boolean
-  status?: boolean
   expires_at?: boolean
   approved_by?: boolean
   approved_at?: boolean
   completed_at?: boolean
   created_at?: boolean
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
+  action_type?: boolean
+  status?: boolean
   approver?: boolean | Prisma.pending_actions$approverArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pending_actions"]>
 
 export type pending_actionsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  action_type?: boolean
   initiated_by?: boolean
   target_table?: boolean
   target_record_id?: boolean
   action_data?: boolean
   reason?: boolean
-  status?: boolean
   expires_at?: boolean
   approved_by?: boolean
   approved_at?: boolean
   completed_at?: boolean
   created_at?: boolean
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
+  action_type?: boolean
+  status?: boolean
   approver?: boolean | Prisma.pending_actions$approverArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pending_actions"]>
 
 export type pending_actionsSelectScalar = {
   id?: boolean
-  action_type?: boolean
   initiated_by?: boolean
   target_table?: boolean
   target_record_id?: boolean
   action_data?: boolean
   reason?: boolean
-  status?: boolean
   expires_at?: boolean
   approved_by?: boolean
   approved_at?: boolean
   completed_at?: boolean
   created_at?: boolean
+  action_type?: boolean
+  status?: boolean
 }
 
-export type pending_actionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "action_type" | "initiated_by" | "target_table" | "target_record_id" | "action_data" | "reason" | "status" | "expires_at" | "approved_by" | "approved_at" | "completed_at" | "created_at", ExtArgs["result"]["pending_actions"]>
+export type pending_actionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "initiated_by" | "target_table" | "target_record_id" | "action_data" | "reason" | "expires_at" | "approved_by" | "approved_at" | "completed_at" | "created_at" | "action_type" | "status", ExtArgs["result"]["pending_actions"]>
 export type pending_actionsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   approver?: boolean | Prisma.pending_actions$approverArgs<ExtArgs>
-  rollback_history?: boolean | Prisma.pending_actions$rollback_historyArgs<ExtArgs>
-  _count?: boolean | Prisma.Pending_actionsCountOutputTypeDefaultArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 export type pending_actionsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   approver?: boolean | Prisma.pending_actions$approverArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 export type pending_actionsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   approver?: boolean | Prisma.pending_actions$approverArgs<ExtArgs>
+  initiator?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 
 export type $pending_actionsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "pending_actions"
   objects: {
-    initiator: Prisma.$usersPayload<ExtArgs>
     approver: Prisma.$usersPayload<ExtArgs> | null
-    rollback_history: Prisma.$rollback_historyPayload<ExtArgs>[]
+    initiator: Prisma.$usersPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    action_type: $Enums.ActionType
     initiated_by: number
     target_table: string
     target_record_id: number | null
-    action_data: runtime.JsonValue
+    action_data: runtime.JsonValue | null
     reason: string | null
-    status: $Enums.ActionStatus
-    expires_at: Date
+    expires_at: Date | null
     approved_by: number | null
     approved_at: Date | null
     completed_at: Date | null
-    created_at: Date
+    created_at: Date | null
+    action_type: string
+    status: string
   }, ExtArgs["result"]["pending_actions"]>
   composites: {}
 }
@@ -1543,9 +1379,8 @@ readonly fields: pending_actionsFieldRefs;
  */
 export interface Prisma__pending_actionsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  initiator<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   approver<T extends Prisma.pending_actions$approverArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pending_actions$approverArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  rollback_history<T extends Prisma.pending_actions$rollback_historyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pending_actions$rollback_historyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$rollback_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  initiator<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1576,18 +1411,18 @@ export interface Prisma__pending_actionsClient<T, Null = never, ExtArgs extends 
  */
 export interface pending_actionsFieldRefs {
   readonly id: Prisma.FieldRef<"pending_actions", 'Int'>
-  readonly action_type: Prisma.FieldRef<"pending_actions", 'ActionType'>
   readonly initiated_by: Prisma.FieldRef<"pending_actions", 'Int'>
   readonly target_table: Prisma.FieldRef<"pending_actions", 'String'>
   readonly target_record_id: Prisma.FieldRef<"pending_actions", 'Int'>
   readonly action_data: Prisma.FieldRef<"pending_actions", 'Json'>
   readonly reason: Prisma.FieldRef<"pending_actions", 'String'>
-  readonly status: Prisma.FieldRef<"pending_actions", 'ActionStatus'>
   readonly expires_at: Prisma.FieldRef<"pending_actions", 'DateTime'>
   readonly approved_by: Prisma.FieldRef<"pending_actions", 'Int'>
   readonly approved_at: Prisma.FieldRef<"pending_actions", 'DateTime'>
   readonly completed_at: Prisma.FieldRef<"pending_actions", 'DateTime'>
   readonly created_at: Prisma.FieldRef<"pending_actions", 'DateTime'>
+  readonly action_type: Prisma.FieldRef<"pending_actions", 'String'>
+  readonly status: Prisma.FieldRef<"pending_actions", 'String'>
 }
     
 
@@ -2000,30 +1835,6 @@ export type pending_actions$approverArgs<ExtArgs extends runtime.Types.Extension
    */
   include?: Prisma.usersInclude<ExtArgs> | null
   where?: Prisma.usersWhereInput
-}
-
-/**
- * pending_actions.rollback_history
- */
-export type pending_actions$rollback_historyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the rollback_history
-   */
-  select?: Prisma.rollback_historySelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the rollback_history
-   */
-  omit?: Prisma.rollback_historyOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.rollback_historyInclude<ExtArgs> | null
-  where?: Prisma.rollback_historyWhereInput
-  orderBy?: Prisma.rollback_historyOrderByWithRelationInput | Prisma.rollback_historyOrderByWithRelationInput[]
-  cursor?: Prisma.rollback_historyWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.Rollback_historyScalarFieldEnum | Prisma.Rollback_historyScalarFieldEnum[]
 }
 
 /**

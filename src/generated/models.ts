@@ -10,8 +10,11 @@
  */
 export type * from './models/manufacturers'
 export type * from './models/lasers'
-export type * from './models/application_categories'
-export type * from './models/laser_applications'
+export type * from './models/wavelength_specs'
+export type * from './models/optical_specs'
+export type * from './models/stability_specs'
+export type * from './models/environmental_specs'
+export type * from './models/pulse_specs'
 export type * from './models/users'
 export type * from './models/access_codes'
 export type * from './models/audit_log'

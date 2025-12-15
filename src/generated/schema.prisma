@@ -8,55 +8,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//
-// ВИРОБНИКИ
-//
 model manufacturers {
   id            Int       @id @default(autoincrement())
   name          String
   country       String?
   website       String?
-  contact_email String?
   created_at    DateTime?
+  contact_email String?
   updated_at    DateTime?
-
-  lasers lasers[]
+  lasers        lasers[]
 
   @@map("manufacturers")
 }
 
-//
-// ОСНОВНА ТАБЛИЦЯ ЛАЗЕРІВ
-//
 model lasers {
-  id                  Int       @id @default(autoincrement())
+  id                  Int                  @id @default(autoincrement())
   model_name          String
   manufacturer_id     Int
-  laser_type          String
-  modulation_type     String
-  cooling_method      String?
-  is_single_mode      Boolean
-  power_output_w      Decimal
-  power_consumption_w Decimal?
-  application         String?
   notes               String?
   created_at          DateTime?
   updated_at          DateTime?
-
-  manufacturer manufacturers @relation(fields: [manufacturer_id], references: [id])
-
-  wavelength_specs    wavelength_specs?
-  optical_specs       optical_specs?
-  stability_specs     stability_specs?
+  application         String?
+  cooling_method      String?
+  is_single_mode      Boolean
+  laser_type          String
+  modulation_type     String
+  power_consumption_w Decimal?
+  power_output_w      Decimal
   environmental_specs environmental_specs?
+  manufacturer        manufacturers        @relation(fields: [manufacturer_id], references: [id])
+  optical_specs       optical_specs?
   pulse_specs         pulse_specs?
+  stability_specs     stability_specs?
+  wavelength_specs    wavelength_specs?
 
   @@map("lasers")
 }
 
-//
-// ДОВЖИНИ ХВИЛЬ (ONE-TO-ONE)
-//
 model wavelength_specs {
   id                            Int       @id @default(autoincrement())
   laser_id                      Int       @unique
@@ -68,15 +56,11 @@ model wavelength_specs {
   wavelength_tuning_range       String?
   created_at                    DateTime?
   updated_at                    DateTime?
-
-  laser lasers @relation(fields: [laser_id], references: [id])
+  laser                         lasers    @relation(fields: [laser_id], references: [id])
 
   @@map("wavelength_specs")
 }
 
-//
-// ОПТИЧНІ ХАРАКТЕРИСТИКИ (ONE-TO-ONE)
-//
 model optical_specs {
   id                    Int       @id @default(autoincrement())
   laser_id              Int       @unique
@@ -87,15 +71,11 @@ model optical_specs {
   polarization          String?
   polarization_ratio_db Decimal?
   created_at            DateTime?
-
-  laser lasers @relation(fields: [laser_id], references: [id])
+  laser                 lasers    @relation(fields: [laser_id], references: [id])
 
   @@map("optical_specs")
 }
 
-//
-// СТАБІЛЬНІСТЬ (ONE-TO-ONE)
-//
 model stability_specs {
   id                      Int       @id @default(autoincrement())
   laser_id                Int       @unique
@@ -104,15 +84,11 @@ model stability_specs {
   temperature_stability_c Decimal?
   warmup_time_min         Decimal?
   created_at              DateTime?
-
-  laser lasers @relation(fields: [laser_id], references: [id])
+  laser                   lasers    @relation(fields: [laser_id], references: [id])
 
   @@map("stability_specs")
 }
 
-//
-// ЕКОЛОГІЧНІ УМОВИ (ONE-TO-ONE)
-//
 model environmental_specs {
   id                   Int       @id @default(autoincrement())
   laser_id             Int       @unique
@@ -123,15 +99,11 @@ model environmental_specs {
   humidity_max_percent Decimal?
   protection_class     String?
   created_at           DateTime?
-
-  laser lasers @relation(fields: [laser_id], references: [id])
+  laser                lasers    @relation(fields: [laser_id], references: [id])
 
   @@map("environmental_specs")
 }
 
-//
-// ІМПУЛЬСНІ ХАРАКТЕРИСТИКИ (ONE-TO-ONE)
-//
 model pulse_specs {
   id                 Int       @id @default(autoincrement())
   laser_id           Int       @unique
@@ -142,44 +114,35 @@ model pulse_specs {
   rise_time_ns       Decimal?
   fall_time_ns       Decimal?
   created_at         DateTime?
-
-  laser lasers @relation(fields: [laser_id], references: [id])
+  laser              lasers    @relation(fields: [laser_id], references: [id])
 
   @@map("pulse_specs")
 }
 
-//
-// USERS
-//
 model users {
-  id            Int       @id @default(autoincrement())
-  email         String    @unique
-  password_hash String
-  name          String
-  role          String
-  is_active     Boolean   @default(true)
-  created_at    DateTime?
-  updated_at    DateTime?
-  last_login    DateTime?
-
+  id                         Int                @id @default(autoincrement())
+  email                      String             @unique
+  password_hash              String
+  name                       String
+  is_active                  Boolean            @default(true)
+  created_at                 DateTime?
+  updated_at                 DateTime?
+  last_login                 DateTime?
+  role                       String
   access_codes               access_codes[]
   audit_log                  audit_log[]
-  pending_actions_initiated  pending_actions[]  @relation("initiated_by_rel")
   pending_actions_approved   pending_actions[]  @relation("approved_by_rel")
-  rollback_history_initiated rollback_history[] @relation("rollback_initiated_rel")
+  pending_actions_initiated  pending_actions[]  @relation("initiated_by_rel")
   rollback_history_approved  rollback_history[] @relation("rollback_approved_rel")
+  rollback_history_initiated rollback_history[] @relation("rollback_initiated_rel")
 
   @@map("users")
 }
 
-//
-// ACCESS CODES
-//
 model access_codes {
   id           Int       @id @default(autoincrement())
   code_hash    String
   color_code   String
-  role         String
   created_by   Int
   expires_at   DateTime?
   max_uses     Int?
@@ -187,28 +150,23 @@ model access_codes {
   is_active    Boolean   @default(true)
   notes        String?
   created_at   DateTime?
-
-  creator users @relation(fields: [created_by], references: [id])
+  role         String
+  creator      users     @relation(fields: [created_by], references: [id])
 
   @@map("access_codes")
 }
 
-//
-// AUDIT LOG
-//
 model audit_log {
-  id         Int       @id @default(autoincrement())
-  user_id    Int?
-  table_name String
-  record_id  Int?
-  action     String
-  old_data   Json?
-  new_data   Json?
-  ip_address String?
-  created_at DateTime?
-
-  user users? @relation(fields: [user_id], references: [id])
-
+  id               Int                @id @default(autoincrement())
+  user_id          Int?
+  table_name       String
+  record_id        Int?
+  old_data         Json?
+  new_data         Json?
+  ip_address       String?
+  created_at       DateTime?
+  action           String
+  user             users?             @relation(fields: [user_id], references: [id])
   rollback_history rollback_history[]
 
   @@index([table_name, record_id])
@@ -217,45 +175,37 @@ model audit_log {
   @@map("audit_log")
 }
 
-//
-// PENDING ACTIONS
-//
 model pending_actions {
   id               Int       @id @default(autoincrement())
-  action_type      String
   initiated_by     Int
   target_table     String
   target_record_id Int?
   action_data      Json?
   reason           String?
-  status           String    @default("pending")
   expires_at       DateTime?
   approved_by      Int?
   approved_at      DateTime?
   completed_at     DateTime?
   created_at       DateTime?
-
-  initiator users  @relation("initiated_by_rel", fields: [initiated_by], references: [id])
-  approver  users? @relation("approved_by_rel", fields: [approved_by], references: [id])
+  action_type      String
+  status           String    @default("pending")
+  approver         users?    @relation("approved_by_rel", fields: [approved_by], references: [id])
+  initiator        users     @relation("initiated_by_rel", fields: [initiated_by], references: [id])
 
   @@map("pending_actions")
 }
 
-//
-// ROLLBACK HISTORY
-//
 model rollback_history {
   id            Int       @id @default(autoincrement())
   audit_log_id  Int
   initiated_by  Int
   approved_by   Int?
-  status        String
   error_message String?
   created_at    DateTime?
-
-  audit_log audit_log @relation(fields: [audit_log_id], references: [id])
-  initiator users     @relation("rollback_initiated_rel", fields: [initiated_by], references: [id])
-  approver  users?    @relation("rollback_approved_rel", fields: [approved_by], references: [id])
+  status        String
+  approver      users?    @relation("rollback_approved_rel", fields: [approved_by], references: [id])
+  audit_log     audit_log @relation(fields: [audit_log_id], references: [id])
+  initiator     users     @relation("rollback_initiated_rel", fields: [initiated_by], references: [id])
 
   @@map("rollback_history")
 }
