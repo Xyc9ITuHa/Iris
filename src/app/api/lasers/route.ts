@@ -15,10 +15,8 @@ export async function GET(request: NextRequest) {
     const pulse = searchParams.get('pulse');
     const stability = searchParams.get('stability');
     const limit = parseInt(searchParams.get('limit') || '100');
-
     const where: any = {};
     const andConditions: any[] = [];
-
     // Command-based filters
     if (manufacturer) {
         andConditions.push({

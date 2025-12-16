@@ -1,8 +1,10 @@
+import IRISIcon from "../components/svg/IRISIcon";
+import styles from "./page.module.sass";
+
 export default function LaserPage() {
     return (
-        <div>
-            <h1>Laser Page</h1>
-            <p>This is the page with no id selected</p>
+        <div className={styles.pageWrap}>
+            <IRISIcon className={styles.icon} />
         </div>
     );
 }
